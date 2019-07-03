@@ -1,0 +1,30 @@
+<!--popup starts-->
+<div class="modalOuter" (click)="closeOrgDetails()"></div>
+  <div class="form_submit_wrap">
+    <div  class="form_submit_modal">
+      <div class="headerOuter">
+        <div class="fs_header">
+            <h4>ORGANISATION DETAILS</h4>
+            <span class="org-name">{{partnerDataService.selectedOrganisation.verticalName}}
+              </span>
+            <span class="org-adrs">{{partnerDataService.selectedOrganisation.countryName}}
+              </span>
+        </div>
+        <div class="pop_close" (click)="closeOrgDetails()"></div>
+        <div class="clear"></div>
+      </div>
+      <div class="nav_wrap">
+        <ul>
+          <li (click) = "toggleDetails = 'detailShow'" [ngClass] = "{'active':toggleDetails == 'detailShow'}">Details</li>
+          <li (click) = "toggleDetails = 'licenseShow'" [ngClass] = "{'active':toggleDetails == 'licenseShow'}">License</li>
+          <li (click) = "toggleDetails = 'settingShow'" [ngClass] = "{'active':toggleDetails == 'settingShow'}">Settings</li>
+        </ul>
+      </div>
+      <div class="toggleContentOuter">
+        <app-details-content *ngIf = "toggleDetails == 'detailShow'"></app-details-content>
+        <app-license-content-updated *ngIf = "toggleDetails == 'licenseShow'"></app-license-content-updated>
+        <app-settings *ngIf = "toggleDetails == 'settingShow'"></app-settings>
+      </div>
+    </div>
+  </div>
+<!--popup ends-->

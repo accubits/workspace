@@ -1,0 +1,23 @@
+<div class="moreoptionOverlay" (click)="!showMoreOption"></div>
+<div class="fl_more_option_container">
+  <div class="fl_more_option">
+    <ul>
+      <!-- <li>
+        Edit
+      </li> -->
+      <li (click)="dataService.confirmPop.show = true">
+        Delete
+      </li>
+      <li (click)="dataService.shareOption.show = !dataService.shareOption.show">
+        Add Collaborators
+      </li>
+
+      <li (click)="dataService.sendToOption.show = !dataService.sendToOption.show">
+        Send To
+      </li>
+      <!-- <li>
+        Download
+      </li> -->
+    </ul>
+  </div>
+</div>

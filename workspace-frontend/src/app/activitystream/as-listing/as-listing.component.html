@@ -1,0 +1,12 @@
+<div class="recent_wrap">
+ <div class="recent_wrap_body">
+    <app-sec-message *ngIf="data.type === 'message'" [data]="data" [index]= "index"></app-sec-message>
+    <app-sec-task *ngIf="data.type === 'task'" [data]="data" [index]= "index"></app-sec-task>
+    <app-sec-event *ngIf="data.type === 'event'" [data]="data" [index]= "index"></app-sec-event>
+    <app-sec-form *ngIf="data.type === 'form'" [data]="data" [index]= "index"></app-sec-form>
+    <app-sec-announcement *ngIf="data.type === 'announcement'" [data]="data" [index]= "index"></app-sec-announcement>
+    <app-sec-poll *ngIf="data.type === 'poll'" [data]="data" [index]= "index"></app-sec-poll>   
+    <app-sec-appreciation *ngIf="data.type === 'appreciation'" [data]="data" [index]= "index"></app-sec-appreciation>
+  </div>
+  <div class="clear"></div>
+ </div>

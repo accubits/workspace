@@ -1,0 +1,122 @@
+<div class="main-overlay" (click)="hideDetailPop()"></div>
+<div class="leads-outer">
+  <div class="pop-head">
+    <div class="profile">
+      <div class="profile_pic"></div>
+      <div class="profile-details">
+        <p>Rita Berry</p>
+        <p class="desig">Agent</p>
+        <p class="customer">Customers</p>
+      </div>
+    </div>
+    <div class="btn-wrap">
+        <div class="overlay" *ngIf="button" (click)="hideBtn()"></div>
+      <div class="pbtncreate" (click)="showBtn()">Add <div class="drop-arrow"></div>
+            <div class="drop-nav" *ngIf="button" >
+          <ul>
+          <li class="red-font"><div class="red-icon"></div>New Note</li>
+          <li class="green-font"><div class="green-icon"></div>New Task</li>
+          <li class="blue-font"><div class="blue-icon"></div>New Event</li>
+          </ul></div></div>
+
+      <div class="req-cancel" (click)="showEditPop()">Edit profile</div>
+      <div class="pop-close" (click)="hideDetailPop()"></div>
+    </div>
+  </div>
+  <div class="pop-inner">
+      <div class="tab-nav">
+          <ul class="menu">
+            <li [ngClass]="{active: currentTab === 'actiivity'}" (click)="currentTab ='actiivity'">Activity</li>
+            <li [ngClass]="{active: currentTab === 'info'}" (click)="currentTab ='info'">Information</li>
+            <li [ngClass]="{active: currentTab === 'notes'}" (click)="currentTab ='notes'">Notes</li>
+            <li [ngClass]="{active: currentTab === 'task'}" (click)="currentTab ='task'">Task</li>
+            <li [ngClass]="{active: currentTab === 'events'}" (click)="currentTab ='events'">Events</li>
+          </ul>
+        </div>
+      <div class="tab_inner" *ngIf="currentTab === 'actiivity'">
+        <div class="activity-wrap">
+            <h4>Scheduled</h4>
+            <div class="schedule-inner">
+            <div class="meeting-wrap">
+              <div class="blue-icon"></div>
+              <div class="meeting">
+                <div class="meeting-type">
+                  <p>Initial Meeting</p>
+                </div>
+                <div class="meeting-time"><p>Event <span>.</span> 10 Jul 2018 <span>|</span>10:30 AM</p>
+                  <div class="resp-person"><div class="avatar"></div><p class="name">Stella Little</p></div>
+              </div>
+            </div>
+            </div>
+            <div class="meeting-wrap">
+                <div class="green-icon"></div>
+                <div class="meeting">
+                  <div class="meeting-type">
+                    <p>Collect lead phone no</p>
+                  </div>
+                  <div class="meeting-time"><p>Task <span>.</span> 10 Jul 2018 <span>|</span>10:30 AM<span>,</span> Responsible : </p>
+                    <div class="resp-person"><div class="avatar"></div><p class="name">Stella Little</p></div>
+                </div>
+              </div>
+              </div>
+              <div class="meeting-wrap">
+                  <div class="grey-icon"></div>
+                  <!-- <div class="meeting">
+                    </div> -->
+                    </div>
+            </div>
+            <div class="schedule-inner">
+              <div class="wrap" (click)="showHide()"  [ngClass]="{'accord_active': isValidated}">
+              <span class="line"></span>
+              <h4>Jan  2019</h4>
+              <div class="arrow-drop"></div>
+            </div>
+              <div *ngIf="accordion" >
+                <div class="meeting-wrap">
+                  <div class="green-icon"></div>
+                  <div class="meeting">
+                    <div class="meeting-type">
+                      <p>Initial Meeting</p>
+                    </div>
+                    <div class="meeting-time"><p>Event <span>.</span> 10 Jul 2018 <span>|</span>10:30 AM</p>
+                      <div class="resp-person"><div class="avatar"></div><p class="name">Stella Little</p></div>
+                  </div>
+                </div>
+                </div>
+                <div class="meeting-wrap">
+                    <div class="red-icon"></div>
+                    <div class="meeting">
+                      <div class="meeting-type">
+                        <p>Collect lead phone no</p>
+                      </div>
+                      <div class="meeting-time"><p>Task <span>.</span> 10 Jul 2018 <span>|</span>10:30 AM<span>,</span> Responsible : </p>
+                        <div class="resp-person"><div class="avatar"></div><p class="name">Stella Little</p></div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="meeting-wrap">
+                      <div class="grey-icon"></div>
+                      <!-- <div class="meeting">
+                        </div> -->
+                        </div>
+                      </div>
+                </div>
+        </div>
+
+      </div>
+      <div class="tab_inner" *ngIf="currentTab === 'info'">
+        <app-leads-info></app-leads-info>
+      </div>
+      <div class="tab_inner" *ngIf="currentTab === 'notes'">
+      <app-leads-notes></app-leads-notes>
+      </div>
+      <div class="tab_inner" *ngIf="currentTab === 'task'">
+      <app-leads-task></app-leads-task>
+    </div>
+    <div class="tab_inner" *ngIf="currentTab === 'events'">
+    <app-leads-event></app-leads-event>
+    </div>
+  </div>
+  <div class="pop-footer"></div>
+</div>
+<app-edit-profile *ngIf="crmDataService.editProfile.show" ></app-edit-profile>

@@ -1,0 +1,13 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.no_result_inOverview {
+    background-image: url(/assets/images/NoResult.png);
+    width: 368px;
+    height: 400px;
+    margin: 0 auto;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}

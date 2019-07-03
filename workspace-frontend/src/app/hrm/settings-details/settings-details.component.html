@@ -1,0 +1,26 @@
+<div class="setting-wrap">
+  <p><b>TRAINING BUDGET</b></p>
+  <div class="input-wrap" *ngIf="checkRole ==='ORG_ADMIN'">
+    <label>Training Budget: </label>
+    <input type="text" placeholder="" [(ngModel)]="hrmDataService.trainingStatus.trainingBudget.totalBalance" name="name" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+  </div>
+  <div class="input-wrap" *ngIf="checkRole !=='ORG_ADMIN'">
+    <label>Training Budget: </label>
+    <input type="text" disabled="disabled" placeholder="" [(ngModel)]="hrmDataService.trainingStatus.trainingBudget.totalBalance" name="name">
+  </div>
+  <p class="error" *ngIf="!budgetValidated && hrmDataService.trainingStatus.trainingBudget.totalBalance === ''">Required Field</p>
+  <p class="error" *ngIf="!budgetValidated && hrmDataService.trainingStatus.trainingBudget.totalBalance === '0'">Invalid balence ammount</p>
+  <div *ngIf="checkRole ==='ORG_ADMIN'" class="pbtncreate" (click)="updateBalance()">Update</div>
+  <p><b>POST COURSE EVALUATION FEEDBACK STARTS AFTER</b></p>
+  <div class="input-wrap" *ngIf="checkRole ==='ORG_ADMIN'">
+    <label>Days: </label>
+    <input type="text" placeholder="" [(ngModel)]="hrmDataService.trainingStatus.trainingFeedback.days" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+  </div>
+  <div class="input-wrap" *ngIf="checkRole !=='ORG_ADMIN'">
+    <label>Days: </label>
+    <input type="text" disabled="disabled" placeholder=""[(ngModel)]="hrmDataService.trainingStatus.trainingFeedback.days">
+  </div>
+  <p class="error" *ngIf="!daysValidated && hrmDataService.trainingStatus.trainingFeedback.days === ''">Required Field</p>
+  <p class="error" *ngIf="!daysValidated && hrmDataService.trainingStatus.trainingFeedback.days === '0'">Invalid feedback days</p>
+  <div *ngIf="checkRole ==='ORG_ADMIN'" class="pbtncreate" (click)="updateFeedback()">Update</div>
+</div>

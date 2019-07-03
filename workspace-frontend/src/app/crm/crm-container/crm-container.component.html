@@ -1,0 +1,119 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title ph3inline">CRM</h3>
+    <div class="panel-right-holder pbtnsinline">
+      <button class="pbtncreate" (click)="showNewLead()">New Lead</button>
+    </div>
+    </div>
+    </div>
+    <div class="crm-head">
+    <div class="nav_wrap">
+      <ul>
+        <a routerLink="./dashboard" routerLinkActive="active_tab">
+          <li>Dashboard</li>
+        </a>
+        <a routerLink="./leads" routerLinkActive="active_tab">
+          <li>Leads</li>
+        </a>
+        <a  routerLink="./customers"  routerLinkActive="active_tab">
+          <li>Customers</li>
+        </a>
+        <a  routerLink="./settings"  routerLinkActive="active_tab">
+          <li>Settings</li>
+        </a>
+      </ul>
+      </div>
+      <div class="info">
+        <div *ngIf="router.url === '/authorized/crm/leads'"class="info_icon"  (click)="showProcess()"></div>
+        <div class="overlay" *ngIf="process" (click)="hideProcess()"></div>
+        <div class="drop-down" *ngIf="process">
+          <div class="drop-head">
+            Legend
+            <div class="close_drop" (click)="hideProcess()"></div>
+          </div>
+            <div class="bar-container">
+                <p class="red-font">Unassigned</p>
+                <div class="bar red" data-tooltip="Unassigned"></div>
+                <div class="bar "></div>
+                <div class="bar "></div>
+                <div class="bar "></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+              <div class="bar-container">
+                  <p class="orange-font">Responsible Assigned</p>
+                  <div class="bar orange" data-tooltip="Waiting for details"></div>
+                  <div class="bar orange"></div>
+                  <div class="bar "></div>
+                  <div class="bar "></div>
+                  <div class="bar "></div>
+                  <div class="bar "></div>
+                  <div class="bar "></div>
+                </div>
+                <div class="bar-container">
+                    <p class="green-font">Waiting for details</p>
+                    <div class="bar green" data-tooltip="Waiting for details"></div>
+                    <div class="bar green"></div>
+                    <div class="bar green"></div>
+                    <div class="bar "></div>
+                    <div class="bar "></div>
+                    <div class="bar "></div>
+                    <div class="bar "></div>
+                  </div>
+                  <div class="bar-container">
+                      <p class="magenta-font">Cannot Contact</p>
+                      <div class="bar magenta" data-tooltip="Cannot Contact"></div>
+                      <div class="bar magenta"></div>
+                      <div class="bar magenta"></div>
+                      <div class="bar magenta"></div>
+                      <div class="bar "></div>
+                      <div class="bar"></div>
+                      <div class="bar"></div>
+                    </div>
+            <div class="bar-container">
+              <p class="blue-font">In Progress</p>
+              <div class="bar blue"></div>
+              <div class="bar blue"></div>
+              <div class="bar blue"></div>
+              <div class="bar blue"></div>
+              <div class="bar blue"></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="check-status"></div>
+            </div>
+
+
+            <div class="bar-container">
+              <p class="yellow-font">On Hold</p>
+              <div class="bar yellow" data-tooltip="On Hold"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+              <div class="bar "></div>
+            </div>
+            <div class="bar-container">
+              <p class="dark-blue-font">Customer</p>
+              <div class="bar dark-blue" data-tooltip="Waiting for details"></div>
+              <div class="bar dark-blue"></div>
+              <div class="bar dark-blue"></div>
+              <div class="bar dark-blue"></div>
+              <div class="bar dark-blue"></div>
+              <div class="bar dark-blue"></div>
+              <div class="bar dark-blue"></div>
+            </div>
+          </div>
+      <div class="search_wrap" [ngClass]="{'open':showSearch}">
+        <div class="search_icon" (click)="showSearch = true"></div>
+        <div class="search_close" (click)="showSearch = false" (click)="searchClose()"></div>
+        <input type="text" id="myText" placeholder="Search" >
+      </div>
+    </div>
+  </div>
+<!-- <app-dashboard></app-dashboard> -->
+
+<router-outlet></router-outlet>
+
+<app-edit-profile *ngIf="crmDataService.editProfile.show" ></app-edit-profile>

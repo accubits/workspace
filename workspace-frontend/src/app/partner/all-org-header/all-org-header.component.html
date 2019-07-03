@@ -1,0 +1,25 @@
+<div class="nav_wrap">
+  <ul>
+    <!-- <li (click)="showOrganisations()" [ngClass]="{active:activeTab == 'showOrg'}">All Organisation</li>
+    <li (click)="showUnlicenses()" [ngClass]="{active:activeTab == 'showUnlicensed'}">Unlicensed</li>
+    <li (click)="showlicenses()" [ngClass]="{active:activeTab == 'showlicensed'}">Licensed</li>  -->
+
+    <a routerLink="./show-org" routerLinkActive="activeTab">
+      <li>All Organisation</li>
+    </a>
+
+    <a routerLink="./unlicensed-table" routerLinkActive="activeTab">
+      <li>Unlicensed</li>
+    </a>
+
+    <a routerLink="./licensed-org-table" routerLinkActive="activeTab">
+      <li>Licensed</li>
+    </a>
+
+    <div class="pagination_outer deal_listing_pagination" *ngIf="partnerDataService.getOrganisationDetails.total">
+      <pagination-controls (pageChange)="pageChanged($event)"  previousLabel="" nextLabel=""></pagination-controls>
+    </div>
+  </ul>
+
+</div>
+

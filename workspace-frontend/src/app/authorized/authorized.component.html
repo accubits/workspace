@@ -1,0 +1,11 @@
+<!-- <perfect-scrollbar class="" [config]="" [scrollIndicators]="true" (psScrollY)="onScrollEvent($event)"> -->
+  <section>
+    <div class="ibgoverlay" [ngClass]="{'page-scroll-header': isScrolled}">
+      <app-header></app-header>
+      <app-sidebar></app-sidebar>
+      <div id="iCosys_body_wrapper" [ngClass]="{'iCosys-nav-min': menutoggle.toggleMenu}" class="iCosys-body-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </section>
+<!-- </perfect-scrollbar> -->

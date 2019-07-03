@@ -1,0 +1,54 @@
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'address'">
+  <app-address-response [data]="currentElement"></app-address-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'checkboxes'">
+  <app-checkboxes-response [data]="currentElement"></app-checkboxes-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'date'">
+  <app-date-response [data]="currentElement"></app-date-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'dropdown'">
+  <app-dropdown-response [data]="currentElement"></app-dropdown-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'email'">
+  <app-email-response  [data]="currentElement"></app-email-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'file'">
+  <app-file-upload-response></app-file-upload-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'multipleChoice'">
+  <app-multiple-choice-response [data]="currentElement"></app-multiple-choice-response >
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'likert'">
+  <app-likert-response [data]="currentElement"></app-likert-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'name'">
+  <app-name-response  [data]="currentElement"></app-name-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'number'">
+  <app-number-response [data]="currentElement"></app-number-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'paragraphText'">
+  <app-paragraph-response [data]="currentElement"></app-paragraph-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'phone'">
+  <app-phone-response  [data]="currentElement"></app-phone-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'price'">
+  <app-price-response [data]="currentElement"></app-price-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'rating'">
+  <app-rating-response  [data]="currentElement"></app-rating-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'singleLineText'">
+  <app-single-line-response [data]="currentElement"></app-single-line-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'time'">
+  <app-time-response  [data]="currentElement"></app-time-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'userList'">
+  <app-userlist-response></app-userlist-response>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'website'">
+  <app-website-response  [data]="currentElement"></app-website-response>
+</div>

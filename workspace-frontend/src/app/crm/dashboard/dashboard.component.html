@@ -1,0 +1,157 @@
+<div class="dashboard-outer">
+  <div class="dashboard-left">
+    <h4>Leads</h4>
+    <div class="overlay" *ngIf="time" (click)="hideTime()"></div>
+    <div class="dropdown" (click)="showTime()">
+      <input type="text" placeholder="All time">
+      <div class="arrow_drop"></div>
+      <div class="drop-wrap" *ngIf="time">
+        <ul>
+          <li>All time</li>
+          <li>1 week</li>
+          <li>1 month</li>
+        </ul>
+      </div>
+    </div>
+    <div class="progress-container">
+      <div class="progress">
+        <div class="container">
+          <div class="progress-wrap">
+            <div class="bar red"></div>
+            <div class="count">22</div>
+          </div>
+          <p>Unassigned</p>
+        </div>
+      </div>
+      <div class="progress">
+          <div class="container">
+            <div class="progress-wrap">
+              <div class="bar orange"></div>
+              <div class="count">44</div>
+            </div>
+            <p>Responsible Assigned</p>
+          </div>
+        </div>
+        <div class="progress">
+            <div class="container">
+              <div class="progress-wrap">
+                <div class="bar green"></div>
+                <div class="count">32</div>
+              </div>
+              <p>Waiting for results</p>
+            </div>
+          </div>
+          <div class="progress">
+              <div class="container">
+                <div class="progress-wrap">
+                  <div class="bar magenta"></div>
+                  <div class="count">55</div>
+                </div>
+                <p>Cannot connect</p>
+              </div>
+            </div>
+            <div class="progress">
+                <div class="container">
+                  <div class="progress-wrap">
+                    <div class="bar yellow"></div>
+                    <div class="count">10</div>
+                  </div>
+                  <p>On hold</p>
+                </div>
+              </div>
+              <div class="progress">
+                  <div class="container">
+                    <div class="progress-wrap">
+                      <div class="bar blue"></div>
+                      <div class="count">51</div>
+                    </div>
+                    <p>In progress</p>
+                  </div>
+                </div>
+                <div class="progress last">
+                    <div class="container">
+                      <div class="progress-wrap">
+                        <div class="bar dark-blue"></div>
+                        <div class="count">102</div>
+                      </div>
+                      <p>Customer</p>
+                    </div>
+                  </div>
+    </div>
+    <div class="upcoming-container">
+        <h4>Upcoming</h4>
+        <div class="overlay" *ngIf="date" (click)="hideDate()"></div>
+        <div class="dropdown" (click)="showDate()">
+          <input type="text" placeholder="This week">
+          <div class="arrow_drop date"></div>
+          <div class="drop-wrap" *ngIf="date">
+            <ul>
+              <li>This week</li>
+              <li>last week</li>
+              <li>Next month</li>
+            </ul>
+          </div>
+        </div>
+        <div class="task_event_wrap">
+          <div class="profile_pic"></div>
+          <div class="events">
+            <p class="status">Initial Meeting</p>
+            <div class="details">
+            <p class="name">Ivan kunn</p><span>.</span><p class="task">Task</p><span>.</span><p class="date_time">10 Jan 2019 <span>|</span>12:30 PM</p>
+          </div>
+        </div>
+        </div>
+        <div class="task_event_wrap">
+            <div class="profile_pic"></div>
+            <div class="events">
+              <p class="status">Complete Profile</p>
+              <div class="details">
+              <p class="name">Stella Little</p><span>.</span><p class="task">Task</p><span>.</span><p class="date_time">10 Jan 2019 </p>
+            </div>
+          </div>
+          </div>
+          <div class="task_event_wrap">
+              <div class="profile_pic"></div>
+              <div class="events">
+                <p class="status">Complete Profile</p>
+                <div class="details">
+                <p class="name">Stella Little</p><span>.</span><p class="task">Task</p><span>.</span><p class="date_time">10 Jan 2019 </p>
+              </div>
+            </div>
+            </div>
+    </div>
+  </div>
+  <div class="dashboard-right">
+<h4>Recent Leads</h4>
+<div class="profile-wrap">
+<div class="profile">
+    <div class="profile_pic"></div>
+    <div class="profile-details">
+      <p>Ivan Kunn</p>
+      <p class="desig">Student</p>
+    </div>
+</div>
+<div class="profile">
+    <div class="profile_pic"></div>
+    <div class="profile-details">
+      <p>Rita Berry</p>
+      <p class="desig">Agent</p>
+    </div>
+</div>
+<div class="profile">
+    <div class="profile_pic"></div>
+    <div class="profile-details">
+      <p>Cathy Castro</p>
+      <p class="desig">Student</p>
+    </div>
+</div>
+<div class="profile">
+    <div class="profile_pic"></div>
+    <div class="profile-details">
+      <p>Ivan Kunn</p>
+      <p class="desig">Student</p>
+    </div>
+</div>
+</div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+.ab_week_wrap {
+    overflow-x: auto;
+    max-width: 99%;
+}
+
+.cal_right_head {
+    height: 43px;
+    line-height: 43px;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.name_row {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #dde0e3;
+    width: 100%;
+}
+
+.digi_week {
+    width: 127px;
+    color: #536273;
+    font-family: Roboto-Medium;
+    font-size: 13px;
+    border-right: 1px solid #d3d6d9;
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+.name_digi_week_space {
+    width: 127px;
+    border-right: 1px solid #d3d6d9;
+    position: relative;
+    display: block;
+}
+
+.cal_right_body {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.name_block {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.sick_leave {
+    position: absolute;
+    height: 30px;
+    width: 127px;
+    top: 20%;
+    background-color: #f0a7c4;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.casual_leave {
+    position: absolute;
+    height: 30px;
+    width: 127px;
+    top: 20%;
+    background-color: #76ddd6;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.business_trip {
+    position: absolute;
+    height: 30px;
+    width: 127px;
+    top: 20%;
+    background-color: #ffe04c;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.event_active.sick_leave,
+.event_active.casual_leave,
+.event_active.business_trip {
+    display: block;
+}

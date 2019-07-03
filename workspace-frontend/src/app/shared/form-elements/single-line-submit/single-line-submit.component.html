@@ -1,0 +1,5 @@
+<div class="fp_input">
+  <label>{{singleLineElement.singleLineText.label}}<span *ngIf = "data.singleLineText.isRequired" class="error">*</span></label>
+  <input type="text" class="" name="text" placeholder="Text" [(ngModel)]="singleLineSubmit.singleLineText.answer" (ngModelChange)="validateElement()">
+  <p class="error" *ngIf="!singleLineElement.isValidated && dataService.formValidation.validating">Required Field</p>
+</div>

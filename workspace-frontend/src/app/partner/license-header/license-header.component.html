@@ -1,0 +1,41 @@
+<div class="nav_wrap">
+  <ul>
+
+      <a routerLink="./current-license" routerLinkActive="licenseMenu" >
+        <li>Current Licenses</li>
+      </a>
+      
+      <a routerLink="./request" routerLinkActive="licenseMenu">
+        <li>Requests</li>
+      </a>
+      
+      <a routerLink="./approved" routerLinkActive="licenseMenu">
+        <li>Approved</li>
+      </a>
+
+      <a routerLink="./expired" routerLinkActive="licenseMenu">
+        <li>Expired</li>
+      </a>
+
+      <a routerLink="./admin-request" routerLinkActive="licenseMenu">
+        <li>Admin Requests</li>
+      </a>
+    <!-- <li (click) = "licenseMenu = 1" [ngClass] = "{'active':licenseMenu == 1 }">Current Licenses</li>
+    <li (click) = "licenseMenu = 2" [ngClass] = "{'active':licenseMenu == 2}">Requests</li>
+    <li (click) = "licenseMenu = 3" [ngClass] = "{'active':licenseMenu == 3}">Expired</li>
+    <li (click) = "licenseMenu = 4" [ngClass] = "{'active': licenseMenu == 4}">Admin Requests</li> -->
+  </ul>
+  <div class="pagination_wrap deal_listing_pagination" *ngIf="partnerDataService.getLicenseDetails.total"> 
+    <div class="pagination_outer" >
+      <pagination-controls (pageChange)="pageChanged($event)"  previousLabel="" nextLabel="" ></pagination-controls>
+    </div>
+  </div>
+</div>
+<!-- <app-license-table-head *ngIf = "licenseTab == ''"></app-license-table-head> 
+<app-approved-table *ngIf = "licenseTab == '/partner/license/approved'"></app-approved-table>
+<app-license-table-head *ngIf = "licenseTab == '/partner/license/current-license'"></app-license-table-head> 
+<app-request-table-head *ngIf = "licenseTab == '/partner/license/request'"></app-request-table-head>
+<app-expired-table-head *ngIf = "licenseTab == '/partner/license/expired'"></app-expired-table-head>
+<app-admin-table-head *ngIf = "licenseTab == '/partner/license/admin-request'"></app-admin-table-head> -->
+
+

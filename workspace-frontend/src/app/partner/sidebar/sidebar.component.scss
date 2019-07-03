@@ -1,0 +1,308 @@
+@charset "utf-8";
+/* SCSS Document */
+
+/* -----------------------------------------
+        Header Component |START|
+------------------------------------------*/
+
+// --------------------------------- Sidebar
+.iCosys-sidebar {
+    z-index: 9999;
+    position: fixed;
+    background: transparent;
+    width: 285px;
+    height: 100vh;
+    top: 105px;
+    left: 0;
+    /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 2px 4px 8px rgba(0, 0, 0, 0.28); */
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.iCosys-sidebar li {
+    text-decoration: none;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    color: #bac0c7;
+    border-left: 6px solid transparent;
+}
+
+// .iCosys-sidebar li img {
+//     position: relative;
+//     height: 17px;
+//     width: 17px;
+//     text-align: center;
+//     margin-left: 30px;
+//     vertical-align: middle;
+// }
+.iCosys-sidebar li a i:before {
+    z-index: 10;
+    position: relative;
+}
+
+.iCosys-sidebar li span {
+    display: inline-block;
+    padding-left: 28px;
+    font-size: 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    font-family: roboto-regular;
+}
+
+.iCosys-nav-min li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-left: 6px solid #ff2342;
+    transition: .3s ease-in-out;
+}
+
+.iCosys-sidebar li:hover {
+    background: transparent;
+    border-left: 6px solid #ff2342;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.activeTab {
+    border-left: 6px solid #ff2342 !important;
+    color: white !important;
+
+}
+
+.activeTab span {
+    /* font-weight: 600 !important; */
+    font-family: roboto-bold !important;
+}
+
+.sidebar-current {
+    background: transparent;
+    border-left: 6px solid #ff2342 !important;
+    transition: .3s ease-in-out;
+}
+
+.iCosys-sidebar li:hover .icon-bg {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.icon-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 85px;
+    -webkit-transform: translate3d(-82px, 0, 0);
+    transform: translate3d(-82px, 0, 0);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.iCosys-bg-primary {
+    background: #ff2342;
+}
+
+.iCosys-bg-success {
+    background: #23AE89;
+}
+
+.iCosys-bg-danger {
+    background: #E94B3B;
+}
+
+.iCosys-bg-warning {
+    background: #F98E33;
+}
+
+.iCosys-bg-violet {
+    background: #6A55C2;
+}
+
+.iCosys-sidebar.iCosys-nav-min {
+    width: 85px !important;
+}
+
+.iCosys-sidebar.iCosys-nav-min .iCosys-sidebar-item {
+    -webkit-transform: translate3d(-200px, 0, 0) !important;
+    transform: translate3d(-200px, 0, 0) !important;
+}
+
+.iCosys-sidebar.iCosys-nav-min .icon-bg {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.iCosys-sidebar.iCosys-nav-min .icon-bg:hover {
+    opacity: .4;
+}
+
+.act_form_img {
+    width: 22px;
+    height: 36px;
+    background-image: url(/assets/images/SideNav.png);
+    margin-left: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 147px;
+}
+
+.iCosys-sidebar ul li:nth-child(1) .act_form_img {
+    background-position: -25px 726px;
+}
+
+.act_stream .act_form_img {
+    background-position: 58px 726px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(2) .act_form_img {
+    background-position: -25px 672px;
+}
+
+.act_form .act_form_img {
+    background-position: 56px 672px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(3) .act_form_img {
+    background-position: -25px 617px;
+}
+
+.act_task .act_form_img {
+    background-position: -91px 617px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(4) .act_form_img {
+    background-position: -25px 559px;
+}
+
+.act_chats .act_form_img {
+    background-position: -89px 559px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(5) .act_form_img {
+    background-position: -25px 503px;
+}
+
+.act_crm .act_form_img {
+    background-position: -91px 503px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(6) .act_form_img {
+    background-position: -25px 445px;
+}
+
+.act_work .act_form_img {
+    background-position: -91px 445px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(7) .act_form_img {
+    background-position: -25px 390px;
+}
+
+.act_calender .act_form_img {
+    background-position: -91px 390px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(8) .act_form_img {
+    background-position: -25px 333px;
+}
+
+.act_hrm .act_form_img {
+    background-position: -91px 333px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(9) .act_form_img {
+    background-position: -25px 277px;
+}
+
+.act_company .act_form_img {
+    background-position: -91px 277px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(10) .act_form_img {
+    background-position: -25px 225px;
+}
+
+.act_drive .act_form_img {
+    background-position: -91px 225px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(11) .act_form_img {
+    background-position: -25px 170px;
+}
+
+.act_time .act_form_img {
+    background-position: -91px 170px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(12) .act_form_img {
+    background-position: -25px 114px;
+}
+
+.act_logs .act_form_img {
+    background-position: -91px 114px !important;
+}
+
+.iCosys-sidebar ul li:nth-child(13) .act_form_img {
+    background-position: -25px 58px;
+}
+
+.act_settings .act_form_img {
+    background-position: -91px 58px !important;
+}
+
+// --------------------------------- Sidebar
+@media (max-width: 1920px) {}
+
+@media (max-width: 1680px) {}
+
+@media (max-width: 1600px) {}
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1366px) {
+    .iCosys-sidebar {
+        width: 234px;
+        height: 100vh;
+        top: 80px;
+        transition: all .2s ease-in-out;
+    }
+    .iCosys-sidebar li img {
+        margin-left: 25px;
+        transition: all .2s ease-in-out;
+    }
+    .iCosys-sidebar li span {
+        padding-left: 25px;
+        font-size: 14px;
+        transition: all .2s ease-in-out;
+    }
+    .iCosys-sidebar li {
+        height: 42px;
+        line-height: 42px;
+        border-left: 6px solid transparent;
+    }
+    .iCosys-sidebar li:hover {
+        background: transparent;
+        border-left: 6px solid #ff2342;
+        transition: .2s ease-in-out;
+    }
+    .sidebar-current {
+        background: transparent;
+        border-left: 6px solid #ff2342 !important;
+        transition: .2s ease-in-out;
+    }
+    .act_form_img {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 1280px) {}
+
+@media (max-width: 1024px) {}
+
+/* -----------------------------------------
+         Header Component |END|
+------------------------------------------*/

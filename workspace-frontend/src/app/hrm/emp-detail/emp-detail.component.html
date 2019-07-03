@@ -1,0 +1,39 @@
+<div class="overlaypop" (click)="hideEmpDetail()"></div>
+<div class="emp-detail-pop">
+  <div class="emp-detail-pop-head">
+    <div class="profile-details">
+      <div *ngIf="hrmDataService.getEmployeeDetails.imageUrl === null" class="profile-image"></div>
+      <div *ngIf="hrmDataService.getEmployeeDetails.imageUrl !== null" class="profile-image"
+        [ngStyle]="{'background-image': 'url(' + hrmDataService.getEmployeeDetails.imageUrl + ')'}"></div>
+      <span class="profile-name">{{hrmDataService.getEmployeeDetails.name}}</span>
+    </div>
+  </div>
+  <div class="right-btn">
+    <div class="pbtncreate" (click)="showEditEmp()">Edit Profile</div>
+    <div class="pop_close" (click)="hideEmpDetail()"></div>
+  </div>
+  <div class="nav_wrap">
+    <ul>
+      <li [ngClass]="{active:inform ==='information'}" (click)="inform = 'information'">Information</li>
+      <li [ngClass]="{active:inform ==='leave'}" (click)="inform = 'leave'">Leaves</li>
+      <!-- <li [ngClass]="{active:inform ==='performance'}" (click)="inform = 'performance'">Performance</li> -->
+    </ul>
+  </div>
+  <div class="year_month_picker" *ngIf="inform ==='leave'">
+    <div class="year_pick">
+      <div class="overlay" *ngIf="yearPick" (click)="hideYearPick()"></div>
+      <div class="year" (click)="showYearPick()">{{hrmDataService.leaveList.levelist.year}}<span class="drop_arrow"></span>
+        <div class="drop-down" *ngIf="yearPick">
+          <ul *ngFor="let y of year; let i = index" (click)="selectYear(y)">
+            <li>{{y}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-inner"></div>
+  <app-inform-detail *ngIf="inform === 'information'"> </app-inform-detail>
+  <app-leave-inform *ngIf="inform ==='leave'"></app-leave-inform>
+  <app-performance-detail *ngIf="inform ==='performance'"></app-performance-detail>
+</div>
+<app-edit-emp-profile *ngIf="hrmDataService.editEmpDetail.show"></app-edit-emp-profile>

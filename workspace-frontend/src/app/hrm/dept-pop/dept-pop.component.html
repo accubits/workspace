@@ -1,0 +1,172 @@
+<div class="overlaypop" (click)="closePop()"></div>
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="form_submit_wrap">
+    <div  class="form_submit_modal">
+      <div class="fs_header">
+          <h4>{{hrmDataService.departmentDetails.departmentDetails.departmentName}}</h4>   
+          <p>Department</p>
+      </div>
+      <div class="detailsOuter">
+        <div class="details" *ngIf="hrmDataService.departmentDetails.departmentDetails.departmentHeadName != null">
+          <div class="deptName Head">HEAD OF DEPARTMENT <span>(HOD)</span>:</div>
+          <div class="image">
+            <div class="icon" [ngStyle]="{'background-image': 'url(' + hrmDataService.departmentDetails.departmentDetails.departmentHeadImageUrl + ')'}"></div>
+            <div class="profileName">{{hrmDataService.departmentDetails.departmentDetails.departmentHeadName}}</div>
+          </div>
+        </div>
+        <div class="details"*ngIf="hrmDataService.departmentDetails.departmentDetails.parentDepartmentName != null">
+          <div class="deptName">PARENT DEPARTMENT:</div>
+          <div class="name">{{hrmDataService.departmentDetails.departmentDetails.parentDepartmentName}}</div>
+        </div>
+        <div class="details">
+          <div class="deptName">CHILD DEPARTMENT:</div>
+          <div class="nameOuter">
+            <div class="nameDetails"  *ngFor="let childDepartment of hrmDataService.departmentDetails.departmentDetails.childDepartments">
+              <span class="name">{{childDepartment.childDepartmentName}}</span>
+              <div class="starOuter">
+                <div class="star"></div>
+              </div>
+              <span class="starname" *ngIf="childDepartment.childDepartmentHeadEmail != null && childDepartment.childDepartmentHeadName == null">{{childDepartment.childDepartmentHeadEmail}}</span>
+              <span class="starname" *ngIf="childDepartment.childDepartmentHeadName != null && childDepartment.childDepartmentHeadEmail == null">{{childDepartment.childDepartmentHeadName}}</span> ,
+            </div>
+          </div>
+        </div>
+        <div class="deptName">MEMBERS ({{hrmDataService.departmentDetails.total}}) :</div>
+      </div>
+      <!--table starts-->
+      <div class="drive_wrap">
+        <div class="table_outer_block">
+          <div class="table_head table_row Caption">
+            <div class="table-blocks Organisation ">
+              <span class="tb_head_drop_arrow">NAME</span>
+            </div>
+            <div class="table-blocks Arrow">
+            CONTACT
+            </div>
+            <div class="table-blocks">
+              <!-- <span class="downArrow">ROLE</span> -->
+            </div>
+            <div class="table-blocks Arrow Dept">
+              DEPARTMENTS
+            </div>
+            <div class="table-blocks Dot">
+            </div>
+          </div>
+        </div>
+      </div>
+        <!--table content strts-->
+      <div class="mainOuter">
+        <div class="main_out" *ngFor="let departmentMembers of hrmDataService.departmentDetails.members; let idx=index">
+          <div class="drive_wrapDetail">
+              <div class="table_outer_block">
+                <div class="table_head table_row">
+                  <div class="table-blocks Organisation">
+                      <div class="img" *ngIf="departmentMembers.imageUrl == null"></div>
+                      <div class="img" *ngIf="departmentMembers.imageUrl != null" [ngStyle]="{'background-image': 'url(' + departmentMembers.imageUrl + ')'}"></div>
+                      <div class="name">{{departmentMembers.name}}</div>
+                  </div>
+                  <div class="table-blocks mailBlock">
+                    <!-- <div class="num">
+                      <div class="numIcon"></div>
+                      <div>123456789</div>
+                    </div> -->
+                    <div class="mail">
+                      <div class="mailIcon"></div>
+                      <div>{{departmentMembers.email}}</div>
+                    </div>
+                  </div>
+                  
+                  <div class="table-blocksOuter SelectedBlock">
+                    <div class="table-blocks Inline" *ngFor="let departmentMembersIn of departmentMembers.memberDepartments| slice:0:2;let i = index">
+                      <div class="selected"><span class="dept">{{departmentMembersIn.departmentName}}</span>
+                        <div  class="Arts" *ngIf="departmentMembersIn.isHead == true">HOD</div>
+                      </div>
+                    </div>  
+                    
+                    <div class="moreButton" (click)="hrmDataService.userCount[idx] = !hrmDataService.userCount[idx]" *ngIf="departmentMembers.memberDepartments.length > 2">
+                      <div class="count">+ {{departmentMembers.memberDepartments.length - 2}}</div>
+                    </div>
+                    <div class="filter_cancel_overlay" *ngIf="hrmDataService.userCount[idx]" (click)="hrmDataService.userCount[idx] = false"></div>
+                      <div class="morePop" *ngIf="hrmDataService.userCount[idx]">
+                        <ul class="selectOuter">
+                          <li class="selected"  *ngFor="let departmentMembersIn of departmentMembers.memberDepartments">
+                            <span class="dept">{{departmentMembersIn.departmentName}}</span>
+                            <span  class="Arts" *ngIf="departmentMembersIn.isHead == true">HOD</span>
+                          </li>
+                        </ul>
+                      </div>    
+                  </div>
+                  <div class="table-blocksDot" (click)="remove($event,idx)"></div>
+                  <div class="filter_cancel_overlay" *ngIf="removeDept" (click)="closeOption()"></div>
+                  <div *ngIf="removeDept">
+                    <div class="remove">Remove</div>
+                  </div>
+                </div>
+              </div>
+          <!--table ends-->
+          </div>
+        </div>
+      </div>
+    <div class="new_form_wrap_footer">
+      <ul>
+        <li>
+          <button class="new_form_footer_next">Edit</button>
+        </li>
+        <li>
+          <button class="new_form_footer_cancel" (click)="add()">Add Member</button>
+        </li>
+      </ul>
+    </div>
+  <!--member popup starts-->
+  <div class="filter_cancel_overlay" *ngIf="addMember" (click)="closeAdd()"></div>
+  <div class="memberPopOuter" *ngIf="addMember">
+    <div class="popHead">
+      <div class="popHeadName">ADD MEMBER</div>
+      <div class="closeIcon" (click)="closeAdd()">
+      </div>
+    </div>
+    <div class="deptMemberOuter" [ngClass]="{'active': showMembers}">
+      <div class="popContent">
+        <div class="popHeadName">DEPARTMENT MEMBERS</div>
+        <div class="close" (click)="deptScroll()" *ngIf="!showMembers">
+          <p>Show More<img src="/assets/images/next.png" class="toggle"/></p>
+        </div>
+        <div class="close Less" (click)="hideScroll()" *ngIf="showMembers">
+            <p>Show Less<img src="/assets/images/next.png" class="toggle"/></p>
+          </div>
+      </div>
+      <div class="popDetails">
+        <div class="profileOuter" *ngFor="let departmentMembers of hrmDataService.departmentDetails.members; let idx=index">
+          <div class="profile">
+            <div class="profileIcon" *ngIf="departmentMembers.imageUrl != null" [ngStyle]="{'background-image': 'url(' + departmentMembers.imageUrl + ')'}"></div>
+            <div class="profileIcon" *ngIf="departmentMembers.imageUrl == null"></div>
+            <div class="memberName">{{departmentMembers.name}}</div>
+          </div>
+          <div class="deleteIcon" (click)="deleteEmployeeToDepartment(departmentMembers.employeeSlug)"></div>
+        </div>
+      </div>
+    </div>
+    <div class="selectMembers">
+        <div class="popHeadName">SELECT MEMBERS TO ADD</div>
+        <div class="search_wrap open">
+          <input id="myText" placeholder="Search" type="text" [(ngModel)]="hrmDataService.employeeList.searchEmpTxt" ng-model-options="{ debounce: 1500 }" (input)="onSearchChange()"/>
+          <!-- <input type="text" id="myText" placeholder="Search" [(ngModel)]="hrmDataService.employeeList.searchEmpTxt" (input)="onSearchChange()"> -->
+        </div>
+        <div class="profileDetails">
+          <div class="profile" *ngFor="let emp of hrmDataService.employeeList.list; let i=index" (click)="addEmployeeToDepartment(emp.employeeSlug)">
+              <div class="profileIcon" *ngIf="emp.employeeImage !== null" [ngStyle]="{'background-image': 'url(' +emp.employeeImage + ')'}"></div>
+              <div class="profileIcon" *ngIf="emp.employeeImage === null"></div>
+              <div class="memberName">{{emp.employeeName}}</div>
+          </div>
+          <!-- <div class="profile">
+              <div class="profileIcon"></div>
+              <div class="memberName">Stella Little</div>
+          </div> -->
+        </div>
+    </div>
+    <div class="new_form_wrap_footer">
+            <button class="new_form_footer_next" (click)="closeAdd()">Done</button>
+    </div>
+  </div>
+  <!--member popup ends-->
+</div>

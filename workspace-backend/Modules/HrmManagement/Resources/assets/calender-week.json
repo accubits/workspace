@@ -1,0 +1,2428 @@
+{
+  "data": {
+    "calender": [{
+      "dateStr": "09-Dec-2018",
+      "date": "1544313600",
+      "dayName": "Sun",
+      "timing": [{
+        "timeSlot": "0",
+        "taskAndEvents": {
+          "task": [{
+            "slug": "1370487395ba9ce17058b6",
+            "title": "Task 1",
+            "startDateStr": "2018-12-09 12:50:00",
+            "endDateStr": "2018-12-10 02:00:00",
+            "startDate": "1544359800",
+            "endDate": "1544878200",
+            "startDay": 9,
+            "endDay": 10
+          },
+            {
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 2",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            }
+          ],
+          "event": [{
+            "slug": "11273317975bae04aa8adc7",
+            "title": "Event 1",
+            "startDateStr": "2018-12-09 12:50:00",
+            "endDateStr": "2018-12-10 02:00:00",
+            "startDate": "1544359800",
+            "endDate": "1544878200",
+            "startDay": 9,
+            "endDay": 10
+          },
+            {
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 2",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            }
+          ]
+
+        }
+
+      },
+        {
+          "timeSlot": "1",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "2",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "5",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "6",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "7",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "8",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "9",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "10",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "11",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "12",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "13",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "14",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "15",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "16",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "17",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "18",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "19",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "20",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "21",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "22",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "23",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        },
+        {
+          "timeSlot": "24",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+        }
+      ]
+    },
+      {
+        "dateStr": "10-Dec-2018",
+        "date": "1544400000",
+        "dayName": "Mon",
+        "timing": [{
+          "timeSlot": "0",
+          "taskAndEvents": {
+            "task": [{
+              "slug": "1370487395ba9ce17058b6",
+              "title": "Task 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ],
+            "event": [{
+              "slug": "11273317975bae04aa8adc7",
+              "title": "Event 1",
+              "startDateStr": "2018-12-09 12:50:00",
+              "endDateStr": "2018-12-10 02:00:00",
+              "startDate": "1544359800",
+              "endDate": "1544878200",
+              "startDay": 9,
+              "endDay": 10
+            },
+              {
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 2",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              }
+            ]
+
+          }
+
+        },
+          {
+            "timeSlot": "1",
+            "taskAndEvents": {
+              "task": [{
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 1",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              },
+                {
+                  "slug": "1370487395ba9ce17058b6",
+                  "title": "Task 2",
+                  "startDateStr": "2018-12-09 12:50:00",
+                  "endDateStr": "2018-12-10 02:00:00",
+                  "startDate": "1544359800",
+                  "endDate": "1544878200",
+                  "startDay": 9,
+                  "endDay": 10
+                }
+              ],
+              "event": [{
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 1",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              },
+                {
+                  "slug": "11273317975bae04aa8adc7",
+                  "title": "Event 2",
+                  "startDateStr": "2018-12-09 12:50:00",
+                  "endDateStr": "2018-12-10 02:00:00",
+                  "startDate": "1544359800",
+                  "endDate": "1544878200",
+                  "startDay": 9,
+                  "endDay": 10
+                }
+              ]
+
+            }
+          },
+          {
+            "timeSlot": "2",
+            "taskAndEvents": {
+              "task": [{
+                "slug": "1370487395ba9ce17058b6",
+                "title": "Task 1",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              },
+                {
+                  "slug": "1370487395ba9ce17058b6",
+                  "title": "Task 2",
+                  "startDateStr": "2018-12-09 12:50:00",
+                  "endDateStr": "2018-12-10 02:00:00",
+                  "startDate": "1544359800",
+                  "endDate": "1544878200",
+                  "startDay": 9,
+                  "endDay": 10
+                }
+              ],
+              "event": [{
+                "slug": "11273317975bae04aa8adc7",
+                "title": "Event 1",
+                "startDateStr": "2018-12-09 12:50:00",
+                "endDateStr": "2018-12-10 02:00:00",
+                "startDate": "1544359800",
+                "endDate": "1544878200",
+                "startDay": 9,
+                "endDay": 10
+              },
+                {
+                  "slug": "11273317975bae04aa8adc7",
+                  "title": "Event 2",
+                  "startDateStr": "2018-12-09 12:50:00",
+                  "endDateStr": "2018-12-10 02:00:00",
+                  "startDate": "1544359800",
+                  "endDate": "1544878200",
+                  "startDay": 9,
+                  "endDay": 10
+                }
+              ]
+
+            }
+          },
+          {
+            "timeSlot": "3",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "4",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "5",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "6",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "7",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "8",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "9",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "10",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "11",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "12",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "13",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "14",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "15",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "16",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "17",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "18",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "19",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "20",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "21",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "22",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "23",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "24",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          }
+        ]
+      },
+      {
+        "dateStr": "11-Dec-2018",
+        "date": "1544486400",
+        "dayName": "Tue",
+        "timing": [{
+          "timeSlot": "0",
+          "taskAndEvents": {
+            "task": [],
+            "event": []
+          }
+
+        },
+          {
+            "timeSlot": "1",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "2",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "3",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "4",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "5",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "6",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "7",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "8",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "9",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "10",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "11",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "12",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "13",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "14",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "15",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "16",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "17",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "18",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "19",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "20",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "21",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "22",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "23",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "24",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          }
+        ]
+      },
+      {
+        "dateStr": "12-Dec-2018",
+        "date": "1544572800",
+        "dayName": "Wed",
+        "timing": [{
+          "timeSlot": "0",
+          "taskAndEvents": {
+            "task": [],
+            "event": []
+          }
+
+        },
+          {
+            "timeSlot": "1",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "2",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "3",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "4",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "5",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "6",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "7",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "8",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "9",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "10",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "11",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "12",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "13",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "14",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "15",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "16",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "17",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "18",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "19",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "20",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "21",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "22",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "23",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "24",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          }
+        ]
+      },
+      {
+        "dateStr": "13-Dec-2018",
+        "date": "1544659200",
+        "dayName": "Thu",
+        "timing": [{
+          "timeSlot": "0",
+          "taskAndEvents": {
+            "task": [],
+            "event": []
+          }
+
+        },
+          {
+            "timeSlot": "1",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "2",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "3",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "4",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "5",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "6",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "7",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "8",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "9",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "10",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "11",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "12",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "13",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "14",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "15",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "16",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "17",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "18",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "19",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "20",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "21",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "22",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "23",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "24",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          }
+        ]
+      },
+      {
+        "dateStr": "14-Dec-2018",
+        "date": "1544745600",
+        "dayName": "Fri",
+        "timing": [{
+          "timeSlot": "0",
+          "taskAndEvents": {
+            "task": [],
+            "event": []
+          }
+
+        },
+          {
+            "timeSlot": "1",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "2",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "3",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "4",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "5",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "6",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "7",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "8",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "9",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "10",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "11",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "12",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "13",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "14",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "15",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "16",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "17",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "18",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "19",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "20",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "21",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "22",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "23",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "24",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          }
+        ]
+      },
+      {
+        "dateStr": "15-Dec-2018",
+        "date": "1544832000",
+        "dayName": "Sat",
+        "timing": [{
+          "timeSlot": "0",
+          "taskAndEvents": {
+            "task": [],
+            "event": []
+          }
+
+        },
+          {
+            "timeSlot": "1",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "2",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "3",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "4",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "5",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "6",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "7",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "8",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "9",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "10",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "11",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "12",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "13",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "14",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "15",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "16",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "17",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "18",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "19",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "20",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "21",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "22",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "23",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          },
+          {
+            "timeSlot": "24",
+            "taskAndEvents": {
+              "task": [],
+              "event": []
+            }
+          }
+        ]
+      }
+
+    ]
+  },
+  "code": 200,
+  "status": "OK"
+}

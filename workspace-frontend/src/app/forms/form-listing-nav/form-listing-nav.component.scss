@@ -1,0 +1,208 @@
+.nav_wrap {
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    border-bottom: 1px solid #e9ebf5;
+}
+
+.nav_wrap ul {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    // -webkit-box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    // box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+}
+
+// .nav_wrap ul li {
+//     text-decoration: none;
+//     display: inline-block;
+//     vertical-align: middle;
+//     margin: 0px 40px 0px 20px;
+//     padding: 25px 0px 25px 0px;
+//     border-bottom: 3px solid transparent;
+//     cursor: pointer;
+//     position: relative;
+//     color: #75818f;
+//     font-size: 15px;
+//     margin-right: 50px;
+// }
+
+// .nav_wrap ul li:hover {
+//     border-bottom: 3px solid #ff2e4c;
+// }
+
+// .active_tab li {
+//     border-bottom: 3px solid #ff2e4c !important;
+//     font-family: roboto-bold;
+//     color: #424e5c !important;
+// }
+
+.more_opt {
+    display: inline-block;
+}
+
+.nav_wrap ul li label {
+    position: absolute;
+    right: -70px;
+    background-color: #dde0e3;
+    color: #4b5663;
+    height: 20px;
+    line-height: 20px;
+    padding: 0px 5px 0px 5px;
+    font-size: 12px;
+    top: 26px;
+    font-family: Roboto-Regular !important;
+}
+
+.search_wrap {
+    position: relative; //margin-top: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+    float: right;
+    margin: 10px 20px 0px 0px;
+    vertical-align: middle;
+    -webkit-transition: width 0.2s linear 0s;
+    -moz-transition: width 0.2s linear 0s;
+    -ms-transition: width 0.2s linear 0s;
+    -o-transition: width 0.2s linear 0s;
+    transition: width 0.2s linear 0s;
+}
+
+.search_wrap .search_icon {
+    position: absolute;
+    top: 17px;
+    right: 8px;
+    width: 17px;
+    height: 16px;
+    background-image: url(/assets/images/searchdark.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.search_wrap input {
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    font-size: 14px;
+    line-height: 11px;
+    width: 0px;
+    padding: 5px 0px;
+    border: 0px solid;
+    border-radius: 0px !important;
+    height: 40px;
+    transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    background-color: transparent;
+}
+
+.search_wrap .search_close {
+    position: absolute;
+    top: 17px;
+    right: 8px;
+    width: 17px;
+    height: 16px;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+    background-image: url(/assets/images/searchClose.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.search_wrap.open {
+    width: 185px;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.search_wrap.open input {
+    padding: 5px 15px;
+    width: 100%;
+    transition: all ease 0.4s; //border-bottom: 1px solid #cbcbcb;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.search_wrap.open .search_close {
+    display: block;
+}
+ul,
+ol {
+    list-style-type: none;
+}
+/*pagination*/
+.pagination_wrap{
+    float: right;
+    color: rgb(123, 123, 123);
+    font-family: roboto-medium;
+    font-size: 14px;
+    display: flex;
+    margin-right: 20px;
+}
+
+.pagination_elements{
+    display: inline-block;
+    vertical-align: top;
+    z-index: 10;
+    position: relative;
+    margin: 0px 2px;
+    cursor: pointer;
+}
+.pagination_outer{
+    display: inline-block;
+    vertical-align: top;
+    //margin-left: 30%;
+    margin-top: 23px;
+}
+.pagination_elements
+{
+    margin-top: 24px;
+}
+
+.nav_wrap .deal_listing_pagination .ngx-pagination .current {
+    padding: 2px 10px !important;
+    background: #e1eef8;
+    color: #178ccb;
+    cursor: default;
+    border-radius: 4px;
+    /* margin-bottom: 12px; */
+    line-height: 22px !important;
+}
+.nav_wrap .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default;
+    margin-top: 3px !important;
+}
+li.pagination-previous.disabled {
+    margin-top: 3px !important;
+}
+li.pagination-next.disabled {
+    margin-top: 3px !important;
+}
+.pagination-previous::before
+{
+    margin-top: 14px !important;
+}
+
+@media (max-width: 1366px){
+    .nav_wrap ul li {
+        text-decoration: none;
+        color: #75818f;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 35px;
+        padding: 25px 0;
+        cursor: pointer;
+        font-size: 14px;
+        position: relative;
+    }
+}

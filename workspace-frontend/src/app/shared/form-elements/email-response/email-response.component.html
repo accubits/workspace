@@ -1,0 +1,11 @@
+<div class="email_wrap">
+  <div class="fr_question">
+    <label>{{emailElement.email.label}}</label>
+  </div>
+  <div *ngIf="emailElement.email.answer !== ''" class="fr_answer">
+    <p>{{emailElement.email.answer}}</p>
+  </div>
+  <div *ngIf="emailElement.email.answer === ''" class="fr_answer">
+    <p>not answered</p>
+  </div>
+</div>

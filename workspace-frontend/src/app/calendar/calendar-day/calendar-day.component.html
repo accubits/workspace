@@ -1,0 +1,76 @@
+
+<div class="work_panel_right">
+
+    <section class="calendarOuter">
+      <app-calendar-nvbar></app-calendar-nvbar>
+      <div class="datesOuter">
+        
+        
+        <div class="dateHeads">
+        <!-- <perfect-scrollbar> -->
+         <div class="time_wid"></div>
+          <div class="day_out_top" *ngFor="let calendarDetails of calendarDataService.calenderReport.calendar;let idx=index">
+            <perfect-scrollbar>
+              <div class="event_bar" *ngFor="let calendarEv of calendarDetails.overview.event;let ix=index" >
+                <img src="/assets/images/calendar-white.png"/><span>{{calendarEv.title}}</span>
+              </div>
+              <div class="event_list" *ngFor="let calendarTs of calendarDetails.overview.task;let ix=index">
+                <div class="dot"></div>
+                <span>{{calendarTs.title}}</span>
+              </div>
+            </perfect-scrollbar>
+          </div>
+          <div class="clear"></div>
+          <!-- </perfect-scrollbar> -->
+        </div>
+
+        <section class="montt_main_outer">
+          <perfect-scrollbar>
+            <div class="day_det_wrap">
+              <section>
+              <div class="time_wid tm_ht">
+                <section>1 AM</section>
+                <section>2 AM</section>
+                <section>3 AM</section>
+                <section>4 AM</section>
+                <section>5 AM</section>
+                <section>6 AM</section>
+                <section>7 AM</section>
+                <section>8 AM</section>
+                <section>9 AM</section>
+                <section>10 AM</section>
+                <section>11 AM</section>
+                <section>12 PM</section>
+                <section>1 PM</section>
+                <section>2 PM</section>
+                <section>3 PM</section>
+                <section>4 PM</section>
+                <section>5 PM</section>
+                <section>6 PM</section>
+                <section>7 PM</section>
+                <section>8 PM</section>
+                <section>9 PM</section>
+                <section>10 PM</section>
+                <section>11 PM</section>
+                <section>12 PM</section>
+              </div>
+              <div class="day_event_plot" *ngFor="let calendarDetails of calendarDataService.calenderReport.calendar;let idx=index">
+                <section *ngFor="let calendarTiming of calendarDetails.timing;let idx=index">
+                  <div class="evt_section" [ngClass]="{'actFlex': (calendarEvent.endDateHour - calendarEvent.startDateHour) < 5}" [ngStyle]="{'height': 30 * ((calendarEvent.endDateHour  +  1) - calendarEvent.startDateHour) + 'px' , 'left': 5 * (calendarEvent.startDateHour) + 'px' , 'width': 98 - (3 * (calendarEvent.startDateHour)) + '%' }"  *ngFor="let calendarEvent of calendarTiming.taskAndEvents.event;let idx=index">
+                    <div class="evt_plt_img">
+                      <img [src]="assetUrl+'assets/images/calendar-white.png'"/>
+                    </div>
+                    <span class="evt_time_plot">{{calendarEvent.title}}</span>
+                    
+                  </div>
+                </section>
+              </div>
+              <div class="clear"></div>
+              </section>
+            </div>
+          </perfect-scrollbar>
+        </section>
+      </div>
+
+    </section>
+</div>

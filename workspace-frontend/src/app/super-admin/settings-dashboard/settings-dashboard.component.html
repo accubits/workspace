@@ -1,0 +1,67 @@
+<div class="nav_wrap">
+  <ul>
+      <li [ngClass]="{'active': viewContent === 'dashboard'}" (click)="viewContent = 'dashboard'">Dashboard Settings</li>
+      <li [ngClass]="{'active': viewContent === 'profile'}" (click)="viewContent = 'profile'">Profile</li>
+      <li [ngClass]="{'active': viewContent === 'factor'}" (click)="viewContent = 'factor'">2 Factor Authentication
+        <label>Disabled</label>
+      </li>
+  </ul>
+</div>
+<div class="tab-inner" *ngIf="viewContent === 'dashboard'" >
+<div class="settings-outer">
+    <div class="left-section">
+    <div class="bg-selector">
+     <h4>DASHBOARD BACKGROUND</h4>
+     <div class="bg-img"></div>
+     <div class="profile_fileupload">
+      <button class="btn">Change picture</button>
+      <input type="file" class="atc_btn chg-pic" name="myfile" />
+    </div>
+       <div class="reset">Reset to default</div>
+     <div class="clear"></div>
+   </div>
+   <div class="bg-selector">
+    <h4>LOGIN BACKGROUND</h4>
+    <div class="bg-img"></div>
+    <div class="profile_fileupload">
+     <button class="btn">Change picture</button>
+     <input type="file" class="atc_btn chg-pic" name="myfile" />
+   </div>
+      <div class="reset">Reset to default</div>
+    <div class="clear"></div>
+  </div>
+  </div>
+  <div class="right-section">
+   <div class="textarea-outer">
+     <h4>DASHBOARD MESSAGE</h4>
+     <textarea placeholder="Enter Message" rows=5 ></textarea>
+   </div>
+   <div class="timezone-outer">
+      <h4>TIME ZONE</h4>
+    <div class="overlay" *ngIf="timeZone" (click)="hideTime()"></div>
+      <input type="text" placeholder="" (click)="showTime()" >
+      <div class="arrow_drop" (click)="showTime()"></div>
+      <div class="dropdown-outer" *ngIf="timeZone" >
+      <ul>
+        <li> UTC +04:30</li>
+        <li> UTC+10:30</li>
+        <li>UTC+09:30</li>
+        <li>UTC−05</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  </div>
+  <div class="dashboard-footer">
+    <button class="pbtncreate">Save Changes</button>
+    <button class="req-cancel">Discard Changes</button>
+</div>
+</div>
+<div class="tab-inner" *ngIf="viewContent === 'profile'" >
+  <app-profile></app-profile>
+</div>
+<div class="tab-inner" *ngIf="viewContent === 'factor'" >
+  <app-two-factor></app-two-factor>
+</div>
+

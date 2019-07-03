@@ -1,0 +1,63 @@
+
+ <div class="work_panel_right">
+    <section class="calendarOuter">
+      <app-calendar-nvbar></app-calendar-nvbar>
+      <div class="weekHeadsOuter">
+        <div class="weekHeads">Sun</div>
+        <div class="weekHeads">Mon</div>
+        <div class="weekHeads">Tue</div>
+        <div class="weekHeads">Wed</div>
+        <div class="weekHeads">Thu</div>
+        <div class="weekHeads">Fri</div>
+        <div class="weekHeads">Sat</div>
+        <div class="clear"></div>
+      </div>
+      <div class="datesOuter">
+        <div class="dateHeads">
+          <!-- <div class="lightColor darkColor" *ngFor="let calendarDetails of calendarDataService.calenderReport.calendarDetails">
+             01<br>Jun 
+            {{calendarDetails.date | date:'MM/dd'}}
+          </div> -->
+          <div class="lightColor darkColor" [ngClass]="{'active' : calendarDataService.calenderReport.calendarDetails.calender.length === 42 }" *ngFor="let calendarDetails of calendarDataService.calenderReport.calendarDetails.calender;let idx=index">
+              <p>{{calendarDetails.date | date:'dd'}}</p>
+            <div class="popcontent Details">
+               
+                <div class="seminar" *ngFor="let calendarEvent of calendarDetails.event;let idx=index"[hidden]="idx>0" (click)="showEvent(calendarEvent)"><img [src]="assetUrl+'assets/images/calendar-white.png'"/>{{calendarEvent.title}}</div>
+
+
+                <div class="event1 Details" *ngFor="let calendarTask of calendarDetails.task;let idx=index" [hidden]="idx>0">
+                  <span class="dot"></span><span>{{calendarTask.title}}</span>
+                </div>
+
+                <span class="eventContent"  *ngIf = "calendarDetails.totalCount > '2'" (click)="showOverlayPop(idx)">view all ({{calendarDetails.totalCount}})</span>
+                
+                <div class="commonOverlay" *ngIf = "calendarDataService.calendarReportModel.showEventDetails[idx]" (click)="calendarDataService.calendarReportModel.showEventDetails[idx]=false"></div> 
+
+                <div *ngIf = "calendarDataService.calendarReportModel.showEventDetails[idx]" class="eventDetails">
+                    <div class="dateOuter">
+                      <div>
+                        {{calendarDetails.date | date:'dd'}} <span>{{calendarDetails.dayName}}</span>
+                      </div>
+                      <div class="closeIcon" (click) ="calendarDataService.calendarReportModel.showEventDetails[idx]=false"></div>
+                    </div>
+                    <ul>
+                      <li class="event1 Details" *ngFor="let calendarTask of calendarDetails.event"><span class="dot"></span><span (click)="showEvent(calendarEvent)">{{calendarTask.title}}</span></li>
+                      <!-- <li class="event2 Details"><span class="dot"></span><span>Create workfileworkfile</span></li>
+                      <li class="event3 Details"><span class="dot popView"></span><span>Event 6</span></li> -->
+                      <li class="redEvent" *ngFor="let calendarEvent of calendarDetails.task">{{calendarEvent.title}}</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </section>
+     <!--event view popup starts-->
+   <div class="eventView" *ngIf="calendarDataService.eventModel.showPopup === true">
+    <app-event-view></app-event-view>
+  </div>
+  <!--event view popup ends-->
+  </div>
+
+  

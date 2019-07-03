@@ -1,0 +1,115 @@
+<div class="f_l_wrap">
+  <div class="table_outer_block">
+    <div class="table_head table_row" *ngIf="dataService.getAllForms.formListsDeatils.forms.length !== 0">
+      <div class="table-blocks">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="dataService.formsSelectionManagement.selectAll" (ngModelChange)="formsUtilityService.checkAllForms($event)">
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="table-blocks" [ngClass]="{'rot-span':dataService.getAllForms.sortBy == 'formTitle' && dataService.getAllForms.sortOrder == 'asc' }" (click)="sortForms('formTitle')">
+        <span class="tb_head_drop_arrow nameCol">NAME</span>
+      </div>
+      <div class="table-blocks inact_drop_arr" [ngClass]="{'rot-span':dataService.getAllForms.sortBy == 'updatedAt' && dataService.getAllForms.sortOrder == 'asc' }" (click)="sortForms('updatedAt')">
+        <span>LAST EDITED</span>
+      </div>
+      <div class="table-blocks" [ngClass]="{'rot-span':dataService.getAllForms.sortBy == 'createdAt' && dataService.getAllForms.sortOrder == 'asc' }" (click)="sortForms('createdAt')">
+        <span>CREATED ON</span>
+      </div>
+      <div class="table-blocks inact_drop_arr">
+        <span>COLLABORATORS </span>
+      </div>
+    </div>
+    <section class="no_result" *ngIf="dataService.getAllForms.formListsDeatils.forms.length == 0">
+
+    </section>
+    <div class="table_body_wrap table_row" *ngIf="dataService.getAllForms.formListsDeatils.forms.length > 0">
+      <perfect-scrollbar>
+        <section *ngFor="let forms of dataService.getAllForms.formListsDeatils.forms| paginate: { itemsPerPage: dataService.getAllForms.perPage, currentPage:dataService.getAllForms.page,totalItems: dataService.getAllForms.formListsDeatils.total };let idx=index" (click)="viewForm(idx)">
+          <div class="table-blocks">
+            <div class="checkbox">
+              <label>
+                <div class="check_outer" (click)="selectForm($event)">
+                  <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="forms.selected" (ngModelChange)="formsUtilityService.manageFormSelection($event,idx)">
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="table-blocks drive_name">
+            {{forms.formTitle}}
+          </div>
+          <div class="table-blocks">
+            {{forms.lastUpdated * 1000| date: 'dd MMM yyyy | hh:mm a'}}
+          </div>
+          <div class="table-blocks">
+            {{forms.createdAt * 1000 | date: 'dd MMM yyyy | hh:mm a'}}
+          </div>
+       
+          <div class="table-blocks">
+            <div class="table_row_pic" *ngIf="forms.sharedUsers.length >0" [ngStyle]="{'background-image': 'url(' + forms.sharedUsers[0].imageUrl + ')'}">
+
+            </div>
+            <div class="table_row_pic_name" *ngIf="forms.sharedUsers.length >0">
+              {{ forms.sharedUsers[0].userName}}
+            </div>
+            <div class="user_more_block" *ngIf="forms.sharedUsers.length > 1" (click)="showSharedUsers(idx,$event)">
+              + {{ forms.sharedUsers.length - 1}}
+            </div>
+            <!-- <div class="user_more_block" (click)="dataService.shareOption.show = !dataService.shareOption.show">
+              + 30
+            </div> -->
+
+            <div class="row_option_ico" (click)="showMoreOption(idx,$event)">
+              <img [src]="assetUrl+'assets/images/more.png'" />
+              <app-more-option *ngIf="forms['showMore']"></app-more-option>
+            </div>
+
+            <div class="clear"></div>
+          </div>
+
+          <!-- User Count Pop Up -->
+          <!-- <div class="user_count_pop">
+            <div class="user_count_pop_header">
+              <h6>Shared With</h6>
+              <a class="copy_option_close">&times;</a>
+            </div>
+            <div class="user_count_pop_body">
+              <div class="user_count_list">
+                <div class="user_count_list_dp"></div>
+      
+                <span>
+                  <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                    <input type="text" class="" name="text" placeholder="Can View">
+                    <div class="dropdown_arw"></div>
+                    <div class="drop_drop_pop commonn_popup">
+                      <section>ngOnInit() {
+     // Getting all forms
+     this.dataService.getAllForms.tab = 'draft';
+     this.formsSandbox.getAllForms();
+  }
+                        Can View
+                      </section>
+                      <section> [dn
+                        Can Update
+                      </section>
+                    </div>
+                  </div>
+                </span>
+              </div>
+      
+            </div>
+          </div> -->
+          <!-- User Count Pop Up -->
+
+        </section>
+      </perfect-scrollbar>
+    </div>
+  </div>
+  <app-footer-option *ngIf="dataService.formsSelectionManagement.selectedFormSlugs.length > 0"></app-footer-option>
+
+</div>

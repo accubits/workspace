@@ -1,0 +1,275 @@
+<div class="my-training-wrap">
+  <!-- request accordion -->
+  <div class="accordion-head" (click)="showTrainTable()" [ngClass]="{'accord_active': isValidated}">
+    <p>REQUESTS ({{hrmDataService.showStatus.requestCount.length}})</p>
+    <div *ngIf="hrmDataService.myTrainingTable.list.length !== 0" class="arrow_drop"></div>
+  </div>
+  <div class="train-table" *ngIf="trainTable && hrmDataService.myTrainingTable.list.length !== 0 ">
+    <div class="table_head table_row">
+      <div class="table-blocks">
+        <span>TRAINING NAME</span>
+      </div>
+      <div class="table-blocks">
+        <span>DATE REQUESTED</span>
+      </div>
+      <div class="table-blocks">
+        <span>DURATION</span>
+      </div>
+      <div class="table-blocks">
+        <span>COST</span>
+      </div>
+      <div class="table-blocks">
+        STATUS
+      </div>
+    </div>
+    <section class="table-wrap">
+      <div class="table_list table_row" (click)=showTrainDetail(i,mytrainingList)
+        *ngFor="let mytrainingList of hrmDataService.myTrainingTable.list ; let i = index">
+        <section class="t_row_hover"
+          *ngIf="(mytrainingList.status ==='awaitingApproval' && mytrainingList.isCancelled === true) || (mytrainingList.status ==='awaitingApproval' && mytrainingList.isCancelled !== true)">
+          <div class="table-blocks ">
+            <span class="leave_date_from">{{mytrainingList.name}}</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_from">{{mytrainingList.requestedOn *1000 | date: 'dd MMM yyyy'}}</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_to">{{mytrainingList.duration | number:'.0-0'}} days</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_to">{{mytrainingList.cost}}</span>
+          </div>
+          <div class="table-blocks approve-blk">
+            <span class="leave_type" *ngIf="mytrainingList.status ==='awaitingApproval'  && mytrainingList.isCancelled === false">Awaiting Approval</span>
+            <span class="leave_type" *ngIf="mytrainingList.status ==='awaitingApproval'  && mytrainingList.isCancelled ==='true'">Cancelled</span>
+            <div class="moreoptionOverlay" *ngIf="moreOptionFirst" (click)="hideMoreOptionFirst()"></div>
+            <div class="more" (click)="showMoreOptionRequest($event,i)">
+              <div class="dotPopup" *ngIf="mytrainingList['showMores']">
+                <div class="fl_more_option_container">
+                  <div class="fl_more_option">
+                    <ul>
+                      <li (click)="deleteTrainingRequest(mytrainingList.slug)">
+                        Delete
+                      </li>
+                      <li (click)="updateTrainingRequest(i,mytrainingList)">
+                        Edit
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <!-- approved accordion -->
+  <div class="accordion-head second" (click)="showTrainTableOngoing()" [ngClass]="{'accord_active': isValidateOngoing}">
+    <p>APPROVED ({{hrmDataService.showStatus.approvedCount.length}})</p>
+    <div class="arrow_drop" *ngIf="hrmDataService.showStatus.approvedCount.length !== 0"></div>
+  </div>
+  <div class="train-table" *ngIf="trainTableOngoing && hrmDataService.showStatus.approvedCount.length !== 0">
+    <div class="table_head table_row">
+      <div class="table-blocks">
+        <span>TRAINING NAME</span>
+      </div>
+      <div class="table-blocks">
+        <span>DATE REQUESTED</span>
+      </div>
+      <div class="table-blocks">
+        <span>DURATION</span>
+      </div>
+      <div class="table-blocks">
+        <span>COST</span>
+      </div>
+      <div class="table-blocks">
+        STATUS
+      </div>
+    </div>
+    <section class="table-wrap">
+      <div class="table_list table_row" *ngFor="let mytraining of hrmDataService.requestTable.list ; let i = index"
+        (click)="showOngoingtrain(i)">
+        <section class="t_row_hover" *ngIf="mytraining.status ==='approved' && mytraining.isOnGoing === false">
+          <div class="table-blocks ">
+            <span class="leave_date_from">{{mytraining.name}}</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_from">{{mytraining.requestedOn *1000 | date: 'MMM dd, yyyy'}}</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_to">{{mytraining.duration | number:'.0-0'}} days</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_to">{{mytraining.cost}}</span>
+          </div>
+          <div class="table-blocks approve-blk">
+            <!-- <span class="leave_type">Approved</span> -->
+            <span class="leave_type" *ngIf="mytraining.status === 'approved' && mytraining.isCancelled === false">Approved</span>
+            <span class="leave_type" *ngIf="mytraining.status === 'approved' && mytraining.isCancelled === true">Cancelled</span>
+            <div class="moreoptionOverlay" *ngIf="moreOption" (click)="hideMoreOption()"></div>
+            <div class="more" (click)="showMoreOptionFirst($event,i)">
+              <div class="dotPopup" *ngIf="mytraining['showMore']">
+                <div class="fl_more_option_container">
+                  <div class="fl_more_option">
+                    <ul>
+                      <li (click)="deleteTrainingRequest(mytraining.slug)">
+                        Delete
+                      </li>
+                      <li (click)="updateTrainingRequest(i,mytraining)">
+                        Edit
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <!-- Active accordion -->
+  <div class="accordion-head second" (click)="showTrainTableActive()" [ngClass]="{'accord_active': isValidateActive}">
+    <p>ACTIVE ({{hrmDataService.showStatus.ongoingCount.length}})</p>
+    <div class="arrow_drop" *ngIf="hrmDataService.showStatus.ongoingCount.length !== 0"></div>
+  </div>
+  <div class="train-table" *ngIf="trainTableActive && hrmDataService.showStatus.ongoingCount.length !== 0 ">
+    <div class="table_head table_row">
+      <div class="table-blocks">
+        <span>TRAINING NAME</span>
+      </div>
+      <div class="table-blocks">
+        <span>DATE REQUESTED</span>
+      </div>
+      <div class="table-blocks">
+        <span>DURATION</span>
+      </div>
+      <div class="table-blocks">
+        <span>COST</span>
+      </div>
+      <div class="table-blocks">
+        STATUS
+      </div>
+    </div>
+    <section class="table-wrap">
+      <div class="table_list table_row" (click)="showActiveDetail(i)"
+        *ngFor="let mytraining of hrmDataService.requestTable.list ; let i = index">
+        <section class="t_row_hover" *ngIf="mytraining.status ==='approved' && mytraining.isOnGoing === true && mytraining.isCompleted === false">
+          <div class="table-blocks ">
+            <span class="leave_date_from">{{mytraining.name}}</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_from">{{mytraining.requestedOn *1000 | date: 'MMM dd, yyyy'}}</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_to">{{mytraining.duration | number:'.0-0'}} days</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_to">{{mytraining.cost}}</span>
+          </div>
+          <div class="table-blocks approve-blk">
+            <span class="leave_type" *ngIf="mytraining.status ==='awaitingApproval'">Awaiting Approval</span>
+            <span class="leave_type" *ngIf="mytraining.status ==='approved'">Approved</span>
+            <span class="leave_type" *ngIf="mytraining.status ==='rejected'">Rejected</span>
+
+            <div class="moreoptionOverlay" *ngIf="moreOption" (click)="hideMoreOption()"></div>
+            <div class="more" (click)="showMoreOptionActive($event,i)">
+              <div class="dotPopup" *ngIf="mytraining['showMoreActive']">
+                <div class="fl_more_option_container">
+                  <div class="fl_more_option">
+                    <ul>
+                      <li (click)="deleteTrainingRequest(mytraining.slug)">
+                        Delete
+                      </li>
+                      <li (click)="updateTrainingRequest(i,mytraining)">
+                        Edit
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <!-- completed accordion -->
+  <div class="accordion-head second" (click)="showTrainTableCompleted()"
+    [ngClass]="{'accord_active': isValidatedCompleted}">
+    <p>COMPLETED ({{hrmDataService.showStatus.completeCount.length}})</p>
+    <div class="arrow_drop" *ngIf="hrmDataService.showStatus.completeCount.length !== 0"></div>
+  </div>
+  <div class="train-table" *ngIf="trainTableCompleted && hrmDataService.showStatus.completeCount.length !== 0">
+    <div class="table_head table_row">
+      <div class="table-blocks">
+        <span>TRAINING NAME</span>
+      </div>
+      <div class="table-blocks">
+        <span>DATE REQUESTED</span>
+      </div>
+      <div class="table-blocks">
+        <span>DURATION</span>
+      </div>
+      <div class="table-blocks">
+        <span>COST</span>
+      </div>
+      <div class="table-blocks">
+        STATUS
+      </div>
+    </div>
+    <section class="table-wrap">
+      <div class="table_list table_row" (click)="showFinishedPop(i)"
+        *ngFor="let mytraining of hrmDataService.requestTable.list ; let i = index">
+        <section class="t_row_hover" *ngIf="mytraining.isCompleted">
+          <div class="table-blocks ">
+            <span class="leave_date_from">{{mytraining.name}}</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_from">{{mytraining.requestedOn *1000 | date: 'MMM dd, yyyy'}}</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_to">{{mytraining.duration | number:'.0-0'}} days</span>
+          </div>
+          <div class="table-blocks">
+            <span class="leave_date_to">{{mytraining.cost}}</span>
+          </div>
+          <div class="table-blocks approve-blk">
+             <span class="leave_type">Completed</span>
+            <div class="moreoptionOverlay" *ngIf="moreOption" (click)="hideMoreOption()"></div>
+            <div class="more" (click)="showMoreOptionActive($event,i)">
+              <div class="dotPopup" *ngIf="mytraining['showMoreActive']">
+                <div class="fl_more_option_container">
+                  <div class="fl_more_option">
+                    <ul>
+                      <li (click)="deleteTrainingRequest(mytraining.slug)">
+                        Delete
+                      </li>
+                      <li (click)="updateTrainingRequest(i,mytraining)">
+                        Edit
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+</div>
+
+<app-ongoing-training-details *ngIf="hrmDataService.ongoingTraining.show"></app-ongoing-training-details>
+<app-training-request-form *ngIf="this.hrmDataService.trainingRequestForm.show"></app-training-request-form>
+<app-delete-confirm *ngIf="this.hrmDataService.deleteTrainingRequestForm.show"></app-delete-confirm>
+<app-active-detail-pop *ngIf="hrmDataService.activeTrainingDetail.show"></app-active-detail-pop>
+<app-finished-pop *ngIf="hrmDataService.finishedPop.show"></app-finished-pop>

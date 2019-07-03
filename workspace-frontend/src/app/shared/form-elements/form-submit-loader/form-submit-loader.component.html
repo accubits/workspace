@@ -1,0 +1,76 @@
+<!-- <div class="form_submit_section">
+    <app-address-submit></app-address-submit>
+</div>-->
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'checkboxes'">
+    <app-checkboxes-submit [data]="currentElement"></app-checkboxes-submit>
+</div>
+<!--<div class="form_submit_section">
+    <app-date-submit></app-date-submit>
+</div>-->
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'dropdown'">
+    <app-dropdown-submit [data]="currentElement"></app-dropdown-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type']== 'email'" >
+    <app-email-submit [data]="currentElement"></app-email-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type']== 'phone'" >
+    <app-phone-submit [data]="currentElement"></app-phone-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type']== 'address'" >
+    <app-address-submit [data]="currentElement"></app-address-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type']== 'website'" >
+    <app-website-submit [data]="currentElement"></app-website-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type']== 'date'" >
+    <app-date-submit [data]="currentElement"></app-date-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type']== 'time'" >
+    <app-time-submit [data]="currentElement"></app-time-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type']== 'price'" >
+    <app-price-submit [data]="currentElement"></app-price-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type']== 'rating'" >
+    <app-rating-submit [data]="currentElement"></app-rating-submit>
+</div>
+
+<!-- <div class="form_submit_section" *ngIf="currentElement['type'] == 'section'">
+    <app-file-upload-submit [data]="currentElement"></app-file-upload-submit>
+</div> -->
+
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'likert'">
+    <app-likert-submit [data]="currentElement"></app-likert-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'multipleChoice'">
+    <app-multiple-choice-submit [data]="currentElement"></app-multiple-choice-submit>
+</div> 
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'name'">
+    <app-name-submit [data]="currentElement"></app-name-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'number'">
+    <app-number-submit [data]="currentElement"></app-number-submit>
+</div>
+
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'page'">
+    <app-page-break-submit [data]="currentElement"></app-page-break-submit>
+</div>
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'paragraphText'">
+    <app-paragraph-submit [data]="currentElement"></app-paragraph-submit>
+</div>
+
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'section'">
+    <app-section-break-submit [data]="currentElement"></app-section-break-submit>
+</div> 
+<div class="form_submit_section" *ngIf="currentElement['type'] == 'singleLineText'">
+    <app-single-line-submit [data]="currentElement"></app-single-line-submit>
+</div>
+<!-- <div class="form_submit_section">
+    <app-time-submit></app-time-submit>
+</div>
+<div class="form_submit_section">
+    <app-userlist-submit></app-userlist-submit>
+</div>
+<div class="form_submit_section">
+    <app-website-submit></app-website-submit>
+</div> -->

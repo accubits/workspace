@@ -1,0 +1,124 @@
+<div class="shareoptionOverlay" (click)="closeShareOption()"></div>
+<div class="share_option">
+  <div class="share_option_header">
+    <h6>SHARE
+      <span>Document.pdf</span>
+    </h6>
+    <a class="copy_option_close" (click)="closeShareOption()">&times;</a>
+  </div>
+  <div class="share_option_body">
+    <section class="user_drop_nav">
+      <ul>
+        <!-- <li [ngClass]="{active:activeRpTab == 'link'}" (click)="activeRpTab = 'link'">Link</li> -->
+        <li [ngClass]="{active:activeRpTab == 'people'}" (click)="activeRpTab = 'people'">People</li>
+      </ul>
+    </section>
+    <section class="user_drop_body">
+   
+      <div *ngIf="activeRpTab === 'people'" class="department_wrap">
+        <section>
+          <div class="peopl_section_one">
+            <h4 class="people_section_heading">Shared With</h4>
+            <div class="user_count_list">
+              <div class="user_count_list_dp"></div>
+              <h4>Stella Little</h4>
+              <span>
+                <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                  <input readonly type="text" class="" name="text" placeholder="Can View" (click)="showActionPop()">
+                  <div class="filter_cancel_overlay" *ngIf="showActions" (click)="showActions = false"></div>
+                  <div *ngIf="showActions">
+                    <div class="drop_drop_pop commonn_popup">
+                      <section>
+                        Can View
+                      </section>
+                      <section>
+                        Can Update
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </span>
+              <div class="del_ico">
+              </div>
+            </div>
+            <div class="show_more">
+                <p>Show More
+                  <img [src]="assetUrl+'assets/images/form/blue_drop_down.png'" />
+                </p>
+            </div>
+            <div class="show_less" *ngIf="showMore" (click)="show_less = !show_less">
+              <div class="user_count_list">
+                  <div class="user_count_list_dp"></div>
+                  <h4>Stella Little</h4>
+                  <span>
+                    <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                      <input readonly type="text" class="" name="text" placeholder="Can View" (click)="showActionPop()">
+                      <div *ngIf="showActions" (click)="showActions = false">
+                        <div class="drop_drop_pop commonn_popup">
+                          <section>
+                            Can View
+                          </section>
+                          <section>
+                            Can Update
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+                  <div class="del_ico">
+                  </div>
+              </div>
+              <p *ngIf="showMore" (click)="showMore =  false">Show Less
+                <img [src]="assetUrl+'assets/images/form/blue_drop_up.png'" />
+              </p>
+            </div>
+          </div>
+          <div class="peopl_section_one">
+            <h4 class="people_section_heading">Add People</h4>
+            <input type="text" placeholder="Search" class="add-pple-input">
+
+            <section class="user_drop_nav">
+              <ul>
+                <li [ngClass]="{active:addpple === 'all'}" (click)="addpple = 'all'">All </li>
+               <!-- <li [ngClass]="{active:addpple == 'department'}" (click)="addpple = 'department'">Department</li> -->
+                <li [ngClass]="{active:addpple === 'search'}" (click)="addpple = 'search'">Search</li>
+              </ul>
+            </section>
+            <section class="user_drop_body user_body_drop drop-shared">
+              <div class="" *ngIf="addpple === 'all'" >
+                <section class="recent_ppl" >
+                  <div class="recent_ico">
+                  </div>
+                  Peter Palmer
+                </section>
+                <section class="recent_ppl" >
+                  <div class="recent_ico">
+                  </div>
+                  Peter Palmer
+                </section>
+                <section class="recent_ppl" >
+                  <div class="recent_ico">
+                  </div>
+                  Peter Palmer
+                </section>
+              </div>
+              <div *ngIf="addpple === 'search'" class="">
+                <section class="recent_ppl">
+                  <div class="recent_ico">
+                  </div>
+                  Peter Palmer
+                </section>
+               
+              </div>
+            </section>
+           
+          </div>
+        </section>
+      </div>
+    </section>
+
+  </div>
+  <section class="user_drop_footer">
+    <button>Done</button>
+  </section>
+</div>

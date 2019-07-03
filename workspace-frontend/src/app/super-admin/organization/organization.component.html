@@ -1,0 +1,103 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title ph3inline">ORGANIZATION</h3>
+      </div>
+  </div>
+  <div class="orgTable">
+      <div class="table_outer_block">
+        <div class="table_head table_row Header">
+          <div class="table-blocks">
+            <div class="checkbox">
+              <label>
+                <div class="check_outer">
+                  <input type="checkbox" id="1_in" name="" id=""/>
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="table-blocks">
+              <span class="tb_head_drop_arrow">NAME</span>
+          </div>
+          <div class="table-blocks Organisation">
+            <span class="downArrow">PARTNER</span>
+          </div>
+          <div class="table-blocks">
+            <span class="downArrow">COUNTRY</span>
+          </div>
+          <div class="table-blocks">
+              <span class="downArrow">VERTICAL</span>
+          </div>
+        </div>
+      </div>
+      <div class="table_outer_block Content">
+        <div class="table_head table_row" (click)="showpop()">
+          <div class="table-blocks">
+            <div class="checkbox" (click)="check($event)">
+              <label>
+                <div class="check_outer">
+                  <input type="checkbox" id="1_in" name="" id=""/>
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="table-blocks">
+              <span>Ministry of Education, Singapore</span>
+          </div>
+          <div class="table-blocks Profile">
+            <div class="avatar"></div>
+            <span>Waylon Dalton</span>
+          </div>
+          <div class="table-blocks">
+            <span>USA</span>
+          </div>
+          
+          <div class="table-blocks">
+            <span>School</span>
+          </div>
+  
+          <div class="table-blocks clickButton" (click)="morepop($event)">
+            <div class="dotImage"></div>
+          </div>
+
+          <div class="moreOuter" *ngIf="superAdminDataService.more.show">
+            <app-more-option></app-more-option>
+        </div>
+        <div class="filter_cancel_overlay" *ngIf="superAdminDataService.more.show" (click)= "closeMore($event)"></div>
+        </div>
+        <div class="table_head table_row">
+          <div class="table-blocks">
+            <div class="checkbox">
+              <label>
+                <div class="check_outer">
+                  <input type="checkbox" id="1_in" name="" id=""/>
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="table-blocks">
+              <span>Ministry of Education, Singapore</span>
+          </div>
+          <div class="table-blocks Profile">
+            <div class="avatar"></div>
+            <span>Waylon Dalton</span>
+          </div>
+          <div class="table-blocks">
+            <span>USA</span>
+          </div>
+          
+          <div class="table-blocks">
+            <span>School</span>
+          </div>
+  
+          <div class="table-blocks clickButton">
+            <div class="dotImage"></div>
+          </div>
+        </div>
+        <app-org-detail-pop *ngIf="superAdminDataService.orgDetailPop.show"></app-org-detail-pop>
+      </div>  
+  </div>
+</div>

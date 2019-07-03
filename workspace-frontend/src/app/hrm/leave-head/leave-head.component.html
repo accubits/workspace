@@ -1,0 +1,14 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title ph3inline">HRM</h3>
+    <span class=panel-sub-title>Leave</span>
+    <div class="panel-right-holder pbtnsinline">
+        <button class="pbtncreate" *ngIf="router.url === '/authorized/hrm/leave/leave-table'"  (click)="showLeaveRequest()">Off in lieu request</button>
+        <button class="pbtncreate" *ngIf="router.url === '/authorized/hrm/leave/leave-type' && checkRole ==='ORG_ADMIN'"  (click)="newLeaveType()">Add New</button>
+        <button class="pbtncreate" *ngIf="router.url === '/authorized/hrm/leave/holidays' && checkRole ==='ORG_ADMIN'"  (click)="showAddHoliday()">Add Holiday</button>
+        <button class="pbtnfilter" *ngIf="router.url === '/authorized/hrm/leave/absence'" (click)="showAbsenceFilter()"><img src="/assets/images/filter.png"> Filter</button>
+        <button class="pbtncreate" *ngIf="router.url === '/authorized/hrm/leave/absence' && checkRole ==='ORG_ADMIN'" (click)="showNewAbsence()">Add Leave</button>
+      </div>
+  </div>
+</div>

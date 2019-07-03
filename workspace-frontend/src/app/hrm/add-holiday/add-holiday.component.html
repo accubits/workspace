@@ -1,0 +1,49 @@
+<div class="overlaypop" (click)="hideAddHoliday()"></div>
+<div class="requestPopup">
+  <div class="requestPopup-header">
+    <h4>ADD HOLIDAY</h4>
+    <div class="pop_close" (click)="hideAddHoliday()"></div>
+  </div>
+  <div class="requestPopup-wrap">
+    <div class="leave-pop_expan_wrap request-wrap">
+      <span class="input-title request">Name:</span>
+       <input type="text" placeholder="" [(ngModel)]="hrmDataService.holiday.name">
+    </div>
+    <p class="error" *ngIf="!isValidated && !hrmDataService.holiday.name">Required Field</p>
+    <div class="start-date">
+      <span class="input-title">Date:</span>
+      <input type="text" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" [(ngModel)]="hrmDataService.holiday.holidayDate">
+        <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+      <div class="close_drop" (click)="clearDate()"></div>
+    </div>
+    <p class="error" *ngIf="!isValidated && !hrmDataService.holiday.holidayDate">Required Field</p>
+    <div class="leave-mode">
+      <label>
+        <div class="check_outer">
+          <input name="" type="checkbox" class="" [(ngModel)]="hrmDataService.holiday.isRestricted">
+          <div class="check"></div>
+        </div>
+      </label>
+      <span class="input-title">Restricted</span>
+    </div>
+    <div class="leave-mode">
+      <label>
+        <div class="check_outer">
+          <input name="" type="checkbox" class="" [(ngModel)]="hrmDataService.holiday.repeted">
+          <div class="check"></div>
+        </div>
+      </label>
+      <span class="input-title">Repeat Yearly</span>
+    </div>
+    <div  class="reason">
+    <span class="input-title">Description:</span>
+    <textarea name="" value="" rows=5 placeholder="" [(ngModel)]="hrmDataService.holiday.info"></textarea>
+      <p class="error" *ngIf="!isValidated && !hrmDataService.holiday.info">Required Field</p>
+    </div>
+  </div>
+  <div class="requestpopup-footer">
+    <button *ngIf="hrmDataService.holiday.action === 'create'" class="pbtncreate" (click)="createHoliday()">Create</button>
+    <button *ngIf="hrmDataService.holiday.action === 'update'" class="pbtncreate" (click)="updateHoliday()">Update</button>
+    <button class="req-cancel" (click)="hideAddHoliday()">Cancel</button>
+  </div>
+</div>

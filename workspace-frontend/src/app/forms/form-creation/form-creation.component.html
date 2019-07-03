@@ -1,0 +1,46 @@
+<div class="form_creation_block">
+  <div class="panel panel-default panel_fixed_for_form">
+    <div class="panel-heading" id="panel-heading">
+      <h3 class="panel-title ph3inline">Forms</h3>
+      <div class="panel-right-holder pbtnsinline">
+        <button class="pbtnfilter" *ngIf="dataService.saveHrm.show != true && dataService.saveCourseHrm.show != true" (click)="createOrDraftNewForm('draft')">Save as Draft</button>
+        <button class="pbtnfilter" *ngIf="dataService.saveHrm.show != true && dataService.saveCourseHrm.show != true" (click)="dataService.form_preview_modal.show = true">Preview</button>
+        <button class="pbtncreate" *ngIf="dataService.saveHrm.show != true && dataService.saveCourseHrm.show != true"  (click)="createOrDraftNewForm('active')">Publish</button>
+        <button class="pbtncreate" *ngIf="dataService.saveHrm.show && dataService.saveCourseHrm.show != true" (click)="saveForm('active')">Save</button>
+        <button class="pbtncreate" *ngIf="dataService.saveCourseHrm.show" (click)="saveHrmForm('active')">Create</button>
+    </div>
+    </div>
+    <div class="form_wrap">
+      <div class="form_left_wrap">
+        <app-form-wrap-left (newElementSelected)="elementSelect($event)"></app-form-wrap-left>
+      </div>
+      <div class="form_right_wrap">
+        <app-content-wrap-right></app-content-wrap-right>
+      </div>
+      <div class="publishForm">
+        <app-publish-form *ngIf="dataService.publish_form.show"></app-publish-form>
+      </div>
+    </div>
+    <div class="form_adminView_modal" id="form_adminView_modal" aria-hidden="true" *ngIf="dataService.formAdminmodal.show">
+      <div class="form_adminView_modal_dialog">
+        <div class="module laptop-12 tablet-12">
+          <div class="module laptop-12 tablet-12">
+            <div class="form_adminView_modal_header">
+              <h4>Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet</h4>
+              <a class="close" (click)="fdataService.formAdminmodal.show = false">&times;</a>
+            </div>
+            <div class="form_adminView_modal_body">
+              <app-form-adminmodal-nav></app-form-adminmodal-nav>
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Form Preview Modal -->
+<app-form-preview [hidden]="!dataService.form_preview_modal.show"></app-form-preview>
+<!-- Form Preview Modal-->

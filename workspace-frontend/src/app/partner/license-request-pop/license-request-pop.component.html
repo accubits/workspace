@@ -1,0 +1,57 @@
+<!--popup starts-->
+<div class="modalOuter" (click)="closeRequestDetails()"></div>
+  <div class="form_submit_wrap">
+    <div  class="form_submit_modal">
+      <div class="headerOuter"> 
+        <div class="fs_header">
+            <h4>LICENSE REQUEST DETAILS</h4>
+        </div>
+        <div class="pop_close" (click)="closeRequestDetails()" ></div>
+      </div>
+      <div class="nav_wrap">
+        <div class="tableDetailOuter">
+            <div class="tableDetail">
+              <h4>ORGANISATION</h4>
+            </div>
+            <div class="tableContent"> 
+               {{partnerDataService.selectedAdminRequests.orgName}}
+            </div>
+          </div>
+          <div class="tableDetailBottom">
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>USERS</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedAdminRequests.maxUsers}}
+
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>TYPE</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedAdminRequests.licenseType}}
+
+              </div>
+            </div>
+          </div>
+          <div class="tableDetailOuter"> 
+              <div class="tableDetail">
+                <h4>REQUESTED ON</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedAdminRequests.requestsOn  *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+              </div>
+          </div>
+          <div class="fs_footer"> 
+              <button class="red_btn" (click)= "forwardRequests()">Forward Request</button>
+              <button class="grey_linebtn" (click)="editLicense()">Edit</button> 
+          </div>
+      </div>
+    </div>
+    <app-edit-license *ngIf="partnerDataService.showEditLicensepopup.show"></app-edit-license>
+
+  </div>
+<!--popup ends-->

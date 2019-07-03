@@ -1,0 +1,101 @@
+<div class="group_wrap">
+  <div class="group_header">
+    <div class="gh_left">
+      <img [src]="assetUrl+'assets/images/chat/group.png'" />
+      <p>General Chat</p>
+    </div>
+    <div class="gh_right">
+      <div class="member_modal" *ngIf="chatDataService.memberModal.show">
+        <app-chat-members></app-chat-members>
+      </div>
+      <button class="members" (click)="chatDataService.memberModal.show = true">Members (3)</button>
+      <button class="invite" (click)="chatDataService.inviteModal.show = true">+ Invite</button>
+      <div class="chat_invite_modal" *ngIf="chatDataService.inviteModal.show">
+        <app-chat-invite></app-chat-invite>
+      </div>
+    </div>
+  </div>
+  <div class="group_body">
+    <perfect-scrollbar>
+      <div class="group_body_content">
+        <div class="day">
+          <p>Today</p>
+        </div>
+        <div class="chat_block_recieved">
+          <div class="recieved">
+            <img [src]="assetUrl+'assets/images/chat/user1.png'" />
+            <div class="r_head">
+              <h6>Callum Berry</h6>
+              <p>06:45 pm</p>
+            </div>
+            <div class="r_body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Cras id sapien vel sem ultricies pellentesque. Pellentesque
+                faucibus vitae lacus eu pulvinar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat_block_send">
+          <div class="send">
+            <div class="s_body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Cras id sapien vel sem ultricies pellentesque. Pellentesque
+                faucibus vitae lacus eu pulvinar.</p>
+            </div>
+            <div class="s_foot">
+              <h6>Wayn Hudson</h6>
+              <p>06:45 pm</p>
+            </div>
+            <img [src]="assetUrl+'assets/images/chat/user2.png'" />
+          </div>
+        </div>
+        <div class="user_invite">
+          <p>Callum Berry</p>
+          <span>Invited</span>
+          <p>Stella Little</p>
+        </div>
+        <div class="chat_block_recieved">
+          <div class="recieved">
+            <img [src]="assetUrl+'assets/images/chat/user1.png'" />
+            <div class="r_head">
+              <h6>Callum Berry</h6>
+              <p>06:45 pm</p>
+            </div>
+            <div class="r_body">
+              <p>Hi There</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat_block_recieved">
+          <div class="recieved">
+            <img [src]="assetUrl+'assets/images/chat/user1.png'" />
+            <div class="r_head">
+              <h6>Callum Berry</h6>
+              <p>06:45 pm</p>
+            </div>
+            <div class="r_body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Cras id sapien vel sem ultricies pellentesque. Pellentesque
+                faucibus vitae lacus eu pulvinar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat_block_send">
+          <div class="send">
+            <div class="s_body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Cras id sapien vel sem ultricies pellentesque. Pellentesque
+                faucibus vitae lacus eu pulvinar.</p>
+            </div>
+            <div class="s_foot">
+              <h6>Wayn Hudson</h6>
+              <p>06:45 pm</p>
+            </div>
+            <img [src]="assetUrl+'assets/images/chat/user2.png'" />
+          </div>
+        </div>
+      </div>
+    </perfect-scrollbar>
+  </div>
+  <div class="group_footer">
+    <input type="" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing">
+    <img (click)="chatDataService.attachmentModal.show = !chatDataService.attachmentModal.show" [src]="assetUrl+'assets/images/chat/clip.png'"
+    />
+  </div>
+</div>

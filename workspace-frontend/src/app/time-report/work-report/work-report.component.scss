@@ -1,0 +1,245 @@
+.work_panel_wrap
+{
+    background-color: white;
+    position: relative;
+}
+.work_panel_left
+{
+    display: inline-block;
+    vertical-align: top;
+    width: 24%;
+    border-right: 1px solid #dde0e3;
+    float: left;
+}
+.work_panel_left_head{
+    height: 43px;
+    line-height: 43px;
+    background-color: #f3f3f3;
+    padding: 0 10px 0 30px;
+}
+.work_panel_left_head span
+{
+    font-size: 14px;
+    font-family: Roboto-Medium;
+    color: #536273;
+}
+drag-scroll .scroll_section
+{
+    width: 2882px;
+}
+.work_panel_right
+{
+    width: 76%;
+    float: right;
+}
+.cal_right_head{
+    height: 43px;
+    line-height: 43px;
+    background-color: #f3f3f3;
+    display: flex;
+}
+.digi_day{
+    width: 104px;
+    color: #536273;
+    background-color: #f3f3f3;
+    font-family: Roboto-Medium;
+    font-size: 13px;
+    border-right: 1px solid #d3d6d9;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+.wt_accord {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #dde0e3;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+.wt_accord h4 {
+    color: #323b45;
+    font-size: 13px;
+    font-family: Roboto-Light;
+    padding: 0 0 0 30px;
+}
+.wt_accord .acc_down {
+    width: 10px;
+    height: 5px;
+    margin: 17px 10px 0 0;
+    transition: .2s ease;
+    -webkit-transition: .2s ease;
+}
+.accord_left_content
+{
+    padding: 12px 10px 12px 45px;
+    position: relative;
+    height: 114px;
+    border-bottom: 1px solid #dde0e3;
+}
+.accord_left_ico
+{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-image: url(/assets/images/all/tdp1.png);
+    background-size: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.det_name
+{
+    margin-left: 10px;
+    color: #424e5c;
+    font-family: Roboto-Regular;
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.left_content_time
+{
+    margin-top: 20px;
+    font-size: 12px;
+    color: #98a1ab;
+    text-transform: capitalize;
+    padding-left: 10px;
+}
+.left_content_time span
+{
+    color: #424e5c;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.scroll_section
+{
+    width: 1260px;
+}
+.accord_blocks_outer
+{
+    display: flex;
+}
+.accord_blocks_outer .digi_day
+{
+    height: 114px;
+    position: relative;
+    background-color: white;
+    border-bottom:1px solid #d3d6d9;
+}
+.accord_blocks_outer .digi_day p
+{
+    position: absolute;
+    left: 0;
+    bottom: 18px;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    font-family: Roboto-Medium;
+    color: #98a1ab;
+}
+.accord_blocks_outer .digi_day p span
+{
+    color: #424e5c;
+}
+.green_tick
+{
+    background-image: url(/assets/images/tar/green_check.png);
+    height: 10px;
+    width: 12px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    top: 18px;
+}
+.red_exl
+{
+    background-image: url(/assets/images/tar/exclamation.png);
+    height: 15px;
+    width: 15px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    top: 18px;
+}
+.leave_bar
+{
+    cursor: pointer;
+    position: absolute;
+    height: 30px;
+    width: 103px;
+    background-color: #ffe04c;
+    z-index: 1;
+    left: 0;
+    top: 41px;
+    text-align: center;
+    padding: 7px;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.small_star {
+    width: 13px;
+    height: 13px;
+    margin: 0 0 0 5px;
+    display: inline-block;
+    vertical-align:top;
+}
+.left_content_icons {
+    margin-top: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding-left: 10px;
+    font-weight: bold;
+}
+.left_ico_cont
+{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    margin: 0px 0px 0px 0px;
+}
+.star_ico
+{
+    background-image: url('/assets/images/tar/small_star.png');
+}
+.hap_ico
+{
+    background-image: url('/assets/images/tar/happy.png');
+}
+.sad_ico
+{
+    background-image: url('/assets/images/tar/sad.png');
+}
+.blue_span
+{
+    color: #006df0;
+}
+.red_span
+{
+    color: #ff4a5d;
+}
+.green_span
+{
+    color: #29cc97;
+}
+.left_content_icons span
+{
+    margin: 0px 13px 0px 4px;
+}

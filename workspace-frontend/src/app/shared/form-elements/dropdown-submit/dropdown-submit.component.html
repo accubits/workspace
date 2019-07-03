@@ -1,0 +1,13 @@
+<div class="fp_select">
+  <label>{{dropdownElement.dropdown.label}}<span *ngIf = "data.dropdown.isRequired" class="error">*</span></label>
+  <p class="error" *ngIf="!dropdownElement.isValidated && dataService.formValidation.validating">Select a choice</p>
+
+  <div class="element_input drop_dropdown_wrap drop_icon_input">
+    <input type="text" class="" name="text" placeholder="Please Select" readonly="true" (click)="showChoice = !showChoice" [(ngModel)]="selectedOption">
+    <div class="drop_drop_pop commonn_popup" *ngIf="showChoice">
+      <section *ngFor="let choice of dropdownElement.dropdown.choices;let idx=index" (click)="manageChoice(choice.optId,choice.label)">
+        {{choice.label}}
+      </section>
+     </div>
+  </div>
+</div>

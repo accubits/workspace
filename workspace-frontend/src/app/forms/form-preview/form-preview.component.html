@@ -1,0 +1,48 @@
+<!-- Form Preview Modal Page 1 -->
+<div class="form_preview_modal" id="form_preview_modal" aria-hidden="true">
+  <div class="form_preview_modal_dialog filter_dialog">
+    <div class="module laptop-12 tablet-12 form_outer_shadow">
+      <div class="module laptop-12 tablet-12">
+        <div class="form_preview_modal_header">
+          <h4>{{dataService.createForm.title}}</h4>
+          <p>{{dataService.createForm.description}}</p>
+          <a class="close" (click)="dataService.form_preview_modal.show = false">&times;</a>
+        </div>
+        <div class="form_preview_modal_body">
+          <div class="module tablet-12 laptop-12 desktop-12">
+            <div class="module tablet-12 laptop-12 desktop-12 head_paginator_right">
+              <!-- <div class="module tablet-10 laptop-10 desktop-10">
+                <div class="module tablet-12 laptop-12 desktop-12 form_preview_indicator_container">
+                  <span class="form_preview_indicator">Page 1 / 2</span>
+                </div>
+              </div>
+              <div class="module tablet-2 laptop-2 desktop-2">
+                <button (click)="dataService.form_preview2.show = true" class="form_preview_next">Next Page</button>
+              </div> -->
+            </div>
+          </div>
+          <div class="module tablet-12 laptop-12 desktop-12">
+            <div class="fp_body">
+              <div *ngFor="let element of dataService.formElementArray;let i =index;">
+                <app-form-preview-loader data="{{element.name}},{{element.index}}"></app-form-preview-loader>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="module tablet-12 laptop-12 desktop-12 form_preview_modal_footer">
+            <ul>
+              <li>
+                <button  class="fpmodal_footer_next">Submit</button>
+              </li>
+              <li>
+                <button  class="fpmodal_footer_cancel">Cancel</button>
+              </li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Form Preview Modal Page 1-->

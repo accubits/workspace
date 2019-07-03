@@ -1,0 +1,66 @@
+<div class="review-table">
+  <div class="table_head  table-row">
+    <div class="table-blocks">
+      <span>FROM</span>
+    </div>
+    <div class="table-blocks">
+      DEADLINE
+      </div>
+         <div class="table-blocks">
+     APPRAISAL CYCLE
+        </div>
+        <div class="table-blocks">
+        </div>
+  </div>
+  <div class="table-inner">
+    <div class="table-row" (click)="showReviewDetailPop()">
+      <div class="table-blocks">
+        <div class="profile-pic"></div>
+        <div class="profile-name">Stella Little</div>
+      </div>
+      <div class="table-blocks">
+        30 June 2019
+        </div>
+        <div class="table-blocks">
+          Annual Review
+          </div>
+          <div class="table-blocks">
+              <div class="overlay" *ngIf="hrmDataService.moreOption.show" (click)="hideMoreOption()"></div>
+              <div class="more" (click)="showMoreOption()">
+                <app-more-option *ngIf="hrmDataService.moreOption.show" ></app-more-option></div>
+            </div>
+    </div>
+    <div class="table-row">
+        <div class="table-blocks">
+          <div class="profile-pic"></div>
+          <div class="profile-name">Stuart Little</div>
+        </div>
+        <div class="table-blocks">
+          30 June 2019
+          </div>
+          <div class="table-blocks">
+            Annual Review
+            </div>
+            <div class="table-blocks">
+              <div class="more"></div>
+              </div>
+      </div>
+      <div class="table-row">
+          <div class="table-blocks">
+            <div class="profile-pic"></div>
+            <div class="profile-name">Stella Little</div>
+          </div>
+          <div class="table-blocks">
+            30 June 2019
+            </div>
+            <div class="table-blocks">
+              Annual Review
+              </div>
+              <div class="table-blocks">
+                <div class="more"></div>
+                </div>
+        </div>
+
+  </div>
+</div>
+<app-review-request-detail  *ngIf="hrmDataService.reviewDetailPop.show" ></app-review-request-detail>

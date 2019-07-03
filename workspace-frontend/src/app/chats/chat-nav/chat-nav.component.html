@@ -1,0 +1,15 @@
+<div class="nav_wrap">
+  <ul>
+    <a routerLink="./recent" routerLinkActive="active_tab">
+      <li>Recent</li>
+    </a>
+    <a routerLink="./all" routerLinkActive="active_tab">
+      <li>All</li>
+    </a>
+  </ul>
+  <div class="search_wrap" [ngClass]="{'open':this.showSearch}">
+    <div class="search_icon" (click)="this.showSearch = true"></div>
+    <div class="search_close" (click)="this.showSearch = false"></div>
+    <input type="text" name="search" placeholder="search">
+  </div>
+</div>

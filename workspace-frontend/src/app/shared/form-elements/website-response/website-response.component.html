@@ -1,0 +1,11 @@
+<div class="fp_input">
+  <div class="fr_question">
+    <label>{{websiteElement.website.label}}</label>
+  </div>
+  <div *ngIf="websiteElement.website.answer !== ''" class="fr_answer weblink">
+    <p>{{websiteElement.website.answer}}</p>
+  </div>
+  <div *ngIf="websiteElement.website.answer === ''" class="fr_answer weblink">
+    <p>not answered</p>
+  </div>
+</div>

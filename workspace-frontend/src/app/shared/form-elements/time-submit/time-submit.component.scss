@@ -1,0 +1,109 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.fp_input input {
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+    outline: none;
+    border: none;
+}
+
+.fp_input label,
+.fp_description label,
+.fp_select label {
+    font-size: 14px;
+    color: #414d5b;
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: block;
+    position: relative;
+}
+
+.fp_body {
+    position: relative;
+}
+span.error {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #d9463b;
+    padding-left: 3px;
+}
+
+// ampm drop
+.fp_ampm {
+    position: relative;
+}
+
+.fp_ampm .drop_dropdown_wrap {
+    position: relative;
+    display: block;
+    width: 40%;
+}
+
+.fp_ampm .drop_dropdown_wrap input {
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+    outline: none;
+    border: none;
+}
+
+.fp_ampm .drop_drop_pop {
+    position: absolute;
+    left: 0;
+    top: 86px;
+    width: 100%;
+    background-color: white;
+    -webkit-box-shadow: 0px 19px 50px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 19px 50px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 19px 50px 5px rgba(0, 0, 0, 0.2);
+    z-index: 300002;
+}
+
+.fp_ampm .drop_drop_pop section {
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #526173;
+}
+
+.fp_ampm .drop_drop_pop section:hover {
+    background-color: #026cf0;
+    color: #fff;
+    transition: .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
+}
+
+.fp_ampm.drop_icon_input::after {
+    content: '';
+    background-image: url(/assets/images/dropdown.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    width: 12px;
+    height: 7px;
+    position: absolute;
+    right: 0px;
+    top: 55px;
+    z-index: 99999;
+    right: 20px;
+    cursor: pointer;
+}
+
+.fp_body ul {
+    display: flex;
+}
+
+.fp_body ul li {
+    width: 15%;
+    margin-right: 10px;
+}
+
+.trans_label label {
+    visibility: hidden;
+}

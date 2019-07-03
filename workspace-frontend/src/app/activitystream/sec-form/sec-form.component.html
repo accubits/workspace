@@ -1,0 +1,23 @@
+  <section class="as_content" *ngIf="data.type == 'form'">
+  <div class="as_content_sector">
+    <div class="as_content_header">
+      <div class="h_left">
+        <img *ngIf="data.form.formCreatorImageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+        <img *ngIf="data.form.formCreatorImageUrl !== null" [src]= "data.form.formCreatorImageUrl"/>
+        <h4 class="user">{{data.form.formCreatorName}}</h4>
+      </div>
+      <div class="h_right">
+        <h6>{{data.form.formCreatedAt * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</h6>
+      </div>
+    </div>
+    <div class="as_content_body message">
+      <h4>{{data.form.formCreatorName}} added a new form <span class="formTitle">{{data.form.formTitle}}</span></h4> 
+      <button *ngIf="data.form.buttonSetting.showGoToForm === true && data.form.answersheetSlug === null" class="pbtncreate" (click)="goToFormSubmit()"> Go to Form</button>
+      <div *ngIf="data.form.buttonSetting.showGoToForm === false" class="event_tail">
+        <p class="submitted"><img [src]="assetUrl+'assets/images/as/read_check.png'" />Already submitted on {{data.form.formSubmittedAt * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</p>
+      </div>
+      <button *ngIf="data.form.buttonSetting.showGoToForm === true && data.form.answersheetSlug !== null && data.form.allowMultiSubmit === true" class="pbtncreate" (click)="goToFormSubmit()"> Submit again</button>
+     </div>
+   </div>
+</section>
+

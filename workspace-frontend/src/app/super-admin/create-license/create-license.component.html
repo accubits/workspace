@@ -1,0 +1,70 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="form_submit_wrap">
+    <div class="overlaypop" (click)="closeCreatePopup()"></div>
+    <div  class="form_submit_modal">
+      <div class="fs_header">
+          <h4>CREATE NEW LICENSE</h4>   
+      </div>
+      <div class="content"> 
+        <div class="filter_cancel_overlay" *ngIf="partnerPop" (click)="toggleClose()"></div>
+        <div class="fieldOuter element_input  left" (click)="partnerShow()">
+            <input type="text" placeholder="Select Partner" [(ngModel)]="organisationName" />
+           <!-- <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !organisationName" >Required Field</p>  -->
+            <div class="drop_drop_pop commonn_popup" *ngIf="partnerPop">
+                <section>
+                <ul>
+                  <li>option1</li>
+                  <li>option2</li>
+                  <li>option3</li>
+                  <li>option4</li>
+                </ul>
+                </section>
+            </div>
+        </div>
+        <div class="fieldOuter right">
+            <div class="filter_cancel_overlay" *ngIf="orgShow" (click)="toggleClose()"></div>
+            <div class="fieldOuter element_input  left" (click)="organisation()">
+                <input type="text" placeholder="Select Organisation" [(ngModel)]="organisationName" />
+               <!-- <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !organisationName" >Required Field</p>  -->
+                <div class="drop_drop_pop commonn_popup" *ngIf="orgShow">
+                    <section>
+                      <ul>
+                        <li>option1</li>
+                        <li>option2</li>
+                        <li>option3</li>
+                        <li>option4</li>
+                      </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="fieldOuter left">
+          <input type="text" placeholder="Max Users"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127"/> 
+          <!-- <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !partnerDataService.createLicense.maxUsers" >Required Field</p>  -->
+        </div>
+        <div class="fieldOuter left">
+          <div class="filter_cancel_overlay" *ngIf="toggleShow" (click)="toggleClose()"></div>
+          <div class="element_input drop_dropdown_wrap" (click)="toggleShow=!toggleShow">
+            <div class="drop_icon_input"></div>
+            <input class="ng-pristine ng-valid ng-touched" name="text" placeholder="Annual" readonly="true" type="text" ng-reflect-name="text" ng-reflect-model="">
+            <!-- <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !partnerDataService.createLicense.licenseType" >Required Field</p>   -->
+            <div class="drop_drop_pop commonn_popup" *ngIf="toggleShow">
+              <section (click)= "typeOfLicense(' Annual') ">
+                <ul>
+                <li>Annual</li>
+              </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+      <div class="fs_footer">
+        <button class="fs_footer_next">Create</button>
+        <button class="fs_footer_cancel" (click)="closeCreatePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+

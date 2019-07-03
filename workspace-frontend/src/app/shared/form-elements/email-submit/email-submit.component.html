@@ -1,0 +1,8 @@
+<div class="email_wrap">
+  <div class="fp_input">
+    <label>{{emailElement.email.label}}<span *ngIf = "data.email.isRequired" class="error">*</span></label>
+    <input type="text" class="email_input" name="text" placeholder="johndoe@example.com"  [(ngModel)]="emailSubmit.email.answer"  (ngModelChange)="validateElement()">
+    <p class="error" *ngIf="!emailElement.isValidated && dataService.formValidation.validating && !emailSubmit.email.answer">Required Field</p>
+    <p class="error" *ngIf="!emailElement.isValidFormat && dataService.formValidation.validating && emailSubmit.email.answer">Invalid email</p>
+  </div>
+</div>

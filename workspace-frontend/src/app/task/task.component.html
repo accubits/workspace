@@ -1,0 +1,221 @@
+<div class="panel panel-default">
+
+    <!--<app-popup-overlay></app-popup-overlay>-->
+
+    <div class="create_overlay" *ngIf="taskDataService.showCreatetaskpopup.show" (click)="taskDataService.showCreatetaskpopup.show = false">
+    </div>
+
+    <div class="create_overlay" *ngIf="taskDataService.taskFilterpopup.show" (click)="taskDataService.taskFilterpopup.show = false">
+    </div>
+
+    <div class="create_overlay" *ngIf="taskDataService.detailPopup.show" (click)="closeDetailPop()">
+    </div>
+
+    <div class="create_overlay" *ngIf="taskDataService.taskDetails.showEditTaskPop" (click)="closeEditDetailPop()">
+        
+    </div>
+
+    <router-outlet  name="detailpopup"></router-outlet>
+    <!-- <app-task-detailpopup *ngIf="taskDataService.detailPopup.show"></app-task-detailpopup> -->
+    <app-task-editpop *ngIf="taskDataService.taskDetails.showEditTaskPop"></app-task-editpop>
+    <div class="confirm_popup" *ngIf="taskDataService.deletePopup.show" (click)="closeOverlay()">
+        <div class="confirm_pop_body">
+            <section>
+                <div class="close_drop" (click)="taskDataService.deletePopup.show = false">
+                </div>
+                <p class="pop_main">Are you sure you want to delete this task ?</p>
+                <p class="pop_sub">{{taskDataService.taskDetails.selectedTaskDetails.title}}</p>
+            </section>
+            <section>
+                <div class="confirm_pop_btn" (click)="deleteTask()">
+                    Confirm
+                </div>
+                <div class="confirm_pop_btn" (click)="taskDataService.deletePopup.show = false">
+                    Cancel
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="confirm_popup" *ngIf="taskDataService.archivePopup.show" (click)="closeOverlay()">
+        <div class="confirm_pop_body">
+            <section>
+                <div class="close_drop" (click)="taskDataService.archivePopup.show = false">
+                </div>
+                <p class="pop_main">Are you sure you want to archive this task</p>
+                <p class="pop_sub">{{taskDataService.taskDetails.selectedTaskDetails.title}}</p>
+            </section>
+            <section>
+                <div class="confirm_pop_btn" (click)="archiveTask()">
+                    Confirm
+                </div>
+                <div class="confirm_pop_btn" (click)="taskDataService.archivePopup.show = false">
+                    Cancel
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="confirm_popup" *ngIf="taskDataService.deleteBulkPopup.show">
+        <div class="confirm_pop_body">
+            <section>
+                <div class="close_drop" (click)="taskDataService.deleteBulkPopup.show = false">
+                </div>
+                <p class="pop_main" *ngIf="this.taskDataService.taskRunManagement.selectedTaskIds.length === 1">Are you sure you want to delete this task</p>
+                <p class="pop_main" *ngIf="this.taskDataService.taskRunManagement.selectedTaskIds.length > 1">Are you sure you want to delete this tasks</p>
+
+            </section>
+            <section>
+                <div class="confirm_pop_btn" (click)="deleteBulkTask()">
+                    Confirm
+                </div>
+                <div class="confirm_pop_btn" (click)="taskDataService.deleteBulkPopup.show = false">
+                    Cancel
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="confirm_popup" *ngIf="taskDataService.priorityorfav.show">
+        <div class="confirm_pop_body">
+            <section>
+                <div class="close_drop" (click)="taskDataService.priorityorfav.show = false">
+                </div>
+                <p class="pop_main">{{priorityOrfavPopupText}}</p>
+              
+
+            </section>
+            <section>
+                <div class="confirm_pop_btn" (click)="confirmPriorityOrfav()">
+                    Confirm
+                </div>
+                <div class="confirm_pop_btn" (click)="taskDataService.priorityorfav.show = false">
+                    Cancel
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- <div class="filter_cancel_overlay" *ngIf="taskDataService.completePopup.show" (click)="cancelCompletion()"></div> -->
+    <div class="confirm_popup"  *ngIf="taskDataService.completePopup.show" (click)="cancelCompletion()">
+        <div class="confirm_pop_body">
+            <section>
+                <!-- <div class="close_drop" (click)="taskDataService.completePopup.show = false">
+                </div> -->
+                <p class="pop_main">Are you sure you want to complete this tasks</p>
+                <!-- <p class="pop_sub">{{taskDataService.taskDetails.selectedTaskDetails.title}}</p> -->
+            </section>
+            <section>
+                <div class="confirm_pop_btn" (click)="completeTask()">
+                    Confirm
+                </div>
+                <div class="confirm_pop_btn" (click)="cancelCompletion()">
+                        Cancel
+                    </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="panel-heading">
+        <h3 class="panel-title ph3inline">Tasks</h3>
+
+        <!-- <div class="head_tag_wrap" *ngIf="taskDataService.getTasks.isFilterdBy == true;">
+            <div class="head_tag" *ngFor="let tl of taskDataService.selectedFilters.itemsInFilter;let idx=index">
+                {{tl.displayName}}
+                <div class="sel_filt_close" (click)="removeFilterList(filters)">
+                </div>
+            </div>
+        </div> -->
+        
+        <div class="head_tag" *ngIf="taskDataService.getTasks.isFilterdBy == true;" (click)="resetFilter()">
+                Reset Filter
+        </div>
+        
+
+        <!-- <div class="pagination_wrap deal_listing_pagination">
+                <div class="pagination_outer">
+                  <pagination-controls (pageChange)="pageChanged($event)"  previousLabel="" nextLabel="" maxSize="3"></pagination-controls>
+                </div>
+        </div> -->
+
+
+        <div class="panel-right-holder pbtnsinline">
+            <div class="search_wrap" [ngClass]="{'open':showSearch}">
+                <div class="search_icon" (click)="showSearch = true"></div>
+                <div class="search_close" (click)="showSearch = false"></div>
+                <input type="text" placeholder="Search" [(ngModel)]="taskDataService.getTasks.searchText" (ngModelChange)="searchTasks($event)">
+            </div>
+
+            <button class="pbtnfilter" (click)="taskDataService.taskFilterpopup.show = true">
+                <img [src]="assetUrl+'assets/images/filter.png'" /> Filter</button>
+
+            <button class="pbtncreate" (click)="taskDataService.showCreatetaskpopup.show = true">Create</button>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <app-task-navbar></app-task-navbar>
+
+    <div class="panel-body" [hidden]="taskDataService.showCreatetaskpopup.show || taskDataService.detailPopup.show">
+
+        <router-outlet></router-outlet>
+        
+
+    </div>
+   
+
+    <app-task-filter *ngIf="taskDataService.taskFilterpopup.show"></app-task-filter>
+
+    <app-create-taskpop *ngIf="taskDataService.showCreatetaskpopup.show"></app-create-taskpop>
+
+</div>
+
+<div class="bottom_tab_wrap" *ngIf="taskDataService.taskRunManagement.showPopup">
+    <div class="bottom_tab">
+        <div class="btm_left_block">
+            <label>
+                <div class="check_outer">
+                    <input name="" type="checkbox">
+                    <div class="check" for="1_in"></div>
+                </div>
+            </label>
+            <div class="num_tag">
+                {{taskDataService.taskRunManagement.selectedTaskIds.length}}
+            </div>
+            <span>Selected</span>
+        </div>
+        <div class="btm_cntrl_btn" *ngIf="taskDataService.taskRunManagement.selectedTaskIds.length  === 1 && taskDataService.taskRunManagement.start === true" (click)="manageTaskStatus('start')">
+            <div class="btm_btn_ico start start_btn">
+            </div>
+            Start
+        </div>
+        <div class="btm_cntrl_btn" *ngIf="taskDataService.taskRunManagement.selectedTaskIds.length  === 1 && taskDataService.taskRunManagement.pause === true" (click)="manageTaskStatus('pause')">
+            <div class="btm_btn_ico pause_btn">
+            </div>
+            Pause
+        </div>
+        <div class="btm_cntrl_btn" *ngIf="taskDataService.taskRunManagement.selectedTaskIds.length  === 1 && taskDataService.taskRunManagement.complete === true" (click)="manageTaskStatus('complete')">
+            <div class="btm_btn_ico complete_btn">
+            </div>
+            Complete
+        </div>
+        <div class="btm_right_block">
+            <div class="bottom_right_btns">
+                <div class="btm_btn_ico alert_btn" (click)="showPriorityOrfav('priority')">
+                </div>
+                <div class="btm_btn_ico star_btn" (click)="showPriorityOrfav('favourite')">
+                </div>
+                <div class="btm_btn_ico edt_btn" *ngIf="taskDataService.taskRunManagement.selectedTaskIds.length  === 1">
+                </div>
+                <div class="btm_btn_ico del_btn" (click)="showDeleteTask()">
+                </div>
+                <!-- <div class="btm_btn_ico archive_btn">
+                </div>
+                <div class="btm_btn_ico more_btn"> -->
+                <!-- </div> -->
+                <!--<div class="sc_btn">-->
+                <!--Complete-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

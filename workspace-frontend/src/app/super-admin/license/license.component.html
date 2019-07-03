@@ -1,0 +1,58 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h3 class="panel-title ph3inline">LICENSE</h3>
+        <div class="panel-right-holder pbtnsinline">
+            <button class="pbtnfilter filter" *ngIf="router.url === '/super-admin/license/current-license'" (click)="filterPop()"><img src="/assets/images/filter.png"> Filter</button>
+            <button class="pbtnfilter filter" *ngIf="router.url === '/super-admin/license/request'" (click)="requestFilter()"><img src="/assets/images/filter.png"> Filter</button>
+            <button class="pbtnfilter filter" *ngIf="router.url === '/super-admin/license/expired'" (click)="showFilter()"><img src="/assets/images/filter.png"> Filter</button>
+            <button class="pbtnfilter filter" *ngIf="router.url === '/super-admin/license/awaiting-activation'" (click)="showAwaitingFilter()"><img src="/assets/images/filter.png"> Filter</button>
+            <button class="pbtnfilter" (click)="showCreate()">Issue New License</button>
+
+            <div class="createNew" *ngIf = "superAdminDataService.createLicense.show">
+                <app-create-license></app-create-license>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="licenseOuter">
+        <app-license-header></app-license-header>
+
+    </div>
+
+      <!-- <div class="bottom_tab_wrap">
+            <div class="bottom_tab">
+                <div class="btm_left_block">
+                    <label>
+                        <div class="check_outer">
+                            <input name="" type="checkbox">
+                            <div class="check" for="1_in"></div>
+                        </div>
+                    </label>
+                    <div class="num_tag">
+                        3
+                    </div>
+                    <span>Selected</span>
+                </div>
+
+                <div class="btm_right_block">
+                    <div class="bottom_right_btns">
+
+                        <div class="btm_btn_ico edt_btn">
+                          <span class="tooltiptext">Renew</span>
+                        </div>
+
+                        <div class="btm_btn_ico del_btn">
+                            <span class="tooltiptext">Delete</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+          </div> -->
+          <router-outlet></router-outlet>
+</div>
+<app-expired-filter *ngIf="superAdminDataService.filterPopup.show" ></app-expired-filter>
+<app-awaiting-filter *ngIf="superAdminDataService.awaitingFilter.show" ></app-awaiting-filter>
+<app-license-filter *ngIf="superAdminDataService.licenseFilter.show"></app-license-filter>
+<app-request-filter *ngIf="superAdminDataService.requestFilter.show"></app-request-filter>

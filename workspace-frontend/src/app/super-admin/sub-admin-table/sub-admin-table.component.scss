@@ -1,0 +1,228 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.drive_wrap{
+    position: relative;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+@media (max-width:1366px){
+    .table_head .table-blocks span {
+        position: relative;
+        padding-right: 25px;
+        cursor: pointer;
+        // font-family: roboto-regular;
+        font-size: 13px;
+    }
+}
+.Content .table_head .table-blocks span:after{
+    display: none;
+}
+.Content .table_head.table_row .table-blocks {
+    background: #fff !important;
+    position: relative;
+    border-bottom: none;
+    padding-top: 15px;
+    height: 100%;
+    cursor: pointer;
+    padding-bottom: 15px;
+    text-overflow: ellipsis;
+    // overflow: hidden;
+    white-space: nowrap;
+}
+.moreoptionOverlay {
+    //content: '';
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 999999;
+}
+.Content .table_head.table_row {
+    background: #fff;
+    height: 100%;
+    position: relative;
+}
+.Profile span {
+    padding-left: 50px;
+    color: #006df0;
+    font-family: 'Roboto-Medium';
+}
+.Content .table-blocks.clickButton {
+    width: 30px;
+    cursor: pointer;
+    height: 65px !important;
+}
+.filter_cancel_overlay {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9;
+}
+.avatar {
+    background-image: url("/assets/images/account-dp.png");
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+    top: 17px;
+    position: absolute;
+}
+.table_head.table_row .table-blocks {
+    background-color: #f6f6f6;
+    height: 44px;
+    line-height: 44px;
+    border-bottom: 1px solid #e5e7f0;
+    font-family: roboto-regular;
+}
+.table_head .table-blocks {
+    color: #424e5c;
+    // font-weight: bold;
+    font-size: 13px;
+    font-family: roboto-regular!important;
+}
+.table_head.table_row .table-blocks:nth-child(2) {
+    width: 23%;
+}
+.table-blocks.Organisation {
+    width: 20%;
+}
+.table_head .table-blocks:nth-child(4) {
+    width: 15%;
+}
+.table_head.table_row .table-blocks:nth-child(5) {
+    width: 30%;
+}
+
+.table_row .table-blocks:nth-child(1) {
+    width: 5%;
+    text-align: center;
+}
+.table_row .table-blocks:nth-child(6) {
+  width: 5%;
+  text-align: right;
+}
+.table_head {
+    background-color: #f6f6f6;
+    height: 45px;
+    line-height: 44px;
+    border-bottom: 1px solid #e5e7f0;
+    // border-top: 1px solid #e5e7f0;
+}
+
+.table-blocks {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    box-sizing: border-box;
+    height: 70px;
+    line-height: 70px;
+    color: #424e5c;
+}
+.check_outer {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    z-index: 1;
+    display: inline-block;
+    cursor: pointer;
+}
+.dotImage {
+    width: 20px;
+    height: 20px;
+    background-image: url("/assets/images/more.png");
+    display: inline-block;
+    vertical-align: middle;
+    /* border-radius: 50%; */
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 3%;
+    position: absolute;
+    top: 27px;
+    background-size: contain;
+    right: 10px;
+    cursor: pointer;
+}
+.Date span:hover {
+    color: #ff2342;
+    transition: all 0.2s ease-in;
+}
+.atc_btn
+{
+    height: 32px;
+    line-height: 30px;
+    padding: 0 15px;
+    background-color: #d9e9fd;
+    border-radius: 3px;
+    color: #006df0;
+    font-size: 13px;
+    position: absolute;
+    right: 50px;
+    cursor: pointer;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-right: 10px;
+    top: 20px;
+    font-family: Roboto-Medium;
+}
+.mail {
+  line-height: 100%;
+  font-size: 13px;
+  padding-top: 15px;
+  display: flex;
+}
+.mailIcon {
+  background-image: url("/assets/images/assets-employees/black-envelope.png");
+  width: 14px;
+  height: 14px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 15px;
+}
+.phone {
+  line-height: 100%;
+  font-size: 13px;
+  // padding-top: 15px;
+  display: flex;
+}
+.phoneIcon
+{
+  background-image: url("/assets/images/assets-employees/phone-receiver.png");
+  width: 14px;
+  height: 14px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 15px;
+}
+.overlay
+{
+    //background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+   // z-index: 2;
+}
+.moreOuter
+{
+  position: absolute;
+  right: 10px;
+}

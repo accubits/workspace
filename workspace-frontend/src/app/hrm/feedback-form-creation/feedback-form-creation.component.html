@@ -1,0 +1,42 @@
+<div class="new_form">
+    <div class="overlaypop" (click)="hrmDataService.newFormCreation.show = false"></div>
+    <div class="new_form_wrap">
+      <div class="new_form_wrap_header">
+        <h4>Create New Form</h4>
+        <a class="close" (click)="hrmDataService.newFormCreation.show = false">&times;</a>
+      </div>
+      <div class="new_form_wrap_body">
+        <div class="new_form_content">
+          <div class="new_form_content_row">
+            <input type="text" placeholder="Title" class="new_form_input" onkeypress="return (event.charCode > 64 &&
+            event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" [(ngModel)]="dataService.createForm.title">
+          </div>
+          <div class="new_form_content_row">
+            <textarea class="new_form_textarea" [(ngModel)]="dataService.createForm.description" maxlength="250" placeholder="Description"></textarea>
+          </div>
+          <div class="new_form_content_row">
+              <div class="checkbox">
+                  <label>
+                    <div class="check_outer">
+                      <input name="" type="checkbox" [(ngModel)]="dataService.createForm.allowMultiSubmit">
+                      <div class="check" for="1_in"></div>
+                    </div>
+                  </label>
+                  <span>Allow multiple submission</span>
+                </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="new_form_wrap_footer">
+        <ul>
+          <li>
+            <button (click)="createForm()" class="new_form_footer_next">Create</button>
+          </li>
+          <li>
+            <button (click)="hrmDataService.newFormCreation.show = false" class="new_form_footer_cancel">Cancel</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

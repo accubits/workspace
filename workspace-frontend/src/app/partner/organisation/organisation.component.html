@@ -1,0 +1,74 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title ph3inline">ORGANISATION</h3>
+        <div class="panel-right-holder pbtnsinline">
+            <button class="pbtnfilter" (click)="partnerDataService.showCreateOrganisationpopup.show = true">New</button>
+        </div>
+      </div>
+  </div>
+  <app-all-org-header></app-all-org-header>
+  <app-org-table-head></app-org-table-head>
+
+  <router-outlet></router-outlet>
+<!--
+  <app-org-table *ngIf="partnerDataService.OrganisationTab.show"></app-org-table>
+  <app-unlicense-table *ngIf="partnerDataService.LicenseTab.show"></app-unlicense-table>
+  <app-licensed-org-table *ngIf="partnerDataService.LicensedOrgTab.show"></app-licensed-org-table> -->
+
+  <app-create-org *ngIf="partnerDataService.showCreateOrganisationpopup.show"></app-create-org>
+
+  <!--bottom popup starts-->
+  <div class="bottom_tab_wrap" *ngIf="partnerDataService.organisationDetails.selectedOrganisationIds.length > 0">
+    <div class="bottom_tab">
+        <div class="btm_left_block">
+            <label>
+                <div class="check_outer">
+                    <input name="" type="checkbox">
+                    <div class="check" for="1_in"></div>
+                </div>
+            </label>
+            <div class="num_tag">
+                {{partnerDataService.organisationDetails.selectedOrganisationIds.length}}
+            </div>
+            <span>Selected</span>
+        </div>
+        <!-- <div class="btm_cntrl_btn">
+            <div class="btm_btn_ico start start_btn">
+            </div>
+            Start
+        </div> -->
+        <!-- <div class="btm_cntrl_btn">
+            <div class="btm_btn_ico pause_btn">
+            </div>
+            Pause
+        </div> -->
+        <!-- <div class="btm_cntrl_btn">
+            <div class="btm_btn_ico complete_btn">
+            </div>
+            Complete
+        </div> -->
+        <div class="btm_right_block">
+            <div class="bottom_right_btns">
+                <!-- <div class="btm_btn_ico alert_btn">
+                </div>
+                <div class="btm_btn_ico star_btn">
+                </div> -->
+                <div class="btm_btn_ico edt_btn"  *ngIf=" this.partnerDataService.organisationDetails.selectedOrganisationIds.length == 1" (click)="editOrganisation()">
+                </div>
+                <div class="btm_btn_ico recycle_btn">
+                </div>
+                <div class="btm_btn_ico del_btn" (click)="deleteOrganisations()">
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+  </div>
+  <!--bottom popup ends-->
+</div>
+<app-license-pop *ngIf="partnerDataService.renewLicensePopup.show"></app-license-pop>
+ <app-edit-org *ngIf="partnerDataService.showEditOrganisationpopup.show"></app-edit-org>
+  <app-create-org-license *ngIf="partnerDataService.requestLicensePopup.show"></app-create-org-license>
+<app-delete-org-confirm *ngIf="partnerDataService.deleteBulkPopup.show"></app-delete-org-confirm>
+  <app-delete-org-confirm *ngIf="this.partnerDataService.cancelRequestPop.showPopup"></app-delete-org-confirm>

@@ -1,0 +1,105 @@
+<div class="feedback">
+    <!-- request accordion -->
+    <div class="accordion-head" (click)="showTrainingEvaluation()" [ngClass]="{'accord_active': isValidated}">
+      <p>POST TRAINING EVALUATION ({{hrmDataService.getFeedbackForms.length}})</p><div  class="arrow_drop"></div>
+      <div class="atc_btn_form" (click)="showFormCreationBlock()">Create post training evaluation form</div>
+      </div>
+      <div class="train-table" *ngIf="trainingEvaluation" >
+      <div class="table_head table_row" >
+          <div class="table-blocks">
+            <span>FORM NAME</span>
+          </div>
+          <div class="table-blocks">
+            <span>CREATED ON</span>
+          </div>
+                </div>
+        <section class="table-wrap" >
+          <div class="table_list table_row" *ngFor ="let forms of hrmDataService.getFeedbackForms">
+            <section class="t_row_hover">
+              <div class="table-blocks ">
+                <span class="leave_date_from">{{forms.formTitle}}</span>
+              </div>
+              <div class="table-blocks">
+                <span class="leave_date_from">{{forms.createdAt *1000 | date: 'dd MMM yyyy '}}</span>
+              </div>
+              <div class="table-blocks approve-blk">
+                <div class="moreoptionOverlay" *ngIf="moreOptionFirst" (click)="hideMoreOptionFirst()"></div>
+                <div class="more" (click)="showMoreOptionFirst()">
+                  <div class="dotPopup" *ngIf="moreOptionFirst">
+                    <div class="fl_more_option_container">
+                      <div class="fl_more_option">
+                        <ul>
+                          <li>
+                            Delete
+                          </li>
+                          <li>
+                            Edit
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </section>
+          </div>
+
+        </section>
+
+      </div>
+      <!-- approved accordion -->
+      <div class="accordion-head second"  (click)="showCourseEvaluation()" [ngClass]="{'accord_active': isValidateOngoing}">
+        <p>POST COURSE EVALUATION ({{hrmDataService.getCourseForms.length}})</p>
+        <div class="arrow_drop"></div>
+        <div class="atc_btn_form" (click)="showPostCourseFormBlock()">Create post course evaluation form</div>
+
+      </div>
+      <div class="train-table" *ngIf="courseEvaluation">
+        <div class="table_head table_row">
+          <div class="table-blocks">
+            <span>FORM NAME</span>
+          </div>
+          <div class="table-blocks">
+            <span>CREATED ON</span>
+          </div>
+        </div>
+        <section class="table-wrap" >
+          <div class="table_list table_row"  *ngFor ="let coursForm of hrmDataService.getCourseForms">
+            <section class="t_row_hover">
+              <div class="table-blocks ">
+                <span class="leave_date_from">{{coursForm.formTitle}}</span>
+              </div>
+              <div class="table-blocks">
+                <span class="leave_date_from">{{coursForm.createdAt *1000 | date: 'dd MMM yyyy '}}</span>
+              </div>
+              <div class="table-blocks approve-blk">
+             <div class="moreoptionOverlay" *ngIf="moreOption" (click)="hideMoreOption()"></div>
+                <div class="more" (click)="showMoreOption()">
+                  <div class="dotPopup" *ngIf="moreOption" >
+                    <div class="fl_more_option_container">
+                      <div class="fl_more_option">
+                        <ul>
+                          <li>
+                            Delete
+                          </li>
+                          <li>
+                            Edit
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+
+      </div>
+    <!-- Active accordion -->
+</div>
+
+<app-feedback-form-creation *ngIf="hrmDataService.newFormCreation.show"></app-feedback-form-creation>

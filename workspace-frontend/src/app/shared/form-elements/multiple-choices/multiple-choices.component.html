@@ -1,0 +1,159 @@
+<div class="elements_wrap multiplechoice_wrap" (click)="activateElement()"id="{{currentElementIndex}}">
+	<div class="element_pad">
+		<div class="elements_head">
+			<div class="ele_icon ele_icon_multiplechoice">
+			</div>
+			<h4>Multiple Choice</h4>
+		</div>
+		<div class="element_body active_element" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+			<div class="element_input">
+				<input #focus (focus)="dataService.formElements.focusSelect=true" (blur)= "dataService.formElements.focusSelect=false" type="text" class="checkboxes_input" name="text" placeholder="Enter the title" dnd-nodrag [(ngModel)]="multipleChoiceElement.multipleChoice.label" (ngModelChange)="validateElement()"> 
+				<p class="error" *ngIf="!this.multipleChoiceElement.isValidated && dataService.formValidation.validating && !multipleChoiceElement.multipleChoice.label">Required Field</p>
+
+			</div>
+			<div class="checkboxes_wrap_choice_heading">
+				<p>Choices</p>
+			</div>
+			<div class="dropzone custom_dropzone">
+			<div  [dndList]="{ allowedTypes: ['multipleChoice']}" [dndModel]="multipleChoiceElement.multipleChoice.choices" class="col-md-12 draganddrop_area custom_dropzone"  (dndInserted)="inserted($event)">
+				<div *ngFor="let choice of multipleChoiceElement.multipleChoice.choices;let idx=index">
+					<div class="mul_container" [dndType]="'multipleChoice'" [dndDragDisabled]='dataService.formElements.focusSelect' [dndDraggable]="{effectAllowed:'move'}" (dndMoved)="removeItem(choice, multipleChoiceElement.multipleChoice.choices)" [dndObject]="choice">
+						<ul>
+							<li>
+								<div class="ele_icon drag_inner"></div>
+							</li>
+							<li>
+								<div class="radio_out">
+									<input id="radio_id3" name="repeat_radio" type="radio" [disabled]="true">
+									<div class="custom_radio" for="radio_id3"></div>
+								</div>
+							</li>
+							<li>
+								<div class="element_input">
+									<input (focus)="dataService.formElements.focusSelect=true" (blur)= "dataService.formElements.focusSelect=false" type="text" class="" name="text" placeholder="Enter the choice" autocomplete="off"   [(ngModel)]="multipleChoiceElement.multipleChoice.choices[idx].label" (ngModelChange)="validateElement()" >
+								    <p class="error" *ngIf="!this.multipleChoiceElement.isValidated && dataService.formValidation.validating && !multipleChoiceElement.multipleChoice.choices[idx].label">Required Field</p>
+								</div>
+								<div class="max_input" [hidden]="!showMaxQuantity">
+									<span>Max Quantity :</span>
+									<input type="text" class="" name="text" placeholder="Leave It Blank If No Limit" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 0 ||event.charCode == 127" [(ngModel)]="multipleChoiceElement.multipleChoice.choices[idx].maxQuantity">
+								</div>
+							</li>
+							<li *ngIf="multipleChoiceElement.multipleChoice.choices.length > 2" (click)="deleteFormChoice(idx)">
+								<div class="ele_icon delicon"></div>
+							</li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>	
+			</div>
+		</div>
+		
+		
+			<div class="">
+				<ul>
+					<li>
+						<div class="addanothercitem">
+							<!-- <input type="text" class="addanothercitem" name="text" placeholder="Add another choice" dndNoDrag (keypress)="addChoice($event)" > -->
+							<div class="add_an" (click)="addChoice($event)">Add</div>
+						</div>
+					</li>
+				</ul>
+
+				
+			</div>
+			<div class="clear"></div>
+
+			<div class="ele_icon drag_outer">
+			</div>
+		</div>
+		<div class="element_body inactive_element" [ngClass]="{'active_element': dataService.formElementToggle.activeIndex === currentElementIndex}">
+			<div class="p_label">
+				<label>{{multipleChoiceElement.multipleChoice.label || 'Enter the title'}}</label>
+			</div>
+			<div class="checkboxes_wrap_choice_heading">
+				<p>Choices</p>
+			</div>
+			<div class="mul_container" *ngFor="let choice of multipleChoiceElement.multipleChoice.choices;let idx=index" >
+				<ul>
+					<li>
+						<div class="radio_out">
+							<input id="radio_id3" name="repeat_radio" type="radio">
+							<div class="custom_radio" for="radio_id3"></div>
+						</div>
+						{{choice.label || 'Enter the choice'}}
+						<!-- <span class="remainingin_mul">12 Remaining</span> -->
+					</li>
+				</ul>
+			</div>
+
+			<div class="ele_icon drag_outer">
+			</div>
+		</div>
+		<div class="element_footer active_element" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+			<ul class="efleft">
+				<li>
+					<div class="checkbox">
+						<label>
+							<div class="check_outer">
+								<input type="checkbox" id="1_in" name="" id="" [(ngModel)]="multipleChoiceElement.multipleChoice.isRequired" >
+								<div class="check" for="1_in"></div>
+							</div>
+							Required
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox">
+						<label>
+							<div class="check_outer">
+								<input type="checkbox" id="1_in" name="" id="" [(ngModel)]="multipleChoiceElement.multipleChoice.allowOther">
+								<div class="check" for="1_in"></div>
+							</div>
+							Allow other
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox">
+						<label>
+							<div class="check_outer">
+								<input type="checkbox" id="1_in" name="" id="" [(ngModel)]="showMaxQuantity" >
+								<div class="check" for="1_in"></div>
+							</div>
+							Max quantity
+						</label>
+					</div>
+				</li>
+			</ul>
+			<ul class="efright">
+				<li>
+					<button (click)="deleteElement()">Delete</button>
+				</li>
+				<li>
+					<button (click)="dulpicateElement()">Duplicate</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Delete popup start-->
+	<div *ngIf = "dataService.deletePopup[idx]" class="confirm_popup" >
+		<div class="confirm_pop_body">
+		  <section>
+			<div class="close_drop" (click)="closePopup()">
+			</div>
+			<p class="pop_main">Are you sure you want to delete the selected element?</p>
+		  </section>
+		  <section>
+			<div class="confirm_pop_btn" (click)="deleteConform()">
+			  Confirm
+			</div>
+			<div class="confirm_pop_btn" (click)="closePopup()">
+			  Cancel
+			</div>
+		  </section>
+		</div>
+	  </div>
+	<!-- Delete popup end-->
+</div>
+
+<!-- <app-delete-confirm-popup *ngIf = "dataService.deletePopup.show"></app-delete-confirm-popup> -->

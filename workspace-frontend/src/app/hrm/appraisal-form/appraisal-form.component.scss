@@ -1,0 +1,213 @@
+.tab-inner
+{
+  width: 100%;
+  padding: 20px 30px;
+  border-bottom: 1px solid #f1efef;
+}
+.tab-inner p{
+  color: #75818f;
+  font-size: 14px;
+}
+.pop-head h4 {
+    color: #002a5d;
+    text-align: left;
+    font-size: 16px;
+}
+.pop-head p {
+  color: #75818f;
+  font-size: 13px;
+  font-family: roboto-medium;
+  margin: 10px 0;
+}
+.pop-head p.para {
+  font-family: roboto-regular !important;
+  text-align: justify;
+}
+.select {
+  font-size: 13px;
+  display: inline-block;
+  margin-top: 30px;
+  color: #011936;
+  margin-bottom: 5px;
+  position: relative;
+
+}
+.optionBox ul{
+  list-style: none;
+}
+.optionBox li {
+  padding: 5px;
+  padding-left: 10px;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+.optionBox {
+  position: absolute;
+  background: #fff;
+  right: 32px;
+  width: 32%;
+  z-index: 10;
+  box-shadow: 0px 30px 114px 0px rgba(0, 0, 0, 0.1);
+}
+.optionBox li:hover {
+  background: #178ccb;
+  color: #fff;
+  transition: all 0.2s ease-in;
+}
+.pop-head.subHead {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+.formContent .pop-head.subHead {
+  cursor: pointer;
+}
+.marketOuter .para {
+  font-size: 13px !important;
+  margin: 10px 0px;
+  text-align: justify;
+}
+.subHead .icon {
+  width: 15px;
+  top: 3px;
+  height: 15px;
+}
+.selectBox {
+  display: inline-block;
+  padding: 15px 65px 15px 20px;
+  background: #f2f2f2;
+  position: relative;
+  cursor: pointer;
+  margin: 0px 12px;
+}
+
+.selectBox .icon {
+  background-image: url(/assets/images/down-arrow.png);
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 17px;
+  right: 20px;
+  transform: rotate(0deg);
+}
+.activeIcon .icon{
+  transform: rotate(-180deg);
+}
+.filter_cancel_overlay {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 9;
+}
+.tab-inner:nth-child(2) .pop-head {
+  border-bottom: 1px solid #f1efef;
+  padding-bottom: 15px;
+}
+
+.radio_section li{
+    list-style: none;
+}
+.radio_sector {
+    font-size: 13px;
+}
+.radio_out input:checked ~ .custom_radio {
+  background-color: #536273;
+}
+.radio_out input {
+    margin: 0;
+    z-index: 1;
+    opacity: 0;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+.radio_out {
+    z-index: 1;
+    width: 17px;
+    height: 17px;
+    position: relative;
+    background-color: #dde2e7;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.custom_radio {
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    z-index: -1;
+    border-radius: 50%;
+}
+.module-name
+{
+  padding: 20px;
+  background-color:#f4f4f4;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0px;
+  // z-index: 111;
+  position: relative;
+}
+.tab-inner:nth-child(2) .pop-head:nth-child(3) .module-name {
+  margin-bottom: 15px;
+}
+.tab-inner:nth-child(2) .pop-head:nth-child(3) {
+  border-bottom: none !important;
+}
+.module-name textarea
+{
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  width: 90%;
+}
+.module-name textarea::placeholder
+{
+  color: #bac0c7;
+  font-family: Roboto-Regular;
+  font-size: 14px;
+}
+.module-name label
+{
+  color: #bac0c7;
+  font-size: 13px;
+  display: inline-block;
+  vertical-align: top;
+}
+.module-name input
+{
+  width: 80%;
+  display: inline-block;
+  border: none;
+  background-color: transparent;
+  vertical-align: top;
+}
+.question {
+  padding: 20px 0px;
+  font-size: 14px;
+  color: #002a5d;
+  font-family: roboto-medium;
+}
+.comment-col{
+  width: auto;
+  display: inline-block;
+}
+.radioButton {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+.formContent {
+  background: #fff;
+}

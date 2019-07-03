@@ -1,0 +1,44 @@
+<div class="table_head table_row">
+  <div class="table-blocks">
+    <span>From</span>
+  </div>
+  <div class="table-blocks">
+    training name
+  </div>
+
+  <!-- <div class="table-blocks">
+    average
+  </div> -->
+  <div class="table-blocks">
+    cost
+  </div>
+  <div class="table-blocks">
+
+  </div>
+</div>
+<section class="table-wrap">
+  <div class="table_list table_row" (click)="showOverviewDetail(overviewTraining)" *ngFor="let overviewTraining of hrmDataService.requestTable.list ;let i=index" >
+    <section class="t_row_hover">
+      <div class="table-blocks employee_detail">
+        <div *ngIf="overviewTraining.imageUrl === null" class="employee_image"></div>
+        <div *ngIf="overviewTraining.imageUrl !== null" class="employee_image" [ngStyle]="{'background-image': 'url(' + overviewTraining.imageUrl + ')'}"></div>
+        <span class="employee_name">{{overviewTraining.userName}}</span>
+      </div>
+      <div class="table-blocks">
+        <span class="leave_date_from">{{overviewTraining.name}}</span>
+      </div>
+      <!-- <div class="table-blocks">
+        <span class="leave_date_to">12</span>
+      </div> -->
+      <div class="table-blocks">
+        <span class="leave_date_to">{{overviewTraining.cost}}</span>
+      </div>
+      <div class="table-blocks approve-blk">
+        <div class="more"></div>
+        <div class="clear"></div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<app-completed-detail *ngIf="hrmDataService.completedTrainingDetail.show"></app-completed-detail>

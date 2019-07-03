@@ -1,0 +1,140 @@
+.detail-tab-outer
+{
+padding: 0 20px;
+}
+.org-sec
+{
+  width: 100%;
+  margin: 30px 0;
+}
+.org-sec p{
+  color: #9aa3ad;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.org-sec h6
+{
+  color: #536273;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0;
+  font-family: Roboto-medium;
+  display: inline-block;
+  vertical-align: top;
+}
+.left-section
+{
+  width: 50%;
+  display: inline-block;
+}
+.partner_img
+{
+  background-image: url(/assets/images/all/tdp4.png);
+  width: 35px;
+  height: 35px;
+  border-radius:100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+}
+.partner h6
+{
+ padding-left: 10px;
+ color: #006df0;
+}
+.right-section
+{
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 30px;
+}
+.date-sec
+{
+ width: 100%;
+ padding: 0 0 20px 40px;
+ position: relative;
+}
+.blue::before
+{
+  background-image: url(/assets/images/blue.png);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+}
+.blue::after
+{
+  border-left: 1px dotted #006df0;
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 14px;
+  height: 100%;
+
+}
+.green::before
+{
+  background-image: url(/assets/images/green.png);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+}
+.green::after
+{
+  border-left: 1px dotted #3fd1a2;
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 14px;
+  height: 100%;
+
+}
+.red::before
+{
+  background-image: url(/assets/images/red.png);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+}
+.date-sec p
+{
+  color: #9aa3ad;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.date-sec h6{
+  color: #9aa3ad;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Roboto-medium;
+  display: inline-block;
+  vertical-align: top;
+}
+.date-sec p span
+{
+  color: #536273;
+}
+.pipe
+{
+  color: #9aa3ad;
+  font-size: 16px;
+  margin: 0 10px;
+  display: inline-block;
+}
+@media screen and (max-width:1366px)
+{
+  .org-sec p, .org-sec h6, .date-sec p,.date-sec h6
+  {
+    font-size: 14px;
+  }
+}

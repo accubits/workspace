@@ -1,0 +1,59 @@
+.bday_widget_wrap {
+    background-color: #fff;
+    //height: 60px;
+    line-height: 60px;
+    position: relative;
+}
+
+.bday_header h4 {
+    color: #002a5d;
+}
+
+.bday_header {
+    border-bottom: 1px solid #ececec;
+    padding: 0px 0px 0px 20px;
+}
+
+.bday_body {
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    padding: 0px 0px 20px 0px;
+}
+
+.emp_block img {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    left: 20px;
+    top: 18px;
+    border-radius: 50%;
+}
+
+.emp_details {
+    padding-left: 80px;
+}
+
+.emp_details h4 {
+    color: #2a6cfa;
+    line-height: 20px;
+}
+
+.emp_details p {
+    color: #969ea8;
+    padding-top: 5px;
+    line-height: 20px;
+    font-size: 14px;
+    font-family: Roboto-Medium;
+}
+.emp_block {
+    display: flex;
+    padding: 14px 0px 14px 0px;
+}
+.confetti
+{
+    position: absolute;
+    width: 50%;
+    right: 0;
+    bottom: 0;
+}

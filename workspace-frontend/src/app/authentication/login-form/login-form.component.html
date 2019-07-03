@@ -1,0 +1,49 @@
+<div class="compwrap" *ngIf="forgot">
+    <div class="login_widget">
+        <div class="widget_date_time">
+            <div class="widget_time fleft">
+                {{date | date:'hh : mm a' }}
+            </div>
+            <div class="widget_date fright">
+                {{date | date:'dd MMMM yyyy'}}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="widget_welcome">
+            <p>{{greet}}</p>
+            Please Log in to continue
+        </div>
+    </div>
+    <div class="loginerrormsg" [hidden]="!error">
+        <p>{{error}}</p>
+    </div>
+    <div class="login_form_container">
+        
+            <div class="input_wrapper">
+                <input type="text" [(ngModel)]="email" name="email" placeholder="Email">
+            </div>
+            <div class="input_wrapper log_btn_wrap">
+                <input type="password" [(ngModel)]="password" name="password" placeholder="Password">
+                <button class="login_button" (click)="login()">Login</button>
+            </div>
+            <div class="forgot_wrap">
+                <div class="fleft">
+                    <div class="checkbox">
+                        <label>
+                            <div class="check_outer">
+                                <input type="checkbox" id="1_in" name="" id="">
+                                <div class="check" for="1_in"></div>
+                            </div>
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+                <div class="fright">
+                    <div class="forgot_password" routerLink="forgot">Forgot Password ? </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+       
+    </div>
+</div>
+

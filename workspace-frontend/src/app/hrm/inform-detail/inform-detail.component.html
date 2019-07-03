@@ -1,0 +1,185 @@
+<div class="information-wrap">
+  <div class="inform-left">
+    <div class="detail-head">
+      <h4>PERSONAL INFORMATION</h4>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>PHOTO</span>
+      </div>
+      <div class="detail-right">
+        <div *ngIf="hrmDataService.getEmployeeDetails.imageUrl === null" class="photo"></div>
+        <div *ngIf="hrmDataService.getEmployeeDetails.imageUrl !== null" class="photo"
+          [ngStyle]="{'background-image': 'url(' + hrmDataService.getEmployeeDetails.imageUrl + ')'}"></div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>NAME</span>
+      </div>
+      <div class="detail-right">
+        {{hrmDataService.getEmployeeDetails.name}}
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>DATE OF BIRTH</span>
+      </div>
+      <div *ngIf="hrmDataService.getEmployeeDetails.birthDate !== null" class="detail-right">
+        {{hrmDataService.getEmployeeDetails.birthDate * 1000 | date: 'MMM dd, yyyy'}}
+      </div>
+      <div *ngIf="hrmDataService.getEmployeeDetails.birthDate === null" class="detail-right"></div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>INTERESTS</span>
+      </div>
+      <div *ngIf="hrmDataService.getEmployeeDetails.interest.length === '0'" class="detail-right">
+        <div class="clear"></div>
+      </div>
+      <div *ngIf="hrmDataService.getEmployeeDetails.interest.length > '0'" class="detail-right">
+        <span class="intrst"
+          *ngFor="let intrest of hrmDataService.getEmployeeDetails.interest; let i = index">{{intrest.title}}</span>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <!-- <div class="detail-head">
+              <h4>ATTACHMENTS</h4>
+              </div>
+              <div class="detail-row">
+                  <div class="detail-right">
+                    <ol>
+                    <li><div class="file">File 1.png</div></li>
+                    <li><div class="file">File 2.png</div></li>
+                  </ol>
+                   </div>
+
+                  </div> -->
+    <div class="clear"></div>
+  </div>
+  <div class="inform-right">
+    <div class="detail-head">
+      <h4>USER INFORMATION</h4>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>EMAIL ID</span>
+      </div>
+      <div class="detail-right">
+        {{hrmDataService.getEmployeeDetails.email}}
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>STATUS</span>
+      </div>
+      <div class="detail-right">
+        <span *ngIf="hrmDataService.getEmployeeDetails.userStatus === true" class="active">Active</span>
+        <span *ngIf="hrmDataService.getEmployeeDetails.userStatus === false" class="active">In-Active</span>
+        <!-- <span class="expire">Expire</span> -->
+      </div>
+    </div>
+    <!-- <div class="detail-row">
+                  <div class="detail-left">
+                      <span>POSITION</span>
+                    </div>
+                    <div class="detail-right">
+                      Teaching Assistant
+                    </div>
+                  </div> -->
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>DEPARTMENTS</span>
+      </div>
+      <div *ngIf="hrmDataService.getEmployeeDetails.departments.length === '0'" class="detail-right">
+
+        <div class="clear"></div>
+      </div>
+      <div *ngIf="hrmDataService.getEmployeeDetails.departments.length > '0'" class="detail-right">
+        <span *ngFor="let dept of hrmDataService.getEmployeeDetails.departments; let i = index"
+          class="dept">{{dept.departmentName}} <span *ngIf="dept.isdepartmentHead === true">Head Of Department</span></span>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>REPORTING TO</span>
+      </div>
+      <div class="detail-right">
+        <div *ngIf="hrmDataService.getEmployeeDetails.reportingManagerDetails.reportingManagerImgUrl === null"
+          class="profile-img"></div>
+        <div *ngIf="hrmDataService.getEmployeeDetails.reportingManagerDetails.reportingManagerImgUrl !== null"
+          class="profile-img"
+          [ngStyle]="{'background-image': 'url(' + hrmDataService.getEmployeeDetails.reportingManagerDetails.reportingManagerImgUrl + ')'}">
+        </div>
+        <span
+          class="profile-name">{{hrmDataService.getEmployeeDetails.reportingManagerDetails.reportingManagerName}}</span>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>DATE OF JOINING</span>
+      </div>
+      <div class="detail-right">
+        {{hrmDataService.getEmployeeDetails.joiningDate * 1000 | date: 'MMM dd, yyyy'}}
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+          <span>Street Address</span>
+        </div>
+        <div class="detail-right">
+            {{hrmDataService.getEmployeeDetails.streetAddress}}
+      </div>
+</div>
+<div class="detail-row">
+  <div class="detail-left">
+      <span>Address Line1</span>
+    </div>
+    <div class="detail-right">
+        {{hrmDataService.getEmployeeDetails.addressLine2}}
+  </div>
+</div>
+<div class="detail-row">
+<div class="detail-left">
+  <span>City</span>
+</div>
+<div class="detail-right">
+    {{hrmDataService.getEmployeeDetails.city}}
+</div>
+</div>
+<div class="detail-row">
+<div class="detail-left">
+<span>State / Province / Region</span>
+</div>
+<div class="detail-right">
+    {{hrmDataService.getEmployeeDetails.state}}
+</div>
+</div>
+<div class="detail-row">
+<div class="detail-left">
+<span>Postal / ZIP Code</span>
+</div>
+<div class="detail-right">
+    {{hrmDataService.getEmployeeDetails.zipcode}}
+</div>
+</div>
+<div class="detail-row">
+<div class="detail-left">
+<span>Country</span>
+</div>
+<div class="detail-right">
+    {{hrmDataService.getEmployeeDetails.Country}}
+</div>
+</div>
+    <div class="detail-row">
+      <div class="detail-left">
+        <span>PHONE NUMBER</span>
+      </div>
+      <div class="detail-right">
+        {{hrmDataService.getEmployeeDetails.phone}}
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

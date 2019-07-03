@@ -1,0 +1,129 @@
+<div class="settings-outer">
+  <div class="left-section">
+  <div class="bg-selector">
+   <h4>DASHBOARD BACKGROUND</h4>
+   <div class="bg-img" *ngIf ="!image"></div>
+   <div class="bg-img"  *ngIf ="image" [ngStyle]="{'background-image': 'url(' + image + ')'}"></div>
+   <div class="profile_fileupload">
+    <button class="btn">Change picture</button>
+    <input type="file" class="atc_btn chg-pic" name="myfile" (change) ="uploadFile($event.target.files)" />
+  </div>
+     <div class="reset">Reset to default</div>
+   <div class="clear"></div>
+ </div>
+</div>
+<div class="right-section">
+ <div class="textarea-outer">
+   <h4>DASHBOARD MESSAGE</h4>
+   <textarea placeholder="Enter Message" rows=5 [(ngModel)]="partnerDataService.changeBackgroundSettings.dashboardMsg"></textarea>
+ </div>
+ <div class="timezone-outer">
+    <h4>TIME ZONE</h4>
+    <input type="text" placeholder="" (click)="showTimeZone()" [(ngModel)]="partnerDataService.changeBackgroundSettings.timeZone">
+    <div class="arrow_drop"></div>
+    <div class="dropdown-outer" *ngIf="timeZone" >
+    <ul>
+      <li (click)="timeZoneType('(GMT-12:00) International Date Line West')">(GMT-12:00) International Date Line West</li>
+      <li (click)="timeZoneType('(GMT-11:00) Midway Island, Samoa')">(GMT-11:00) Midway Island, Samoa</li>
+      <li (click)="timeZoneType('(GMT-10:00) Hawaii')">(GMT-10:00) Hawaii</li>
+      <li (click)="timeZoneType('(GMT-09:00) Alaska')">(GMT-09:00) Alaska</li>
+      <li (click)="timeZoneType('(GMT-08:00) Pacific Time (US & Canada)')">(GMT-08:00) Pacific Time (US & Canada)</li>
+      <li (click)="timeZoneType('(GMT-08:00) Tijuana, Baja California')">(GMT-08:00) Tijuana, Baja California</li>
+      <li (click)="timeZoneType('(GMT-07:00) Arizona')">(GMT-07:00) Arizona</li>
+      <li (click)="timeZoneType('(GMT-06:00) Central America')">(GMT-06:00) Central America</li>
+      <li (click)="timeZoneType('(GMT-06:00) Central Time (US & Canada)')">(GMT-06:00) Central Time (US & Canada)</li>
+      <li (click)="timeZoneType('(GMT-06:00) Guadalajara, Mexico City, Monterrey')">(GMT-06:00) Guadalajara, Mexico City, Monterrey</li>
+
+      <li (click)="timeZoneType('(GMT-06:00) Saskatchewan')">(GMT-06:00) Saskatchewan</li>
+      <li (click)="timeZoneType('(GMT-05:00) Bogota, Lima, Quito, Rio Branco')">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</li>
+      <li (click)="timeZoneType('(GMT-05:00) Eastern Time (US & Canada)')">(GMT-05:00) Eastern Time (US & Canada)</li>
+      <li (click)="timeZoneType('(GMT-05:00) Indiana (East)')">(GMT-05:00) Indiana (East)</li>
+      <li (click)="timeZoneType('(GMT-04:00) Atlantic Time (Canada)')">(GMT-04:00) Atlantic Time (Canada)</li>
+
+      <li (click)="timeZoneType('(GMT-04:00) Caracas, La Paz')">(GMT-04:00) Caracas, La Paz</li>
+      <li (click)="timeZoneType('(GMT-04:00) Manaus')">(GMT-04:00) Manaus</li>
+      <li (click)="timeZoneType('(GMT-04:00) Santiago')">(GMT-04:00) Santiago</li>
+      <li (click)="timeZoneType('(GMT-03:30) Newfoundland')">(GMT-03:30) Newfoundland</li>
+      <li (click)="timeZoneType('(GMT-03:00) Brasilia')">(GMT-03:00) Brasilia</li>
+      <li (click)="timeZoneType('(GMT-03:00) Buenos Aires, Georgetown')">(GMT-03:00) Buenos Aires, Georgetown</li>
+      <li (click)="timeZoneType('(GMT-03:00) Greenland')">(GMT-03:00) Greenland</li>
+      <li (click)="timeZoneType('(GMT-03:00) Montevideo')">(GMT-03:00) Montevideo</li>
+
+
+      <li (click)="timeZoneType('(GMT-02:00) Mid-Atlantic')">(GMT-02:00) Mid-Atlantic</li>
+      <li (click)="timeZoneType('(GMT-01:00) Cape Verde Is.')">(GMT-01:00) Cape Verde Is.</li>
+      <li (click)="timeZoneType('(GMT-01:00) Azores')">(GMT-01:00) Azores</li>
+      <li (click)="timeZoneType('(GMT+00:00) Casablanca, Monrovia, Reykjavik')">(GMT+00:00) Casablanca, Monrovia, Reykjavik</li>
+      <li (click)="timeZoneType('GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London')">GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</li>
+      <li (click)="timeZoneType('(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna')">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</li>
+
+
+      <li (click)="timeZoneType('(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague')">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</li>
+      <li (click)="timeZoneType('(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb')">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</li>
+      <li (click)="timeZoneType('(GMT+01:00) West Central Africa')">(GMT+01:00) West Central Africa</li>
+      <li (click)="timeZoneType('(GMT+02:00) Amman')">(GMT+02:00) Amman</li>
+      <li (click)="timeZoneType('(GMT+02:00) Athens, Bucharest, Istanbul')">(GMT+02:00) Athens, Bucharest, Istanbul</li>
+      <li (click)="timeZoneType('(GMT+02:00) Beirut')">(GMT+02:00) Beirut</li>
+      <li (click)="timeZoneType('(GMT+02:00) Cairo')">(GMT+02:00) Cairo</li>
+
+
+      <li (click)="timeZoneType('(GMT+02:00) Harare, Pretoria')">(GMT+02:00) Harare, Pretoria</li>
+      <li (click)="timeZoneType('(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius')">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</li>
+      <li (click)="timeZoneType('(GMT+02:00) Jerusalem')">(GMT+02:00) Jerusalem</li>
+      <li (click)="timeZoneType('(GMT+02:00) Minsk')">(GMT+02:00) Minsk</li>
+      <li (click)="timeZoneType('(GMT+02:00) Windhoek')">(GMT+02:00) Windhoek</li>
+
+      <li (click)="timeZoneType('(GMT+03:00) Kuwait, Riyadh, Baghdad')">(GMT+03:00) Kuwait, Riyadh, Baghdad</li>
+      <li (click)="timeZoneType('(GMT+03:00) Moscow, St. Petersburg, Volgograd')">(GMT+03:00) Moscow, St. Petersburg, Volgograd</li>
+      <li (click)="timeZoneType('(GMT+03:00) Nairobi')">(GMT+03:00) Nairobi</li>
+      <li (click)="timeZoneType('(GMT+03:00) Tbilisi')">(GMT+03:00) Tbilisi</li>
+      <li (click)="timeZoneType('(GMT+03:30) Tehran')">(GMT+03:30) Tehran</li>
+
+      <li (click)="timeZoneType('(GMT+04:00) Abu Dhabi, Muscat')">(GMT+04:00) Abu Dhabi, Muscat</li>
+      <li (click)="timeZoneType('(GMT+04:00) Baku')">(GMT+04:00) Baku</li>
+      <li (click)="timeZoneType('(GMT+04:00) Yerevan')">(GMT+04:00) Yerevan</li>
+      <li (click)="timeZoneType('(GMT+04:30) Kabul')">(GMT+04:30) Kabul</li>
+      <li (click)="timeZoneType('(GMT+05:00) Yekaterinburg')">(GMT+05:00) Yekaterinburg</li>
+      <li (click)="timeZoneType('(GMT+05:00) Islamabad, Karachi, Tashkent')">(GMT+05:00) Islamabad, Karachi, Tashkent</li>
+      <li (click)="timeZoneType('(GMT+05:30) Sri Jayawardenapura')">(GMT+05:30) Sri Jayawardenapura</li>
+      <li (click)="timeZoneType('(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi')">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</li>
+      <li (click)="timeZoneType('(GMT+05:45) Kathmandu')">(GMT+05:45) Kathmandu</li>
+      <li (click)="timeZoneType('(GMT+06:00) Almaty, Novosibirsk')">(GMT+06:00) Almaty, Novosibirsk</li>
+      <li (click)="timeZoneType('(GMT+06:00) Astana, Dhaka')">(GMT+06:00) Astana, Dhaka</li>
+      <li (click)="timeZoneType('(GMT+06:30) Yangon (Rangoon)')">(GMT+06:30) Yangon (Rangoon)</li>
+      <li (click)="timeZoneType('(GMT+07:00) Bangkok, Hanoi, Jakarta')">((GMT+07:00) Bangkok, Hanoi, Jakarta</li>
+      <li (click)="timeZoneType('(GMT+07:00) Krasnoyarsk')">(GMT+07:00) Krasnoyarsk</li>
+      <li (click)="timeZoneType('(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi')">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</li>
+      <li (click)="timeZoneType('(GMT+08:00) Kuala Lumpur, Singapore')">(GMT+08:00) Kuala Lumpur, Singapore</li>
+
+      <li (click)="timeZoneType('(GMT+08:00) Irkutsk, Ulaan Bataar')">(GMT+08:00) Irkutsk, Ulaan Bataar</li>
+      <li (click)="timeZoneType('(GMT+08:00) Perth')">(GMT+08:00) Perth</li>
+      <li (click)="timeZoneType('(GMT+08:00) Taipei')">(GMT+08:00) Taipei</li>
+      <li (click)="timeZoneType('(GMT+09:00) Osaka, Sapporo, Tokyo')">(GMT+09:00) Osaka, Sapporo, Tokyo</li>
+      <li (click)="timeZoneType('(GMT+09:00) Seoul')">(GMT+09:00) Seoul</li>
+      <li (click)="timeZoneType('(GMT+09:00) Yakutsk')">(GMT+09:00) Yakutsk</li>
+      <li (click)="timeZoneType('(GMT+09:30) Adelaide')">(GMT+09:30) Adelaide</li>
+      <li (click)="timeZoneType('(GMT+09:30) Darwin')">(GMT+09:30) Darwin</li>
+      <li (click)="timeZoneType('(GMT+10:00) Brisbane')">(GMT+10:00) Brisbane</li>
+      <li (click)="timeZoneType('(GMT+10:00) Canberra, Melbourne, Sydney')">(GMT+10:00) Canberra, Melbourne, Sydney</li>
+      <li (click)="timeZoneType('(GMT+10:00) Hobart')">(GMT+10:00) Hobart</li>
+
+
+
+      <li (click)="timeZoneType('(GMT+10:00) Guam, Port Moresby')">(GMT+10:00) Guam, Port Moresby</li>
+      <li (click)="timeZoneType('(GMT+10:00) Vladivostok')">(GMT+10:00) Vladivostok</li>
+      <li (click)="timeZoneType('(GMT+11:00) Magadan, Solomon Is., New Caledonia')">(GMT+11:00) Magadan, Solomon Is., New Caledonia</li>
+      <li (click)="timeZoneType('(GMT+12:00) Auckland, Wellington')">(GMT+12:00) Auckland, Wellington</li>
+      <li (click)="timeZoneType('(GMT+12:00) Fiji, Kamchatka, Marshall Is')">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</li>
+      <!-- <li (click)="timeZoneType('(GMT+13:00) Nuku'alofa')">(GMT+13:00) Nuku'alofa</li> -->
+
+    </ul>
+  </div>
+  </div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="dashboard-footer">
+    <button class="pbtncreate" (click)="changePicture()">Save Changes</button>
+    <button class="req-cancel" (click)="discardChanges()">Discard Changes</button>
+</div>

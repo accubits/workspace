@@ -1,0 +1,84 @@
+<div class="elements_wrap name_wrap" (click)="activateElement()">
+	<div class="element_pad">
+		<div class="elements_head">
+			<div class="ele_icon ele_icon_userlist">
+			</div>
+			<h4>Userlist</h4>
+		</div>
+		<div class="element_body active_element" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+			<div class="element_input">
+				<input type="text" class="" name="text" placeholder="Enter heading">
+			</div>
+			<div class="module desktop-12 laptop-12 tablet-12">
+				<div class="module desktop-12 laptop-12 tablet-12">
+					<div class="element_line_input namewrap_input_side_pad">
+						<input [disabled]="true" type="text" class="" name="text" placeholder="Select users">
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="ele_icon drag_outer">
+			</div>
+		</div>
+		<div class="element_body inactive_element" [ngClass]="{'active_element': dataService.formElementToggle.activeIndex === currentElementIndex}">
+			<div class="p_label">
+				<label>Heading</label>
+			</div>
+			<div class="module desktop-12 laptop-12 tablet-12">
+				<div class="module desktop-12 laptop-12 tablet-12">
+					<div class="element_line_input namewrap_input_side_pad">
+						<input [disabled]="true" type="text" class="" name="text" placeholder="Select users">
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="ele_icon drag_outer">
+			</div>
+		</div>
+		<div class="element_footer active_element" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+			<ul class="efleft">
+				<li>
+					<div class="checkbox">
+						<label>
+							<div class="check_outer">
+								<input type="checkbox" id="1_in" name="" id="">
+								<div class="check" for="1_in"></div>
+							</div>
+							Multiple Entries
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox">
+						<label>
+							<div class="check_outer">
+								<input type="checkbox" id="1_in" name="" id="">
+								<div class="check" for="1_in"></div>
+							</div>
+							Required
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox">
+						<label>
+							<div class="check_outer">
+								<input type="checkbox" id="1_in" name="" id="">
+								<div class="check" for="1_in"></div>
+							</div>
+							No duplicates
+						</label>
+					</div>
+				</li>
+			</ul>
+			<ul class="efright">
+				<li>
+					<button (click)="deleteElement()">Delete</button>
+				</li>
+				<li>
+					<button>Duplicate</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

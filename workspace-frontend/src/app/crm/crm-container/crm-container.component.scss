@@ -1,0 +1,230 @@
+.crm-head
+{
+  position: relative;
+}
+.nav_wrap {
+  background-color: white;
+  z-index: 2;
+  display: flex;
+  border-bottom: 1px solid #e9ebf5;
+}
+.nav_wrap ul li {
+    text-decoration: none;
+    color: #75818f;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 30px 0 20px;
+    padding: 25px 0px 25px 0px;
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+}
+.info
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.search_wrap {
+  position: relative; //margin-top: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  float: right;
+  margin: 10px 20px 0px 0px;
+  vertical-align: middle;
+  -webkit-transition: width 0.2s linear 0s;
+  -moz-transition: width 0.2s linear 0s;
+  -ms-transition: width 0.2s linear 0s;
+  -o-transition: width 0.2s linear 0s;
+  transition: width 0.2s linear 0s;
+}
+
+.search_wrap .search_icon {
+  position: absolute;
+  top: 17px;
+  right: 8px;
+  width: 17px;
+  height: 16px;
+  background-image: url("/assets/images/searchdark.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.search_wrap input {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 14px;
+  line-height: 11px;
+  width: 0px;
+  padding: 5px 0px;
+  border: 0px solid;
+  border-radius: 0px !important;
+  height: 40px;
+  transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  background-color: transparent;
+}
+
+.search_wrap .search_close {
+  position: absolute;
+  top: 17px;
+  right: 8px;
+  width: 17px;
+  height: 16px;
+  cursor: pointer;
+  display: none;
+  z-index: 2;
+  background-image: url("/assets/images/searchClose.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.search_wrap.open {
+  width: 185px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.search_wrap.open input {
+  padding: 5px 15px;
+  width: 100%;
+  transition: all ease 0.4s; //border-bottom: 1px solid #cbcbcb;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+}
+
+.search_wrap.open .search_close {
+  display: block;
+}
+.info_icon
+{
+  position: absolute;
+  top: 25px;
+  opacity: .7;
+  right: 80px;
+  background-image: url(/assets/images/settings/info_copy.png);
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  cursor: pointer;
+}
+.bar
+{
+  background-color: #f1f2f4;
+  width: 20px;
+  height: 4px;
+  border-radius: 4px;
+  margin-right: -1.5px;
+  display: inline-block;
+}
+.bar-container p{
+  width: 45%;
+  display: inline-block;
+}
+.red{
+  background-color: #ff7d6f;
+  }
+  .red:hover{
+    border: 3px solid #ff7d6f;
+  }
+  .red-font{
+    color: #ff7d6f;
+  }
+  .Profile .unassign
+  {
+    color: #dcdfe2 !important;
+    font-family: 'Roboto-regular';
+  }
+  .orange
+  {
+    background-color: #ffa561;
+  }
+  .orange:hover{
+    border: 3px solid #ffa561;
+  }
+  .orange-font{
+    color: #ffa561;
+  }
+  .green{
+   background-color: #29cc97;
+  }
+  .green:hover{
+    border: 3px solid #29cc97;
+  }
+  .green-font{
+    color: #29cc97;
+  }
+  .magenta
+  {
+    background-color: #ea5676;
+  }
+  .magenta:hover{
+    border: 3px solid #ea5676;
+  }
+  .magenta-font{
+    color: #ea5676;
+  }
+  .yellow
+  {
+    background-color: #ffbc47;
+  }
+  .yellow:hover{
+    border: 3px solid #ffbc47;
+  }
+  .yellow-font{
+    color: #ffbc47;
+  }
+  .blue
+  {
+    background-color: #007aff;
+  }
+ .blue:hover
+ {
+  border: 3px solid #007aff;
+ }
+  .blue-font
+  {
+    color: #007aff;
+    line-height: 20px;
+  }
+  .dark-blue
+  {
+    background-color: #405089;
+  }
+  .dark-blue:hover{
+    border: 3px solid #405089;
+  }
+  .dark-blue-font{
+    color: #405089;
+  }
+
+.drop-down {
+  background-color: #fff;
+  box-shadow: 0px -9px 40px 0px #00000021;
+  position: absolute;
+  z-index: 1;
+  width: 350px;
+  right: 60px;
+  top: 10px;
+}
+.bar-container {
+  padding: 10px 20px;
+  font-size: 13px;
+}
+.drop-head {
+  color: #536273;
+  font-size: 13px;
+  font-family: Roboto-Medium;
+  text-transform: uppercase;
+  padding: 20px;
+  border-bottom: 1px solid #e9ebf5;
+}

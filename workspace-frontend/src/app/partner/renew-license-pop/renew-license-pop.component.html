@@ -1,0 +1,98 @@
+<!--popup starts-->
+<div class="modalOuter" (click)="closeOrgDetails()"></div>
+  <div class="form_submit_wrap" >
+    <div  class="form_submit_modal">
+      <div class="headerOuter">
+        <div class="fs_header">
+            <h4>LICENSE DETAILS</h4>
+            <span *ngIf ="partnerDataService.licenseDetails.tab === 'expired'">Expired</span>
+            <span *ngIf ="partnerDataService.licenseDetails.tab === 'currentLicenses'" class="green">Ongoing  {{partnerDataService.selectedCurrentLicenses.onGoingdaysLeft}} days left</span>
+        </div>
+        <div class="pop_close" (click)="closeOrgDetails()"></div>
+      </div>
+      <div class="nav_wrap">
+        <div class="tableDetailBottom">
+          <div class="tableDetailOuter">
+            <div class="tableDetail">
+              <h4>ORGANISATION</h4>
+            </div>
+            <div class="tableContent">
+               {{partnerDataService.selectedCurrentLicenses.orgName}}
+            </div>
+          </div>
+          <div class="tableDetailOuterBottom">
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>USERS</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedCurrentLicenses.maxUsers}}
+
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                  <h4>KEY</h4>
+                </div>
+                <div class="tableContent">
+                  {{partnerDataService.selectedCurrentLicenses.key}}
+                </div>
+            </div>
+          </div>
+          <div class="tableDetailOuterBottom">
+            <div class="tableDetail">
+                <h4>TYPE</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedCurrentLicenses.licenseType}}
+              </div>
+          </div>
+        </div>
+          <div class="tableDetailOuterNext">
+            <div class="tableDetailOuterBottomLast first" *ngIf="partnerDataService.selectedCurrentLicenses.requestedOn">
+              <div class="left_status Blue" ></div>
+              <div class="tableDetail" *ngIf="partnerDataService.selectedCurrentLicenses.requestedOn">
+                <h4>REQUESTED ON</h4>
+              </div>
+              <div class="tableContent" *ngIf="partnerDataService.selectedCurrentLicenses.requestedOn">
+                {{partnerDataService.selectedCurrentLicenses.requestedOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+              </div>
+            </div>
+            <div class="tableDetailOuterBottomLast">
+                <div class="left_status Blue"></div>
+                <div class="tableDetail">
+                  <h4>APPROVED ON</h4>
+                </div>
+                <div class="tableContent">
+                  {{partnerDataService.selectedCurrentLicenses.approvedOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+                </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+                <div class="left_status Green"></div>
+                <div class="tableDetail">
+                  <h4>STARTED ON</h4>
+                </div>
+                <div class="tableContent">
+                  {{partnerDataService.selectedCurrentLicenses.startedOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+                </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+                <div  [ngClass]="{'left_status Red':partnerDataService.licenseDetails.tab === 'expired' }" ></div>
+                <div [ngClass]="{'Dark':partnerDataService.licenseDetails.tab === 'currentLicenses' }"></div>
+
+                <div class="tableDetail">
+                  <h4>EXPIRES ON</h4>
+                </div>
+                <div class="tableContent">
+                  {{partnerDataService.selectedCurrentLicenses.expiresOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="fs_footer">
+        <button class="fs_footer_next" (click)="renewLicenseRequests()">Renew</button>
+      </div>
+    </div>
+  </div>
+<!--popup ends-->
+

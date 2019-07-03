@@ -1,0 +1,11 @@
+<div class="fp_input">
+  <div class="fr_question">
+    <label>{{phoneElement.phone.label}}</label>
+  </div>
+  <div *ngIf="phoneElement.phone.answer !== ''" class="fr_answer">
+    <p>{{phoneElement.phone.answer}}</p>
+  </div>
+  <div *ngIf="phoneElement.phone.answer === ''" class="fr_answer">
+    <p>not answered</p>
+  </div>
+</div>

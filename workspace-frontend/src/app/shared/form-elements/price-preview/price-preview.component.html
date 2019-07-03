@@ -1,0 +1,14 @@
+<div class="module desktop-4 laptop-4 tablet-12">
+  <div class="fp_input fp_input_inline">
+    <label>{{priceElement.price.label || "Enter the title"}}<span class="error" *ngIf = "priceElement.price.isRequired === true">*</span></label>
+    <span>Dollars</span>
+    <input type="text" class="" name="text" placeholder="" [disabled]="true">
+  </div>
+</div>
+<div class="module desktop-4 laptop-4 tablet-12">
+  <div class="fp_input fp_input_inline trans_label">
+    <label>Price</label> 
+    <span>Cents</span>
+    <input type="text" class="" readonly name="text" placeholder="" [disabled]="true">
+  </div>
+</div>

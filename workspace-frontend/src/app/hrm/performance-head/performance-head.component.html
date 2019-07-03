@@ -1,0 +1,14 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title ph3inline">HRM</h3>
+    <span class=panel-sub-title>Performance</span>
+    <div class="panel-right-holder pbtnsinline">
+        <button class="pbtncreate" *ngIf="router.url === '/authorized/hrm/performance/kra-modules'" (click)="showNewModule()" >New Module</button>
+        <button class="pbtncreate" *ngIf="router.url === '/authorized/hrm/performance/appraisal-cycle'" (click)="addAppraisalPop()">New Appraisal Cycle</button>
+    </div>
+  </div>
+</div>
+<app-add-appraisal-pop *ngIf="hrmDataService.addAppraisal.show"></app-add-appraisal-pop> 
+<app-new-module *ngIf="hrmDataService.newModule.show" ></app-new-module>
+

@@ -1,0 +1,170 @@
+.nav_wrap {
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    border-bottom: 1px solid #e9ebf5;
+}
+.nav_wrap ul {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top; // -webkit-box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    // box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+}
+.nav_wrap ul li {
+    text-decoration: none;
+    color: #75818f;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 35px;
+    padding: 25px 0px 25px 0px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+// .nav_wrap ul li {
+//     text-decoration: none;
+//     display: inline-block;
+//     vertical-align: middle;
+//     margin: 0px 30px 0px 30px;
+//     padding: 25px 0px 25px 0px;
+//     border-bottom: 3px solid transparent;
+//     cursor: pointer;
+//     position: relative;
+//     color: #424e5c;
+// }
+
+// .nav_wrap ul li:hover {
+//     border-bottom: 3px solid #ff2e4c;
+// }
+// .active_tab li {
+//     border-bottom: 3px solid #ff2e4c !important;
+//     font-weight: bold;
+//     color: #424e5c;
+// }
+.tar_nav_right_holder {
+    display: flex;
+    padding: 20px 20px 0px 0px;
+    position: relative;
+}
+.today_btn
+{
+    background-color: #d9e9fd;
+    height: 30px;
+    line-height: 30px;
+    min-width: 75px;
+    border-radius: 3px;
+    color: #006df0;
+    font-size: 13px;
+    font-family: Roboto-Medium;
+    text-align: center;
+    cursor: pointer;
+}
+.pick_nav
+{
+    background-color: #d9e9fd;
+    height: 30px;
+    width: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 6px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.date_data
+{
+    display: inline-block;
+    vertical-align: middle;
+    width: 150px;
+    text-align: center;
+    font-size: 13px;
+    color: #424e5c;
+}
+.year_month_picker
+{
+    min-width: 240px;
+    font-family: Roboto-Medium;
+}
+.nav_yr_right
+{
+    background-image: url(/assets/images/tar/next.png);
+}
+.nav_yr_left
+{
+    background-image: url(/assets/images/tar/prev.png)
+}
+.legend_btn
+{
+    width: 16px;
+    height: 16px;
+    background-image: url(/assets/images/tar/wt_info.png);
+    display: inline-block;
+    vertical-align: middle;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 7px;
+    background-size: contain;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.legend_head
+{
+    position: relative;
+    padding: 20px;
+    border-bottom: 1px solid #ededed;
+}
+.legend_body
+{
+    padding: 10px;
+}
+.legend_body section
+{
+    padding: 10px;
+    padding-left: 50px;
+    position: relative;
+}
+.leg_ico
+{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 20px;
+    top: 10px;
+    background-size: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cnf_ico
+{
+    background-image: url(/assets/images/tar/green_check.png)
+}
+.uncf_ico
+{
+    background-image: url(/assets/images/tar/exclamation.png)
+}
+.ho_ico
+{
+    background-image: url(/assets/images/tar/small_star.png)
+}
+.legend_pop
+{
+    box-shadow: 0px 30px 114px 0px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: absolute;
+    z-index: 9999999999;
+    background-color: white;
+    right: 9%;
+    top: 22%;
+    font-family: Roboto-Medium;
+    font-size: 14px;
+    color: rgb(66, 78, 92);
+}
+.leg_close
+{
+    position: absolute;
+    width: 12px;
+    cursor: pointer;
+    right: 20px;
+    top: 21px;
+}

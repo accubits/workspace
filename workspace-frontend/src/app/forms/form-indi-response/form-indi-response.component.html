@@ -1,0 +1,69 @@
+<div class="no_result_inOverview" *ngIf="dataService.formResponseManagement.reponseDetails['total'] === 0" >
+
+</div>
+<div class="" *ngIf="dataService.formResponseManagement.reponseDetails['total'] > 0">
+	<div class="form_indi_header">
+		<div class="form_indi_header_left">
+			<ul>
+				<li class="form_indi_header_left_count">
+					<ul>
+						<li (click)="navaigateResponse('previous')">
+							<button >
+								<img [src]="assetUrl+'assets/images/prev.png'" />
+							</button>
+						</li>
+						<li>
+							<p *ngIf="dataService.formResponseManagement.reponseDetails['total'] > 0">{{selectedRsponseindex + 1}} of {{dataService.formResponseManagement.reponseDetails['total']}}</p>
+							<!-- <p *ngIf="dataService.formResponseManagement.reponseDetails['total'] === 0">{{selectedRsponseindex}}</p> -->
+						</li>
+						<li>
+							<button (click)="navaigateResponse('next')">
+								<img [src]="assetUrl+'assets/images/next.png'" />
+							</button>
+						</li>
+					</ul>
+				</li>
+				<li class="indi_res_profile" >
+					<ul>
+						<li>
+							<span class="indi_user">User:</span>
+						</li>
+						<li>
+							<img class="indi_dp" [src]="assetUrl+'assets/images/all/tdp6.png'" />
+						</li>
+						<li>
+							<p>{{dataService.formResponseManagement.reponseDetails.formResponses[selectedRsponseindex].name}}</p>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="form_indi_header_right">
+			<ul>
+				<li>
+					<p class="indi_date">{{dataService.formResponseManagement.selectedResponseDetails.submitDateTime * 1000  | date: 'MMM dd, yyyy, hh:mm a' }}</p>
+				</li>
+				<li>
+					<span class="indi_submitted_date">Submitted Date:</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="form_indi_body">
+		<!-- <div class="indi_res_titlewrap indi_bodysection_pad">
+			<label>Enter Title</label>
+			<input type="text" placeholder="Lorem Ipsum">
+		</div> -->
+		<!-- For paginated respose-->
+	   <!-- <div class="fs_body_sector" *ngFor="let element of dataService.formResponseManagement.selectedPage[dataService.formResponseManagement.selectdPageSlug]"> --> 
+		<div class="fs_body_sector" *ngFor="let element of dataService.formResponseManagement.selectedResponseDetails.formComponents">
+			<app-form-response-loader [data]="element"></app-form-response-loader>
+		</div>
+		
+
+		<!-- <div class="indi_res_websitewrap indi_bodysection_pad">
+			<label>Enter Website</label>
+			<h4 class="indi_webite_link">www.example.com</h4>
+		</div> -->
+	</div>
+</div>

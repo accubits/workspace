@@ -1,0 +1,89 @@
+<div class="drive_wrap">
+    <div class="table_outer_block">
+      <div class="table_head table_row" *ngIf="partnerDataService.getLicenseDetails.license.length !== 0">
+        <div class="table-blocks"> 
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="partnerDataService.selectedLicenseDetails.selectedAll" (ngModelChange)="checkAllLicenses($event)"/>
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="table-blocks Organisation" [ngClass]="{'actives':partnerDataService.licensePageDetails.sortBy == 'organization' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('organization')">
+          <!-- <span class="tb_head_drop_arrow">ORGANISATION</span> -->
+          <span class="downArrow">ORGANISATION</span>
+
+        </div>
+        <div class="table-blocks"  [ngClass]="{'actives':partnerDataService.licensePageDetails.sortBy == 'key' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('key')">
+          <span class="downArrow">KEY</span>
+        </div>
+        <div class="table-blocks" [ngClass]="{'actives':partnerDataService.licensePageDetails.sortBy == 'maxUsers' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('maxUsers')">
+          <span class="downArrow">MAX USERS</span>
+        </div>
+        <div class="table-blocks" [ngClass]="{'actives':partnerDataService.licensePageDetails.sortBy == 'type' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('type')">
+          <span class="downArrow">TYPE</span>
+        </div>
+        <div class="table-blocks" [ngClass]="{'actives':partnerDataService.licensePageDetails.sortBy == 'approved' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('approved')">
+          <span class="downArrow">APPROVED ON</span>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!--table content strts-->
+<div class="main_out">
+
+    <div class="drive_wrapDetail" (click) ="showLicenseDetails(i)" *ngFor="let licenses of partnerDataService.getLicenseDetails.license| paginate: { itemsPerPage: partnerDataService.licensePageDetails. perPage, currentPage:partnerDataService.licensePageDetails.page,totalItems: partnerDataService.getLicenseDetails.total };let i=index  ">
+      <div class="table_outer_block">
+        <div class="table_head table_row">
+          <div class="table-blocks">
+            <div class="checkbox">
+              <label>
+                <div class="check_outer" (click)="selectTask($event)">
+                  <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="licenses.selected" (ngModelChange)="partnerUtilityService.manageLicenseSelection($event,i)" />
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="table-blocks Organisation">
+            {{licenses.orgName}}
+          </div>
+            <div class="table-blocks">
+              {{licenses.key}}
+
+            </div>
+            <div class="table-blocks">
+              {{licenses.maxUsers}}
+    
+            </div>
+            <div class="table-blocks">
+              {{licenses.licenseType}}  
+            </div>
+            <div class="table-blocks">
+              {{licenses.approvedOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+            </div>
+            <div class="table-blocks">
+                <div class="applyOuter" (click)="showPopup($event)">
+                  Apply
+                </div>
+           </div>
+        </div>
+        
+      </div>
+    </div>
+
+<section class="no_result" *ngIf="partnerDataService.getLicenseDetails.license.length === 0">
+</section>
+    </div>
+    
+    
+    <!--table content ends-->
+
+    <div class="outer" *ngIf="partnerDataService.approvePop.showPopup">
+      <app-approved-pop></app-approved-pop>
+    </div>
+
+    <app-apply-confirm  *ngIf= "partnerDataService.applyLicensePopup.show"></app-apply-confirm>

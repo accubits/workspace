@@ -1,0 +1,121 @@
+<div class="elements_wrap price_wrap" (click)="activateElement()" id="{{currentElementIndex}}">
+  <div class="element_pad">
+    <div class="elements_head">
+      <div class="ele_icon ele_icon_price">
+      </div>
+      <h4>Price</h4>
+    </div>
+    <div class="element_body active_element" [dndDragDisabled]='dataService.formElements.focusSelect' [dndDraggable]="{effectAllowed:'move'}" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+      <div class="element_input">
+        <input #focus (focus)="dataService.formElements.focusSelect=true" (blur)= "dataService.formElements.focusSelect=false" autocomplete="off" type="text" class="" name="text" placeholder="Enter the title"  [(ngModel)]="priceElement.price.label" (ngModelChange)="validateElement()"><!--dndNoDrag-->
+        <p class="error" *ngIf="!this.priceElement.isValidated && dataService.formValidation.validating">Required Field</p>
+
+      </div>
+      <div class="currency">
+        <span>Currency Format:</span>
+        <div class="currency_drop drop_dropdown_wrap drop_icon_input">
+          <input [disabled]="true" type="text" class="" name="text" placeholder="$ Dollar" (click)="currency = !currency">
+          <div class="drop_drop_pop commonn_popup" *ngIf="currency">
+            <section>
+              USD
+            </section>
+            <section>
+              SGD
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="dollar_cent">
+        <div class="fp_input fp_input_inline">
+          <span>Dollars</span>
+          <input type="text" class="" name="text" placeholder="">
+        </div>
+        <div class="fp_input fp_input_inline">
+          <span>Cents</span>
+          <input type="text" class="" name="text" placeholder="">
+        </div>
+      </div>
+      <div class="ele_icon drag_outer">
+      </div>
+    </div>
+    <div class="element_body inactive_element" [ngClass]="{'active_element': dataService.formElementToggle.activeIndex === currentElementIndex}">
+      <div class="p_label">
+        <label>{{priceElement.price.label || "Enter the title"}}</label>
+      </div>
+      <div class="clear"></div>
+      <div class="element_line_input">
+        <input [disabled]="true" type="text" class="" name="text" placeholder="">
+      </div>
+      <div class="clear"></div>
+      <div class="dollar_cent">
+        <div class="fp_input fp_input_inline">
+          <span>Dollars</span>
+          <input type="text" readonly class="" name="text" placeholder="">
+        </div>
+        <div class="fp_input fp_input_inline">
+          <span>Cents</span>
+          <input type="text" readonly class="" name="text" placeholder="">
+        </div>
+      </div>
+
+
+      <div class="ele_icon drag_outer">
+      </div>
+    </div>
+
+    <div class="element_footer active_element" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+      <ul class="efleft">
+        <li>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="priceElement.price.isRequired">
+                <div class="check" for="1_in"></div>
+              </div>
+              Required
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="" name="" id="" [(ngModel)]="priceElement.price.noDuplicate">
+                <div class="check" for=""></div>
+              </div>
+              No duplicate
+            </label>
+          </div>
+        </li>
+      </ul>
+      <ul class="efright">
+        <li>
+          <button (click)="deleteElement()">Delete</button>
+        </li>
+        <li>
+          <button (click)="dulpicateElement()">Duplicate</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+ <!-- Delete popup start-->
+ <div *ngIf = "dataService.deletePopup[idx]" class="confirm_popup" >
+  <div class="confirm_pop_body">
+    <section>
+      <div class="close_drop" (click)="closePopup()">
+      </div>
+      <p class="pop_main">Are you sure you want to delete the selected element?</p>
+    </section>
+    <section>
+      <div class="confirm_pop_btn" (click)="deleteConform()">
+        Confirm
+      </div>
+      <div class="confirm_pop_btn" (click)="closePopup()">
+        Cancel
+      </div>
+    </section>
+  </div>
+</div>
+<!-- Delete popup end-->
+</div>
+<!-- <app-delete-confirm-popup *ngIf = "dataService.deletePopup.show"></app-delete-confirm-popup> -->

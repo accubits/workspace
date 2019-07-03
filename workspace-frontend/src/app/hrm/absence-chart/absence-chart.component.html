@@ -1,0 +1,84 @@
+<div class="absence-chart-wrapper">
+  <drag-scroll style="height: 66vh;">
+    <div class="absence-header">
+      <div class="table_head table_row" >
+          <div class="name">Name</div>
+      <section *ngFor="let dept of hrmDataService.absentChart.absentChartList; let i = index" >
+      <div class="depart-content"  (click)="hrmDataService.userList[i] = !hrmDataService.userList[i]">{{dept.departmentName}} <div class="arrow_drop"></div>
+      </div>
+      <section class="showhide" *ngIf="hrmDataService.userList[i]">
+          <div class="name-content" *ngFor="let user of dept.users; let i = index" >
+            <div *ngIf="user.userImage === null" class="profile-img"></div>
+            <div *ngIf="user.userImage !== null" class="profile-img" [ngStyle]="{'background-image': 'url(' + user.userImage  + ')'}"></div>
+            <div class="profile-name">{{user.userName}}</div>
+          </div>
+      </section>
+      </section>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="absence-chart-right">
+      <drag-scroll style="height: 100%;">
+        <!-- <perfect-scrollbar> -->
+        <div class="absence-header-right">
+          <div class="table_head table_row">
+              <div class="days">
+                  <section>
+                      <div *ngFor="let report of hrmDataService.absentChart.leaveReportList" class="cell">{{report.day}}</div>
+                      </section>
+              </div>
+          </div>
+        </div>
+        <section *ngFor="let abtChart of hrmDataService.absentChart.absentChartList; let i = index">
+            <div class="depart-detail"></div>
+            <div *ngIf="hrmDataService.userList[i]" >
+                <div class="day-content" *ngFor="let user of abtChart.users">
+                    <section>
+                      <div class="cell" *ngFor="let report of user.leaveReport; let idx = index">
+                        <div *ngIf="report.totalLeaveDays !== null" class="leave-type-date-detail" [ngStyle]="{'width': 44.3 * (report.currentMonthLeaveDays) + 'px', 'background-color': report.leaveTypeColorCode}" (click)="showAbsenceDetail(user,report)"
+                        (mouseover) = "abscenceDetailsShow(report,idx)" (mouseleave) = "abscenceDetailsHide(idx)">
+                            <div *ngIf="report.totalLeaveDays > 5">
+                                {{report.leaveType}} - {{report.leaveFrom * 1000 | date: 'MMM dd yyyy'}} - {{report.leaveTo * 1000 | date: 'MMM dd yyyy'}}
+                                <div class="sick-details" *ngIf= "hrmDataService.showLevDetail[idx]">
+                                <div class="popup">
+                                  <div class="popup-details">
+                                    <div class="person-details">
+                                          <div class="time-details">
+                                            <div class="timeFromTo"><span class="from">From:</span><span class="date">{{hrmDataService.absentDetails.absentStartsOn * 1000 | date: 'MMM dd, yyyy'}}</span><span class="time">{{hrmDataService.absentDetails.absentStartsOn * 1000 | date: 'hh:mm a'}}</span></div>
+                                      <div class="timeFromTo">
+                                        <span class="from">To:</span><span class="date">{{hrmDataService.absentDetails.absentEndsOn * 1000 | date: 'MMM dd, yyyy'}}</span><span class="time">{{hrmDataService.absentDetails.absentEndsOn * 1000 | date: 'hh:mm a'}}</span>
+                                      </div>
+                                    </div>
+                                    <div class="leave-type">
+                                        <h4>TYPE OF ABSENCE</h4>
+                                        <div class="absent-reason">
+                                          <span class="leave-type-icon" [ngStyle]="{'background-color': hrmDataService.absentDetails.leaveTypeColorCode}"></span><span class="leave-type-detail">{{hrmDataService.absentDetails.leaveType}}</span>
+                                        </div>
+                                      </div>
+                                      <div class="leave-type">
+                                        <h4>REASON</h4>
+                                        <div class="absent-reason">
+                                          <span class="leave-type-detail">{{hrmDataService.absentDetails.reason}}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                      
+                        </div>
+                      </div>
+                  </section>
+                </div>
+              </div>
+            </section>
+        <!-- </perfect-scrollbar> -->
+      </drag-scroll>
+    </div>
+    <div class="clear"></div>
+  </drag-scroll>
+</div>
+<app-absence-detail *ngIf="hrmDataService.absenceDetail.show" ></app-absence-detail>
+<app-absence-filter *ngIf="hrmDataService.absenceFilter.show" ></app-absence-filter>
+<app-add-new-absence *ngIf="hrmDataService.newAbsence.show" ></app-add-new-absence>

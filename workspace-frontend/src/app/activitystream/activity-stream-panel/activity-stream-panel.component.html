@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title ph3inline">ACTIVITY STREAM</h3>
+    <!-- <div class="panel-right-holder pbtnsinline">
+        <button class="pbtnfilter"><img src="http://localhost:4200/assets/images/filter.png"> Filter</button>
+    </div> -->
+  </div>
+</div>
+<div class="as_panel_wrap">
+  <!-- Nav tabs -->
+  <app-as-nav></app-as-nav>
+  <!-- Nav tabs -->
+  <router-outlet></router-outlet>
+  <div class="finishOuter">
+    <div *ngIf = "actStreamDataService.fetchActivityStream.to !== null" class="finishImage"></div>
+  </div>
+  <div *ngIf = "actStreamDataService.fetchActivityStream.to === null" class="finish">That's all the posts in activity stream.<br> Check back again soon for more updates.</div>
+</div>
+
+

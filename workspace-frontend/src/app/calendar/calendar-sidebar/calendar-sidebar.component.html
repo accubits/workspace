@@ -1,0 +1,55 @@
+
+<div class="work_panel_left">
+  <div class="calendarImage">
+    <div *ngIf="calendarOptions">
+      <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
+          (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
+    </div>
+  </div>
+  <div class="menuOuter">
+    <div class="work_panel_left_body active"><!-- (click)="calendarSelect()"-->
+      <h4>My Calendar</h4>
+      <!-- <div class="calImg"></div> -->
+    </div>
+    <!-- <div class="selectOption" *ngIf ="calendarSelectShow">
+      <div class="optionOuter">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type = "checkbox"/>
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+        <h4>Wayne's Calendar</h4>
+      </div>
+      <div class="optionOuter">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type = "checkbox"/>
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+        <h4>Wayne's event Calendar</h4>
+      </div>
+      <div class="optionOuter">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type = "checkbox"/>
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+        <h4>Tasks</h4>
+      </div>
+    </div> -->
+    <!-- <div class="work_panel_left_body">
+      <h4>Company Calendar</h4>
+      <div class="calImg"></div>
+    </div> -->
+  </div>
+</div>
+

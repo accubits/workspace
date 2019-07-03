@@ -1,0 +1,39 @@
+<div class="table_head table_row">
+  <div class="table-blocks" [ngClass]="{'actives':hrmDataService.leaveType.sortMethod === 'asc' && hrmDataService.leaveType.sortOption === 'name'}"
+  (click)="sortOperation('name')">
+    <span>Name</span>
+  </div>
+  <div class="table-blocks" [ngClass]="{'actives':hrmDataService.leaveType.sortMethod === 'asc' && hrmDataService.leaveType.sortOption === 'type'}"
+  (click)="sortOperation('type')">
+    <span>Type</span>
+  </div>
+  <div class="table-blocks" [ngClass]="{'actives':hrmDataService.leaveType.sortMethod === 'asc' && hrmDataService.leaveType.sortOption === 'maxLeave'}"
+   (click)="sortOperation('maxLeave')">
+    <span>MAXIMUM LEAVE</span>
+  </div>
+</div>
+<div class="table-wrap">
+<section class="no_result_inOverview" *ngIf="hrmDataService.leaveType.leaveTypeList.length === 0">
+</section>
+<div class="table_list table_row" *ngFor="let type of hrmDataService.leaveType.leaveTypeList; let i = index">
+
+  <section class="t_row_hover"  (click)="showLeaveDetail(type.leaveTypeSlug)">
+    <div class="table-blocks employee_detail">
+      <div class="leave_icon" [ngStyle]="{'background-color': type.colorCode}"></div>
+      <span class="employee_name">{{type.name}}</span>
+    </div>
+    <div class="table-blocks">
+      <span *ngIf="type.type === 'paid'" class="leave_date_from">Paid</span>
+      <span *ngIf="type.type === 'unpaid'" class="leave_date_from">Un Paid</span>
+      <span *ngIf="type.type === 'onduty'" class="leave_date_from">On Duty</span>
+    </div>
+    <div class="table-blocks">
+      <span class="leave_date_to">{{type.maximumLeave}}</span>
+    </div>
+    <div class="table-blocks approve-blk">
+      <span class="leave_type">{{type.period}}</span>
+     </div>
+  </section>
+</div>
+</div>
+<app-leave-type-detail *ngIf="hrmDataService.leaveTypePop.show"></app-leave-type-detail>

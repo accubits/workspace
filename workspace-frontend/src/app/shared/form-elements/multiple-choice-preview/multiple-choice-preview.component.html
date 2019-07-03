@@ -1,0 +1,18 @@
+<div class="fp_radio_wrap">
+  <h6>{{multipleChoiceElement.multipleChoice.label || 'Enter the title'}}<span class="error" *ngIf = "multipleChoiceElement.multipleChoice.isRequired === true">*</span></h6>
+  <div class="fp_choices" *ngFor="let choice of multipleChoiceElement.multipleChoice.choices;let idx=index">
+    <div class="radio_out">
+      <input id="radio_id3" name="repeat_radio" readonly type="radio" [disabled]="true" >
+      <div class="custom_radio" for="radio_id3"></div>
+    </div>
+   {{choice.label || 'Enter the choice'}}
+  </div>
+ 
+  <!-- <div class="fp_choices">
+    <div class="radio_out">
+      <input id="radio_id3" name="repeat_radio" readonly type="radio" [disabled]="true">
+      <div class="custom_radio" for="radio_id3"></div>
+    </div>
+    <input type="text" class="fp_choice_input" readonly name="text" placeholder="Other" disabled="true">
+  </div> -->
+</div>

@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title ph3inline">TIME AND REPORTS</h3>
+        <div class="panel-right-holder pbtnsinline">
+            <!-- filter button for work-report -->
+                <button class="pbtnfilter" *ngIf="router.url === '/authorized/timeReports/workReport'" (click)="showFilter()"> <img [src]="assetUrl+'assets/images/filter.png'"> Filter</button>
+            <!-- filter button for work-report -->
+
+            <!-- filter button for work-time -->
+                <button class="pbtnfilter" *ngIf="router.url === '/authorized/timeReports/workTime'" (click)="showWorkTimeFilter()"> <img [src]="assetUrl+'assets/images/filter.png'"> Filter</button>
+            <!-- filter button for work-time -->
+
+            <button class="pbtncreate" *ngIf="router.url === '/authorized/timeReports/workReport'"  (click)="showCreateReport()">New</button>
+        </div>
+        <!-- filter for work-report -->
+            <app-work-report-filter *ngIf="timeReportDataService.filterPopup.show"></app-work-report-filter>
+        <!-- filter for work-report -->
+
+        <!-- filter for work-time -->
+            <app-work-time-filter *ngIf="timeReportDataService.workTimeFilterPopup.show"></app-work-time-filter>
+        <!-- filter for work-time -->
+    </div>
+    <app-time-report-nav></app-time-report-nav>
+    <router-outlet></router-outlet>
+     <!-- work-time-details -->
+        <app-work-time-details *ngIf="timeReportDataService.workTimeDetails.show"></app-work-time-details>
+     <!-- work-time-details -->
+
+     <!-- work-report-details -->
+        <app-create-report *ngIf="timeReportDataService.createReport.show"></app-create-report>
+     <!-- work-report-details -->
+
+     <!-- work-report-details -->
+        <app-work-report-details *ngIf="timeReportDataService.workReportDetails.show"></app-work-report-details>
+     <!-- work-report-details -->
+
+     <!-- work-report-add-popup -->
+        <!-- <app-work-report-add></app-work-report-add> -->
+     <!-- work-report-add-popup -->
+</div>
+
+<div class="filter_close_overlay" *ngIf="timeReportDataService.filterPopup.show" (click)="closeFilter()"></div>
+<div class="filter_close_overlay" *ngIf="timeReportDataService.workTimeFilterPopup.show" (click)="closeWorkTimeFilter()"></div>
+<div class="filter_close_overlay" *ngIf="timeReportDataService.workTimeDetails.show" (click)="closeWorkTimeDetails()"></div>
+<div class="filter_close_overlay" *ngIf="timeReportDataService.workReportDetails.show" (click)="closeWorkReportDetails()"></div>
+

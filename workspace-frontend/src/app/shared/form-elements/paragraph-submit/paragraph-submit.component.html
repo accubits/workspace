@@ -1,0 +1,6 @@
+<div class="fp_description">
+  <label>{{paragraphElement.paragraphText.label}}<span *ngIf = "data.paragraphText.isRequired" class="error">*</span></label>
+  <textarea class="" name="" placeholder="Response" [(ngModel)]="paragraphSubmit.paragraphText.answer" (ngModelChange)="validateElement()"></textarea>
+  <p class="error" *ngIf="!paragraphElement.isValidated && dataService.formValidation.validating">Required Field</p>
+
+</div>

@@ -1,0 +1,89 @@
+<aside>
+	<nav id="iCosys_sidebar" [ngClass]="{'iCosys-nav-min': menutoggle.toggleMenu}" class="iCosys-sidebar">
+		<ul>
+			<li *ngFor="let menu of menuItems " (click)="loadMenuModule(menu.route)" [ngClass]="[routerActivetab.indexOf(menu.routeName) !== -1 ? menu.dynamicClass +  ' activeTab' : '']">
+				<!-- <img [src]="assetUrl+ menu.imagePath " /> -->
+				<div class="act_form_img"></div>
+				<span  *ngIf="menu.dispName === 'hrm'" class="iCosys-sidebar-item" (mouseover)="toggle()" (click)="toggle()">{{menu.dispName}}</span>
+        <span  *ngIf="menu.dispName !== 'hrm'" class="iCosys-sidebar-item">{{menu.dispName}}</span>
+        <div class="hrmMenu" *ngIf="menu.route === 'hrm'">
+					<span class="arrow"  (click)="toggle()"></span>
+					<ul class="outer" *ngIf="toggleButton">
+              <li  *ngFor="let subMenu of menu.hrmSubMenu"  (click)="loadHRMsubMenu(subMenu.route, $event,subMenu.dispName)" [ngClass]="{'activeTabSub':subMenu.dispName===subMenuActive}">
+						  <!-- <li *ngFor="let subMenu of menu.hrmSubMenu" (click)="loadHRMsubMenu(subMenu.route, $event)"  [ngStyle]="{subMenu.dynamicClass: 'red'}"> -->
+								<span class="iCosys-sidebar-item">{{subMenu.dispName}}</span>
+					  	</li>
+
+						<!-- <li>Employees</li>
+						<li>Leave</li>
+						<li>Training</li>
+						<li>Performance</li>
+						<li>Settings</li> -->
+					</ul>
+				</div>
+			</li>
+			<!-- <li>
+
+				<img [src]="assetUrl+'assets/images/nav/forms.png'" />
+				<span class="iCosys-sidebar-item">Forms</span>
+			</li>
+			<li class="sidebar-current" rou>
+				<a routerLink="/authorized/task">
+					<img [src]="assetUrl+'assets/images/nav/tasks.png'" />
+				<span class="iCosys-sidebar-item">Task</span>
+
+				</a>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/chats.png'" />
+				<span class="iCosys-sidebar-item">Chats</span>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/crm.png'" />
+				<span class="iCosys-sidebar-item">CRM</span>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/workflow.png'" />
+				<span class="iCosys-sidebar-item">Workflow</span>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/calender.png'" />
+				<span class="iCosys-sidebar-item">Calendar</span>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/hrm.png'" />
+				<span class="iCosys-sidebar-item">HRM</span>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/company.png'" />
+				<span class="iCosys-sidebar-item">Company</span>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/drive.png'" />
+				<span class="iCosys-sidebar-item">Drive</span>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/timeandreports.png'" />
+				<span class="iCosys-sidebar-item">Time & Reports</span>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/logs.png'" />
+				<span class="iCosys-sidebar-item">Log</span>
+			</li>
+			<li>
+				<img [src]="assetUrl+'assets/images/nav/settings.png'" />
+				<span class="iCosys-sidebar-item">Settings</span>
+			</li> -->
+		</ul>
+
+
+  </nav>
+
+
+
+
+
+
+
+
+</aside>

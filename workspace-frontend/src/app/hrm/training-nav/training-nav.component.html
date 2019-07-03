@@ -1,0 +1,27 @@
+
+<div class="nav_wrap">
+  <ul>
+      <a routerLink="./my-training" routerLinkActive="active_tab" (click)="selectTab('myTrainings')">
+        <li>My Trainings</li>
+      </a>
+    <a routerLink="./training-request-table" routerLinkActive="active_tab" (click)="selectTab('request')">
+      <li> Requests</li>
+    </a>
+    <a  routerLink="./ongoing-training"  routerLinkActive="active_tab" (click)="selectTab('approved')">
+      <li>Approved</li>
+    </a>
+    <a  routerLink="./completed-training" routerLinkActive="active_tab" (click)="selectTab('onGoing')">
+      <li>Active</li>
+    </a>
+    <a *ngIf="checkRole === 'ORG_ADMIN'" routerLink="./overview" routerLinkActive="active_tab">
+      <li>Overview</li>
+    </a>
+    <a routerLink="./feedback" routerLinkActive="active_tab">
+      <li>Feedback Forms</li>
+    </a>
+  </ul>
+  <div class="credit">
+    <p><span class="info_icon"></span>Training Budget Remaining :{{hrmDataService.trainingStatus.trainingBudget.currentBalance}}</p>
+        </div>
+</div>
+

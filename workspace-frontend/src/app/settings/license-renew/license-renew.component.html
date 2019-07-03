@@ -1,0 +1,56 @@
+<div class="renew-outer">
+  <div class="renew-header">
+    <!-- <h4>RENEW LICENSE</h4> -->
+    <h4>REQUEST LICENSE</h4>
+    <div class="pop_close" (click)="hideRenewPop()"></div>
+  </div>
+  <div class="renew-inner">
+    <div class="max-num">
+      <input type="number" placeholder="Max Users" [(ngModel)]="settingsDataService.createLicense.maxUsers">
+      <p class="error" *ngIf="!settingsDataService.selectedElement.isValidated && !settingsDataService.createLicense.maxUsers" >Required Field</p>
+
+    </div>
+    <div class="period">
+        <input type="text" placeholder="" [(ngModel)]="settingsDataService.createLicense.licenseType" (click)="showPeriod()">
+        <div class="overlaypop-lev" *ngIf="periodList" (click)="hidePeriod()"></div>
+        <div class="resp_person_dropdown" *ngIf="periodList" >
+          <div class="close_drop"  (click)="hidePeriod()"></div>
+            <div class="drop_down_wrap">
+              <section class="drop_body">
+                  <div class="recent_wrap pad_wrap">
+                    <section (click)= "typeOfLicense(' Annual') ">
+                     Annual
+                    </section>
+                    <!-- <section (click)= "typeOfLicense(' Monthly') ">
+                      Monthly
+                      </section>
+                      <section (click)= "typeOfLicense(' Weekly') ">
+                        Weekly
+                        </section>
+                        <section (click)= "typeOfLicense(' Daily') ">
+                          Daily
+                          </section> -->
+
+            </div>
+            </section>
+          </div>
+        </div>
+        <div class="arrow_drop"></div>
+      </div>
+      <div class="max-num">
+        <p>Partner</p>
+         <div class="employee_image" *ngIf="settingsDataService.getLicenseDetails.partnerImage === null"></div>
+         <div class="employee_image" *ngIf="settingsDataService.getLicenseDetails.partnerImage !== null" [ngStyle]="{'background-image': 'url(' +settingsDataService.getLicenseDetails.partnerImage + ')'}"></div>
+
+        <span class="employee_name">{{settingsDataService.getLicenseDetails.partner}}</span>
+        </div>
+        <div class="period">
+          <p>Organization</p> <h5>{{settingsDataService.getLicenseDetails.orgName}}</h5>
+          </div>
+  </div>
+  </div>
+  <div class="renew-footer">
+      <button class="pbtncreate" (click) ="requestLicense()">Request</button>
+      <!-- <button class="pbtncreate">Renew</button> -->
+      <button class="req-cancel" (click)="hideRenewPop()">Cancel</button>
+    </div>

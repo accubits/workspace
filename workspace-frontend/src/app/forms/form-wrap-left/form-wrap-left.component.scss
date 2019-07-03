@@ -1,0 +1,374 @@
+@charset "utf-8";
+/* SCSS Document */
+
+/* -----------------------------------------
+        Form Wrap Left Component |START|
+------------------------------------------*/
+ul,
+ol {
+    list-style-type: none;
+}
+.form_wrap {
+    background-color: #ffffff;
+    position: relative; // padding-left: 385px;
+    height: 100%;
+}
+
+.form_wrap_left {
+    background-color: #fff;
+    z-index: 2;
+    width: 385px;
+    left: 0;
+    top: 0;
+    height: auto;
+    position: absolute;
+    -webkit-box-shadow: 10px 0px 30px -4px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 10px 0px 30px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 0px 30px -4px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 155px);
+    overflow-y: auto;
+}
+
+.left_heading {
+    text-align: center;
+    font-weight: bold;
+    color: #bac0c7;
+    padding: 20px 0px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.left_elements_row {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    border-bottom: 1px solid #d6d6d6;
+    font-family: Roboto-Regular;
+    font-size: 14px;
+    color: #002a5d;
+}
+
+.left_element_column {
+    display: inline-block;
+    vertical-align: top;
+    flex: 1;
+    height: 62px;
+    line-height: 62px;
+    padding-left: 61px;
+    cursor: pointer;
+    position: relative;
+    transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+}
+
+.left_element_column:hover {
+    background-color: #006df0;
+    box-shadow: 0px 12px 24px 0px rgba(0, 109, 240, 0.2);
+    color: white;
+    transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+}
+
+.content_wrap_right {
+    padding-left: 385px;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    height: 100%;
+    background: #fff;
+}
+
+.col_ico {
+    background: url(/assets/images/FormsSprite.png);
+    width: 37px;
+    height: 23px;
+    background-size: 450px;
+    position: absolute;
+    left: 22px;
+    top: 17px;
+}
+
+.cLine {
+    background-position: -52px -59px;
+}
+
+.left_element_column:hover .cLine {
+    background-position: -299px -59px;
+}
+
+.cNum {
+    background-position: -52px -754px;
+}
+
+.left_element_column:hover .cNum {
+    background-position: -299px -754px;
+}
+
+.cCbox {
+    background-position: -52px -129px;
+}
+
+.left_element_column:hover .cCbox {
+    background-position: -299px -129px;
+}
+
+.cMchc {
+    background-position: -52px -824px;
+}
+
+.left_element_column:hover .cMchc {
+    background-position: -299px -824px;
+}
+
+.cDrp {
+    background-position: -52px -198px;
+}
+
+.left_element_column:hover .cDrp {
+    background-position: -299px -198px;
+}
+
+.cPar {
+    background-position: -52px -892px;
+}
+
+.left_element_column:hover .cPar {
+    background-position: -299px -892px;
+}
+
+.cSbrk {
+    background-position: -52px -268px;
+}
+
+.left_element_column:hover .cSbrk {
+    background-position: -299px -268px;
+}
+
+.cPbrk {
+    background-position: -52px -964px;
+}
+
+.left_element_column:hover .cPbrk {
+    background-position: -299px -964px;
+}
+
+.cNme {
+    background-position: -52px -336px;
+}
+
+.left_element_column:hover .cNme {
+    background-position: -299px -336px;
+}
+
+.cFupd {
+    background-position: -52px -1034px;
+}
+
+.left_element_column:hover .cFupd {
+    background-position: -299px -1034px;
+}
+
+.cAdr {
+    background-position: -52px -408px;
+}
+
+.left_element_column:hover .cAdr {
+    background-position: -299px -408px;
+}
+
+.cDate {
+    background-position: -52px -1104px;
+}
+
+.left_element_column:hover .cDate {
+    background-position: -299px -1104px;
+}
+
+.cEmail {
+    background-position: -52px -476px;
+}
+
+.left_element_column:hover .cEmail {
+    background-position: -299px -476px;
+}
+
+.cTime {
+    background-position: -52px -1173px;
+}
+
+.left_element_column:hover .cTime {
+    background-position: -299px -1173px;
+}
+
+.cWeb {
+    background-position: -52px -546px;
+}
+
+.left_element_column:hover .cWeb {
+    background-position: -299px -546px;
+}
+
+.cPhone {
+    background-position: -52px -1243px;
+}
+
+.left_element_column:hover .cPhone {
+    background-position: -299px -1243px;
+}
+
+.cPrice {
+    background-position: -52px -616px;
+}
+
+.left_element_column:hover .cPrice {
+    background-position: -299px -616px;
+}
+
+.cLikert {
+    background-position: -52px -1312px;
+}
+
+.left_element_column:hover .cLikert {
+    background-position: -299px -1312px;
+}
+
+.cRating {
+    background-position: -52px -686px;
+}
+
+.left_element_column:hover .cRating {
+    background-position: -299px -686px;
+}
+
+.cUserlist {
+    background-position: -52px -1366px;
+}
+
+.left_element_column:hover .cUserlist {
+    background-position: -299px -1366px;
+}
+
+.left_elements_row .left_element_column:nth-child(1) {
+    border-right: 1px solid #d6d6d6;
+}
+
+.head_desc {
+    padding: 40px 40px 40px 50px;
+    position: relative;
+}
+
+.form_head {
+    color: #646464;
+    font-family: Roboto-Bold;
+    margin-bottom: 33px;
+    font-size: 20px;
+    padding-right: 65px;
+}
+
+.edit_ico {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    border-radius: 3px;
+    background-color: #d9e9fd;
+    background: url(/assets/images/edtHead.png);
+    background-size: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.single_append input {
+    background-color: #F2F2F2;
+    width: 100%;
+}
+
+.form_body {
+    display: inline-block;
+    width: 100%;
+    -webkit-box-shadow: -10px 10px 60px -28px rgba(34, 34, 34, 0.35);
+    box-shadow: -10px 10px 60px -28px rgba(34, 34, 34, 0.35);
+}
+
+.posfix {
+    position: fixed;
+    right: 70px;
+    color: red;
+    background-color: red;
+}
+
+// Media Queries
+@media screen and (max-width: 1920px) {
+    .form_wrap_left {
+        height: calc(100vh - 205px);
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .form_wrap_left {
+        height: calc(100vh - 207px);
+    }
+}
+
+@media (max-width: 1366px) {
+    .form_wrap_left {
+        width: 30%;
+        transition: .2s ease-in-out;
+        -webkit-transition: .2s ease-in-out;
+    }
+    .col_ico {
+        left: 12px;
+        top: 6px;
+    }
+    .left_element_column {
+        height: 40px;
+        line-height: 40px;
+        padding-left: 50px;
+        transition: .2s ease-in-out;
+        -webkit-transition: .2s ease-in-out;
+    }
+    .left_heading {
+        padding: 0px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 14px;
+        font-family: roboto-bold;
+    }
+    .form_wrap_left {
+        height: calc(100vh - 153px);
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 1280px) {
+    .left_elements_row .left_element_column:nth-child(1) {
+        border-right: 0px;
+    }
+    .left_elements_row {
+        display: block;
+    }
+    .left_element_column {
+        display: block;
+        border-bottom: 1px solid #d6d6d6;
+    }
+    .form_wrap_left {
+        width: 24% !important;
+        transition: .2s ease-in-out;
+        -webkit-transition: .2s ease-in-out;
+    }
+    .left_elements_row {
+        border-bottom: 0px;
+    }
+}
+
+/* -----------------------------------------
+         Form Wrap Left Component |END|
+------------------------------------------*/

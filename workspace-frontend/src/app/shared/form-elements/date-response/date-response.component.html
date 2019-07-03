@@ -1,0 +1,13 @@
+<div class="fp_timewrap">
+  <div class="fp_body">
+    <div class="fr_question">
+      <label>{{dateElement.date.label}}</label>
+    </div>
+    <div *ngIf="dateElement.date.answer !== null" class="fr_answer">
+      <p>{{dateElement.date.answer  * 1000 | date: 'dd-MMM-yyyy '}}</p>
+    </div>
+    <div *ngIf="dateElement.date.answer === null" class="fr_answer">
+      <p>not answered</p>
+    </div>
+  </div>
+</div>

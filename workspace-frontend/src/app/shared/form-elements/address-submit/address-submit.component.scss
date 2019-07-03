@@ -1,0 +1,66 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.fp_input input {
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+    outline: none;
+    border: none;
+    margin-bottom: 10px;
+}
+span.error {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #d9463b;
+    padding-left: 3px;
+}
+.fp_input 
+{
+    position: relative !important;
+}
+.fp_input label,
+.fp_description label,
+.fp_select label {
+    font-size: 14px;
+    color: #414d5b;
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: block;
+    position: relative;
+}
+
+.addresswrap_input {
+    display: flex;
+    width: 49%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.flex_space {
+    display: flex;
+    justify-content: space-between;
+}
+.countryDrop
+{
+    position: absolute;
+    left: 0px;
+    top: 64px;
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.05098);
+}
+.countryDrop section
+{
+    padding: 10px;
+    font-size: 14px;
+    color: #717171;
+    cursor: pointer;
+}
+.countryDrop section:hover
+{
+    background-color: #f1f1f1;
+}

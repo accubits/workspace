@@ -1,0 +1,40 @@
+<div class="overlaypop" (click)="hideWorkDetail()"></div>
+<div class="popup">
+<div class="popup-header-outer">
+  <h4>Absence Details</h4>
+  <div class="buttons">
+    <span class="atc_btn">Edit</span>
+    <span class="atc_btn">Remove</span>
+  </div>
+  <div class="pop_close" (click)="hideWorkDetail()"></div>
+</div>
+<div class="popup-details">
+<div class="person-details">
+  <h4>PERSON</h4>
+  <div class="profile-details">
+    <div   class="profile-image" *ngIf= "timeReportDataService.absentDetails.absentUserImg === null"></div>
+    <div class="profile-image" *ngIf= "timeReportDataService.absentDetails.absentUserImg !== null" [ngStyle]="{'background-image': 'url(' + timeReportDataService.absentDetails.absentUserImg + ')'}"></div>
+    <span class="profile-name">{{timeReportDataService.absentDetails.absentUserName}}</span>
+  </div>
+<div class="time-details">
+  <h4>TIME</h4>
+  <div class="timeFromTo"><span class="from">From:</span><span class="date"> {{ timeReportDataService.absentDetails.absentStartsOn * 1000 | date: 'MMM dd, yyyy' }} </span><span class="time">{{ timeReportDataService.absentDetails.absentStartsOn  * 1000 | date: 'hh:mm a' }} </span></div>
+  <div class="timeFromTo">
+  <span class="from">To:</span><span class="date">{{ timeReportDataService.absentDetails.absentEndsOn * 1000 | date: 'MMM dd, yyyy'}} </span><span class="time">{{ timeReportDataService.absentDetails.absentEndsOn * 1000 | date: 'hh:mm a' }}</span></div>
+  </div>
+</div>
+<div class="leave-type">
+  <h4>TYPE OF ABSENCE</h4>
+  <div class="absent-reason">
+    <span class="leave-type-icon" [ngStyle]="{'background-color':  timeReportDataService.absentDetails.leaveTypeColorCode }"></span><span class="leave-type-detail">{{timeReportDataService.absentDetails.leaveTypeName}}</span>
+  </div>
+</div>
+<div class="leave-type">
+    <h4>REASON</h4>
+    <div class="absent-reason">
+      <span class="leave-type-detail">qwerty</span>
+    </div>
+  </div>
+</div>
+</div>
+

@@ -1,0 +1,132 @@
+<div class="f_l_wrap">
+    <div class="table_outer_block">
+      <div class="table_head table_row">
+        <div class="table-blocks">
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" >
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="table-blocks">
+          <span class="tb_head_drop_arrow nameCol">NAME</span>
+        </div>
+        <div class="table-blocks inact_drop_arr">
+          <span>INACTIVE SINCE</span>
+        </div>
+        <div class="table-blocks">
+          <span>CREATED ON</span>
+        </div>
+        <div class="table-blocks inact_drop_arr">
+          <span>SHARED WITH</span>
+        </div>
+      </div>
+
+      <div class="table_body_wrap table_row">
+        <perfect-scrollbar>
+          <section >
+              <div class="table-blocks">
+                <div class="checkbox" (click)="check($event)">
+                  <label>
+                    <div class="check_outer">
+                      <input type="checkbox" id="1_in" name="" id="" >
+                      <div class="check" for="1_in"></div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="table-blocks drive_name">
+                  Stella Little
+              </div>
+              <div class="table-blocks">
+                  10 Jul 2018 | 12:32 AM
+              </div>
+              <div class="table-blocks">
+                  10 Jul 2018 | 12:32 AM
+              </div>
+            
+              <div class="table-blocks">
+                <div class="table_row_pic">
+    
+                </div>
+                <div class="table_row_pic_name">
+                    Stella Little
+                </div>
+                <div class="user_more_block">
+                  + 34
+                </div>
+              </div>
+                <!-- <div class="user_more_block" (click)="dataService.shareOption.show = !dataService.shareOption.show">
+                  + 30
+                </div> -->
+                <div class="row_option_ico table-blocks" (click)="morepop($event)">
+                    <div class="dotImage"></div>
+                    <div class="moreOuter" *ngIf="showOption">
+                        <ul>
+                          <li>Renew</li>
+                          <li>Share</li>
+                        </ul>
+                    </div>
+                  </div>
+                  <div class="filter_cancel_overlay" *ngIf="showOption" (click)= "closeMore($event)"></div>
+                  <div class="clear"></div>
+    
+          </section>
+          <section >
+              <div class="table-blocks">
+                <div class="checkbox" (click)="check($event)">
+                  <label>
+                    <div class="check_outer">
+                      <input type="checkbox" id="1_in" name="" id="" >
+                      <div class="check" for="1_in"></div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="table-blocks drive_name">
+                  Stella Little
+              </div>
+              <div class="table-blocks">
+                  10 Jul 2018 | 12:32 AM
+              </div>
+              <div class="table-blocks">
+                  10 Jul 2018 | 12:32 AM
+              </div>
+           
+              <div class="table-blocks">
+                <div class="table_row_pic">
+    
+                </div>
+                <div class="table_row_pic_name">
+                    Stella Little
+                </div>
+                <div class="user_more_block">
+                  + 34
+                </div>
+              </div>
+                <!-- <div class="user_more_block" (click)="dataService.shareOption.show = !dataService.shareOption.show">
+                  + 30
+                </div> -->
+                <div class="row_option_ico table-blocks" (click)="morepop($event)">
+                    <div class="dotImage"></div>
+                </div>
+                    <!-- <div class="moreOuter" *ngIf="showOption">
+                        <ul>
+                          <li>Renew</li>
+                          <li>Share</li>
+                        </ul>
+                    </div>
+                  </div>
+                  <div class="filter_cancel_overlay" *ngIf="showOption" (click)= "closeMore($event)"></div> -->
+                  <div class="clear"></div>
+    
+            </section>
+        </perfect-scrollbar>
+      </div>
+    </div>
+    <!-- <app-footer-option *ngIf="dataService.formsSelectionManagement.selectedFormSlugs.length > 0"></app-footer-option> -->
+  
+  </div>

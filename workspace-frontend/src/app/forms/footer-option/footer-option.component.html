@@ -1,0 +1,46 @@
+<div class="drive_table_footer">
+  <div class="drive_table_footer_left">
+    <ul>
+      <li>
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type="checkbox" id="1_in" name="" id="">
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+      </li>
+      <li>
+        <span class="drive_list_count_container">{{dataService.formsSelectionManagement.selectedFormSlugs.length}}</span>
+      </li>
+      <li>
+        Selected
+      </li>
+    </ul>
+  </div>
+  <div class="drive_table_footer_right">
+    <ul>
+      <li>
+        <!-- <div class="driv_footer_icon driv_f_more">
+          <img [src]="assetUrl+'assets/images/drive/more.png'" />
+        </div>
+      </li> -->
+      <li>
+        <div class="driv_footer_icon driv_f_bin" (click)="deleteForms();">
+          <img [src]="assetUrl+'assets/images/drive/bin.png'" />
+        </div>
+      </li>
+      <!-- <li>
+        <div class="driv_footer_icon driv_f_share">
+          <img [src]="assetUrl+'assets/images/drive/share.png'" />
+        </div>
+      </li> -->
+      <!-- <li>
+        <div class="driv_footer_icon driv_f_download">
+          <img [src]="assetUrl+'assets/images/pencil.png'" />
+        </div>
+      </li> -->
+    </ul>
+  </div>
+</div>

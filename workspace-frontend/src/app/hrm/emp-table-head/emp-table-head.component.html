@@ -1,0 +1,41 @@
+<div class="nav_wrap">
+  <ul>
+
+    <a routerLink="./company" routerLinkActive="activeTab">
+      <li>Company Structure</li>
+    </a>
+
+    <a routerLink="./emp-table" routerLinkActive="activeTab">
+      <li>Employee List</li>
+    </a>
+
+    <!-- <div class="pagination_outer deal_listing_pagination">
+      <pagination-controls  previousLabel="" nextLabel=""></pagination-controls>
+    </div> -->
+    <div class="legend" (click)="showLegend()"></div>
+    <div class="legend-detail" *ngIf="legend" >
+           <div class="resp_person_dropdown">
+        <div class="resp_drop_head">
+          LEGEND
+          <div class="close_drop" (click)="hideLegend()"></div>
+        </div>
+        <div class="drop_down_wrap">
+          <section class="drop_body">
+            <div class="recent_wrap ">
+              <section>
+                <div class="head-icon"></div> <p>Head of department</p>
+             </section>
+            </div>
+          </section>
+        </div>
+      </div></div>
+    <div class="search_wrap" [ngClass]="{'open':showSearch}">
+      <div class="search_icon" (click)="showSearch = true"></div>
+      <div class="search_close" (click)="showSearch = false" (click)="searchClose()"></div>
+      <input type="text" id="myText" placeholder="Search" [(ngModel)]="hrmDataService.employeeList.searchEmpTxt"
+      (input)="onSearchChange()">
+    </div>
+  </ul>
+
+</div>
+

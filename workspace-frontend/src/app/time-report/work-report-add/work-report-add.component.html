@@ -1,0 +1,143 @@
+
+<div class="form_submit_wrap">
+        <div class="contentOuter">
+          <div class = "workContent">
+            <div class="workHead">WORK REPORT</div>
+            <div class="workTimingClose"></div>
+          </div>
+          <div class="dateSectionOuter">
+            <div class="dateOuter">
+              <p>Dates :</p>
+              <p class="time">1 June-30 June</p>
+            </div>
+            <div class="dateOuter">
+              <p>To :</p>
+              <div class="time">
+                <div class="imgIcon"></div>
+                <div class="imgName">Peter Palmer</div>
+              </div>
+            </div>
+          </div>
+          <div class="textareaContent">
+            <textarea cols="103" placeholder="Enter Report" rows="5"></textarea>
+          </div>
+        <div class="taskMainOuter">
+            <div class="taskOuter">
+              <div class="taskHead">
+                <p>TASKS</p>
+                <p class="taskButton" (click) = "showTaskList = true">Task List</p>
+                <!--tasklist starts-->
+                <div class="filter_close_overlay" *ngIf="showTaskList" (click)="closeList()"></div>
+                <div class="resp_person_dropdown" *ngIf="showTaskList">
+                  <div class="resp_drop_head">
+                    <span>TASKS LIST</span>
+                    <div class="close_drop" (click)="closeList()"></div>
+                  </div>
+                  <div class="drop_down_wrap">
+                    <div class="taskTextbox">
+                      <input type = "text" placeholder="Task" />
+                    </div>
+                    <section class="drop_nav">
+                      <ul>
+                        <li [ngClass]="{active:activeRpTab === 'all'}" (click)="activeRpTab = 'all'">All</li>
+                        <!-- <li [ngClass]="{active:activeRpTab == 'dept'}" (click)="activeRpTab = 'dept'">Departments</li> -->
+                        <!-- <li [ngClass]="{active:activeRpTab == 'search'}" (click)="activeRpTab = 'search'">Search</li> -->
+                      </ul>
+                    </section>
+                    <section class="drop_body">
+                      <perfect-scrollbar>
+                        <div *ngIf="activeRpTab === 'all'" class="recent_wrap pad_wrap allFilter">
+                          <section>
+                            <ul>
+                              <li>Task 1</li>
+                              <li>Task 1</li>
+                              <li>Task 1</li>
+                              <li>Task 1</li>
+                              <li>Task 1</li>
+                            </ul>
+                          </section>
+                        </div>
+                      </perfect-scrollbar>
+                    </section>
+                  </div>
+                </div>
+                <!--tasklist ends-->
+            </div>
+            <div class="tasklistOuter">
+                <div class="checkBoxOuter">
+                  <label>
+                      <div class="check_outer">
+                        <input type="checkbox">
+                        <div class="check"></div>
+                      </div>
+                  </label>
+                  <p>Create work estimation for client</p>
+                </div>
+                <div class="checkBoxOuter">
+                    <label>
+                        <div class="check_outer">
+                          <input type="checkbox">
+                          <div class="check"></div>
+                        </div>
+                    </label>
+                    <p>Create work estimation for client</p>
+                </div>
+                <div class="checkBoxOuter">
+                    <label>
+                        <div class="check_outer">
+                          <input type="checkbox">
+                          <div class="check"></div>
+                        </div>
+                    </label>
+                    <p>Create work estimation for client</p>
+                </div>
+                <div class="checkBoxOuter">
+                  <label>
+                      <div class="check_outer">
+                        <input type="checkbox">
+                        <div class="check"></div>
+                      </div>
+                  </label>
+                  <p>Create work estimation for client</p>
+                </div>
+            </div>
+          </div> 
+          <div class="taskOuter eventSection">
+              <div class="taskHead">
+                <p>EVENTS</p>
+                <p class="taskButton">Event List</p>
+              </div>
+              <div class="tasklistOuter">
+                <div class="checkBoxOuter">
+                  <label>
+                      <div class="check_outer">
+                        <input type="checkbox">
+                        <div class="check"></div>
+                      </div>
+                  </label>
+                  <div class="eventSectionContent">
+                    <p class="eventContent">Create work estimation for client</p>
+                    <p>Jun 7- Jun 28 | Jun 7- Jun 28 | Jun 7- Jun 28</p>
+                  </div>
+                </div>
+                <div class="checkBoxOuter">
+                    <label>
+                        <div class="check_outer">
+                          <input type="checkbox">
+                          <div class="check"></div>
+                        </div>
+                    </label>
+                    <div class="eventSectionContent">
+                      <p class="eventContent">Create work estimation for client</p>
+                      <p>Jun 7- Jun 28 | Jun 7- Jun 28 | Jun 7- Jun 28</p>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+          <div class="wc_wrap_footer">
+              <button class="red_btn">Send to Supervisor</button>
+              <button class="grey_linebtn">Save</button>
+          </div>     
+        </div>
+  </div>

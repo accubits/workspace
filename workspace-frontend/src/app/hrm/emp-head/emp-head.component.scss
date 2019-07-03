@@ -1,0 +1,230 @@
+.panel-heading .panel-sub-title {
+    font-size: 14px;
+    color: #bac0c7;
+    font-weight: 300;
+    font-family: roboto-regular;
+    position: relative;
+    padding-left: 20px;
+
+    }
+  .panel-sub-title::before
+  {
+    height: 12px;
+    width: 1px;
+    background-color: #bac0c7;
+    content: '';
+    margin: 0 4px;
+    position: absolute;
+    top: 1px;
+    left: 4px;
+  }
+  .pbtncreate {
+    line-height: 35px;
+    height: 35px;
+    width: 100px;
+  }
+  .panel-right-holder {
+    float: right;
+    width: 500px;
+    text-align: right;
+    position: relative;
+}
+.filter_cancel_overlay {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 9;
+}
+ul.listOuter {
+  list-style: none;
+  background: #fff !important;
+  position: absolute;
+  right: 0px;
+  line-height: 100%;
+  z-index: 9;
+  width: 15%;
+  top: 55px;
+  font-size: 14px;
+  margin: 12px;
+  box-shadow: 0px 30px 114px 0px rgba(0, 0, 0, 0.1);
+}
+.listOuter li {
+  padding: 12px;
+  border-bottom: 1px solid #eceef6;
+  font-size: 12px;
+  cursor: pointer;
+}
+.listOuter li:nth-child(2) {
+  border-bottom: none;
+}
+.listOuter li:hover {
+  background: #178ccb;
+  color: #fff;
+}
+.listOuter:after{
+  top: -9px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 9px solid #fff;
+  display: block;
+  position: absolute;
+  right: 15%;
+  content: "";
+  width: 0;
+  height: 0;
+}
+
+/*bottom panel starts*/
+.bottom_tab_wrap {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 13;
+  padding-left: 234px;
+  padding-right: 15px;
+}
+
+.bottom_tab {
+  position: relative;
+  width: 100%;
+  background-color: white;
+  padding: 15px 30px;
+  border-top: 1px solid #bac0c7;
+}
+
+.num_tag {
+  background-color: #ebebeb;
+  display: inline-block;
+  vertical-align: top;
+  height: 23px;
+  line-height: 23px;
+  width: 36px;
+  text-align: center;
+  margin-top: 1px;
+  margin-left: 20px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+.btm_left_block span {
+  font-size: 14px;
+}
+.head_tag_wrap {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 25px;
+}
+
+.btm_cntrl_btn {
+  width: 111px;
+  height: 38px;
+  text-align: center;
+  border: 1px solid;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 34px;
+  line-height: 38px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #424242;
+  cursor: pointer;
+}
+
+.head_tag {
+  cursor: pointer;
+  background-color: #ffffff36;
+  height: 28px;
+  line-height: 28px;
+  padding: 0px 12px;
+  color: white;
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  //margin-top: 12px;
+  font-size: 13px;
+}
+
+.btm_btn_ico {
+  width: 14px;
+  height: 14px;
+  background-image: url(/assets/images/bottombar.png);
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 66px;
+  margin-right: 5px;
+}
+
+.pause_btn {
+  background-position: 121px 118px;
+}
+
+.start_btn {
+  background-position: 121px 159px;
+}
+
+.complete_btn {
+  background-position: 121px 77px;
+}
+
+.btm_right_block {
+  float: right; // display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+.bottom_right_btns .btm_btn_ico {
+  width: 25px;
+  height: 25px;
+  background-size: 75px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.bottom_right_btns .btm_btn_ico:last-child {
+  margin-right: 0px;
+}
+
+.alert_btn {
+  background-position: 142px 232px;
+}
+
+.star_btn {
+  background-position: 142px 278px;
+}
+
+.recycle_btn
+{
+background-image: url("/assets/images/recycle.png");
+background-size: contain !important;
+background-repeat: no-repeat;
+width: 20px !important;
+height: 20px !important;
+}
+
+.edt_btn {
+  background-position: 142px 420px;
+}
+
+.del_btn {
+  background-position: 142px 372px;
+}
+
+.archive_btn {
+  background-position: 142px 47px;
+}
+
+.more_btn {
+  background-position: 142px 326px;
+}
+
+.btm_left_block {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 7px;
+  margin-right: 80px;
+}
+/*bottom panel ends*/

@@ -1,0 +1,30 @@
+<div class="module tablet-12 laptop-12 desktop-12">
+
+  <div class="module">
+    <div class="fp_input">
+      <label>{{addressElement.address.label || "Enter The Title"}}<span class="error" *ngIf = "addressElement.address.isRequired === true">*</span></label>
+      <input type="text" class="" name="text" placeholder="Street Address" [disabled]="true">
+    </div>
+    <div class="fp_input">
+      <input type="text" class="" name="text" placeholder="Address Line 2" [disabled]="true">
+    </div>
+  </div>
+  <div class="module addresswrap_input ">
+    <div class="fp_input fp_in left">
+      <input type="text" class="" name="text" placeholder="City" [disabled]="true">
+    </div>
+    <div class="fp_input fp_in right">
+      <input type="text" class="" name="text" placeholder="State / Province / Region" [disabled]="true">
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="module addresswrap_input">
+    <div class="fp_input fp_in left">
+      <input type="text" class="" name="text" placeholder="Postal / Zip Code" [disabled]="true">
+    </div>
+    <div class="fp_input fp_in right">
+      <input type="text" readonly class="" name="text" placeholder="Country" [disabled]="true">
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

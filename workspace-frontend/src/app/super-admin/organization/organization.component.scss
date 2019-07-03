@@ -1,0 +1,115 @@
+.orgTable {
+    background: #fff;
+}
+.table_head.table_row.Header {
+    display: flex;
+    padding-left: 20px;
+    flex-wrap: wrap;
+    background: #f6f6f6;
+    background-color: #f6f6f6;
+    height: 44px;
+    line-height: 44px;
+}
+.check {
+    width: 15px;
+    height: 15px;
+    background-color: lightgray;
+    border-radius: 2px;
+    z-index: -1;
+    cursor: pointer;
+    margin-top: 7px;
+}
+.table_head .table-blocks {
+    color: #536273 !important;
+    font-family: Roboto-bold !important;
+    font-size: 13px !important;
+    padding-right: 20px;
+}
+.table_outer_block .table-blocks:nth-child(2) {
+    width: 31%;
+}
+.table_outer_block .table-blocks.Organisation {
+    width: 25%;
+}
+.table_outer_block .table-blocks:nth-child(4) {
+    width: 17%;
+}
+.table_outer_block .table-blocks:nth-child(5) {
+    width: 20%;
+}
+.table-blocks.Profile {
+    width: 25%;
+}
+.Content .table_head .table-blocks span:after{
+    display: none;
+}
+.Content .table_head.table_row .table-blocks {
+    background: #fff !important;
+    position: relative;
+    border-bottom: none;
+    padding-top: 18px;
+    height: 100%;
+    cursor: pointer;
+    font-family: roboto-medium !important;
+    line-height: 28px;
+    /* font-size: 14px !important; */
+    padding-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.Content .table_head.table_row {
+    background: #fff;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    border-bottom: 1px solid #efeeee;
+}
+.Profile span {
+    padding-left: 50px;
+    color: #178ccb;
+}
+.Content .table-blocks.clickButton {
+    width: 30px;
+    cursor: pointer;
+    height: 65px !important;
+}
+.avatar {
+    background-image: url("/assets/images/account-dp.png");
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+    top: 17px;
+    position: absolute;
+}
+.check_outer {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    z-index: 1;
+    display: inline-block;
+    cursor: pointer;
+}
+.dotImage {
+    width: 20px;
+    height: 20px;
+    background-image: url("/assets/images/more.png");
+    display: inline-block;
+    vertical-align: middle;
+    /* border-radius: 50%; */
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 3%;
+    position: absolute;
+    top: 19px;
+    background-size: contain;
+    left: 0px;
+    cursor: pointer;
+}

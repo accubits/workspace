@@ -1,0 +1,36 @@
+.nav_wrap {
+    background-color: white;
+    z-index: 2;
+}
+
+.nav_wrap ul {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    border-bottom: 1px solid #e9ebf5;
+}
+
+
+.more_opt {
+    display: inline-block;
+}
+
+.nav_wrap ul li label {
+  position: relative;
+  background-color: #dde0e3;
+  color: #4b5663;
+  left: 15px;
+  line-height: 20px;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-family: Roboto-Regular !important;
+}
+.active_tab li::after {
+  z-index: 1;
+}
+@media (max-width : 1366px){
+    .nav_wrap ul li {
+        cursor: pointer;
+        font-size: 14px;
+    }
+}

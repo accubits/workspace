@@ -1,0 +1,40 @@
+<div class="fp_timewrap">
+  <div class="fp_body">
+    <ul>
+      <li>
+        <div class="fp_input">
+          <label>{{timeElement.time.label}}<span *ngIf = "data.time.isRequired" class="error">*</span></label>
+          <input type="text" class="" name="text" placeholder="HH" [(ngModel)]="hours"  maxlength="2"   onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" (ngModelChange)="validateElement()">
+        </div>
+      </li>
+      <li>
+        <div class="fp_input trans_label">
+          <label>Time</label>
+          <input type="text" class="" name="text" placeholder="MM" [(ngModel)]="minutes"  maxlength="2"   onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" (ngModelChange)="validateElement()">
+        </div>
+      </li>
+      <li>
+        <div class="fp_input trans_label">
+          <label>Time</label>
+          <input type="text" class="" name="text" placeholder="SS" [(ngModel)]="seconds"   maxlength="2"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" (ngModelChange)="validateElement()">
+        </div>
+      </li>
+      <li>
+        <div class="fp_input trans_label drop_icon_input fp_ampm">
+          <label>Time</label>
+          <input type="text" class="" name="text" placeholder="AM" [(ngModel)]="timeDivision" (ngModelChange)="validateElement()" (click)="fp_ampm = !fp_ampm" >
+          <div class="drop_drop_pop commonn_popup" *ngIf="fp_ampm">
+            <section (click)= "timeElements('AM')">
+              AM
+            </section>
+            <section (click)= "timeElements('PM')">
+              PM
+            </section>
+          </div>
+        </div>
+      </li>
+      <div class="clear"></div>
+    </ul>
+    <p class="error" *ngIf="!timeElement.isValidated && dataService.formValidation.validating &&( !hours || !minutes || !seconds || !timeDivision )">Required Field</p>
+  </div>
+</div>

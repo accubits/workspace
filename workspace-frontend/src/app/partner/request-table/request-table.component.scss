@@ -1,0 +1,175 @@
+.drive_wrap{
+    position: relative;
+}
+
+.table_head .table-blocks span {
+    position: relative;
+    padding-right: 25px;
+    cursor: pointer;
+    font-family: roboto-regular;
+}
+@media (max-width: 1366px){
+    .table_head .table-blocks span {
+        position: relative;
+        padding-right: 25px;
+        cursor: pointer;
+        font-family: roboto-regular;
+        font-size: 12px;
+    }
+}
+.table-blocks.Organisation{
+    width: 41%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.table_head.table_row .table-blocks {
+    // background-color: #f6f6f6;
+    height: 44px;
+    line-height: 44px;
+    border-bottom: 1px solid #e5e7f0;
+}
+.table_head .table-blocks {
+    color: #536273;
+    font-weight: bold;
+    font-size: 13px !important;
+}
+.table_head.table_row .table-blocks:nth-child(3) {
+    width: 13%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.table_head .table-blocks:nth-child(4) {
+    width: 14%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.table_head .table-blocks:nth-child(5) {
+    width: 19%; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    /* font-family: roboto-regular!important; */
+}
+// .table_head .table-blocks:nth-child(6) {
+//      width: 11%;
+// }
+.table_row .table-blocks:nth-child(1) {
+    width: 5%;
+    text-align: center;
+}
+.table_head {
+    background-color: #f6f6f6;
+    height: 45px;
+    line-height: 44px;
+    // border-bottom: 1px solid #e5e7f0;
+    // border-top: 1px solid #e5e7f0;
+}
+.table_outer_block .table_head .table-blocks .tb_head_drop_arrow:after{
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #536273;
+    right: 0;
+    top: 5px;
+}
+.table_outer_block .table_head .table-blocks span:after {
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #dde2e7;
+    right: 0;
+    top: 5px;
+}
+.table-blocks {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    box-sizing: border-box;
+    height: 70px;
+    line-height: 70px;
+    color: #424e5c;
+}
+.check_outer {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    z-index: 1;
+    display: inline-block;
+    cursor: pointer;
+}
+.drive_wrapDetail .table_head.table_row {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.drive_wrapDetail .table_head {
+    height: 70px;
+    border-bottom: 1px solid #e5e7f0;
+}
+.drive_wrapDetail .table_head.table_row .table-blocks {
+    // background-color: #fff !important;
+    border-bottom: none;
+    line-height: 70px;
+    font-family: roboto-regular !important;
+}
+.table-blocks.clickButton {
+    width: 6%;
+}
+.dotImage {
+    width: 20px;
+    height: 20px;
+    background-image: url("/assets/images/more.png");
+    display: inline-block;
+    vertical-align: middle;
+    /* border-radius: 50%; */
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 3%;
+    position: absolute;
+    top: 19px;
+    background-size: contain;
+    left: 16px;
+    cursor: pointer;
+}
+.fl_more_option_container {
+    position: absolute;
+    right: 25px;
+    top: 210px;
+    width: 170px;
+    background-color: #fff;
+    box-shadow: 0 6px 12px rgba(0,0,0,.15), 0 10px 40px rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.15), 0 10px 40px rgba(0,0,0,.15);
+    z-index: 9999999999;
+    text-align: left;
+}
+.fl_more_option ul li {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #dcdfe2;
+    font-size: 14px;
+    color: #414d5b;
+    cursor: pointer;
+    margin: 0px;
+}
+.fl_more_option ul li:hover {
+    background-color: #0957be;
+    border-bottom: 1px solid #dcdfe2;
+    color: #fff;
+}
+.main_out
+{
+    background-color: white;
+}
+

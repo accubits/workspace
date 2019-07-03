@@ -1,0 +1,24 @@
+<div class="moreoptionOverlay"></div>
+
+<div class="dotPopup"  >  
+  <div class="fl_more_option_container">
+    <div class="fl_more_option" >
+      <ul>
+        <li  *ngIf="partnerDataService.getOrganisationDetails.organizations[Index].licenseKey" (click)="renewLicense($event,Index)">  
+          Renew License 
+        </li>
+        <li  *ngIf="!partnerDataService.getOrganisationDetails.organizations[Index].licenseKey" (click)="requestLicense($event,Index)">  
+          Request License 
+        </li>
+        <li (click)="deleteOrganisation($event,Index)">
+          Delete
+        </li>
+        <li (click)="editOrganisation($event,Index)">
+          Edit
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> 
+
+

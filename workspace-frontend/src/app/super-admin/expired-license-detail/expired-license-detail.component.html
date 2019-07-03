@@ -1,0 +1,22 @@
+<div class="overlay" (click)="hideDetails()"></div>
+<div class="license-detail-popup">
+  <div class="pop-head">
+    <h4>License Detail</h4>
+    <p>Expired</p>
+    <div class="pop_close" (click)="hideDetails()"></div>
+  </div>
+
+    <div class="nav">
+      <ul>
+      <li [ngClass]="{active:type==='detail'}" (click)="type='detail'">Current</li>
+      <li [ngClass]="{active:type==='history'}" (click)="type='history'">History</li>
+    </ul>
+    </div>
+    <div class="pop-inner">
+    <app-expired-detail-tab *ngIf="type=='detail'" ></app-expired-detail-tab>
+    <app-expired-history-tab  *ngIf="type=='history'"></app-expired-history-tab>
+  </div>
+  <div class="pop-footer">
+    <button class="pbtncreate">Renew</button>
+  </div>
+</div>

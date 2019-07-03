@@ -1,0 +1,95 @@
+<div class="moreoptionOverlay" *ngIf="this.moreOption" (click)="closeOrgMore()"></div>
+<!--table content strts-->
+<div class="drive_wrapDetail" (click)="showOrgDetails(i)" *ngFor="let organisation of partnerDataService.getOrganisationDetails.organizations| paginate: { itemsPerPage: partnerDataService.OrganisationPageDetails. perPage, currentPage:partnerDataService.OrganisationPageDetails.page,totalItems: partnerDataService.getOrganisationDetails.total };let i=index ">
+  <div class="table_outer_block"> 
+    <div class="table_head table_row">  
+      <div class="table-blocks">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer" (click)="selectTask($event)"> 
+              <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="organisation.selected" (ngModelChange)="partnerUtilityService.manageOrganisationSelection($event,i)"/>
+              <div class="check" for="1_in"></div> 
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="table-blocks Organisation">
+          {{organisation.name}}
+      </div>
+      <div class="table-blocks">
+        {{organisation.countryName}}
+      </div>
+      <div class="table-blocks">
+        {{organisation.verticalName}}   
+      </div>
+      <div class="table-blocks">
+        <div class="table_row_pic" *ngIf="organisation.adminUserImage === null">
+        </div>
+        <div *ngIf="organisation.adminUserImage !== null" [ngStyle]="{'background-image': 'url(' + organisation.adminUserImage + ')'}" class="table_row_pic"> 
+          </div>
+        <div class="table_row_pic_name">
+            {{ organisation.adminUserNames}}
+        </div>
+      </div>
+      <div class="table-blocks date">
+        {{organisation.orgCreatedAt *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+      </div>
+  <!-- <div class="outerSection"> -->
+      <section class="no_result" *ngIf="partnerDataService.getOrganisationDetails.organizations.length === 0">
+      </section>
+    <!-- </div> -->
+      <div class="table-blocks clickButton" (click)="showMoreOption($event,i)">
+        <div class="dotImage"></div>
+        <app-more-option [Index] = 'i' *ngIf="organisation['showMore']"></app-more-option>
+      </div> 
+    </div>
+    <!-- <div class="dotPopup" *ngIf="organisation['showMore']" >  
+      <div class="fl_more_option_container">
+        <div class="fl_more_option">
+          <ul>
+            <li (click)="renewLicense($event,i)">  
+              Renew License
+            </li>
+            <li>
+              Delete
+            </li>
+            <li (click)="editOrganisation($event,i)">
+              Edit
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>  -->
+  </div>
+  
+</div>
+<div class="outerSection">
+  <section class="no_result" *ngIf="partnerDataService.getOrganisationDetails.organizations.length === 0">
+  </section>
+</div>
+<!--table content ends-->
+<div class="showPopup" *ngIf="partnerDataService.orgDetailsPop.showPopup">
+  <app-org-popup></app-org-popup>
+</div>
+
+<!-- <div class="dotPopup" *ngIf="moreOptions" >  
+  <div class="fl_more_option_container">
+    <div class="fl_more_option">
+      <ul>
+        <li (click)="renewLicense(this.indexValue)">  
+          Renew License
+        </li>
+        <li>
+          Delete
+        </li>
+        <li (click)="editOrganisation(this.indexValue)">
+          Edit
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+<!-- <app-license-pop *ngIf="partnerDataService.renewLicensePopup.show"></app-license-pop>
+<app-edit-org *ngIf="partnerDataService.showEditOrganisationpopup.show"></app-edit-org> -->
+

@@ -1,0 +1,8 @@
+<div class="fp_select">
+  <div class="fr_question">
+    <label>{{dropDownElement.dropdown.label}}</label>
+  </div>
+  <div class="fr_answer" [ngClass]="{'fr_act':choice.selected}" *ngFor="let choice of dropDownElement.dropdown.choices">
+    <p>{{choice.label}}</p>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+<!--popup starts-->
+<div class="modalOuter" (click)="closePop()"></div>
+  <div class="form_submit_wrap" >
+    <div  class="form_submit_modal">
+      <div class="headerOuter"> 
+        <div class="fs_header">
+            <h4>National Institute of Education</h4>
+            <span>School | Singapore</span> 
+        </div>
+        <div class="pop_close" (click)="closePop()"></div>
+      </div>
+      <ul class="menu">
+        <li [ngClass]="{active: currentTab === 'details'}" (click)="currentTab = 'details'">Details</li>
+        <li [ngClass]="{active: currentTab === 'license'}" (click)="currentTab = 'license'">License</li>
+        <li [ngClass]="{active: currentTab === 'settings'}" (click)="currentTab = 'settings'">Settings</li>
+      </ul>
+      <div class="nav_wrap" *ngIf="currentTab === 'details'">
+        <div class="licenseContentOuter">
+          <div class="licenseDate">
+            <div class="tableDetailOuter">
+                <div class="tableDetail">
+                  <h4>ORGANISATION NAME</h4>
+                </div>
+                <div class="tableContent">
+                  Big Valley Conservatory
+                </div>
+            </div>
+            <div class="tableDetailOuter">
+              <div class="tableDetail">
+                <h4>COUNTRY</h4>
+              </div>
+              <div class="tableContent">
+                Kazakhstan
+              </div>
+            </div>
+            <div class="tableDetailOuter">
+              <div class="tableDetail">
+                <h4>VERTICAL</h4>
+              </div>
+              <div class="tableContent">
+                School
+              </div>
+            </div>
+            <div class="tableDetailOuter">
+              <div class="tableDetail">
+                <h4>PARTNER</h4>
+              </div>
+              <div class="tableContent">
+                <div class="profileImg">
+                </div>
+                <div class="profile">
+                  Marcus  Cruz
+                </div>
+              </div>
+            </div>
+            <div class="tableDetailOuter">
+              <div class="tableDetail">
+                <h4>Admin</h4>
+              </div>
+              <div class="tableContent">
+                <div class="profileImg">
+                </div>
+                <div class="profile">
+                  Stella Little
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="fs_footer">
+            <button class="fs_footer_next">Renew</button>
+            <button class="fs_footer_cancel">Delete License</button>
+        </div> -->
+      </div>
+      <div class="historyTab" *ngIf="currentTab === 'license'">
+        <div class="detail-tab-outer">
+          <div class="left-section">
+            <div class="org-sec">
+              <p>STATUS</p>
+              <h6 class=redStatus>EXPIRED</h6>
+            </div>
+            <div class="org-sec">
+              <p>USERS</p>
+              <h6>127</h6>
+            </div>
+            <div class="org-sec">
+              <p>KEY</p>
+              <h6>HSHDUWK123KJHY</h6>
+            </div>
+            <div class="org-sec">
+              <p>TYPE</p>
+              <h6>Annual</h6>
+            </div>
+          </div>
+          <div class="right-section">
+            <div class="date-sec blue">
+              <h6>REQUESTED ON</h6>
+              <P>10 Jul 2019 <span class="pipe">|</span>10:30 AM</P>
+            </div>
+            <div class="date-sec blue">
+              <h6>APPROVED ON</h6>
+              <P>15 Jul 2019 <span class="pipe">|</span>10:30 AM</P>
+            </div>
+            <div class="date-sec green">
+              <h6>STARTED ON</h6>
+              <P>20 Jul 2019</P>
+            </div>
+            <div class="date-sec red">
+              <h6>ENDS ON</h6>
+              <P><span>25 Jul 2019</span>  </P>
+            </div>
+          </div>
+          </div>
+          <div class="fs_footer">
+            <button class="fs_footer_next">Renew</button>
+        </div>
+      </div>
+      <div class="settingsTab" *ngIf="currentTab === 'settings'">
+          <div class="org-sec">
+              <p>STORAGE SIZE</p>
+              <h6>1 GB</h6>
+          </div>
+          <div class="atc_btn_chng">Change Storage size</div>
+        <div class="bg-selector">
+          <h4>DASHBOARD BACKGROUND</h4>
+          <div class="bg-img"></div>
+          <div class="profile_fileupload">
+              <button class="btn">Change picture<div class="info"></div></button>
+              <input type="file" name="myfile" />
+            </div>
+            <div class="reset">Reset to default</div>
+          <div class="clear"></div>
+        </div>
+        <div class="textarea-outer">
+          <h4>DASHBOARD MESSAGE</h4>
+          <textarea placeholder="Enter Message" rows=5></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--popup ends-->

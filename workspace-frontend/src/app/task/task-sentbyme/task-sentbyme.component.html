@@ -1,0 +1,40 @@
+<div class="taskActive_wrap">
+
+  <div class="table_outer_block">
+    <section class="no_result" *ngIf="taskDataService.getTasks.taskList.length === 0">
+
+    </section>
+
+    <section *ngIf="taskDataService.getTasks.taskList.length !== 0">
+      <div class="table_head table_row">
+        <div class="table-blocks">
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id=""  [(ngModel)]="taskDataService.taskRunManagement.selectedAll" (ngModelChange)="checkAllTask($event)">
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="table-blocks" [ngClass]="{'actives':taskDataService.getTasks.sortOrder === 'asc' && taskDataService.getTasks.selectedSortItem === 'title'}"  (click)="sortTasks('title')">
+          <span>NAME</span>
+        </div>
+        <div class="table-blocks" (click)="sortTasks('due_date')" [ngClass]="{'actives':taskDataService.getTasks.sortOrder === 'asc' && taskDataService.getTasks.selectedSortItem === 'due_date'}">
+          <span>DUE DATE</span>
+        </div>
+        <div class="table-blocks" [ngClass]="{'actives':taskDataService.getTasks.sortOrder === 'asc' && taskDataService.getTasks.selectedSortItem === 'created_at'}" (click)="sortTasks('created_at')">
+          <span>CREATED DATE</span>
+        </div>
+        <div class="table-blocks">
+          <span class="no_srt">ASSIGNEES</span>
+        </div>
+      </div>
+      <div *ngFor="let task of taskDataService.getTasks.taskList | paginate: { itemsPerPage: taskDataService.getTasks.perPage, currentPage:taskDataService.getTasks.page,totalItems: taskDataService.getTasks.total };let index=index" class="table_body table_row">
+        <app-task-listing [task]="task" [index]="index"></app-task-listing>
+      </div>
+    </section>
+  </div>
+
+</div>
+

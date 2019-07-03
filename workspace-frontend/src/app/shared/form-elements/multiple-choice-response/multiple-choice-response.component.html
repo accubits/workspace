@@ -1,0 +1,11 @@
+<div class="fp_radio_wrap">
+  <h6>{{multipleChoiceElement.multipleChoice.label}}</h6>
+  <div class="fp_choices" *ngFor="let choice of multipleChoiceElement.multipleChoice.choices">
+    <div class="radio_out">
+      <input id="radio_id3" name="repeat_radio" disabled type="radio" [checked]="choice.selected">
+      <div class="custom_radio" for="radio_id3"></div>
+    </div>
+    {{choice.label}}
+  </div>
+ 
+</div>

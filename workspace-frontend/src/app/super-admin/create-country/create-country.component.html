@@ -1,0 +1,19 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="overlaypop" (click)="closePop()"></div>
+    <div class="form_submit_wrap">
+      <div  class="form_submit_modal">
+        <div class="fs_header">
+            <h4>CREATE COUNTRY</h4>  
+        </div>
+        <div class="content">
+          <input type="text" class="orgBox" placeholder="Name" [(ngModel)]="superAdminDataService.countryDetails.name"
+          [ngClass]="{'err_out': !isValidated && !superAdminDataService.countryDetails.name}"> 
+         </div>
+        <div class="fs_footer">
+          <button *ngIf="superAdminDataService.countryDetails.slug === null" class="fs_footer_next" (click)="create()">Create</button>
+          <button *ngIf="superAdminDataService.countryDetails.slug !== null" class="fs_footer_next" (click)="update()">Update</button>
+          <button class="fs_footer_cancel" (click)="closePop()">Cancel</button>
+        </div>
+      </div>
+    </div>
+</div>

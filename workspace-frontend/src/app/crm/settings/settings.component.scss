@@ -1,0 +1,46 @@
+.settings-wrap
+{
+  width: 100%;
+  min-height: 80vh;
+  height: auto;
+  background-color: #fff;
+  padding: 20px 30px;
+}
+h4
+{
+  color: #424e5c;
+  font-size: 14px;
+}
+p{
+  color: #bac0c7;
+  font-size: 14px;
+  color: #bac0c7;
+  font-size: 14px;
+  width: auto;
+  display: inline-block;
+  vertical-align: top;
+  margin: 30px 0;
+}
+p span
+{
+  color: #006df0;
+  margin: 0 30px;
+}
+.editbtn
+{
+    position: relative;
+    height: 32px;
+    line-height: 32px;
+    min-width: 100px;
+    background-color: #d9e9fd;
+    border-radius: 3px;
+    color: #006df0;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin: 20px 10px;
+    font-family: Roboto-Regular;
+}

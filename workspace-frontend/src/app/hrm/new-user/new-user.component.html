@@ -1,0 +1,169 @@
+<div class="overlaypop" (click)="closePop()"></div>
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="form_submit_wrap">
+    <div class="form_submit_modal">
+      <div class="fs_header">
+        <h4 *ngIf="hrmDataService.employee.action === 'create' && hrmDataService.employee.option === 'invite'">INVITE NEW EMPLOYEE</h4>
+        <h4 *ngIf="hrmDataService.employee.action === 'create' && hrmDataService.employee.option === 'register'">REGISTER NEW EMPLOYEE</h4>
+        <h4 *ngIf="hrmDataService.employee.action === 'update'">UPDATE EMPLOYEE</h4>
+      </div>
+      <div class="content">
+        <ul *ngIf="hrmDataService.employee.action === 'create'" class="contentList">
+          <li [ngClass]="{active:selected === 'invite'}" (click)="selectOpt('invite')">Invite</li>
+          <li [ngClass]="{active:selected === 'register'}" (click)="selectOpt('register')">Register</li>
+        </ul>
+        <!--invite content starts-->
+        <div *ngIf="selected === 'invite'">
+          <div class="emp_contents">
+            <div class="emp_create_content_row">
+              <div class="pe_input_holder">
+                <span>Name :</span>
+                <input autocomplete="off" class="pe_input_field" type="text" placeholder="" [(ngModel)]="hrmDataService.employee.name" name="name">
+                  <p class="error" *ngIf="!isValidated && !hrmDataService.employee.name" >Required Field</p>
+              </div>
+            </div>
+
+            <div class="profile_edit_content_row">
+              <div class="pe_input_holder">
+                <span>Email :</span>
+                <input autocomplete="off" class="pe_input_field" type="text" placeholder="" [(ngModel)]="hrmDataService.employee.email"
+                  name="email" (ngModelChange)="validateEmail()">
+               </div>
+            </div>
+            <p class="error" *ngIf="!isValidated && !hrmDataService.employee.email">Required Field</p>
+            <p class="error" *ngIf="isSubmit && !isEmailValidated && hrmDataService.employee.email">Invalid Email</p>
+
+            <div class="profile_edit_content_row">
+                <div class="pe_input_holder">
+                  <span>Reporting Officer :</span>
+                  <div *ngFor="let user of hrmDataService.toUsers.toUsers" class="selected_tag">
+                    <span class="input-title">{{user.name}}
+                      <div class="select_close" (click)="removeUsers(user)"></div>
+                    </span>
+                  </div>
+                  <input class="pe_input_field drop" type="text" placeholder="" (click)="showEmpList()">
+                  <div class="overlay" *ngIf="empList" (click)="hideEmpList()"></div>
+                  <div class="resp_person_dropdown_depart" *ngIf="empList" >
+                      <div class="resp_drop_head">
+                        <span>PEOPLE</span>
+                        <div class="close_drop"  (click)="hideEmpList()"></div>
+                      </div>
+                      <div class="drop_down_wrap">
+                        <div class="drop_down_wrap">
+                          <section class="drop_body">
+                            <div class="recent_wrap pad_wrap">
+                              <section *ngFor="let emp of hrmDataService.employeeList.list" (click)="selectEmployee(emp)">
+                                <div *ngIf="emp.employeeImage === null" class="recent_ico"></div>
+                                <div *ngIf="emp.employeeImage !== null" class="recent_ico" [ngStyle]="{'background-image': 'url(' + emp.employeeImage + ')'}"></div>
+                                {{emp.employeeName}}
+                              </section>
+                               </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+              </div>
+          </div>
+        </div>
+        <!--email content ends-->
+
+        <!--register content strts-->
+        <div *ngIf="selected === 'register'">
+          <div class="emp_contents">
+            <div class="emp_create_content_row">
+              <div class="pe_input_holder">
+                <span>Name :</span>
+                <input autocomplete="off" class="pe_input_field" type="text" placeholder="" [(ngModel)]="hrmDataService.employee.name" name="name">
+              </div>
+            </div>
+            <p class="error" *ngIf="!isValidated && !hrmDataService.employee.name">Required Field</p>
+
+            <div class="profile_edit_content_row">
+              <div class="pe_input_holder">
+                <span>Email :</span>
+                <input autocomplete="off" *ngIf="hrmDataService.employee.action === 'update'" disabled ="disabled" class="pe_input_field" type="text" placeholder="" [(ngModel)]="hrmDataService.employee.email"
+                  name="email" (ngModelChange)="validateEmail()">
+                  <input autocomplete="off" *ngIf="hrmDataService.employee.action !== 'update'" class="pe_input_field" type="text" placeholder="" [(ngModel)]="hrmDataService.employee.email"
+                  name="email" (ngModelChange)="validateEmail()">
+                </div>
+             </div>
+             <p class="error" *ngIf="!isValidated && !hrmDataService.employee.email">Required Field</p>
+            <p class="error" *ngIf="isSubmit && !isEmailValidated && hrmDataService.employee.email">Invalid Email</p>
+            <div class="emp_create_content_row" >
+                <div class="pe_input_holder last-holder">
+              <div class="overlaypop-lev" *ngIf="departList" (click)="hideDepart()"></div>
+            <span class="request">Departments :</span>
+            <div  class="selected_tag" *ngFor="let toDept of hrmDataService.departmentList.toDept">
+              <div class="input-title">{{toDept.departmentName}}
+                <div class="select_close" (click)="removeDept(toDept)"></div>
+              </div>
+            </div>
+            <input type="text" class="drop" placeholder="" (click)="showDepart()">
+            <div class="resp_person_dropdown_depart" *ngIf="departList">
+              <div class="resp_drop_head">
+                <span>Departments</span>
+                <div class="close_drop" (click)="hideDepart()"></div>
+              </div>
+              <div class="drop_down_wrap">
+                 <div class="drop_down_wrap">
+                     <section class="drop_body">
+                      <div class="recent_wrap pad_wrap">
+                        <section *ngFor="let dept of hrmDataService.departmentList.list; let i=index" [hidden]="dept.existing" (click)="selectDepartment(dept)">
+                          <div  class="recent_ico"></div>
+                         {{dept.departmentName}}
+                        </section>
+                      </div>
+                    </section>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile_edit_content_row">
+          <div class="pe_input_holder">
+            <span>Reporting Officer :</span>
+            <span *ngIf = "hrmDataService.toUsers.toUsers.length !== 0"> 
+              <div *ngFor="let user of hrmDataService.toUsers.toUsers" class="selected_tag">
+                <span class="input-title">{{user.name}}
+                  <div class="select_close" (click)="removeUsers(user)"></div>
+                </span>
+              </div>
+            </span>
+             <input class="pe_input_field drop" type="text" placeholder="" (click)="showEmpList()">
+            <div class="overlay" *ngIf="empList" (click)="hideEmpList()"></div>
+            <div class="resp_person_dropdown_depart" *ngIf="empList" >
+                <div class="resp_drop_head">
+                  <span>PEOPLE</span>
+                  <div class="close_drop"  (click)="hideEmpList()"></div>
+                </div>
+                <div class="drop_down_wrap">
+                  <div class="drop_down_wrap">
+                    <section class="drop_body">
+                      <div class="recent_wrap pad_wrap">
+                        <section *ngFor="let emp of hrmDataService.employeeList.list" (click)="selectEmployee(emp)">
+                          <div *ngIf="emp.employeeImage === null" class="recent_ico"></div>
+                          <div *ngIf="emp.employeeImage !== null" class="recent_ico" [ngStyle]="{'background-image': 'url(' + emp.employeeImage + ')'}"></div>
+                          {{emp.employeeName}}
+                        </section>
+                         </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+           </div>
+        </div>
+          </div>
+        </div>
+        <!--register content ends-->
+      </div>
+      <div class="clear"></div>
+      <div class="fs_footer">
+        <button *ngIf="selected === 'invite' && hrmDataService.employee.action !== 'update'" class="fs_footer_next" (click)="inviteEmp()">Invite</button>
+        <button *ngIf="selected === 'register' && hrmDataService.employee.action !== 'update'" class="fs_footer_next" (click)="registerEmp()">Register</button>
+        <button *ngIf="hrmDataService.employee.action === 'update'" class="fs_footer_next" (click)="updateEmp()">Update</button>
+        <button class="fs_footer_cancel" (click)="closePop()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

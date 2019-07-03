@@ -1,0 +1,12 @@
+<div class="module tablet-12 laptop-12 desktop-12 fp_select">
+  <label>{{dropdownElement.dropdown.label || "Enter the title"}}<span class="error" *ngIf = "dropdownElement.dropdown.isRequired === true">*</span></label>
+  <div class="element_input drop_dropdown_wrap drop_icon_input">
+    <input type="text" class="" name="text" readonly  placeholder="Please Select" readonly="true" (click)="showChoice = !showChoice">
+    <div class="drop_drop_pop commonn_popup" *ngIf="showChoice">
+      <section *ngFor="let choice of dropdownElement.dropdown.choices">
+       {{choice.label || "Enter the choice"}}
+      </section>
+     
+    </div>
+  </div>
+</div>

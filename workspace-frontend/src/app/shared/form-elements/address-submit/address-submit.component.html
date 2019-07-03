@@ -1,0 +1,38 @@
+<div class="addresswrap">
+  <div class="">
+    <div class="fp_input">
+      <label>{{addressElement.address.label}}<span *ngIf = "data.address.isRequired"  class="error">*</span></label>
+      <input type="text" class="" name="text" placeholder="Street Address" [(ngModel)]="addressSubmit.address.streetAddress" (ngModelChange)="validateElement()">
+      <p class="error" *ngIf="!addressElement.isValidated && dataService.formValidation.validating && !addressSubmit.address.streetAddress" >Required Field</p>
+    </div>
+    <div class="fp_input">
+      <input type="text" class="" name="text" placeholder="Address Line 2" [(ngModel)]="addressSubmit.address.addressLine2" (ngModelChange)="validateElement()" >
+      <p class="error" *ngIf="!addressElement.isValidated && dataService.formValidation.validating && !addressSubmit.address.addressLine2">Required Field</p>
+    </div>
+  </div>
+  <div class="flex_space">
+    <div class="addresswrap_input">
+      <div class="fp_input namewrap_input_side_pad">
+        <input type="text" class="" name="text" placeholder="City" [(ngModel)]="addressSubmit.address.city" (ngModelChange)="validateElement()">
+        <p class="error" *ngIf="!addressElement.isValidated && dataService.formValidation.validating && !addressSubmit.address.city">Required Field</p>
+      </div>
+      <div class="fp_input namewrap_input_side_pad inline_mar_left_input">
+        <input type="text" class="" name="text" placeholder="State / Province / Region" [(ngModel)]="addressSubmit.address.state" (ngModelChange)="validateElement()">
+        <p class="error" *ngIf="!addressElement.isValidated && dataService.formValidation.validating && !addressSubmit.address.state">Required Field</p>
+      </div>
+    </div>
+    <div class="addresswrap_input">
+      <div class="fp_input inline_mar_left_input">
+        <input type="text" class="" name="text" placeholder="Postal / Zip Code" [(ngModel)]="addressSubmit.address.zipCode" (ngModelChange)="validateElement()">
+        <p class="error" *ngIf="!addressElement.isValidated && dataService.formValidation.validating && !addressSubmit.address.zipCode">Required Field</p>
+      </div>
+      <div class="fp_input inline_mar_left_input">
+        <input  type="text" class="" readonly  name="text" placeholder="Country" [(ngModel)]="countryNames" (click)="countryPopup = !countryPopup" (ngModelChange)="validateElement()">
+        <p class="error" *ngIf="!addressElement.isValidated && dataService.formValidation.validating && !countryNames">Required Field</p>
+        <div  class="countryDrop" *ngIf="countryPopup">
+          <section  *ngFor= "let country of dataService.countryTemplate.countries" (click)='countryList(country)'>{{country.name}}</section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

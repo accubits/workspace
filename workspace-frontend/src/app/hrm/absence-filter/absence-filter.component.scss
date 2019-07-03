@@ -1,0 +1,258 @@
+.absence-filter-pop
+{
+width: 50%;
+background-color: #fff;
+position: fixed;
+right: 35px;
+top: 104px;
+height: 500px;
+z-index: 9999;
+}
+.overlaypop{
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.absence-filter-head h4{
+  color: #424e5c;
+  font-family: Roboto-Regular;
+  font-size: 13px;
+  text-align: left;
+  margin-top: 10px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+.absence-filter-head {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 20px 10px 20px;
+}
+.overlaypop-holiday
+{
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9;
+}
+.pop_close{
+  background-image: url(/assets/images/pop_close.png);
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: top;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+.absence-filter-inner
+{
+  width: 100%;
+  display: inline-block;
+  padding: 20px;
+}
+.absence-filter-footer
+{
+border-top: 1px solid #e8eaec;
+padding: 10px 20px;
+position: absolute;
+bottom: 0px;
+width: 100%;
+box-shadow: 0px 9px 103px 0px rgba(0, 0, 0, 0.1) !important;
+-webkit-box-shadow: 0px 9px 103px 0px rgba(0, 0, 0, 0.1) !important;
+}
+.filter-left
+{
+width: 55%;
+float:left;
+}
+.filter-right
+{
+width: 45%;
+float: left;
+}
+.req-cancel {
+  line-height: 30px;
+  height: 34px;
+  width: 117px;
+  color: #75818f;
+  border: 1px solid #75818f;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 20px;
+  vertical-align: middle;
+  transition: all ease 0.2s;
+  background-color: #fff;
+}
+.req-cancel:hover {
+  transition: all ease 0.2s;
+  background-color: #e8eaec;
+}
+.filter-left h4 {
+  color: #75818f;
+  font-family: Roboto-Regular;
+  font-size: 13px;
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.filter-left section
+{
+width: 100%;
+margin-top: 15px;
+}
+.leave-type-icon{
+  width: 12px;
+  height: 12px;
+  margin: 3px 10px 0 10px;
+  display: inline-block;
+}
+.leave-type {
+  color: #424e5c;
+  font-family: Roboto-medium;
+  font-size: 14px;
+  display: inline-block;
+  text-align: left;
+}
+.pink
+{
+  background-color: #ffcaca;
+}
+.green
+{
+  background-color: #87f399;
+}
+.yellow
+{
+  background-color: #ffff00;
+}
+.blue
+{
+  background-color: #87cefa;
+}
+.red
+{
+  background-color: #ff2e4c;
+}
+.green-yellow
+{
+  background-color: #9acd32;
+}
+.dark-blue
+{
+  background-color: #0000ff;
+}
+.lavender
+{
+  background-color:#b50cb5;
+}
+.grey{
+  background-color: gray;
+}
+.orange
+{
+  background-color: #ff4500;
+}
+.dark-red
+{
+  background-color: #ff0000;
+}
+.light-blue
+{
+  background-color:#9f7adc;
+}
+.filter-right h4 {
+  color: #75818f;
+  font-family: Roboto-Regular;
+  font-size: 13px;
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.leave-pop_expan_wrap{
+  padding: 20px;
+  background-color: #e8eaec;
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+  color: #b9bfc6;
+  cursor: pointer;
+}
+.resp_person_dropdown
+{
+  width: 100% !important;
+}
+.leave-pop_expan_wrap input{
+  width: auto;
+  background-color: transparent;
+  border: 0px solid;
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+.drop_nav ul li {
+  width: 100%;
+  margin-right: 0px;
+  color: #424e5c;
+  border: none;
+  padding: 15px 20px;
+  font-size: 14px;
+}
+.drop_nav ul li:hover
+{
+  background-color: #0000ff;
+  color: #fff;
+  border-bottom: none;
+}
+.drop_nav ul li:hover:before
+{
+  display: none;
+}
+.drop_nav
+{
+  border: none;
+  padding: 0;
+  overflow: auto;
+}
+.drop_down_wrap
+{
+  height: 300px;
+  overflow: auto;
+}
+.arrow_drop {
+  position: absolute;
+  right: 22px;
+  width: 12px;
+  background-image: url(/assets/images/dropdown.png);
+  height: 12px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  top: 20px;
+}
+.input-title
+{
+  display: inline-block;
+  vertical-align: top;
+  font-size: 13px;
+}
+@media only screen and (max-width:1366px)
+{
+  .leave-pop_expan_wrap{
+    padding: 15px 20px;
+  }
+}

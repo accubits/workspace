@@ -1,0 +1,117 @@
+<div class="drive_wrap">
+  <div class="table_outer_block">
+    <div class="table_head table_row Caption">
+      <div class="table-blocks">
+      </div>
+      <div class="table-blocks Organisation"
+        [ngClass]="{'actives':hrmDataService.employee.sortMethod === 'asc' && hrmDataService.employee.sortOption === 'employeeName'}"
+        (click)="sortOperation('employeeName')">
+        <span class="tb_head_drop_arrow">NAME</span>
+      </div>
+      <div class="table-blocks">
+        CONTACT
+      </div>
+      <div class="table-blocks">
+        REPORTING MANAGER
+      </div>
+      <div class="table-blocks">
+        DEPARTMENTS
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main_out">
+  <div class="drive_wrapDetail">
+    <section class="no_result_inOverview" *ngIf="hrmDataService.employeeList.list.length === 0">
+    </section>
+    <div class="table_outer_block">
+      <div class="table_head table_row" *ngFor="let emp of hrmDataService.employeeList.list; let i=index">
+        <div class="table-blocks">
+        </div>
+        <div class="table-blocks Organisation" (click)="showEmpDetail(emp.employeeSlug, emp.userSlug)">
+          <div *ngIf="emp.employeeImage !== null" [ngStyle]="{'background-image': 'url(' +emp.employeeImage + ')'}"
+            class="img"></div>
+          <div *ngIf="emp.employeeImage === null" [ngStyle]="{'background-image': 'url(/assets/images/all/tdp1.png)'}"
+            class="img"></div>
+          <div class="name"> {{emp.employeeName}}
+          </div>
+          <div *ngIf="emp.isHead === true" class="star"></div>
+        </div>
+        <div class="table-blocks" (click)="showEmpDetail(emp.employeeSlug, emp.userSlug)">
+          <div class="mail">
+            <div class="mailIcon"></div>
+            <div>{{emp.employeeEmail}}</div>
+          </div>
+        </div>
+        <div *ngIf="emp.reportingManagerName === null" class="table-blocks" >
+                 --
+        </div>
+        <div *ngIf="emp.reportingManagerName !== null" class="table-blocks" >
+          <div *ngIf="emp.reportingManagerImage !== null" [ngStyle]="{'background-image': 'url(' +emp.reportingManagerImage + ')'}"
+          class="img"></div>
+        <div *ngIf="emp.reportingManagerImage === null" [ngStyle]="{'background-image': 'url(/assets/images/account-dp.png)'}"
+          class="img"></div>
+          <div class="name">{{emp.reportingManagerName}}</div>
+        </div>
+        <div *ngIf="emp.employeeDepartments.length === 0" class="table-blocks Inline">
+          --
+        </div>
+        <div *ngIf="emp.employeeDepartments.length > 0" class="table-blocks Inline">
+          <div class="selected">{{emp.employeeDepartments[0].name}}
+            <div *ngIf="emp.employeeDepartments[0].isHead === true" class="Arts"><img src="/assets/images/assets-employees/star.png"/></div>
+          </div>
+          <div *ngIf="emp.employeeDepartments.length > 1" class="add"
+            (click)="hrmDataService.departmentCount[i] = !hrmDataService.departmentCount[i]">
+            + {{emp.employeeDepartments.length - 1}}</div>
+          <div class="overlaypop-emp" *ngIf="hrmDataService.departmentCount[i]" (click)="hideDeptList()"></div>
+          <div class="resp_person_dropdown" *ngIf="hrmDataService.departmentCount[i]">
+            <div class="resp_drop_head">
+              Department
+              <div class="close_drop" (click)="hideDeptList()"></div>
+            </div>
+            <div class="drop_down_wrap">
+              <section class="drop_body">
+                <div class="recent_wrap pad_wrap">
+                  <section *ngFor="let dept of emp.employeeDepartments; let i=index">
+                    {{dept.name}}
+                    <div *ngIf="dept.isHead === true" class="Arts">HEAD OF DEPARTMENT</div>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="table-blocks clickButton" (click)="showMoreOption($event, i)">
+          <div *ngIf="checkRole ==='ORG_ADMIN'" class="dotImage"></div>
+          <div class="filter_cancel_overlay" *ngIf="hrmDataService.optionBtn[i]" (click)="hideMoreOption($event, i)">
+          </div>
+          <div class="edt_opt_r" *ngIf="hrmDataService.optionBtn[i]">
+            <section (click)="updateEmployee($event,emp,i)">
+              Edit
+            </section>
+            <section (click)="deleteEmployee(emp.employeeSlug)">
+              Delete
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="confirm_popup" *ngIf="hrmDataService.deletePopUp.show">
+    <div class="confirm_pop_body">
+      <section>
+        <div class="close_drop" (click)="hrmDataService.deletePopUp.show = false">
+        </div>
+        <p class="pop_main">{{hrmDataService.deleteMessage.msg}}</p>
+      </section>
+      <section>
+        <div class="confirm_pop_btn" (click)="conformDelete()">
+          Confirm
+        </div>
+        <div class="confirm_pop_btn" (click)="hrmDataService.deletePopUp.show = false">
+          Cancel
+        </div>
+      </section>
+    </div>
+  </div>
+  <app-emp-detail *ngIf="hrmDataService.empDetail.show"></app-emp-detail>

@@ -1,0 +1,5 @@
+<div class="fp_input">
+  <label>{{numberElement.number.label}}<span *ngIf = "data.number.isRequired" class="error">*</span></label>
+  <input type="text" class="" name="text" placeholder="Number" [(ngModel)]="numberSubmit.number.answer" (ngModelChange)="validateElement()" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 ) ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 0 ||event.charCode == 127">
+  <p class="error" *ngIf="!numberElement.isValidated && dataService.formValidation.validating">Required Field</p>
+</div>

@@ -1,0 +1,101 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.drive_table_footer {
+    position: absolute;
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    bottom: 0px;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+    border-top: 1px solid #bac0c7;
+    -webkit-box-shadow: 0px -5px 31px -9px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px -5px 31px -9px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px -5px 31px -9px rgba(0, 0, 0, 0.4);
+}
+
+.drive_table_footer_left ul {
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.drive_table_footer_left ul li {
+    float: left;
+    padding-right: 20px;
+    line-height: 50px;
+    color: #606382;
+}
+
+.drive_list_count_container {
+    background-color: #dce1e6;
+    text-align: center;
+    padding: 5px 16px 5px 16px;
+    color: #262733;
+    font-size: 13px;
+}
+
+.drive_table_footer_right ul li {
+    float: right;
+    padding-left: 30px;
+}
+
+.drive_table_footer_right ul {
+    padding-right: 20px;
+}
+
+.driv_footer_icon {
+    cursor: pointer;
+}
+
+.driv_f_textentry {
+    background-image: url(/assets/images/drive/text_entry.png);
+    width: 18px;
+    height: 20px;
+    background-size: 38px;
+    position: relative;
+    top: 26px;
+}
+
+.text_entry_icon {
+    background-position: 20px 18px;
+}
+
+.text_entry_icon:hover {
+    background-position: -2px 18px;
+}
+
+.fl_more_option_container {
+    position: absolute;
+    right: 10px;
+    top: 24px;
+    width: 170px;
+    background-color: #fff;
+    -webkit-box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.fl_more_option ul li {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #dcdfe2;
+    font-size: 14px;
+    color: #414d5b;
+    cursor: pointer;
+}
+
+.fl_more_option ul li:hover {
+    background-color: #0957be;
+    border-bottom: 1px solid #dcdfe2;
+    color: #fff;
+}
+
+.fl_more_option ul li:last-child {
+    border: none;
+}

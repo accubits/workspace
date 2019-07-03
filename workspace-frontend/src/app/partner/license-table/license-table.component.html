@@ -1,0 +1,73 @@
+  <div class="moreoptionOverlay" *ngIf="moreOptions" (click)="closeLicenseMore()"></div>
+  <app-license-table-head></app-license-table-head>
+  <!--table content strts-->
+  <div class="main_out">
+
+ 
+  <div class="drive_wrapDetail" (click)="showLicenseDetails(i)" *ngFor="let licenses of partnerDataService.getLicenseDetails.license| paginate: { itemsPerPage: partnerDataService.licensePageDetails. perPage, currentPage:partnerDataService.licensePageDetails.page,totalItems: partnerDataService.getLicenseDetails.total };let i=index ">
+      
+    <div class="table_outer_block">
+      <div class="table_head table_row" *ngIf="partnerDataService.getLicenseDetails.license.length !== 0">
+        <div class="table-blocks">
+          <div class="checkbox">
+            <label>
+              <div class="check_outer" (click)="selectTask($event)">
+                <input type="checkbox" id="1_in" name="" id=""  [(ngModel)]="licenses.selected" (ngModelChange)="partnerUtilityService.manageLicenseSelection($event,i)"/>
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="table-blocks Organisation">
+          {{licenses.orgName}}
+          </div>
+          <div class="table-blocks">
+            {{licenses.key}}
+          </div>
+          <div class="table-blocks">
+              {{licenses.maxUsers}}
+            </div>
+          <div class="table-blocks">
+              {{licenses.licenseType}}
+          </div>
+          <div class="table-blocks">
+            {{licenses.expiresOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}} 
+          </div>
+        <div class="table-blocks clickButton" (click)="showMoreOption($event,i)"> 
+          <div class="dotImage"></div>
+          <app-more-option-license [Index] = 'i' *ngIf="licenses['showMore']"></app-more-option-license>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<section class="no_result" *ngIf="partnerDataService.getLicenseDetails.license.length === 0">
+</section>
+
+</div>
+  <!--table content ends--> 
+  <div class="showPopup" *ngIf="partnerDataService.renewPopup.showPopup">
+    <app-renew-license-pop></app-renew-license-pop>
+  </div>
+
+  <!-- <div class="dotPopup" *ngIf="moreOptions">
+  
+    <div class="fl_more_option_container"> 
+      <div class="fl_more_option">
+        <ul>
+          <li (click)="renewLicense()">
+            Renew License 
+          </li>
+          <li>
+            Delete
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div> -->
+
+  <app-renew-license-pop *ngIf="this.partnerDataService.renewLicensePopup.show"></app-renew-license-pop>
+  

@@ -1,0 +1,129 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.nav_wrap {
+    background-color: white;
+}
+.nav_wrap ul {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+@media (max-width: 1366px)
+{
+    .nav_wrap ul li {
+        margin: 0px 25px;
+        padding: 20px 0px 20px 0px;
+    }
+}
+@media (max-width: 1460px)
+{
+    .nav_wrap ul li {
+        font-size: 14px;
+    }
+}
+
+
+.drive_wrap{
+    position: relative;
+}
+.nav_wrap ul li a {
+    color: #424e5c !important;
+}
+// .nav_wrap ul li {
+//     text-decoration: none;
+//     color: #75818f;
+//     display: inline-block;
+//     vertical-align: middle;
+//     margin: 0px 35px;
+//     font-size: 14px;
+//     padding: 25px 0px 25px 0px;
+//     cursor: pointer;
+//     font-size: 16px;
+//     position: relative;
+// }
+/*pagination*/
+.deal_listing_pagination .ngx-pagination a
+{
+    height: 27phx !important;
+    line-height: 23px !important;
+}
+.deal_listing_pagination .ngx-pagination .current {
+    font-weight: 600;
+    background: transparent !important;
+    color: #178ccb;
+    cursor: default;
+    border-radius: 6px;
+}
+.pagination_wrap{
+    color: #7b7b7b;
+    font-family: roboto-medium;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    width: 29%;
+}
+
+.pagination_elements{
+    display: inline-block;
+    vertical-align: top;
+    z-index: 10;
+    position: relative;
+    margin: 0px 2px;
+    cursor: pointer;
+}
+.pagination_outer{
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    right: 30px;
+    margin-top: 15px;
+}
+.pagination_elements
+{
+    margin-top: 24px;
+}
+.ngx-pagination
+{
+    margin-bottom: 0rem !important;
+}
+.nav_wrap .deal_listing_pagination .ngx-pagination .current {
+    padding: 2px 10px !important;
+    background: red;
+    color: #178ccb;
+    cursor: default;
+    border-radius: 4px;
+    /* margin-bottom: 12px; */
+    line-height: 22px !important;
+}
+.nav_wrap .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default;
+    margin-top: 3px !important;
+}
+li.pagination-previous.disabled {
+    margin-top: 3px !important;
+}
+li.pagination-next.disabled {
+    margin-top: 3px !important;
+}
+.pagination-previous::before
+{
+    margin-top: 14px !important;
+}
+.deal_listing_pagination .ngx-pagination .current
+{
+    background: red !important;
+}
+
+.activeTab li {
+         border-bottom: 3px solid #ff2e4c !important;
+         font-weight: bold;
+         color: #424e5c;
+ }
+.mob_drop li:hover::after {
+    background-color:transparent;
+}

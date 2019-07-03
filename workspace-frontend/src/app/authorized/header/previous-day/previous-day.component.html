@@ -1,0 +1,29 @@
+<div class="form_submit_wrap">
+    <div  class="form_submit_modal">
+      <div class="acc_drop_content acc_up_option">
+        <div class="contentOuter">
+          <div class = "workContent">
+            <div class="workHead">PREVIOUS DAY CLOCK-OUT TIME</div>
+            <div class="workTimingClose" (click) = "closeClockOut()"></div>
+        </div>  <!-- {{this.clockDataService.clockStatus.startTime *  1000   | date: 'MMM dd, yyyy, hh:mm a'}} -->
+          <div class="setTime">
+            <label>
+              Select clock out time :
+              <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" [(ngModel)]="previosClockOutTime" (ngModelChange)="setPreviousClock()" >
+              <owl-date-time [pickerType]="'timer'" #dt4 [hour12Timer] = "true"></owl-date-time>
+            </label>
+            <p>Total work Duration: <span>{{timeDiff}}</span><span class="Hour">H</span></p>
+          </div>
+          <div class="textareaReflection">
+            <textarea rows="5" cols="48" placeholder="Reason" [(ngModel)]="clockDataService.previosDayInput.note" ></textarea>
+          </div>
+          <div class="pause clock">
+            <div class="pauseBackground" (click)="doClockOut()">
+              <div class="imgCover"></div>
+              <h3>CLOCK<br>OUT</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

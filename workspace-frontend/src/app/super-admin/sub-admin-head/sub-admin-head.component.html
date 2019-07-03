@@ -1,0 +1,15 @@
+
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+<div class="panel panel-default">
+  <div class="panel-heading">
+  <h3 class="panel-title ph3inline">SUB ADMINS </h3>
+
+  <div class="panel-right-holder">
+    <button class="pbtncreate" (click)="addSubAdmin()">Add Sub admin</button>
+</div>
+</div>
+</div>
+<app-sub-admin-nav></app-sub-admin-nav>
+</div>
+
+<app-add-sub-admin *ngIf="superAdminDataService.createSubAdmin.show" ></app-add-sub-admin>

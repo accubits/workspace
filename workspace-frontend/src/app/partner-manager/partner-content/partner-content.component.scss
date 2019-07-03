@@ -1,0 +1,189 @@
+@media (max-width: 1366px){
+    .iCosys-body-wrapper {
+        padding-left: 234px;
+        padding-top: 80px;
+        padding-right: 15px;
+        transition: all .2s ease-in-out;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+}
+@media (max-width: 1366px)
+    {
+    .panel-heading .panel-title {
+        font-size: 16px !important;
+        transition: all .2s ease-in-out;
+    }
+}
+.panel {
+    box-shadow: none;
+    border-radius: 0 !important;
+    position: relative;
+}
+.panel-heading {
+    padding-left: 20px;
+    height: 75px;
+    line-height: 75px;
+    transition: all .2s ease-in-out;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0;
+}
+.panel-heading .panel-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    font-family: roboto-bold;
+}
+.tableHeadOuter {
+    display: flex;
+    background-color: #f6f6f6;
+    height: 44px;
+    line-height: 44px;
+    /* border-bottom: 1px solid #e5e7f0; */
+    color: #536273;
+    font-size: 13px;
+    font-family: roboto-regular;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0px 20px;
+    padding-top: 1px;
+}
+.tableHead.darkArrow {
+    width: 50%;
+}
+.tableHead {
+    width: 33%;
+    position: relative;
+}
+.tableHead:nth-child(2) {
+    width: 17%;
+}
+.tableHead.darkArrow {
+    width: 50%;
+    position: relative;
+}
+.arrowImageFirst {
+    background-image: url("/assets/images/filter_arrow.png");
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 17px;
+    background-repeat: no-repeat;
+    left: 50px;
+}
+.tableHead {
+    width: 30%;
+    position: relative;
+}
+
+.arrowImage {
+    background-image: url("/assets/images/filter_arrow_dim.png");
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 17px;
+    background-repeat: no-repeat;
+    left: 70px;
+}
+
+.tableHead:nth-child(3) .arrowImage {
+    background-image: url("/assets/images/filter_arrow_dim.png");
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 17px;
+    background-repeat: no-repeat;
+    left: 55px;
+}
+.tableContentOuter {
+    background: #fff;
+    display: flex;
+    color: #536273 !important;
+    font-size: 14px;
+    padding: 1% 2% 1% 2%;
+    border-bottom: 1.5px solid #f6f6f6;
+    position: relative;
+}
+.dashboardTab {
+    background: #fff;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 13px;
+    color: #178ccb;
+    font-family: roboto-medium;
+}
+.Image {
+    background-image: url("/assets/images/account-dp_old.png");
+    background-position: center;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+}
+.tableContent.Name {
+    display: flex;
+}
+.tableName {
+    padding-top: 9px;
+    padding-left: 10px;
+}
+.tableContent.Name {
+    display: flex;
+    width: 50%;
+    /* margin-top: 12px; */
+    height: 100%;
+    line-height: 100%;
+    padding-top: 0.3%;
+    /* position: relative; */
+}
+.tableContent.Status {
+    width: 17%;
+    // color: #0ab80a;
+    padding-top: 0.8%;
+    font-family: roboto-medium;
+}
+.tableContent.Access {
+    width: 18%;
+    font-family: roboto-medium;
+    padding-top: 0.8%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tableContent.switchPartner {
+    width: 15%;
+    text-align: center;
+}
+
+.switchPartner p {
+  color: #2492ce;
+  background: #c4e1f1;
+  margin: 3px 0px 0;
+  padding: 7px 26px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  right: 27px;
+  position: absolute;
+}
+.switchPartner p:hover {
+    background: #e0ecf3;
+    color: #96c9e6;
+    transition: all 0.2s ease-out;
+}
+.table-outer
+{
+background-color: #fff;
+height: 80vh;
+}

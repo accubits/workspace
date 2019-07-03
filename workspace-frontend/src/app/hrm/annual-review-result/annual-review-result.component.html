@@ -1,0 +1,42 @@
+<div class="table_head table_row">
+    <div class="table-blocks">
+        <span class="tb_head_drop_arrow"> FROM</span>
+    </div>
+    <div class="table-blocks">
+     OVERALL SCORE
+    </div>
+    <div class="table-blocks">
+     REVIEWS
+    </div>
+  </div>
+  <section class="table-wrap">
+    <div class="table_list table_row" (click)="showDetail()" >
+   <section class="t_row_hover">
+          <div class="table-blocks employee_detail" >
+            <div  class="employee_image"></div>
+            <span class="employee_name">Stella Little</span>
+          </div>
+          <div class="table-blocks">
+            8.1
+          </div>
+          <div class="table-blocks">
+           81<span class="slash">/</span>100
+          </div>
+        </section>
+    </div>
+    <div class="table_list table_row" >
+        <section class="t_row_hover">
+               <div class="table-blocks employee_detail" >
+                 <div  class="employee_image"></div>
+                 <span class="employee_name">Peter Palmer</span>
+               </div>
+               <div class="table-blocks">
+                 8.1
+               </div>
+               <div class="table-blocks">
+                81<span class="slash">/</span>100
+               </div>
+             </section>
+         </div>
+  </section>
+<app-annual-review-result-detail *ngIf="hrmDataService.annualReviewDetail.show" ></app-annual-review-result-detail>

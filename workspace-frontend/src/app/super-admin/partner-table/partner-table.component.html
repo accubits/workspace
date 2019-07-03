@@ -1,0 +1,70 @@
+<div class="drive_wrap">
+  <div class="table_outer_block">
+    <div class="table_head table_row Header">
+        <div class="table-blocks">
+            <div class="checkbox" >
+              <label>
+                <div class="check_outer">
+                  <input type="checkbox" id="1_in" name="" id=""/>
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+      <div class="table-blocks">
+        <span class="tb_head_drop_arrow ">NAME</span>
+      </div>
+      <div class="table-blocks Organisation">
+        <span class="downArrow">EMAIL</span>
+      </div>
+      <div class="table-blocks">
+        <span>NO. OF ORGANIZATIONS</span>
+      </div>
+      <div class="table-blocks">
+        <span>COUNTRY</span>
+      </div>
+      <div class="table-blocks">
+        <span>VERTICAL</span>
+      </div>
+      <div class="table-blocks">
+      </div>
+    </div>
+  </div>
+  <div class="table_outer_block Content">
+    <div class="table_head table_row">
+        <div class="table-blocks">
+            <div class="checkbox" >
+              <label>
+                <div class="check_outer">
+                  <input type="checkbox" id="1_in" name="" id=""/>
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+      <div class="table-blocks Profile">
+        <div class="avatar"></div>
+        <span>Waylon Dalton</span>
+      </div>
+      <div class="table-blocks Organisation">
+        <span>waylon@mail.com</span>
+        </div>
+      <div class="table-blocks">
+        <span>45</span>
+      </div>
+      <div class="table-blocks">
+          <span> USA</span>
+        </div>
+      <div class="table-blocks Date">
+        school
+      </div>
+      <div class="table-blocks ">
+          <div class="overlay" *ngIf="superAdminDataService.more.show"  (click)="closePop()"></div>
+          <div class="dotImage" (click)="morepop()"></div>
+          <div class="moreOuter" *ngIf="superAdminDataService.more.show" >
+              <app-more-option></app-more-option>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,425 @@
+@media (max-width: 1366px){
+    .iCosys-body-wrapper {
+        padding-left: 234px;
+        padding-top: 80px;
+        padding-right: 15px;
+        transition: all .2s ease-in-out;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+}
+.overlaypop {
+    background-color: rgba(0,0,0,0.4);
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.form_submit_wrap {
+    position: fixed;
+    top: 85px;
+    right: 15px;
+    background-color: #fff;
+    width: calc(100% - 249px);
+    height: 100%;
+    z-index: 999999999;
+}
+.form_submit_modal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.fs_header h4 {
+    color: #103564;
+    font-family: Roboto-Regular;
+    font-size: 15px;
+    text-align: center;
+}
+.contentList {
+    display: flex;
+    position: relative;
+    list-style: none;
+    font-size: 14px;
+    line-height: 100%;
+    border-bottom: 1px solid #f1f1f1;
+    padding-left: 50px;
+}
+.contentList li:hover::before , .contentList li.active::before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+    background-color: red;
+    font-weight: bold;
+}
+.content input{
+    width:100px;
+    //height: 48px;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+    outline: none;
+    border: none;
+    margin-right: 0%;
+    //margin-bottom: 10px;
+    margin-top: 0%;
+    margin-left: 0%;
+   // cursor: pointer;
+}
+.content .right input {
+    margin-left: 0px !important;
+}
+.contentList li {
+    font-size: 15px;
+    font-family: roboto-regular;
+    color: #9aa3ad;
+    margin-right: 35px;
+    padding-bottom: 18px;
+    position: relative;
+	cursor: pointer;
+}
+.roleBox {
+    position: relative;
+}
+.form_submit_modal .drop_drop_pop ul li:hover {
+    background: #178ccb !important;
+    color: #fff !important;
+}
+.fieldOuter{
+    vertical-align: top;
+    width: 47.5%;
+    margin-bottom: 20px;
+    line-height: 100%;
+    margin-top: 35px;
+    position: relative;
+    margin-left: 2%;
+}
+.fieldOuter.right {
+    margin-right: 2%;
+    margin-left: 0px;
+}
+.contentList li.active {
+    color: #0c2442 !important;
+    font-family: roboto-medium !important;
+}
+.form_submit_modal .drop_drop_pop ul li {
+    height: 40px;
+    list-style: none;
+    line-height: 40px;
+    padding-left: 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #dcdfe2;
+    font-size: 14px;
+    color: #414d5b;
+    cursor: pointer;
+    margin-bottom: 0PX;
+}
+.roleBox span {
+    font-size: 13px;
+    color: #757575;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #f1f1f1;
+    padding: 14px 2px 20px 22px;
+}
+.form_submit_modal .drop_drop_pop ul li :hover {
+    background-color: #0957be;
+    border-bottom: 1px solid #dcdfe2;
+    color: #fff;
+    font-family: roboto-light !important;
+}
+.fieldOuter .drop_icon_input {
+    content: '';
+    background-image: url("/assets/images/dropdown.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 10px;
+    height: 7px;
+    background-size: cover;
+    position: absolute;
+    right: 0px;
+    bottom: 30px;
+    z-index: 9999;
+    right: 20px;
+    cursor: pointer;
+}
+.element_input .drop_drop_pop
+{
+    z-index: 10000000000;
+}
+.element_input .drop_drop_pop {
+    position: absolute;
+    left: 0px;
+    top: 51px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 19px 50px 5px rgba(0, 0, 0, 0.2);
+    z-index: 300002;
+}
+.element_input .drop_drop_pop section:hover {
+    background-color: #026cf0;
+    color: #fff;
+    transition: .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
+}
+.element_input .drop_drop_pop section {
+    //height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #526173;
+}
+.element_input.drop_dropdown_wrap {
+    //width: 49.3%;
+    position: relative;
+}
+.fp_select .drop_dropdown_wrap input {
+    width: 100%;
+    //height: 60px;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+    outline: none;
+    border: none;
+}
+.filter_cancel_overlay {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 99;
+}
+.closeOverlay{
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+}
+.fs_footer {
+    height: 57px;
+    padding: 12px 0px 0px 20px;
+    display: flex;
+    bottom: 84px;
+    position: absolute;
+    width: 100%;
+    box-shadow: -10px -20px 68px -28px rgba(34, 34, 34, 0.35);
+    background: #fff;
+    z-index: 9;
+    border-top: 1px solid #bac0c7;
+    margin-top: 0%;
+}
+.fs_footer_next {
+    height: 32px;
+    outline: none;
+    border: none;
+    width: 100px;
+    background-color: #ff2342;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+.fs_footer_cancel {
+    height: 32px;
+    outline: none;
+    border: 1px solid #536273;
+    width: 100px;
+    background-color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    color: #536273;
+}
+.fs_footer .fs_footer_cancel {
+    margin-left: 20px;
+}
+
+.content .roleBox input {
+    margin-left: 10% !important;
+    width: 90% !important;
+    padding-left: 5px !important;
+}
+
+.emp_create_content_row:nth-child(2) .pe_input_holder {
+    background: #fff;
+    border: 1px solid #ceceec;
+}
+
+.pe_input_holder {
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    background-color: #f2f2f2;
+   // height: 50px;
+    line-height: 50px;
+    position: relative;
+}
+.last-holder
+{
+  // min-width: 518px !important;
+  // width: auto !important;
+}
+.selected_tag {
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  padding: 4px 25px;
+  margin-left: 12px;
+  position: relative;
+  /* width: auto; */
+  min-width: 130px;
+  height: 40px;
+  margin-bottom: 0px;
+  line-height: 30px;
+  margin-top: 5px;
+}
+.selected_tag  span{
+  color: #536273 !important;
+}
+.overlaypop-lev {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1;
+}
+.resp_person_dropdown_depart {
+  width: 300px !important;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  box-shadow: 0px 0px 20px 0px #00000026;
+  z-index: 100000000001;
+}
+.resp_person_dropdown
+{
+  bottom: 0;
+}
+.select_close
+{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+.input-title
+{
+  margin-top: 0px;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 34px !important;
+  height: auto;
+  font-size: 14px !important;
+  padding: 0 !important;
+}
+.pe_input_holder .mul_input {
+    width: 70%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    display: inline-block;
+}
+
+.pe_input_holder span {
+    color: #adb4bd;
+    font-size: 12px;
+    //height: 50px;
+    display: inline-block;
+    min-width: auto;
+    line-height: 50px;
+    padding: 0px 0px 0px 15px;
+}
+
+.pe_input_holder .pe_input_field {
+    outline: none;
+    border: none;
+    width: auto;
+    display: inline-block;
+    background-color: transparent;
+    //height: 50px;
+    line-height: 50px;
+}
+
+.pe_input_holder p {
+    background-color: #fff;
+    min-width: 100px;
+    padding: 0px 20px 0px 10px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px;
+    margin-right: 10px;
+    margin-top: 12px;
+    text-align: left;
+    position: relative;
+}
+
+.pe_input_holder p .pe_close {
+    position: absolute;
+    width: 6px;
+    height: 6px;;
+    right: 4px;
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 200;
+    top: -3px;
+    padding-left: 10px;
+    background-color: black;
+}
+
+.emp_contents {
+    background-color: #fff;
+    position: relative;
+    // height: 407px;
+}
+
+.emp_contents {
+    padding: 0px 30px 60px 30px;
+    margin-top: 30px;
+}
+.error {
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #d9463b;
+  line-height: 30px;
+  padding: 0px;
+  padding-left: 10px;
+}
+.overlay{
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.close_drop
+{
+  top: 20px;
+  right: 20px;
+}
+.drop
+{
+  cursor: pointer;
+}

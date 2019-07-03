@@ -1,0 +1,314 @@
+<div class="leads-table-outer">
+  <div class="table_outer_block">
+    <div class="table_head table_row Header">
+      <div class="table-blocks">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type="checkbox" id="1_in" name="" id="" />
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="table-blocks">
+        <span class="tb_head_drop_arrow ">NAME</span>
+      </div>
+      <div class="table-blocks Organisation">
+        <span class="downArrow">STATUS</span>
+      </div>
+      <div class="table-blocks">
+        <span>ACTIVITY</span>
+      </div>
+      <div class="table-blocks">
+        <span>RESPONSIBLE</span>
+      </div>
+      <div class="table-blocks">
+        <span>UPDATED ON</span>
+      </div>
+      <div class="table-blocks">
+      </div>
+    </div>
+  </div>
+  <div class="table_outer_block Content">
+    <div class="table_head table_row" (click)="showDetailPop()">
+      <div class="table-blocks">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type="checkbox" id="1_in" name="" id="" />
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="table-blocks person">
+        <div class="profile_pic"></div>
+        <div class="profile-details">
+          <p>Ivan Kunn</p>
+          <span>Student</span>
+        </div>
+      </div>
+      <div class="table-blocks status">
+        <p class="blue-font">In Progress</p>
+        <div class="bar blue" data-tooltip="in progress"></div>
+        <div class="bar blue" data-tooltip="in progress"></div>
+        <div class="bar blue" data-tooltip="in progress"></div>
+        <div class="bar blue" data-tooltip="in progress"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="table-blocks activity">
+        <p>Meeting</p>
+        <p>20 Sept 2019<span>|</span>10:30 PM</p>
+      </div>
+      <div class="table-blocks Profile">
+        <div class="avatar"></div>
+        <span>Waylon Dalton</span>
+      </div>
+      <div class="table-blocks Date">
+        24 OCt 2019
+      </div>
+      <div class="table-blocks ">
+        <!-- <div class="overlay" (click)="hideMore()"></div> -->
+        <div class="dotImage" (click)="showMore()"></div>
+        <div class="moreOuter">
+            <app-more-option *ngIf="crmDataService.moreOption.show" ></app-more-option>
+        </div>
+      </div>
+    </div>
+    <div class="table_head table_row">
+        <div class="table-blocks">
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="table-blocks person">
+          <div class="profile_pic"></div>
+          <div class="profile-details">
+            <p>Ivan Kunn</p>
+            <span>Student</span>
+          </div>
+        </div>
+        <div class="table-blocks status">
+          <p class="red-font">Unassigned</p>
+          <div class="bar red" data-tooltip="Unassigned"></div>
+          <div class="bar " ></div>
+          <div class="bar "></div>
+          <div class="bar " ></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="table-blocks activity">
+          <p>Initial Call</p>
+          <p>20 Sept 2019<span>|</span>10:30 PM</p>
+        </div>
+        <div class="table-blocks Profile">
+          <!-- <div class="avatar"></div> -->
+          <span class="unassign">Unassigned</span>
+        </div>
+        <div class="table-blocks Date">
+          24 OCt 2019
+        </div>
+        <div class="table-blocks ">
+          <!-- <div class="overlay"></div> -->
+          <div class="dotImage"></div>
+          <div class="moreOuter">
+          </div>
+        </div>
+      </div>
+      <div class="table_head table_row">
+          <div class="table-blocks">
+            <div class="checkbox">
+              <label>
+                <div class="check_outer">
+                  <input type="checkbox" id="1_in" name="" id="" />
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="table-blocks person">
+            <div class="profile_pic"></div>
+            <div class="profile-details">
+              <p>Ivan Kunn</p>
+              <span>Student</span>
+            </div>
+          </div>
+          <div class="table-blocks status">
+            <p class="magenta-font">Cannot Contact</p>
+            <div class="bar magenta" data-tooltip="Cannot Contact"></div>
+            <div class="bar magenta" ></div>
+            <div class="bar magenta"></div>
+            <div class="bar magenta" ></div>
+            <div class="bar magenta"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <div class="table-blocks activity">
+            <p>Initial Call</p>
+            <p>20 Sept 2019<span>|</span>10:30 PM</p>
+          </div>
+          <div class="table-blocks Profile">
+            <div class="avatar"></div>
+            <span>Stella Little</span>
+          </div>
+          <div class="table-blocks Date">
+            24 OCt 2019
+          </div>
+          <div class="table-blocks ">
+            <!-- <div class="overlay"></div> -->
+            <div class="dotImage"></div>
+            <div class="moreOuter">
+            </div>
+          </div>
+        </div>
+        <div class="table_head table_row">
+            <div class="table-blocks">
+              <div class="checkbox">
+                <label>
+                  <div class="check_outer">
+                    <input type="checkbox" id="1_in" name="" id="" />
+                    <div class="check" for="1_in"></div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="table-blocks person">
+              <div class="profile_pic"></div>
+              <div class="profile-details">
+                <p>Ivan Kunn</p>
+                <span>Student</span>
+              </div>
+            </div>
+            <div class="table-blocks status">
+              <p class="yellow-font">On Hold</p>
+              <div class="bar yellow" data-tooltip="On Hold"></div>
+              <div class="bar yellow" ></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow" ></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+            </div>
+            <div class="table-blocks activity">
+              <p>Initial Call</p>
+              <p>20 Sept 2019<span>|</span>10:30 PM</p>
+            </div>
+            <div class="table-blocks Profile">
+              <div class="avatar"></div>
+              <span>Stella Little</span>
+            </div>
+            <div class="table-blocks Date">
+              24 OCt 2019
+            </div>
+            <div class="table-blocks ">
+              <!-- <div class="overlay"></div> -->
+              <div class="dotImage"></div>
+              <div class="moreOuter">
+              </div>
+            </div>
+          </div>
+          <div class="table_head table_row">
+              <div class="table-blocks">
+                <div class="checkbox">
+                  <label>
+                    <div class="check_outer">
+                      <input type="checkbox" id="1_in" name="" id="" />
+                      <div class="check" for="1_in"></div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="table-blocks person">
+                <div class="profile_pic"></div>
+                <div class="profile-details">
+                  <p>Ivan Kunn</p>
+                  <span>Student</span>
+                </div>
+              </div>
+              <div class="table-blocks status">
+                <p class="green-font">Waiting for details</p>
+                <div class="bar green" data-tooltip="Waiting for details"></div>
+                <div class="bar green" ></div>
+                <div class="bar "></div>
+                <div class="bar " ></div>
+                <div class="bar "></div>
+                <div class="bar "></div>
+                <div class="bar "></div>
+              </div>
+              <div class="table-blocks activity">
+                <p>Initial Call</p>
+                <p>20 Sept 2019<span>|</span>10:30 PM</p>
+              </div>
+              <div class="table-blocks Profile">
+                <div class="avatar"></div>
+                <span>Stella Little</span>
+              </div>
+              <div class="table-blocks Date">
+                24 OCt 2019
+              </div>
+              <div class="table-blocks ">
+                <!-- <div class="overlay"></div> -->
+                <div class="dotImage"></div>
+                <div class="moreOuter">
+                </div>
+              </div>
+            </div>
+            <div class="table_head table_row">
+                <div class="table-blocks">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" />
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="table-blocks person">
+                  <div class="profile_pic"></div>
+                  <div class="profile-details">
+                    <p>Ivan Kunn</p>
+                    <span>Student</span>
+                  </div>
+                </div>
+                <div class="table-blocks status">
+                  <p class="orange-font">Responsible Assigned</p>
+                  <div class="bar orange" data-tooltip="Waiting for details"></div>
+                  <div class="bar orange" ></div>
+                  <div class="bar orange"></div>
+                  <div class="bar " ></div>
+                  <div class="bar "></div>
+                  <div class="bar "></div>
+                  <div class="bar "></div>
+                </div>
+                <div class="table-blocks activity">
+                  <p>Initial Call</p>
+                  <p>20 Sept 2019<span>|</span>10:30 PM</p>
+                </div>
+                <div class="table-blocks Profile">
+                  <div class="avatar"></div>
+                  <span>Stella Little</span>
+                </div>
+                <div class="table-blocks Date">
+                  24 OCt 2019
+                </div>
+                <div class="table-blocks ">
+                  <!-- <div class="overlay"></div> -->
+                  <div class="dotImage"></div>
+                  <div class="moreOuter">
+                    <!-- <app-more-option></app-more-option> -->
+                  </div>
+                </div>
+              </div>
+  </div>
+</div>
+<app-leads-detail *ngIf="crmDataService.leadsDetail.show"></app-leads-detail>

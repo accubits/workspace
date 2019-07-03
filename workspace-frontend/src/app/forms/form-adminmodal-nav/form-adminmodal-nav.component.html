@@ -1,0 +1,26 @@
+<div class="nav_wrap">
+	<!-- <ul>
+		<a routerLink="./formOverview" routerLinkActive="active_tab">
+			<li [ngClass]="{active:activeView === 'overView'}" (click)="activeView = 'overView'">Overview</li>
+		</a>
+		<a routerLink="./formndiviualResponse" routerLinkActive="active_tab">
+			<li [ngClass]="{active:activeView === 'individualResponse'}" (click)="activeView = 'individualResponse'">Individual Response</li>
+		</a>
+	</ul> -->
+	<ul>
+		<!-- <a [ngClass]="{fadminActive:activeView === 'overView'}" (click)="activeView = 'overView'">
+			<li>Overview</li>
+		</a> -->
+		<a [ngClass]="{fadminActive:activeView === 'individualResponse'}" (click)="activeView = 'individualResponse'">
+			<li>Individual Response</li>
+		</a>
+	</ul>
+	<!-- <div class="search_wrap" [ngClass]="{'open':this.showSearch}">
+		<div class="search_icon" (click)="this.showSearch = true"></div>
+		<div class="search_close" (click)="this.showSearch = false"></div>
+		<input type="text" name="search" placeholder="search">
+	</div> -->
+</div>
+
+<app-form-indi-response *ngIf="activeView === 'individualResponse'"></app-form-indi-response>
+<app-form-overview *ngIf="activeView === 'overView'"></app-form-overview>

@@ -1,0 +1,104 @@
+<div class="filter_cancel_overlay" (click)="settingsDataService.editProfile.show = false"></div>
+<div class="profile_edit_pop_wrap">
+  <div class="profile_edit_head">
+    <h4>Edit Profile</h4>
+    <a class="close" (click)="settingsDataService.editProfile.show = false">&times;</a>
+  </div>
+  <div class="profile_edit_contents">
+    <div class="profile_edit_content_row">
+      <div class="edit_profile_dp">
+          <img [src]="image"  (error)="setImage($event)"/>
+
+        <!-- <div class="profileImage"></div> -->
+      </div>
+       <div class="profile_fileupload">
+        <button class="btn">Upload a new picture</button>
+        <input type="file" name="myfile" (change) ="uploadFile($event.target.files)" />
+        <span class="remove_link"  *ngIf="!hideRemove" (click)="removeProfile()">Remove</span>
+      </div>
+      <div class="max_file_size">
+        <p>Maximum file size - 5 MB</p>
+      </div>
+    </div>
+
+    <div class="profile_edit_content_row">
+      <div class="pe_input_holder">
+        <span>Name:</span>
+        <input class="pe_input_field" type="text" placeholder="" [(ngModel)]="settingsDataService.editProfile.first_name" name="name">
+      </div>
+    </div>
+    <div class="profile_edit_content_row">
+      <div class="pe_input_holder">
+        <span>Email:</span>
+        <input class="pe_input_field" type="text" readonly placeholder="" [(ngModel)]="settingsDataService.editSettingsTemplate.email"
+          name="email">
+      </div>
+    </div>
+    <!-- <div class="profile_edit_content_row">
+      <div class="pe_input_holder dt_pe">
+        <span>Birthday:</span>
+        <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="" [(ngModel)]="settingsDataService.editProfile.birth_date" >
+        <owl-date-time #dt1></owl-date-time>
+      </div>
+    </div>
+    <div class="profile_edit_content_row">
+
+      <!-- <input class="pe_input_field" type="text" placeholder="CEO" name="name"> -->
+      <!--<div class="tw_drop drop_dropdown_wrap drop_icon_input">
+        <div class="pe_input_holder">
+          <span>Department:</span>
+          <input type="text" class="pe_input_field" name="text" placeholder="CEO" (click)="this.department = !this.department">
+          <div class="dropdown_arw"></div>
+          <div class="drop_drop_pop commonn_popup" *ngIf="department">
+            <section>
+              Option 1
+            </section>
+            <section>
+              Option 2
+            </section>
+            <section>
+              Option 2
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile_edit_content_row">
+      <div class="pe_tag_input_holder">
+        <span>Interests:</span>
+        <input type="text" class="mul_input" id="mulinput" (keypress)="addInterest($event)" #myInput [(ngModel)] ="interestValue"/>
+        <p *ngFor="let tag of settingsDataService.editProfile.interests; let i = index">
+          <a (click)="editInterest(i)">{{tag.interest}}</a>
+          <a class="pe_close" (click)="deleteInterest(i)">&times;</a>
+        </p>
+      </div>
+    </div> -->
+  </div>
+  <div class="profile_edit_footer">
+    <div class="save_button">
+      <button (click)="editProfile()">Save</button>
+    </div>
+    <div class="cancel_button">
+      <button (click)="settingsDataService.editProfile.show = false">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="confirm_popup" *ngIf = "settingsDataService.deletePopUp.show">
+  <div class="confirm_pop_body">
+    <section>
+      <div class="close_drop"  (click)="settingsDataService.deletePopUp.show = false">
+      </div>
+      <p class="pop_main">Are you sure you want to delete image?</p>
+    </section>
+    <section>
+      <div class="confirm_pop_btn" (click) = "deleteImage()">
+        Confirm
+      </div>
+      <div class="confirm_pop_btn" (click)="settingsDataService.deletePopUp.show = false">
+        Cancel
+      </div>
+    </section>
+  </div>
+</div>

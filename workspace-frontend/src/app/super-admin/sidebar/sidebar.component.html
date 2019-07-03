@@ -1,0 +1,10 @@
+<aside>
+	<nav id="iCosys_sidebar" [ngClass]="{'iCosys-nav-min': menutoggle.toggleMenu}" class="iCosys-sidebar">
+		<ul>
+			<li *ngFor="let menu of menuItems" (click)="loadMenuModule(menu.route)" [ngClass]="[routerActivetab.indexOf(menu.route) !== -1 ? menu.dynamicClass +  ' activeTab' : '']">
+				<div class="act_form_img"></div>
+				<span class="iCosys-sidebar-item">{{menu.dispName}}</span>
+			</li>
+		</ul>
+	</nav>
+</aside>

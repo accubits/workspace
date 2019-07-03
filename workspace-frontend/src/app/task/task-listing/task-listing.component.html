@@ -1,0 +1,123 @@
+<section class="t_row_hover">
+  <div class="table-blocks">
+    <div class="checkbox">
+      <label>
+        <div class="check_outer" (click)="selectTask(task.userStatusButtons)">
+          <input type="checkbox" id="{'ck' + index}" name="{'ckname' + index}" [(ngModel)]="task.selected"
+            (ngModelChange)="taskUtilityService.manageTaskSelection($event,index)">
+          <div class="check" for="{'ck' + index}"></div>
+        </div>
+      </label>
+    </div>
+  </div>
+  <div class="table-blocks" (click)="viewTaskDetails(index)">
+    <div class="row_bg_img star_act" [ngClass]="{'active': task.favourite === 1}">
+    </div>
+    <div class="list_elipses">{{task.title}}</div>
+    <div class="row_in_block" *ngIf="task.subtaskCount !== 0" (click)="toogleSubTask($event,index)">
+      {{task.subtaskCount}}
+    </div>
+    <div class="row_bg_img alert_act" [ngClass]="{'active': task.priority === 1}">
+    </div>
+  </div>
+  <div class="table-blocks inp_hov tab_dat_fnt" (click)="viewTaskDetails(index)">
+    <!--10 jul 2018 | 12:32 AM-->
+    <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" [ngModel]="task.due_date"  readonly (ngModelChange)="updateDueDate($event,task)">
+    <owl-date-time #dt1 [hour12Timer] = "true" [disabled]="userSlug !== task.creatorSlug && (userSlug !== task.responsibleSlug || task.responsibleCanChangeDueDate !== 1 ) " ></owl-date-time>
+    <div class="inp_edit_key"></div>
+  </div>
+  <div class="table-blocks tab_block_pro create-fnt" *ngIf="taskDataService.getTasks.selectedTab !== 'setByMe'" (click)="viewTaskDetails(index)">
+    <div *ngIf="task.creatorImage === null" class="table_row_pic"></div>
+    <div class="table_row_pic" *ngIf="task.creatorImage !== null" [ngStyle]="{'background-image': 'url(' + task.creatorImage + ')'}"></div>
+    {{task.creator}}
+  </div>
+  <div class="table-blocks tab_block_pro no_pad_left" *ngIf="taskDataService.getTasks.selectedTab === 'setByMe'" (click)="viewTaskDetails(index)">
+    {{task.created_at * 1000 | date: 'MMM dd yyyy'}} | {{task.created_at * 1000 | date: 'hh:mm a'}}
+  </div>
+  <div class="table-blocks tab_block_pro create-fnt">
+    <ng-container *ngIf="task.isAllParticipants === true">
+      All Employees
+    </ng-container>
+    <ng-container>
+      <div *ngIf="task.responsible === null" class="table_row_pic"></div>
+      <div class="table_row_pic" *ngIf="task.responsible !== null" [ngStyle]="{'background-image': 'url(' + task.responsibleImage + ')'}"></div>
+      {{task.responsible}}
+      <div class="user_more_block" *ngIf="task.assignees.length > 1">
+        +{{task.assignees.length}}
+      </div>
+    </ng-container>
+    <div class="hov_buttons">
+      <div class="sc_btn">
+        Starts
+      </div>
+      <div class="sc_btn">
+        Complete
+      </div>
+    </div>
+    <!-- <div class="row_option_ico">
+      <img [src]="assetUrl+'assets/images/more.png'" />
+    </div> -->
+    <div class="clear"></div>
+  </div>
+</section>
+
+<section *ngIf="showSubTaskSection"  >
+  <div class="sub_out" *ngFor="let sl of taskDataService.getTasks.subtasksList;let idx=index" (click)="viewSubtaskDetails(idx)">
+    <section class="sub_list right">
+      <!-- <div class="table-blocks sub_block"></div> -->
+      <div class="table-blocks">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type="checkbox" id="1_in" name="">
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="table-blocks pad_sub" [ngStyle]="{'padding-left': subtaskIntent + '%'}">
+        <div class="row_bg_img active star_act">
+        </div>
+        {{sl.title}}
+        <div class="row_in_block" *ngIf="sl.subtaskCount !== 0" (click)="toogleSubTaskOfSubtask($event,idx)">
+          {{sl.subtaskCount}}
+        </div>
+        <div class="row_bg_img alert_act" [ngClass]="{'active': sl.priority === 1}">
+        </div>
+      </div>
+      <div class="table-blocks inp_hov">
+        <input [owlDateTime]="dtSub" [owlDateTimeTrigger]="dtSub" placeholder="{{task.due_date | date: 'MMM dd yyyy '}} "
+          readonly>
+        <owl-date-time #dtSub [hour12Timer] = "true"></owl-date-time>
+        <div class="inp_edit_key"></div>
+      </div>
+      <div class="table-blocks tab_block_pro create-fnt" *ngIf="taskDataService.getTasks.selectedTab !== 'setByMe'">
+          <div class="table_row_pic"></div>
+          {{sl.creatorName}}
+        </div>
+        <div class="table-blocks tab_block_pro no_pad_left" *ngIf="taskDataService.getTasks.selectedTab === 'setByMe'">
+            <!-- <div class="table_row_pic"></div> -->
+            {{sl.created_at * 1000 | date: 'MMM dd yyyy hh:mm a'}}
+          </div>
+      <div class="table-blocks tab_block_pro">
+          <ng-container *ngIf="sl.isAllParticipants === true">
+              All Employees
+            </ng-container>
+        <ng-container *ngIf="sl.people.assignees.length > 0">
+          <div class="table_row_pic"></div>
+          {{sl.people.assignees[0].assignee_name}}
+          <div class="user_more_block" *ngIf="sl.people.assignees.length > 1">
+            +{{sl.people.assignees.length - 1}}
+          </div>
+        </ng-container>
+        <div class="row_option_ico">
+          <img [src]="assetUrl+'assets/images/more.png'" />
+        </div>
+        <div class="clear"></div>
+      </div>
+    </section>
+    <div class="clear"></div>
+  </div>
+</section>
+
+

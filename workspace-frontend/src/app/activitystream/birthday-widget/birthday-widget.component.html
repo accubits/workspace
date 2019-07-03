@@ -1,0 +1,17 @@
+<div class="bday_widget_wrap">
+  <div class="bday_header">
+    <h4>Announcement</h4>
+    <div class="clear"></div>
+  </div>
+  <div class="bday_body" *ngFor="let birthdays of actStreamDataService.taskWidgetDetails.details.birthdays">
+    <div class="emp_block">
+      <img *ngIf="birthdays.userImageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+      <img *ngIf="birthdays.userImageUrl !== null" [src]="birthdays.userImageUrl" />
+      <div class="emp_details">
+        <h4>{{birthdays.name}}</h4>
+        <p>{{birthdays.birthDate * 1000 | date: 'dd MMM'}}</p>
+      </div>
+    </div>
+  </div>
+  <img class="confetti" [src]="assetUrl+'assets/images/as/confetti.png'" />
+</div>

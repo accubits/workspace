@@ -1,0 +1,111 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.form_submit_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999;
+    padding: 0px 150px;
+}
+
+.form_submit_modal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.form_outer_shadow {
+    -webkit-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.1);
+}
+
+.fs_header {
+    padding: 20px 20px 20px 20px;
+    min-height: 100px;
+    -webkit-box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    z-index: 2;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.fs_header .close {
+    position: absolute;
+    right: 34px;
+    color: black;
+    text-decoration: none;
+    font-size: 34px;
+    font-weight: 200;
+    top: 0;
+}
+
+.fs_header h4 {
+    color: #424e5c;
+    font-family: Roboto-Regular;
+    font-size: 16px;
+}
+
+.fs_header p {
+    color: #75818f;
+    font-family: Roboto-Light;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.fs_body {
+    height: calc(100vh - 170px);
+}
+
+.fs_footer_next {
+    height: 40px;
+    outline: none;
+    border: none;
+    width: 117px;
+    background-color: #ff2342;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.fs_footer_cancel {
+    height: 40px;
+    outline: none;
+    border: 1px solid #536273;
+    width: 117px;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    color: #536273;
+}
+
+.fs_footer {
+    height: 70px;
+    padding: 15px 0px 0px 20px;
+    display: flex;
+    position: relative;
+    width: 100%;
+    -webkit-box-shadow: -10px -20px 68px -28px rgba(34, 34, 34, 0.35);
+    box-shadow: -10px -20px 68px -28px rgba(34, 34, 34, 0.35);
+    background: #fff;
+    z-index: 9;
+    border-top: 1px solid #bac0c7;
+}
+
+.fs_footer .fs_footer_cancel {
+    margin-left: 20px;
+}
+
+.fs_body_sector {
+    padding: 20px;
+}
+.ft_lft
+{
+    margin-right: 10px;
+}

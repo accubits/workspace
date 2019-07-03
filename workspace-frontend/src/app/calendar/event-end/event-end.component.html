@@ -1,0 +1,125 @@
+
+<div class="common_overlay"></div>
+<div class="task_detail_pop_wrap">
+  <section class="all_pop_in">
+    <div class="task_detail_left">
+      <div class="task_detail_top">
+        <div class="task_detail_pop_head">
+          <p>Lorem Ipsum is simply dummy text of the printing </p>
+          <label>CREATED ON
+            <span>24 JUL 2017</span>
+          </label>
+        </div>
+        <div class="eventContent">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+        <div class="eventBanner"></div>
+    </div>
+    </div>
+    <div class="task_detail_right">
+        <div class="right_top_head">
+            <div class="status_ico">
+              <h3>JUN</h3>
+              <p>7</p>
+            </div>
+            Event Ended
+            <div class="task_close_pop"></div><!-- (click) = "closePop()"-->
+        </div>
+        <div class="eventOuter">
+          <div class="eventStatus">
+            <div class="eventStart">EVENT START</div>
+            <div class="eventDate">7 Jun 2018 | All Day</div>
+          </div>
+            <div class="eventStatus">
+              <div class="eventStart">EVENT END</div>
+              <div class="eventDate">12 Jul 2018 | All Day</div>
+          </div>
+          <div class="eventStatus">
+            <div class="eventStart">LOCATION</div>
+            <div class="eventDate">Time Square, New York</div>
+          </div>
+          <div class="br_line"></div>
+          <div class="eventStatus">
+            <div class="eventStart">AVAILABILITY</div>
+            <div class="eventDate">Occupied</div>
+          </div>
+          <div class="eventStatus">
+            <div class="eventStart">REPEAT</div>
+            <div class="eventDate">Never</div>
+          </div>
+          <div class="eventStatus">
+            <div class="eventStart">CALENDAR</div>
+            <div class="eventDate redColor">Wayne's Calendar</div>
+          </div>
+          <div class="eventStatus">
+            <div class="eventStart">IMPORTANCE</div>
+            <div class="eventDate">Normal</div>
+          </div>
+          <div class="eventStatus lastChild">
+            <div class="eventStart">ATTENDEES</div>
+          </div>
+          <section class="drop_nav">
+            <ul>
+              <li [ngClass]="{active:activeRpTab == 'attend'}" (click)="activeRpTab = 'attend'">Attending</li>
+              <li [ngClass]="{active:activeRpTab == 'invite'}" (click)="activeRpTab = 'invite'">Invited</li>
+              <li [ngClass]="{active:activeRpTab == 'decline'}" (click)="activeRpTab = 'decline'" class="Declined">Declined</li>
+            </ul>
+          </section>
+          <section class="drop_body">
+              <perfect-scrollbar>
+                <div *ngIf="activeRpTab === 'attend'" class="recent_wrap pad_wrap allFilter">
+                  <section>
+                    <ul>
+                      <li><p class="imgIcon"></p><p>Task 1</p></li>
+                      <li><p class="imgIcon"></p><p>Task 1</p></li>
+                      <li><p class="imgIcon"></p><p>Task 1</p></li>
+                      <li><p class="imgIcon"></p><p>Task 1</p></li>
+                      <li><p class="imgIcon"></p><p>Task 1</p></li>
+                    </ul>
+                  </section>
+                </div>
+                <div *ngIf="activeRpTab === 'invite'" class="recent_wrap pad_wrap searchFilter">
+                  <section>
+                    <ul>
+                      <li>Task Search</li>
+                      <li>Task Search</li>
+                      <li>Task Search</li>
+                      <li>Task Search</li>
+                      <li>Task Search</li>
+                    </ul>
+                  </section>
+                </div>
+              
+                <div *ngIf="activeRpTab === 'decline'" class="recent_wrap pad_wrap searchFilter">
+                    <section>
+                      <ul>
+                        <li>Task 2</li>
+                        <li>Task 2</li>
+                        <li>Task 2</li>
+                        <li>Task 2</li>
+                        <li>Task 2</li>
+                      </ul>
+                    </section>
+                  </div>
+              </perfect-scrollbar>
+            </section>
+        </div>
+    </div>
+    <div class="clear"></div>
+  </section>
+  <div class="task_detail_pop_bottom">
+      <div class="bottom_btn">
+          Going ( Event Organizer)
+        </div>
+      <div class="bottom_btn bt_can_btn">
+          Change Status
+      </div>
+      <div class="bottom_btn bt_can_btn">
+        Edit Event
+      </div>
+      <div class="bottom_btn_right">
+          <div class="bottom_btn_blocks opt_btm"></div>
+      </div>
+      <div class="clear"></div>
+  </div>
+</div>

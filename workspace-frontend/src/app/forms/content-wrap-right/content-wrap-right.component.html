@@ -1,0 +1,31 @@
+<!-- <perfect-scrollbar> -->
+	<div #scrollMe class="content_wrap_right">
+		<div class="head_desc">
+			<p class="form_head">{{dataService.createForm.title}}</p>
+			<div class="form_desc">
+				{{dataService.createForm.description}}
+			</div>
+			<!-- <div class="edit_ico">
+			</div> -->
+		</div>
+
+		<div class="form_body">
+
+			<div class="section_break_desc">
+			</div>
+		<div class="dropzone custom_dropzone">
+			<div [dndList]="{ allowedTypes: ['item']}" [dndModel]="dataService.formElementArray" class="col-md-12 draganddrop_area custom_dropzone"  (dndInserted)="inserted($event)">
+				<div *ngFor="let element of dataService.formElementArray;let i =index;">
+					<!-- mmmm {{dataService.formElements.focusSelect}} -->
+					<div  [dndType]="element.type" [dndDragDisabled]='dataService.formElements.focusSelect'  [dndDraggable] (dndMoved)="removeItem(element, dataService.formElementArray)" [dndObject]="element" class="col-md-12">
+						<app-form-component  data="{{element.name}},{{element.index}}" (deleteElementFromLocalArray)="deleteElement($event)"></app-form-component>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+		<!--<app-form-component   *ngFor="let item of this.dataService.formElementArray;let i = index" data="{{item.name}},{{i}}" (deleteElementFromLocalArray)="deleteElement($event)"></app-form-component>-->
+	</div>
+<!-- </perfect-scrollbar> -->

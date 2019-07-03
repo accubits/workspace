@@ -1,0 +1,46 @@
+<div class="overlaypop" (click)="hideAbsenceFilter()"></div>
+<div class="absence-filter-pop">
+  <div class="absence-filter-head">
+    <h4>FILTER</h4>
+    <div class="pop_close" (click)="hideAbsenceFilter()"></div>
+  </div>
+  <div class="absence-filter-inner">
+    <div class="filter-left">
+     <h4> Types :</h4>
+      <section *ngFor="let type of hrmDataService.leaveType.leaveTypeList; let i = index">
+        <label>
+          <div  class="check_outer">
+            <input  name="" type="checkbox" class="" [(ngModel)]="type.fileSelect" (change)="selectedFile(type.fileSelect, type)">
+            <div  class="check"></div>
+          </div>
+        </label>
+        <div class="leave-type-icon pink" [ngStyle]="{'background-color': type.colorCode}"></div>
+        <div class="leave-type">{{type.name}}</div>
+      </section>
+     </div>
+    <div class="filter-right">
+      <h4>Department:</h4>
+    <div class="overlaypop-holiday" *ngIf="departDrp" (click)="hideDepartName()"></div>
+      <div class="leave-pop_expan_wrap request-wrap" (click)="showDepartName()">
+        <span class="input-title request" *ngIf = "hrmDataService.absentChart.filter.departmentSlug !== null">{{hrmDataService.absentChart.filter.departmentName}}</span>
+        <span class="input-title request" *ngIf = "hrmDataService.absentChart.filter.departmentSlug === null">Select</span>
+        <div class="arrow_drop"></div>
+        <input type="text">
+        <div class="resp_person_dropdown" *ngIf="departDrp">
+          <div class="drop_down_wrap">
+            <section class="drop_nav" *ngFor="let dept of hrmDataService.departmentList.list; let i = index">
+              <ul>
+                <li (click)="selectDepartmet(dept)">{{dept.departmentName}}</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="absence-filter-footer">
+    <button class="pbtncreate" (click)="filterAbscentlist()">Apply</button>
+    <button class="req-cancel" (click)="resetFilter()">Reset</button>
+  </div>
+</div>

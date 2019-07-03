@@ -1,0 +1,90 @@
+<div class="settings-outer">
+     <div class="bg-selector">
+      <h4>DASHBOARD BACKGROUND</h4>
+      <div class="bg-img" *ngIf ="!image"></div>
+      <div class="bg-img" *ngIf ="image" [ngStyle]="{'background-image': 'url(' + image + ')'}"></div>
+      <div class="profile_fileupload">
+          <button class="btn">Upload a new picture</button>
+          <input type="file" name="myfile" (change) ="uploadFile($event.target.files)" />
+        </div>
+        <div class="reset">Reset to default</div>
+      <div class="clear"></div>
+    </div>
+    <div class="textarea-outer">
+      <h4>DASHBOARD MESSAGE</h4>
+      <textarea placeholder="Enter Message" rows=5 [(ngModel)] = "settingsDataService.changeBackgroundSettings.dashboardMsg"></textarea>
+    </div>
+    <div class="storage-outer">
+        <div class="storage">
+        <h4>WORK REPORTS</h4>
+          <div class="atc_btn_chng" (click)="showPeriodListing()">Change</div>
+          <P><span class="info_icon"></span>Changing will reset the previous custom preferences set to user and departments</P>
+          </div>
+          <div class="period-selector" *ngIf="periodSelect" >
+              <div  class="feedbk-check">
+                  <label>
+                    <div class="check_outer">
+                      <input name="" type="checkbox" class="">
+                      <div class="check"></div>
+                    </div>
+                  </label>
+                  <span class="input-title">None</span>
+                </div>
+                <div  class="feedbk-check">
+                    <label>
+                      <div class="check_outer">
+                        <input name="" type="checkbox" class="">
+                        <div class="check"></div>
+                      </div>
+                    </label>
+                    <span class="input-title">Daily</span>
+                  </div>
+                  <div  class="feedbk-check">
+                      <label>
+                        <div class="check_outer">
+                          <input name="" type="checkbox" class="">
+                          <div class="check"></div>
+                        </div>
+                      </label>
+                      <span class="input-title">Weekly</span>
+                    </div>
+                    <div  class="feedbk-check">
+                        <label>
+                          <div class="check_outer">
+                            <input name="" type="checkbox" class="">
+                            <div class="check"></div>
+                          </div>
+                        </label>
+                        <span class="input-title">Monthly</span>
+                      </div>
+          </div>
+    </div>
+    <div class="select-outer">
+      <h4>ORGANIZATION TIMEZONE</h4>
+      <!-- <input type="text" placeholder="" (click)="showTimeZone()" > -->
+      <div class="drownArrow"></div>
+      <input class="selectBox" placeholder="(GMT + 00:00) UTC"  (click)="showBox()" [(ngModel)] = "settingsDataService.changeBackgroundSettings.timezone">
+        <!-- <div>(GMT + 00:00) UTC</div> -->
+
+      <div class="filter_cancel_overlay" *ngIf="timeList" (click)="closeBox()"></div>
+      <div class="timeZone" *ngIf="timeList">
+        <ul>
+          <li (click)="timeZoneType('(GMT-12:00) International Date Line West')">(GMT-12:00) International Date Line West</li>
+      <li (click)="timeZoneType('(GMT-11:00) Midway Island, Samoa')">(GMT-11:00) Midway Island, Samoa</li>
+      <li (click)="timeZoneType('(GMT-10:00) Hawaii')">(GMT-10:00) Hawaii</li>
+      <li (click)="timeZoneType('(GMT-09:00) Alaska')">(GMT-09:00) Alaska</li>
+      <li (click)="timeZoneType('(GMT-08:00) Pacific Time (US & Canada)')">(GMT-08:00) Pacific Time (US & Canada)</li>
+      <li (click)="timeZoneType('(GMT-08:00) Tijuana, Baja California')">(GMT-08:00) Tijuana, Baja California</li>
+      <li (click)="timeZoneType('(GMT-07:00) Arizona')">(GMT-07:00) Arizona</li>
+      <li (click)="timeZoneType('(GMT-06:00) Central America')">(GMT-06:00) Central America</li>
+      <li (click)="timeZoneType('(GMT-06:00) Central Time (US & Canada)')">(GMT-06:00) Central Time (US & Canada)</li>
+      <li (click)="timeZoneType('(GMT-06:00) Guadalajara, Mexico City, Monterrey')">(GMT-06:00) Guadalajara, Mexico City, Monterrey</li>
+
+        </ul>
+      </div>
+    </div>
+</div>
+  <div class="fs_footer">
+      <button class="pbtncreate" (click) ="SaveSettings()">Save Changes</button>
+      <button class="req-cancel">Discard Changes</button>
+  </div>

@@ -1,0 +1,31 @@
+<div class="drive_wrap">
+    <div class="table_outer_block">
+      <div class="table_head table_row"  *ngIf="partnerDataService.getLicenseDetails.license.length !== 0">
+        <div class="table-blocks">
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="partnerDataService.selectedLicenseDetails.selectedAll" (ngModelChange)="checkAllLicenses($event)"/>
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="table-blocks Organisation" [ngClass]="{'rot-span':partnerDataService.licensePageDetails.sortBy == 'organization' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('organization')">
+          <span class="tb_head_drop_arrow">ORGANISATION</span>
+        </div>
+        <div class="table-blocks" [ngClass]="{'rot-span':partnerDataService.licensePageDetails.sortBy == 'key' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('key')">
+          <span class="downArrow">KEY</span>
+        </div>
+        <div class="table-blocks" [ngClass]="{'rot-span':partnerDataService.licensePageDetails.sortBy == 'maxUsers' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('maxUsers')">
+          <span class="downArrow">MAX USERS</span>
+        </div>
+        <div class="table-blocks" [ngClass]="{'rot-span':partnerDataService.licensePageDetails.sortBy == 'type' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('type')">
+          <span class="downArrow">TYPE</span>
+        </div>
+        <div class="table-blocks" [ngClass]="{'rot-span':partnerDataService.licensePageDetails.sortBy == 'expiresOn' && partnerDataService.licensePageDetails.sortOrder == 'asc' }"  (click)="sortLicenses('expiresOn')">
+          <span class="downArrow">EXPIRED ON</span>
+        </div>
+      </div>
+    </div>
+  </div>

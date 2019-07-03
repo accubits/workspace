@@ -1,0 +1,133 @@
+<div class="module tablet-8 laptop-8 desktop-8 fp_likert_wrap">
+  <label>{{likertElement.likert.label || "Enter the title"}}<span class="error" *ngIf = "likertElement.likert.isRequired === true">*</span></label>
+  <table>
+    <thead>
+      <tr>
+        <th>Statements</th>
+        <th *ngFor="let column of likertElement.likert.columns">{{column.column || 'Column'}}</th>
+        <!-- <th>Disagree</th>
+        <th>Agree</th>
+        <th>Strongly Agree</th> -->
+      </tr> 
+    </thead>
+    <tbody>
+      <tr *ngFor="let stmnt of likertElement.likert.statements">
+        <td data-label="Statements">{{stmnt.stmt || "Statement"}}</td>
+        <td data-label="Strongly Disagree" *ngFor="let column of likertElement.likert.columns">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3"  name="repeat_radio" [disabled]="true" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <!-- <div class="likert_count_in_td">1</div> -->
+        </td>
+        <!-- <td data-label="Disagree">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">2</div>
+        </td>
+        <td data-label="Agree">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">3</div>
+        </td>
+        <td data-label="Strongly Agree">
+          <div class="fp_table_radio_likert">public formsUtilityService: FormsUtilityService
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">4</div>
+        </td> -->
+      </tr>
+      <!-- <tr>
+        <td data-label="Statements">Statement 2</td>
+        <td data-label="Strongly Disagree">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">2</div>
+        </td>
+        <td data-label="Disagree">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">1</div>
+        </td>
+        <td data-label="Agree">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">4</div>
+        </td>
+        <td data-label="Strongly Agree">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">2</div>
+        </td>
+      </tr>
+      <tr>
+        <td data-label="Statements">Statement 2</td>
+        <td data-label="Strongly Disagree">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">4</div>
+        </td>
+        <td data-label="Disagree">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">1</div>
+        </td>
+        <td data-label="Agree">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">3</Column
+        </td>
+        <td data-label="Strongly Agree">
+          <div class="fp_table_radio_likert">Column
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio" type="radio">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <div class="likert_count_in_td">3</div>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+</div>

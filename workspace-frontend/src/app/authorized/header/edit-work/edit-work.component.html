@@ -1,0 +1,47 @@
+<div class="form_submit_wrap">
+    <div  class="form_submit_modal">
+      <div class="acc_drop_content acc_up_option">
+        <div class="contentOuter">
+          <div class = "workContent">
+            <div class="workHead">EDIT WORK DAY</div>
+            <div class="workTimingClose" (click) = "closeEdit()"></div>
+          </div>
+          <div class="setTime">
+            <div class="setHead">
+              <label>
+                Date :
+                <input [owlDateTime]="dt9" [owlDateTimeTrigger]="dt9" placeholder=""  readonly [(ngModel)]="clockDataService.editWorkTime.workDate"  (ngModelChange)="fetchWorkDay()">
+                <owl-date-time #dt9 [pickerType]="'calendar'" [hour12Timer] = "true"></owl-date-time>
+              </label>
+            </div>
+            <label>
+              Start :
+              <input [owlDateTimeTrigger]="dt6" [owlDateTime]="dt6" placeholder="Select Start time" [(ngModel)]="clockDataService.editWorkTime.startTime" (ngModelChange)="claculateTimeDiff()" >
+              <owl-date-time [hour12Timer]="true" [pickerType]="'timer'" #dt6></owl-date-time>
+            </label>
+            <label>
+              End :
+              <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" placeholder="Select End time" [(ngModel)]="clockDataService.editWorkTime.endTime" (ngModelChange)="claculateTimeDiff()">
+              <owl-date-time [pickerType]="'timer'" #dt4 [hour12Timer] = "true"></owl-date-time>
+            </label>
+            <label class="breakHour">
+              Break :
+              <input type = "text" maxlength="2" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" placeholder="HH"  [(ngModel)]="clockDataService.editWorkTime.break.hour">
+              <input type = "text" maxlength="2" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" placeholder="MM" [(ngModel)]="clockDataService.editWorkTime.break.minute">
+            </label>
+
+            <p *ngIf="timeDiff">Total work Duration: <span>{{timeDiff}}</span><span class="Hour">H</span></p>
+          </div>
+          <div class="textareaReflection">
+            <textarea rows="5" cols="58" placeholder="Reason" [(ngModel)]="clockDataService.editWorkTime.note" ></textarea>
+          </div>
+          <div class="pause clock">
+            <div class="pauseBackground" (click)="updateWorkHours();">
+              <div class="imgCover"></div>
+              <h3>CLOCK<br>OUT</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

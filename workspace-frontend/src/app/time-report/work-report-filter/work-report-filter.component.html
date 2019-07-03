@@ -1,0 +1,79 @@
+<div class="filter_outer">
+  <div class="filter_head">
+    Filter
+    <div class="close_drop" (click)="closeFilter()"></div>
+  </div>
+  <div class="filter_body">
+    <div class="filter_in left">
+      <p>Types:</p>
+      <div class="left_block_filt">
+          <label>
+              <div class="check_outer">
+                <input name="" type="checkbox">
+                <div class="check" for="1_in"></div>
+              </div>
+          </label>
+          <div class="left_ico_cont conf_ico"></div>
+          <span class="">Unconfirmed</span>
+      </div>
+      <div class="left_block_filt">
+          <label>
+              <div class="check_outer">
+                <input name="" type="checkbox">
+                <div class="check" for="1_in"></div>
+              </div>
+          </label>
+          <div class="left_ico_cont star_ico"></div>
+          <span class="green_span">Excellence</span>
+      </div>
+      <div class="left_block_filt">
+        <label>
+            <div class="check_outer">
+              <input name="" type="checkbox">
+              <div class="check" for="1_in"></div>
+            </div>
+        </label>
+        <div class="left_ico_cont hap_ico"></div>
+        <span class="blue_span">Positive</span>
+      </div>
+      <div class="left_block_filt">
+        <label>
+            <div class="check_outer">
+              <input name="" type="checkbox">
+              <div class="check" for="1_in"></div>
+            </div>
+        </label>
+        <div class="left_ico_cont sad_ico"></div>
+        <span class="red_span">Negative</span>
+      </div>
+    </div>
+    <div class="filter_in right">
+      <p>Department:</p>
+      <div class="filt_dept_drop" (click)="this.droplistSection = !this.droplistSection">
+        <span>Department</span>
+        <div class="dropdown_arw"></div>
+        <div class="overlay" *ngIf="droplistSection"  (click)="closelistSection"></div>
+        <div class="filt_dept_opt" *ngIf="this.droplistSection">
+          <perfect-scrollbar>
+            <section>Department</section>
+            <section>Department</section>
+            <section>Department</section>
+            <section>Department</section>
+            <section>Department</section>
+            <section>Department</section>
+            <section>Department</section>
+            <section>Department</section>
+            <section>Department</section>
+          </perfect-scrollbar>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="filter_footer">
+    <div class="filter_reset_btn">Reset</div>
+    <div class="filter_reset_btn apply_filt">Apply</div>
+  </div>
+</div>
+
+<div class="filter_drop_overlay"></div>

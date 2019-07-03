@@ -1,0 +1,34 @@
+<div class="table_head table_row">
+  <div class="table-blocks">
+    <span>Name</span>
+  </div>
+  <div class="table-blocks">
+    Type
+  </div>
+  <div class="table-blocks">
+    MAXIMUM LEAVE
+  </div>
+  <div class="table-blocks">
+    BALANCE
+  </div>
+</div>
+<section class="table-wrap">
+  <section class="no_result_inOverview" *ngIf="hrmDataService.leaveList.levelist.length === 0">
+  </section>
+  <div *ngFor="let leave of hrmDataService.leaveList.levelist; let i = index" class="table_list table_row">
+    <section class="t_row_hover">
+      <div class="table-blocks ">
+        <span class="leave_date_from">{{leave.name}}</span>
+      </div>
+      <div class="table-blocks">
+        <span class="leave_date_from">{{leave.type}}</span>
+      </div>
+      <div class="table-blocks">
+        <span class="leave_date_to">{{leave.maxLeave}}</span>
+      </div>
+      <div class="table-blocks approve-blk">
+        <span class="leave_type">{{leave.balance}}</span>
+      </div>
+    </section>
+  </div>
+</section>

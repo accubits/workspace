@@ -1,0 +1,109 @@
+<div class="overlay" (click)="closeFilter()"></div>
+<div class="filter-pop">
+  <div class="pop-head">
+    <h4>Filter</h4>
+    <div class="pop_close" (click)="closeFilter()"></div>
+  </div>
+  <div class="pop-inner">
+    <div class="type">
+      <p>Type :</p>
+      <div class="type-first">
+      <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type="checkbox" id="1_in" name="" id=""/>
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+          <p>Trial</p>
+        </div>
+      </div>
+      <div class="type-first">
+        <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id=""/>
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+            <p>Annual</p>
+          </div>
+        </div>
+    </div>
+    <div class="filter-pop-left">
+    <div class="type">
+        <p>Users</p>
+        <div class="min-max">
+          <input type="text" placeholder="Min">
+        </div>
+        <div class="min-max">
+            <input type="text" placeholder="Max">
+          </div>
+    </div>
+  </div>
+  <div class="filter-pop-right">
+      <div class="type">
+          <p>Partner :</p>
+          <div class="partner-select">
+            <input type="text" placeholder="Select" (click)="showPartner()">
+            <div class="arrow_drop"></div>
+            <div class="filter_cancel_overlay" *ngIf="partnerList" (click)="closePartner()"></div>
+            <div class="dropdown-outer" *ngIf="partnerList" >
+                <ul>
+                  <li>Stella Little</li>
+                  <li>Lorem Ipsum</li>
+                  <li>Haydon Wadson</li>
+                  <li>Larry vincent</li>
+                </ul>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="filter-pop-left">
+        <div class="type">
+            <p>Expires after</p>
+            <div class="min-max">
+              <input type="text" placeholder="9">
+            </div>
+            <div class="min-max">
+                <input type="text" placeholder="Months" (click)="showMonths()">
+                <div class="arrow_drop"></div>
+                <div class="filter_cancel_overlay" *ngIf="monthList" (click)="monthList = false"></div>
+                <div class="dropdown-outer" *ngIf="monthList" >
+                    <ul>
+                      <li>January</li>
+                      <li>February</li>
+                      <li>March</li>
+                      <li>April</li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+      </div>
+      <div class="filter-pop-right">
+          <div class="type">
+              <p>Expires Before</p>
+              <div class="count">
+                <input type="text" placeholder="9">
+              </div>
+              <div class="months">
+                  <input type="text" placeholder="Months" (click)="showMonthBefore()">
+                  <div class="arrow_drop"></div>
+                  <div class="filter_cancel_overlay" *ngIf="monthBefore" (click)="monthBefore = false"></div>
+                  <div class="dropdown-outer" *ngIf="monthBefore" >
+                      <ul>
+                        <li>January</li>
+                        <li>February</li>
+                        <li>March</li>
+                        <li>April</li>
+                      </ul>
+                    </div>
+                </div>
+          </div>
+        </div>
+</div>
+  <div class="pop-footer">
+    <button class="req-cancel ">Reset</button>
+    <button class="pbtncreate">Apply</button>
+  </div>
+</div>

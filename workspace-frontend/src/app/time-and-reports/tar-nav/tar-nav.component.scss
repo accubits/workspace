@@ -1,0 +1,278 @@
+.nav_wrap {
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    border-bottom: 1px solid #e9ebf5;
+}
+
+.nav_wrap ul {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top; // -webkit-box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    // box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+}
+
+.nav_wrap ul li {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 30px 0px 30px;
+    padding: 25px 0px 25px 0px;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    position: relative;
+    color: #424e5c;
+}
+
+.nav_wrap ul li:hover {
+    border-bottom: 3px solid #ff2e4c;
+}
+
+// .active_tab li {
+//     border-bottom: 3px solid #ff2e4c !important;
+//     font-weight: bold;
+//     color: #424e5c;
+// }
+
+.more_opt {
+    display: inline-block;
+}
+
+.nav_wrap ul li label {
+    position: absolute;
+    right: -70px;
+    background-color: #dde0e3;
+    color: #4b5663;
+    height: 20px;
+    line-height: 20px;
+    padding: 0px 5px 0px 5px;
+    font-size: 12px;
+    top: 26px;
+    font-family: Roboto-Regular !important;
+}
+
+// Dropdown
+.drop_dropdown_wrap {
+    position: relative;
+    display: block;
+}
+
+.drop_drop_pop {
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 300002;
+}
+
+.drop_drop_pop section {
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #526173;
+}
+
+.drop_drop_pop section:hover {
+    background-color: #006df0;
+    color: #fff;
+    transition: .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
+}
+
+.drop_dropdown_wrap.drop_icon_input::after {
+    content: '';
+    background-image: url(/assets/images/dropdown.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    width: 12px;
+    height: 7px;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    z-index: 9;
+    right: 20px;
+    cursor: pointer;
+}
+
+// Dropdown
+.tar_nav_right_holder {
+    display: flex;
+    padding: 20px 20px 0px 0px;
+}
+
+.day_page_holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.day_page_holder button img {
+    width: 7px;
+    height: 13px;
+}
+
+.day_page_holder button {
+    width: 35px;
+    height: 30px;
+    background-color: #d9e9fd;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 3px;
+}
+
+.day_page_holder .day_info {
+    color: #424e5c;
+    font-size: 13px;
+    font-family: Roboto-Medium;
+    width: 150px;
+    padding: 8px 0px 0px 0px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.today {
+    margin: 0px 0px 0px 20px;
+}
+
+.today button {
+    background-color: #d9e9fd;
+    height: 30px;
+    line-height: 30px;
+    min-width: 75px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 3px;
+    color: #006df0;
+    font-size: 13px;
+    font-family: Roboto-Medium;
+}
+
+.tar_nav_input {
+    height: 30px;
+    width: 120px;
+    line-height: 30px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: #f3f3f3;
+    padding: 0px 0px 0px 20px;
+}
+
+.wtime_info_wrap {
+    position: relative;
+}
+
+.wtime_info {
+    position: relative;
+    margin: 5px 20px 0px 0px;
+    cursor: pointer;
+}
+
+.wtime_info img {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.view_drop {
+    padding: 0px 0px 0px 20px;
+}
+
+// Work Time Info Modal style
+.worktimeInfoModal {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #fff;
+    width: 460px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+}
+
+.wtinfo_close {
+    position: absolute;
+    right: 20px;
+    color: #9e9e9e;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 200;
+    top: 0;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.wrinfoHeader {
+    position: relative;
+    background-color: #fff;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px 20px 0px 20px;
+}
+
+.wrinfoHeader h4 {
+    color: #4b5663;
+    font-size: 13px;
+    font-family: Roboto-Regular;
+    text-transform: uppercase;
+}
+
+.wrinfoBody {
+    position: relative;
+    background-color: #fff;
+}
+
+.wrinfoBsection {
+    position: relative;
+    background-color: #fff;
+    padding: 20px 20px 20px 20px;
+}
+
+.wrinfoBsection p {
+    color: #4b5663;
+    font-size: 14px;
+    font-family: Roboto-Regular;
+    cursor: pointer;
+    padding: 7px 0px 7px 30px;
+}
+
+.wrinfoBsection p .greenCheck {
+    width: 12px;
+    height: 10px;
+    margin: 0px 20px 0px 0px;
+    position: absolute;
+    left: 20px;
+}
+
+.wrinfoBsection p .exclamation {
+    width: 15px;
+    height: 15px;
+    margin: 0px 20px 0px 0px;
+    position: absolute;
+    left: 20px;
+}
+
+.wrinfoBsection p .star {
+    width: 16px;
+    height: 14px;
+    margin: 0px 20px 0px 0px;
+    position: absolute;
+    left: 20px;
+}
+
+// Work Time Info Modal style
+// .abscenceViewinput {
+//     background-color: red !important;
+// }

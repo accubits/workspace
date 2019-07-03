@@ -1,0 +1,19 @@
+<aside>
+	<nav id="iCosys_sidebar" [ngClass]="{'iCosys-nav-min': menutoggle.toggleMenu}" class="iCosys-sidebar">
+		<ul >
+			<ng-container *ngFor="let menu of menuItems">
+
+        <li *ngIf="currentRoute === 'partner' && menu.route !=='partner-settings' && checkpartner === 'true'"  (click)="loadMenuModule(menu.route)" [ngClass]="[currentUrl.indexOf(menu.route) !== -1 ? menu.dynamicClass +  ' activeTab' : '']">
+				<div class="act_form_img"></div>
+				<span  class="iCosys-sidebar-item">{{menu.dispName}}</span>
+			</li>
+			<li *ngIf="currentRoute === 'partner' && checkpartner !== 'true'"(click)="loadMenuModule(menu.route)" [ngClass]="[currentUrl.indexOf(menu.route) !== -1 ? menu.dynamicClass +  ' activeTab' : '']">
+					<div class="act_form_img"></div>
+					<span  class="iCosys-sidebar-item">{{menu.dispName}}</span>
+				</li>
+		</ng-container>
+
+		</ul>
+
+	</nav>
+</aside>

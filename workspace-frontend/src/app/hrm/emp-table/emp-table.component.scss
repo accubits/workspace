@@ -1,0 +1,296 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.drive_wrap{
+    position: relative;
+}
+.add{
+  background-color: #d9e9fd;
+  border-radius: 3px;
+  color: #006df0;
+  font-size: 14px;
+  font-weight: 400;
+  vertical-align: top;
+  text-align: center;
+  margin-top: 5px;
+  display: inline-block;
+  top: 15px;
+  padding: 1px;
+  line-height: 32px;
+  cursor: pointer;
+  // height: 30px;
+  width: 30px;
+}
+.table_head .table-blocks span {
+    position: relative;
+    padding-right: 25px;
+    cursor: pointer;
+    font-family: roboto-regular;
+}
+@media (max-width:1366px){
+    .table_head .table-blocks span {
+        position: relative;
+        padding-right: 25px;
+        cursor: pointer;
+        font-family: roboto-regular;
+        font-size: 12px;
+    }
+}
+.table-blocks.Organisation{
+    width: 20%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.table-blocks.clickButton {
+    width: 2%;
+}
+.table_head.table_row .table-blocks {
+    background-color: #f6f6f6;
+    height: 44px;
+    line-height: 44px;
+    cursor: pointer;
+    font-family: roboto-regular;
+}
+.table_head .table-blocks {
+    color: #536273 !important;
+    font-family: Roboto-regular !important;
+    font-size: 13px !important;
+}
+.Inline{
+    display: flex;
+}
+.dotImage {
+    width: 20px;
+    height: 20px;
+    background-image: url("/assets/images/more.png");
+    display: inline-block;
+    vertical-align: middle;
+    /* border-radius: 50%; */
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 3%;
+    position: absolute;
+    top: 12px;
+    background-size: contain;
+    left: 0px;
+    cursor: pointer;
+}
+.Arts {
+    color: #ffaf00;
+    font-size: 11px;
+    font-family: roboto-medium;
+    padding-left: 15px;
+    padding-top: 1px;
+    display: inline-block;
+}
+.selected {
+    line-height: 100%;
+    display: inline-block;
+    padding: 10px 15px;
+    background: #f6f6f6;
+    margin-right: 4px;
+}
+.selected:nth-child(2) {
+    display: inline-flex;
+}
+.num {
+    line-height: 100%;
+    padding-top: 7px;
+    display: flex;
+}
+.drive_wrapDetail .table_head.table_row {
+    background: #fff;
+    height: 65px;
+    line-height: 65px;
+    padding-top: 10px;
+    border-bottom: 1px solid #f5f4f4;
+}
+.main_out .table_outer_block .table-blocks {
+    background: #fff !important;
+}
+.star {
+    background-image: url("/assets/images/assets-employees/star.png");
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 10px;
+}
+.name {
+    display: inline-block;
+    color: #178ccb;
+    width: auto;
+    padding-left: 47px;
+    font-family: roboto-medium;
+    padding-right: 15px;
+}
+.img {
+    background-image: url("/assets/images/all/tdp1.png");
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+}
+.table_head.table_row.Caption .table-blocks {
+    font-weight: bold;
+}
+.table_head.table_row .table-blocks:nth-child(3) {
+     width: 20%;
+}
+.table_head.table_row .table-blocks:nth-child(5) {
+    width: 31%;
+}
+.table_head .table-blocks:nth-child(4) {
+    width: 20%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.table_row .table-blocks:nth-child(1) {
+    width: 5%;
+    text-align: center;
+}
+.table_head {
+    background-color: #f6f6f6;
+    height: 45px;
+    line-height: 44px;
+}
+.table_outer_block .table_head .table-blocks .tb_head_drop_arrow:after{
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #536273;
+    right: 0;
+    top: 5px;
+}
+.table_outer_block .table_head .table-blocks span:after {
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #dde2e7;
+    right: 0;
+    top: 5px;
+}
+.table-blocks {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    box-sizing: border-box;
+    height: 70px;
+    line-height: 70px;
+    color: #424e5c;
+}
+.check_outer {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    z-index: 1;
+    display: inline-block;
+    cursor: pointer;
+}
+.numIcon {
+    background-image: url("/assets/images/assets-employees/phone-receiver.png");
+    width: 13px;
+    height: 13px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* display: inline-block; */
+    background-position: center;
+}
+.mail {
+    line-height: 100%;
+    font-size: 13px;
+    padding-top: 15px;
+    display: flex;
+}
+.mailIcon {
+    background-image: url("/assets/images/assets-employees/black-envelope.png");
+    width: 14px;
+    height: 14px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.num div:nth-child(2) , .mail div:nth-child(2){
+    width: 95%;
+    padding-left: 10px;
+    font-size: 13px;
+    color: #464444;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.filter_cancel_overlay {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9;
+}
+.edt_opt_r
+{
+    position: absolute;
+    background-color: white;
+    right: -26px;
+    box-shadow: -1px 1px 20px 1px rgba(0, 0, 0, 0.11);
+    z-index: 99;
+}
+
+
+.user_more_block {
+    line-height: 30px;
+    background-color: #d9e9fd;
+    border-radius: 3px;
+    color: #006df0;
+    font-size: 14px;
+    font-weight: 400;
+    vertical-align: middle;
+    text-align: center;
+    margin-left: 7px;
+    top: 15px;
+    cursor: pointer;
+    padding: 5px;
+}
+.edt_opt_r section
+{
+    line-height: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #949494;
+    padding: 5px 14px;
+    width: 70px;
+}
+.overlaypop-emp {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1;
+}
+.pad_wrap section
+{
+  padding-left: 10px !important;
+}

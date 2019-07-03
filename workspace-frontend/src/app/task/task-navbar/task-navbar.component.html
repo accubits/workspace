@@ -1,0 +1,82 @@
+<div class="nav_wrap">
+  <ul>
+    <a routerLink="./task-overview" routerLinkActive="active_tab" (click)="menuTab()">
+      <li>Overviews</li>
+    </a>
+    <a routerLink="./task-active" routerLinkActive="active_tab" (click)="menuTab()">
+      <li>Active Tasks</li>
+    </a>
+    <a routerLink="./task-setbyme" routerLinkActive="active_tab" (click)="menuTab()">
+      <li>Set by Me</li>
+    </a>
+    <a routerLink="./task-responsible" routerLinkActive="active_tab" (click)="menuTab()">
+      <li>I'm Responsible</li>
+    </a>
+
+    <div class="desk_drop">
+        <a routerLink="./task-all" routerLinkActive="active_tab">
+          <li>All</li>
+        </a>
+      <a routerLink="./task-favourites" routerLinkActive="active_tab">
+        <li>Favorites</li>
+      </a>
+      <a routerLink="./task-highpriority" routerLinkActive="active_tab">
+        <li>High Priority</li>
+      </a>
+      <li>Archived</li>
+      <a routerLink="./task-completed" routerLinkActive="active_tab">
+        <li>Completed</li>
+      </a>
+    </div>
+
+
+
+    <div class="more_nav" (click)="mobilePop()">
+      <span [ngClass]="{'active_tab':actMore}">{{moreOpt}}</span>
+      <!-- <a routerLinkActive="active_tab">
+        <li>{{moreOpt}}</li>
+      </a> -->
+      <div class="view_list_arw"></div>
+      <div class="mob_drop" *ngIf="this.mobPopup">
+          <a routerLink="./task-all" routerLinkActive="active_tab" (click)="moreOpt='All'">
+            <li>All</li>
+          </a>
+        <a routerLink="./task-favourites" routerLinkActive="active_tab" (click)="moreOpt='Favorites'">
+          <li>Favorites</li>
+        </a>
+        <a routerLink="./task-highpriority" routerLinkActive="active_tab" (click)="moreOpt='High Priority'">
+          <li>High Priority</li>
+        </a>
+        <a routerLink="./task-archive" routerLinkActive="active_tab" (click)="moreOpt='Archived'">
+        <li>Archived</li>
+      </a>
+      <a routerLink="./task-completed" routerLinkActive="active_tab" (click)="moreOpt='Completed'">
+        <li>Completed</li>
+      </a>
+      </div>
+    </div>
+
+    <!--<div class="view_list_drop" (click)="this.listPopup = !this.listPopup">-->
+    <!--<span>Gantt chart</span>-->
+    <!--<div class="view_list_arw">-->
+    <!--</div>-->
+    <!--<div class="list_drop_opt" *ngIf="this.listPopup">-->
+    <!--<section>List view</section>-->
+    <!--<section>Gantt chart</section>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <div class="pagination_wrap deal_listing_pagination">
+      <div class="pagination_outer">
+        <pagination-controls (pageChange)="pageChanged($event)"  previousLabel="" nextLabel="" maxSize="5"></pagination-controls>
+      </div>
+    </div>
+
+  </ul>
+
+
+</div>
+
+
+<div class="drop_overlay" (click)="dropClose()" *ngIf="this.mobPopup">
+</div>

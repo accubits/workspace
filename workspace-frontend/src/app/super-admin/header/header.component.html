@@ -1,0 +1,195 @@
+
+<section class="fixed">
+	<header>
+		<nav class="iCosys-navigation _flex" id="nav-head">
+			<div class="iCosys-logo-container">
+				<a class="iCosys-toggle-btn pull-left dark_theme"><!--(click)="menutoggle.toggleMenu = !menutoggle.toggleMenu"-->
+					<img [src]="assetUrl+'assets/images/menu.png'" />
+				</a>
+				<a (click)="menutoggle.toggleMenu = !menutoggle.toggleMenu" class="iCosys-toggle-btn pull-left white_theme">
+					<img [src]="assetUrl+'assets/images/menu_dark.png'" />
+				</a>
+				<a class="iCosys-logo dark_theme">
+					<img [src]="assetUrl+'assets/images/logo.png'" />
+				</a>
+				<a class="iCosys-logo white_theme">
+					<img [src]="assetUrl+'assets/images/log_dark.png'" />
+				</a>
+			</div>
+			<!-- <div class="searchonheader_wrap">
+				<form id="topbarsearch">
+					<input type="search" placeholder="Search">
+				</form>
+			</div> -->
+			<div class="header_search">
+				<div class="search_wrap" [ngClass]="{'open':this.showSearch}">
+					<div class="search_icon" (click)="this.showSearch = true"></div>
+					<div class="search_close" (click)="this.showSearch = false"></div>
+					<input type="text" placeholder="Search">
+				</div>
+			</div>
+			<div class="nav_right_wrap">
+				<div class="iCosys-top-nav-container">
+
+
+					<div class="bellnotify">
+						<a class="dropdown-toggle dark_theme">
+							<img [src]="assetUrl+'assets/images/notification-clear.png'" />
+						</a>
+						<a class="dropdown-toggle white_theme">
+							<img [src]="assetUrl+'assets/images/notification_dark.png'" />
+						</a>
+					</div>
+
+					<div class="chatnotify" (click)="ch_drop = !ch_drop">
+						<div class="chat_drop">
+							<div class="nwhite_theme"></div>
+							<div class="ndark_theme"></div>
+							<!-- Notification drop -->
+							<div class="chatnotify_drop acc_up_option" *ngIf="ch_drop">
+								<div class="ch_header">
+									<div class="ch_headleft">
+										<h4>Messages</h4>
+									</div>
+									<div class="ch_headright">
+										<button class="ch_edit">New Message</button>
+									</div>
+								</div>
+								<div class="ch_body">
+									<div class="ch_section">
+										<perfect-scrollbar>
+											<div class="user_row user_rowActive">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<span class="noify_red"></span>
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="user_row">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="user_row">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<!-- <img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" /> -->
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="user_row">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="user_row">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<!-- <img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" /> -->
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+										</perfect-scrollbar>
+									</div>
+									<div class="ch_footer">
+
+									</div>
+								</div>
+							</div>
+							<!-- Notification drop -->
+						</div>
+					</div>
+				</div>
+
+				<div id="pic-wrapper" (click)="account = true" class="account-holder acc_drop">
+					<span>Hi {{user}}</span>
+					<div id="profile-pic">
+						<img [src]="settingsDataService.editSettingsTemplate.imageUrl" *ngIf="settingsDataService.editSettingsTemplate.imageUrl">
+						<img [src]="assetUrl+'assets/images/def_img.png'" *ngIf="!settingsDataService.editSettingsTemplate.imageUrl">
+					</div>
+					<img class="account-dd" [src]="assetUrl+'assets/images/account-dd.png'" />
+					<img class="account_dd_dark" [src]="assetUrl+'assets/images/dropdown.png'" />
+					<ul class="acc_drop_content acc_up_option" *ngIf="account">
+						<!-- <li>
+							<img class="four_square" [src]="assetUrl+'assets/images/four_square.png'" />
+							<p>Switch to Organization Dashboard</p>
+						</li> -->
+						<li (click)="logout()">
+							<img class="logOut" [src]="assetUrl+'assets/images/logout.png'" />
+							<p>Logout</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="log_overlay" (click)="account = false" *ngIf="account"></div>
+		</nav>
+	</header>
+
+</section>

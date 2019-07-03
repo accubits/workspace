@@ -1,0 +1,13 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title ph3inline">PARTNER</h3>
+      <div class="panel-right-holder">
+        <button class="pbtncreate" (click)="showPartner()">Add Partners</button>
+      </div>
+    </div>
+  </div>
+  <app-partner-table></app-partner-table>
+</div>
+<router-outlet></router-outlet>
+<app-add-partner *ngIf="superAdminDataService.addPartner.show"></app-add-partner>

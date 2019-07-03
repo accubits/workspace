@@ -1,0 +1,220 @@
+.pop-outer
+{
+  position: absolute;
+  background-color: #fff;
+  top: 100px;
+  width: calc(100% - 248px);
+  right: 14px;
+  height: 100vh;
+  z-index: 111111;
+}
+.pop-head
+{
+  padding: 20px 20px 10px 20px;
+  position: relative;
+}
+.profile-image
+{
+  background-image: url(/assets/images/all/tdp4.png);
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  background-size: contain;
+  display: inline-block;
+}
+.profile-details
+{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
+p
+{
+  color: #ced2d7;
+  font-size: 12px;
+  b
+{
+  color: #515c6a;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px
+}
+}
+}
+.mail {
+  font-size: 13px;
+  padding: 20px;
+  vertical-align: top;
+  display: inline-block;
+  margin-left: 50px;
+  p {
+    display: inline-block;
+    color: #424e5c;
+  }
+}
+.mailIcon {
+  background-image: url("/assets/images/assets-employees/black-envelope.png");
+  width: 14px;
+  height: 14px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  display: inline-block;
+}
+.phone {
+  font-size: 13px;
+  padding: 20px;
+  vertical-align: top;
+  display: inline-block;
+  margin-left: 50px;
+  p {
+    display: inline-block;
+    color: #424e5c;
+  }
+}
+.phoneIcon
+{
+  background-image: url("/assets/images/assets-employees/phone-receiver.png");
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+.close-pop
+{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-image: url(/assets/images/pop_close.png);
+  width: 12px;
+  height: 12px;
+  background-size: contain;
+  cursor: pointer;
+}
+.menu li {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: 0px;
+  font-size: 14px;
+  padding: 10px 0;
+  margin-right: 50px;
+  color: #9fa6ad;
+  cursor: pointer;
+}
+.menu {
+  display: inline-block;
+  padding-bottom: 0px;
+  border-bottom: 1px solid #e8eaec;
+  width: 100%;
+  padding-left: 20px;
+
+
+}
+.menu .active {
+    border-bottom: 3px solid #ff2e4c !important;
+    font-weight: bold;
+    color: #424e5c;
+    top: 2px;
+  }
+  .tab_inner
+  {
+    //padding: 20px;
+  }
+  .check-box-container
+{
+  margin: 30px 0;
+  padding: 20px;
+}
+.check-box-container h6
+{
+  color: #424e5c;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.check-wraper
+{
+  padding: 20px 10px;
+}
+.check-wraper p{
+  color: #98a1ab;
+  font-size: 13px;
+  display: inline-block;
+  min-width: 150px;
+}
+.checkbox
+{
+  display: inline-block;
+  margin-right: 20px;
+}
+.checkbox label
+{
+  color: #536273;
+  font-size: 13px;
+}
+.check_outer
+{
+  margin-right: 20px;
+}
+.check {
+  border-radius: 4px;
+}
+.pop-footer
+{
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 248px);
+  right: 14px;
+  background-color: #fff;
+  z-index: 1111111;
+  border-top: 1px solid #bac0c7;
+  padding: 10px 20px;
+  box-shadow: 0px -9px 40px 0px #00000021;
+}
+.pbtncreate
+{
+  text-align: center;
+  cursor: pointer;
+}
+.req-cancel {
+  line-height: 34px;
+  height: 34px;
+  cursor: pointer;
+  width: auto;
+  padding: 0 20px;
+  color: #536273;
+  border: 1px solid #536273;
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 20px;
+  vertical-align: middle;
+  transition: all ease 0.2s;
+  text-align: center;
+  background-color: #fff;
+}
+.req-cancel:hover {
+  transition: all ease 0.2s;
+  background-color: #536273;
+  color: #fff;
+}
+.main-overlay
+{
+      background-color: rgba(0,0,0,0.4);
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      left: 0px;
+      top: 0px;
+      z-index: 11111;
+}
+
+@media screen and (max-width:1366px)
+{
+  .pop-outer
+  {
+    top: 80px;
+  }
+}

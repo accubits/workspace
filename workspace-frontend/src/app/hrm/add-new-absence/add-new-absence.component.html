@@ -1,0 +1,101 @@
+<div class="overlaypop" (click)="closeNewAbsence()"></div>
+<div class="requestPopup">
+  <div class="requestPopup-header">
+    <h4>ADD NEW ABSENCE</h4>
+    <div class="pop_close" (click)="closeNewAbsence()"></div>
+  </div>
+  <div class="requestPopup-wrap">
+    <div class="leave-pop_expan_wrap request-wrap" [ngClass]="{'err_out': !isValidated && hrmDataService.toUsers.toUsers.length === 0}">
+      <div class="overlaypop-lev" *ngIf="absencePerson" (click)="absencePersonHide()"></div>
+      <span class="input-title request">Absent person:</span>
+      <div *ngFor="let user of hrmDataService.toUsers.toUsers" class="selected_tag">
+        <span class="input-title">{{user.name}}
+          <div class="select_close" (click)="removeUsers(user)"></div>
+        </span>
+      </div>
+      <input type="text" (input)="initOrChangeAbcentee()" (click)="absencePerson = true" [(ngModel)]="hrmDataService.employeeList.searchEmpTxt">
+      <div class="resp_person_dropdown" *ngIf="absencePerson">
+        <div class="resp_drop_head">
+          <span>PEOPLE</span>
+          <div class="close_drop" (click)="absencePersonHide()"></div>
+        </div>
+        <div class="drop_down_wrap">
+          <div class="drop_down_wrap">
+            <section class="drop_body">
+              <div class="recent_wrap pad_wrap">
+                <section *ngFor="let emp of hrmDataService.employeeList.list" (click)="selectEmployee(emp)">
+                  <div *ngIf="emp.employeeImage === null" class="recent_ico"></div>
+                  <div *ngIf="emp.employeeImage !== null" class="recent_ico" [ngStyle]="{'background-image': 'url(' + emp.employeeImage + ')'}"></div>
+                  {{emp.employeeName}}
+                </section>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="start-date" [ngClass]="{'err_out': !isValidated && hrmDataService.absent.absentStartsOn === null}">
+      <span class="input-title">Starts on:</span>
+      <input type="text" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" [(ngModel)]="hrmDataService.absent.absentStartsOn">
+      <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+      <div class="close_drop" (click)="clearAbsentStartsOn()"></div>
+    </div>
+    <div class="leave-mode">
+      <label>
+        <div class="check_outer">
+          <input [(ngModel)]="hrmDataService.absent.startsOnHalfDay" name="" type="checkbox" class="">
+         <div class="check"></div>
+        </div>
+      </label>
+      <span class="input-title">Half Day</span>
+    </div>
+    <div class="end-date" [ngClass]="{'err_out': !isValidated && hrmDataService.absent.absentEndsOn === null}">
+      Ends on:
+      <input type="text" placeholder="" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"  [(ngModel)]="hrmDataService.absent.absentEndsOn" (ngModelChange)="valudatedate($event)">
+      <owl-date-time #dt2 [pickerType]="'calendar'"></owl-date-time>
+      <div class="close_drop" (click)="clearAbsentEndsOn()"></div>
+    </div>
+    <div *ngIf = "hrmDataService.absent.absentStartsOn !== hrmDataService.absent.absentEndsOn && hrmDataService.absent.absentEndsOn !== null" class="leave-mode">
+      <label>
+      <div class="check_outer">
+          <input *ngIf="dateValidation !== true" [(ngModel)]="hrmDataService.absent.endsOnHalfDay" name="" type="checkbox" class="">
+          <input *ngIf="dateValidation === true" [(ngModel)]="hrmDataService.absent.endsOnHalfDay" disabled ="disabled" name="" type="checkbox" class="">
+          <div class="check"></div>
+        </div>
+      </label>
+      <span class="input-title">Half Day</span>
+    </div>
+    <div class="overlaypop-lev" *ngIf="absenceList" (click)="absenceListHide()"></div>
+    <div class="leave-pop_expan_wrap reason-wrap" [ngClass]="{'err_out': !isValidated && hrmDataService.absent.type.length === 0}">
+      <span class="input-title request">Type of absence:</span>
+      <div class="select-wrap" *ngIf="hrmDataService.absent.type.length !== 0">
+        <div *ngFor="let type of hrmDataService.absent.type" class="selected_tag_reason">
+          <span class="input-title">{{type.name}}
+            <div class="select_close" (click)="removeType(type)"></div>
+          </span>
+        </div>
+      </div>
+      <input type="text" placeholder=""  readonly (click)="absenceListShow()">
+      <div class="resp_person_dropdown" *ngIf="absenceList">
+        <div class="resp_drop_head">
+          <span>Reason Type</span>
+          <div class="close_drop" (click)="absenceListHide()"></div>
+        </div>
+        <div class="drop_down_wrap">
+          <section class="drop_nav">
+            <ul *ngFor="let type of hrmDataService.leaveType.leaveTypeList">
+              <li (click)="selectLeaveType(type)">{{type.name}}</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+    <textarea [ngClass]="{'err_out': !isValidated && hrmDataService.absent.reason === ''}" [(ngModel)]="hrmDataService.absent.reason"
+      class="reason" name="" value="" rows=5 placeholder="Reason:"></textarea>
+  </div>
+  <div class="requestpopup-footer">
+    <button *ngIf = "hrmDataService.absent.action === 'create'" class="pbtncreate" (click)="createAbsence()">Create</button>
+    <button *ngIf = "hrmDataService.absent.action === 'update'" class="pbtncreate" (click)="updateAbsence()">Update</button>
+    <button class="req-cancel" (click)="closeNewAbsence()">Cancel</button>
+  </div>
+

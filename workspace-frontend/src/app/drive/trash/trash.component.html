@@ -1,0 +1,167 @@
+<div class="module drive_right_wrap_container">
+  <div class="driv_right_head">
+    <ul>
+      <li>
+        Trash
+      </li>
+    </ul>
+    <div class="search_wrap" [ngClass]="{'open':driveDataService.driveFileManagement.showSearch}">
+      <div class="search_icon" (click)="driveDataService.driveFileManagement.showSearch = true"></div>
+      <div class="search_close" (click)="driveDataService.driveFileManagement.showSearch = false" (click)="searchClose()"></div>
+      <input type="text" id="myText" placeholder="Search" [(ngModel)]="driveDataService.driveFileManagement.searchText" (input)="onSearchChange()">
+    </div>
+  </div>
+    <div class="drive_wrap">
+      <div class="table_outer_block">
+        <div class="table_head table_row">
+          <div class="table-blocks">
+            <div class="checkbox">
+              <label>
+                <div class="check_outer"  *ngIf="driveDataService.getDriveFiles.driveFilelist.length > 0">
+                  <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="selectAll" (change)="selectAllFiles()" />
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="table-blocks file_thumbnail">
+          </div>
+          <div class="table-blocks" [ngClass]="{'actives':driveDataService.driveFileManagement.sortMethod === 'asc' && driveDataService.driveFileManagement.sortOption === 'name'}"
+          (click)="sortOperation('name')">
+           <span>NAME</span>
+         </div>
+         <div class="table-blocks" [ngClass]="{'actives':driveDataService.driveFileManagement.sortMethod === 'asc' && driveDataService.driveFileManagement.sortOption === 'modified'}"
+         (click)="sortOperation('modified')">
+           <span>MODIFIED</span>
+         </div>
+         <div class="table-blocks" [ngClass]="{'actives':driveDataService.driveFileManagement.sortMethod === 'asc' && driveDataService.driveFileManagement.sortOption === 'size'}"
+          (click)="sortOperation('size')">
+           <span>SIZE</span>
+         </div>
+        </div>
+        <div class="driveTable_body">
+          <section class="no_result_inOverview" *ngIf="driveDataService.getDriveFiles.driveFilelist.length === 0">
+          </section>
+          <perfect-scrollbar>
+            <div *ngFor="let drive of driveDataService.getDriveFiles.driveFilelist;let i = index" class="table_body table_row">
+              <section>
+                <div class="table-blocks">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="drive.fileSelect" (change)="selectedFile(drive.fileSelect, drive)">
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="table-blocks">
+                  <div class="active file_thumbnail_icon folder_icon" *ngIf="drive.isFolder">
+                    <img [src]="assetUrl+ 'assets/images/drive/'+ 'folder_thumb.png'" />
+                  </div>
+                  <div class="active file_thumbnail_icon" *ngIf="!drive.isFolder">
+                    <img [src]="drive.fileName | imageextension" />
+                  </div>
+                </div>
+                <div class="table-blocks drive_name">
+                  {{drive.fileName}}
+                </div>
+                <div class="table-blocks inp_hov">
+                  {{drive.modifiedDate * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+                  <div class="inp_edit_key"></div>
+                </div>
+                <div class="table-blocks" *ngIf="drive.isFolder == false">
+                  {{drive.contentSize|filesize}}
+                </div>
+                <div class="table-blocks" *ngIf="drive.isFolder == true">
+                </div>
+                <!-- <div class="table-blocks">
+                    <div class="row_option_ico" (click)= "drive.moreOptionShow = !drive.moreOptionShow">
+                      <div (click)="selectedOption(drive)">
+                        <img [src]="assetUrl+'assets/images/more.png'" />
+                      </div>
+                     <div class="drive_more_option_container" *ngIf="drive.moreOptionShow">
+                       <div class="drive_more_option">
+                        <ul>
+                          <li (click)="trashOperation('restore')">
+                            Restore
+                          </li>
+                          <li (click)="trashOperation('delete')">
+                            Delete
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    </div>
+                  <div class="clear"></div>
+                </div> -->
+                <div class="table-blocks">
+
+                   <div class="row_option_ico" (click)="selectedOption(drive)">
+                      <div>
+                        <img [src]="assetUrl+'assets/images/more.png'" />
+                      </div>
+                      <!-- More Option Pop -->
+                      <div class="overlay"*ngIf="drive.moreOptionShow" (click)="!drive.moreOptionShow" ></div>
+
+                      <div class="drive_more_option_container" *ngIf="drive.moreOptionShow">
+                      <div (click)="!drive.moreOptionShow"></div>
+                        <div class="drive_more_option">
+                          <ul>
+                              <li (click)="trashOperation('restore')">
+                                  Restore
+                                </li>
+                                <li (click)="trashOperation('delete')">
+                                  Delete
+                                </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <!-- More Option Pop -->
+                    </div>
+                   <div class="clear"></div>
+                  </div>
+              </section>
+            </div>
+          </perfect-scrollbar>
+        </div>
+        <div class="drive_table_footer" *ngIf="driveDataService.driveFileManagement.showFooter && driveDataService.driveFileManagement.selectedFileSlug.length !== 0">
+          <div class="drive_table_footer_left">
+            <ul>
+              <li>
+                <div class="checkbox">
+                  <label>
+                    <div class="check_outer">
+                      <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="selectAll" (change)="selectAllFiles()" />
+                      <div class="check" for="1_in"></div>
+                    </div>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <span class="drive_list_count_container">{{driveDataService.driveFileManagement.selectedFileSlug.length}}</span>
+              </li>
+              <li>
+                Selected
+              </li>
+            </ul>
+          </div>
+          <div class="drive_table_footer_right">
+            <ul>
+              <li>
+                <div class="driv_footer_icon driv_f_bin" data-tooltip="Delete" (click)="trashOperation('delete')">
+                  <img [src]="assetUrl+'assets/images/drive/bin.png'" />
+                </div>
+              </li>
+              <li>
+                <div class="driv_footer_icon" data-tooltip="Restore" (click)="trashOperation('restore')">
+                  <img [src]="assetUrl+'assets/images/drive/restore.png'" />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="clear"></div>

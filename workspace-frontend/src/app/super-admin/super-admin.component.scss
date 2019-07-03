@@ -1,0 +1,237 @@
+/*header portion starts*/
+
+.panel {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 0 !important;
+    position: relative;
+}
+.panel-heading {
+    padding-left: 20px;
+    height: 75px;
+    line-height: 75px;
+    transition: all .2s ease-in-out;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0;
+}
+.panel-heading .panel-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    font-family: roboto-bold;
+}
+@media (max-width: 1366px)
+{
+    .panel-heading .panel-title {
+        font-size: 16px;
+        transition: all .2s ease-in-out;
+    }
+    .panel-right-holder button {
+        margin-right: 20px;
+        transition: all .2s ease-in-out;
+    }
+    .pbtnfilter {
+        line-height: 34px;
+        height: 34px;
+        min-width: 100px;
+        font-size: 12px;
+    }
+}
+.pbtnfilter {
+    width: auto;
+    background-color: #ff2e4c;
+    color: #fff;
+    border: 0px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+}
+button {
+    cursor: pointer;
+}
+.panel-right-holder {
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+.pbtnsinline {
+    display: inline-block;
+}
+
+.ph3inline {
+    display: inline-block;
+}
+/*header portion ends*/
+/*bottom panel starts*/
+.bottom_tab_wrap {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 13;
+    padding-left: 234px;
+    padding-right: 15px;
+}
+
+.bottom_tab {
+    position: relative;
+    width: 100%;
+    background-color: white;
+    padding: 10px 30px;
+    border-top: 1px solid #bac0c7;
+}
+
+.num_tag {
+    background-color: #ebebeb;
+    display: inline-block;
+    vertical-align: top;
+    height: 23px;
+    line-height: 23px;
+    width: 36px;
+    text-align: center;
+    margin-top: 1px;
+    margin-left: 20px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+.btm_left_block span {
+    font-size: 14px;
+}
+.head_tag_wrap {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 25px;
+}
+
+.btm_cntrl_btn {
+    width: 111px;
+    height: 38px;
+    text-align: center;
+    border: 1px solid;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 34px;
+    line-height: 38px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #424242;
+    cursor: pointer;
+}
+
+.head_tag {
+    cursor: pointer;
+    background-color: #ffffff36;
+    height: 28px;
+    line-height: 28px;
+    padding: 0px 12px;
+    color: white;
+    margin-left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    //margin-top: 12px;
+    font-size: 13px;
+}
+
+.btm_btn_ico {
+    width: 14px;
+    height: 14px;
+    background-image: url(/assets/images/bottombar.png);
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 66px;
+    margin-right: 5px;
+}
+
+.pause_btn {
+    background-position: 121px 118px;
+}
+
+.start_btn {
+    background-position: 121px 159px;
+}
+
+.complete_btn {
+    background-position: 121px 77px;
+}
+
+.btm_right_block {
+    float: right; // display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+}
+
+.bottom_right_btns .btm_btn_ico {
+    width: 25px;
+    height: 25px;
+    background-size: 75px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.bottom_right_btns .btm_btn_ico:last-child {
+    margin-right: 0px;
+}
+
+.alert_btn {
+    background-position: 142px 232px;
+}
+
+.star_btn {
+    background-position: 142px 278px;
+}
+
+.edt_btn {
+    background-image: url("/assets/images/recycle.png");
+    background-repeat: no-repeat;
+    background-size: 15px !important;
+}
+.edt_btn .tooltiptext{
+    visibility: hidden;
+    width: auto;
+    background-color: #cecece;
+    color: #424e61;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px 3px;
+    position: absolute;
+    z-index: 1;
+    font-size: 11px;
+    font-family: roboto-bold;
+    bottom: 0px;
+}
+.del_btn .tooltiptext{
+    visibility: hidden;
+    width: auto;
+    background-color: #cecece;
+    color: #424e61;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px 3px;
+    position: absolute;
+    z-index: 1;
+    font-size: 11px;
+    font-family: roboto-bold;
+    bottom: 0px;
+}
+.edt_btn:hover .tooltiptext , .del_btn:hover .tooltiptext{
+    visibility: visible;
+}
+.del_btn {
+    background-position: 142px 372px;
+}
+
+.archive_btn {
+    background-position: 142px 47px;
+}
+
+.more_btn {
+    background-position: 142px 326px;
+}
+
+.btm_left_block {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 7px;
+    margin-right: 80px;
+}
+/*bottom panel ends*/

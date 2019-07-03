@@ -1,0 +1,233 @@
+.single_user_wrap {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.single_user_header {
+    height: 60px;
+    line-height: 60px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px 0px 20px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.su_left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.su_left p {
+    color: #424e5c;
+    font-family: Roboto-Medium;
+    font-size: 13px;
+}
+
+.su_left img {
+    height: 30px;
+    width: 30px;
+    margin: 15px 10px 0px 0px;
+}
+
+.members,
+.invite {
+    background-color: #d9e9fd;
+    color: #006df0;
+    font-family: Roboto-Regular;
+    font-size: 13px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 5px;
+    border-radius: 2px;
+    margin-left: 10px;
+}
+
+.single_user_body {
+    background-color: #f2f2f2;
+    padding: 20px 20px 20px 20px;
+    position: relative;
+}
+
+.day p {
+    color: #98a1ab;
+    font-family: Roboto-Medium;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.r_head {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.r_head h6,
+.r_head p {
+    color: #98a1ab;
+    font-family: Roboto-Light !important;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.recieved {
+    position: relative;
+    padding: 0px 0px 0px 40px;
+}
+
+.recieved img {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    left: 0px;
+    top: 25px;
+}
+
+.r_body {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #fff;
+    color: #424e5c;
+    font-size: 13px;
+    max-width: 380px;
+    width: 100%;
+    font-family: Roboto-Regular;
+    padding: 20px 30px 20px 30px;
+    border-radius: 0px 6px 6px 6px;
+    margin-top: 10px;
+}
+
+.chat_block_recieved {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    padding: 20px 0px 20px 0px;
+}
+
+.chat_block_send {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    padding: 20px 0px 20px 0px;
+}
+
+.s_foot {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.s_foot h6,
+.s_foot p {
+    color: #98a1ab;
+    font-family: Roboto-Light !important;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.send {
+    position: relative;
+    padding: 0px 40px 0px 0px;
+}
+
+.send img {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: 0px;
+    bottom: 25px;
+}
+
+.s_body {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #536273;
+    color: #f3f3f3;
+    font-size: 13px;
+    max-width: 380px;
+    width: 100%;
+    font-family: Roboto-Regular;
+    padding: 20px 30px 20px 30px;
+    border-radius: 6px 6px 0px 6px;
+    margin-bottom: 10px;
+}
+
+.user_invite {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 10px 0px 10px 0px;
+}
+
+.user_invite p {
+    color: #006df0;
+    font-family: Roboto-Regular;
+    font-size: 13px;
+    margin: 0px 5px 0px 5px;
+}
+
+.user_invite span {
+    color: #98a1ab;
+    font-family: Roboto-Regular;
+    font-size: 13px;
+    margin: 0px 5px 0px 5px;
+    text-transform: uppercase;
+}
+
+.single_user_footer {
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+    padding: 10px 10px 10px 15px;
+}
+
+.single_user_footer input {
+    width: 100%;
+    min-height: 50px;
+    background-color: #f2f2f2;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0px 10px 0px 30px;
+    color: #424e5c;
+}
+
+.single_user_footer input::placeholder {
+    color: #424e5c;
+}
+
+.single_user_footer img {
+    width: 13px;
+    height: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.chat_invite_modal {
+    position: absolute;
+    right: 20px;
+    z-index: 1;
+    top: 18px;
+}
+
+.group_body {
+    background-color: #f2f2f2;
+    position: relative;
+    height: calc(100vh - 360px);
+    overflow-y: auto;
+}
+
+// Media Queries
+@media (max-width: 1366px) {
+    .group_body {
+        background-color: #f2f2f2;
+        position: relative;
+        height: calc(100vh - 310px);
+        overflow-y: auto;
+    }
+}

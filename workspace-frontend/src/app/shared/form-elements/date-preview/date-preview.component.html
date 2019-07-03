@@ -1,0 +1,26 @@
+<div class="module tablet-6 laptop-6 desktop-6 fp_timewrap">
+  <div class="fp_body">
+      <label>{{dateElement.date.label|| "Enter the title"}}<span class="error" *ngIf = "dateElement.date.isRequired === true">*</span></label>
+    <ul>
+      <li>
+        <div class="fp_input"> 
+          <input type="text" class="" name="text" placeholder="MM" [disabled]="true">
+        </div>
+      </li>
+      <li>
+        <div class="fp_input trans_label">
+          <!-- <label>DD</label> -->
+          <input type="text" readonly class="" name="text" placeholder="DD" [disabled]="true">
+        </div>
+      </li>
+      <li>
+        <div class="fp_input trans_label">
+          <!-- <label>YY</label> -->
+          <input type="text" class="" name="text" placeholder="YY" [disabled]="true">
+        </div>
+      </li>
+
+      <div class="clear"></div>
+    </ul>
+  </div>
+</div>

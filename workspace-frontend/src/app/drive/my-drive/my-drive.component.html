@@ -1,0 +1,180 @@
+<div class="module drive_right_wrap_container">
+  <div class="driv_right_head">
+    <ul>
+      <li (click)="selectDrive()">
+        My Drive
+        <span>
+          <img [src]="assetUrl+'assets/images/next.png'" />
+        </span>
+      </li>
+      <li *ngFor="let folder of driveDataService.driveFileManagement.hierarchy" (click)="selectHierarchy(folder)">
+        {{folder.folderName}}
+        <span>
+          <img [src]="assetUrl+'assets/images/next.png'" />
+        </span>
+      </li>
+    </ul>
+    <div class="search_wrap" [ngClass]="{'open':driveDataService.driveFileManagement.showSearch}">
+      <div class="search_icon" (click)="driveDataService.driveFileManagement.showSearch = true"></div>
+      <div class="search_close" (click)="driveDataService.driveFileManagement.showSearch = false" (click)="searchClose()"></div>
+      <input type="text" id="myText" placeholder="Search" [(ngModel)]="driveDataService.driveFileManagement.searchText"
+        (input)="onSearchChange()">
+    </div>
+  </div>
+    <div class="drive_wrap">
+      <div class="table_outer_block">
+        <div class="table_head table_row">
+          <div class="table-blocks">
+            <div class="checkbox">
+              <label>
+                <div class="check_outer" *ngIf="driveDataService.getDriveFiles.driveFilelist.length > 0">
+                  <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="driveDataService.driveFileManagement.selectAllHeader"
+                    (change)="selectAll()" />
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="table-blocks file_thumbnail">
+          </div>
+          <div class="table-blocks" [ngClass]="{'actives':driveDataService.driveFileManagement.sortMethod === 'asc' && driveDataService.driveFileManagement.sortOption === 'name'}"
+           (click)="sortOperation('name')">
+            <span>NAME</span>
+          </div>
+          <div class="table-blocks" [ngClass]="{'actives':driveDataService.driveFileManagement.sortMethod === 'asc' && driveDataService.driveFileManagement.sortOption === 'modified'}"
+          (click)="sortOperation('modified')">
+            <span>MODIFIED</span>
+          </div>
+          <div class="table-blocks" [ngClass]="{'actives':driveDataService.driveFileManagement.sortMethod === 'asc' && driveDataService.driveFileManagement.sortOption === 'size'}"
+           (click)="sortOperation('size')">
+            <span>SIZE</span>
+          </div>
+          <div class="table-blocks">
+            MEMBERS
+          </div>
+        </div>
+        <div class="driveTable_body">
+          <div *ngIf="driveDataService.createFolderPopUp.show">
+            <div class="table-blocks">
+            </div>
+            <div class="table-blocks">
+              <div class="file_thumbnail_icon" style="margin-left: 44px">
+                <img [src]="assetUrl+ 'assets/images/drive/'+ 'folder_thumb.png'" />
+              </div>
+            </div>
+            <div class="table-blocks drive_name" style="margin-left: 4%">
+              <input type="text" class="newFolderinput" placeholder="New Folder" [(ngModel)]="driveDataService.driveFileManagement.folderName"
+                (keyup.enter)="creatNewFolder()">
+            </div>
+            <div class="table-blocks">
+              <div class="close_drop" (click)="driveDataService.createFolderPopUp.show = false">
+              </div>
+            </div>
+          </div>
+          <section class="no_result_inOverview" *ngIf="driveDataService.getDriveFiles.driveFilelist.length === 0">
+          </section>
+          <perfect-scrollbar>
+            <section class="bot_margin">
+              <div *ngFor="let drive of driveDataService.getDriveFiles.driveFilelist;let i = index">
+                <app-drive-table [drive]="drive" [index]="i"></app-drive-table>
+              </div>
+            </section>
+          </perfect-scrollbar>
+        </div>
+      </div>
+    </div>
+     <!-- Drive Footer -->
+<div class="drive_table_footer" *ngIf="driveDataService.driveFileManagement.showFooter && driveDataService.driveFileManagement.selectedFileSlug.length !== 0">
+  <div class="drive_table_footer_left">
+    <ul>
+      <li>
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type="checkbox" [(ngModel)]="driveDataService.driveFileManagement.selectAllFooter" (change)="selectAllFiles()" />
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+      </li>
+      <li>
+        <span class="drive_list_count_container">{{driveDataService.driveFileManagement.selectedFileSlug.length}}</span>
+      </li>
+      <li>
+        Selected
+      </li>
+    </ul>
+  </div>
+
+  <!-- <div class="drive_table_footer_right" *ngIf="driveDataService.getDriveFiles.selectedTab ==='Shared With Me'">
+    <ul>
+      <li>
+        <div class="driv_footer_icon driv_f_share" data-tooltip="Share" (click)="driveDataService.shareOption.show = true">
+          <img [src]="assetUrl+'assets/images/drive/share.png'" />
+        </div>
+      </li>
+      <li *ngIf="!drive.isFolder">
+        <div class="driv_footer_icon driv_f_download" data-tooltip="Download" (click)="downloadFile()">
+          <img [src]="assetUrl+'assets/images/drive/download.png'" />
+        </div>
+      </li>
+    </ul>
+  </div> -->
+
+  <div class="drive_table_footer_right" *ngIf="driveDataService.driveFileManagement.selectedFileSlug.length <= 1 && driveDataService.getDriveFiles.selectedTab !== 'Shared With Me'">
+    <ul>
+      <li>
+        <div class="driv_footer_icon driv_f_bin" data-tooltip="Delete" (click)="deleteFile()">
+          <img [src]="assetUrl+'assets/images/drive/bin.png'" />
+        </div>
+      </li>
+      <li>
+        <div class="driv_footer_icon driv_f_share" data-tooltip="Share" (click)="driveDataService.shareOption.show = true">
+          <img [src]="assetUrl+'assets/images/drive/share.png'" />
+        </div>
+      </li>
+       <li *ngIf="this.driveDataService.driveFileManagement.isFolder == false">
+          <div class="driv_footer_icon driv_f_download" data-tooltip="Download" (click)="downloadFile()">
+            <img [src]="assetUrl+'assets/images/drive/download.png'" />
+          </div>
+        </li>
+      <li>
+        <div class="driv_footer_icon driv_f_textentry text_entry_icon" data-tooltip="Rename" (click)="renameOption()">
+        </div>
+      </li>
+      <li>
+        <div class="driv_footer_icon driv_f_folder" data-tooltip="Move" (click)="driveDataService.moveOption.show = true">
+          <img [src]="assetUrl+'assets/images/drive/folder.png'" />
+        </div>
+      </li>
+      <li>
+        <div class="driv_footer_icon driv_f_copy" data-tooltip="Copy" (click)="driveDataService.copyOption.show = true">
+          <img [src]="assetUrl+'assets/images/drive/copy.png'" />
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="drive_table_footer_right" *ngIf="driveDataService.driveFileManagement.selectedFileSlug.length > 1 && driveDataService.getDriveFiles.selectedTab !== 'Shared With Me'">
+    <ul>
+      <li>
+        <div class="driv_footer_icon driv_f_bin" data-tooltip="Delete" (click)="deleteFile()">
+          <img [src]="assetUrl+'assets/images/drive/bin.png'" />
+        </div>
+      </li>
+      <li>
+        <div class="driv_footer_icon driv_f_folder" data-tooltip="Move" (click)="driveDataService.moveOption.show = true">
+          <img [src]="assetUrl+'assets/images/drive/folder.png'" />
+        </div>
+      </li>
+      <li>
+        <div class="driv_footer_icon driv_f_copy" data-tooltip="Copy" (click)="driveDataService.copyOption.show = true">
+          <img [src]="assetUrl+'assets/images/drive/copy.png'" />
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- Drive Footer -->
+</div>
+<div class="clear"></div>

@@ -1,0 +1,72 @@
+<div class="profile_wrap">
+  <div class="profile_content">
+    <div class="profile_content_row">
+      <div class="profile_avatar">
+        <!-- <img [src]="settingsDataService.editSettingsTemplate.imageUrl" /> -->
+        <img *ngIf="settingsDataService.editSettingsTemplate.imageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+        <img *ngIf="settingsDataService.editSettingsTemplate.imageUrl !== null" [src]="settingsDataService.editSettingsTemplate.imageUrl" />
+        <!-- <div class="profileImage"></div> -->
+      </div>
+      <!-- <div class="upload">
+        <div class="uploadOuter">
+          <div class="uploadPicture">Upload new Picture</div>
+          <div class="imageSize">maximum file size - 5 MB</div>
+        </div>
+        <div class="remove">Remove</div>
+      </div> -->
+    </div>
+    <div class="profile_content_row">
+      <div class="bio_row">
+        <span class="bio_left">Name</span>
+        <h4 class="bio_right">{{settingsDataService.editSettingsTemplate.firstName}}</h4>
+      </div>
+    </div>
+    <div class="profile_content_row">
+      <div class="bio_row">
+        <span class="bio_left">Email</span>
+        <h4 class="bio_right">{{settingsDataService.editSettingsTemplate.email}}</h4>
+      </div>
+    </div>
+    <!-- <div class="profile_content_row">
+      <div class="bio_row">
+        <span class="bio_left">Birthday</span>
+        <h4 class="bio_right">18 MAR 1995</h4>
+      </div>
+    </div>
+    <div class="profile_content_row">
+      <div class="bio_row">
+        <span class="bio_left">Department</span>
+        <h4 class="bio_right">CEO</h4>
+      </div>
+    </div>
+    <div class="profile_content_row">
+      <div class="bio_row">
+        <span class="bio_left">Interests</span>
+         <h4 class="bio_right" *ngFor="let tag of settingsDataService.editSettingsTemplate.interest;let i = index">{{tag.title}}
+          <a class="pe_close" (click)="removeInterest(i)">&times;</a>
+        </h4>
+      </div>
+    </div> -->
+    <div class="change_psswd_button">
+      <button (click)="settingsDataService.changePassword.show = true">Change Password</button>
+    </div>
+  </div>
+  <div class="settings_footer">
+    <div class="edit_button">
+      <button (click)="editProfile()">Edit</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Profile Edit Modal -->
+
+<app-edit-profile *ngIf="settingsDataService.editProfile.show"></app-edit-profile>
+
+<!-- Profile Edit Modal -->
+
+<!-- Change Password Modal -->
+
+<app-change-password *ngIf="settingsDataService.changePassword.show"></app-change-password>
+
+<!-- Change Password Modal -->

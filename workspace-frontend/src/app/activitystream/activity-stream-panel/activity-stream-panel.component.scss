@@ -1,0 +1,26 @@
+.panel-right-holder {
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+.finish {
+    background: #f0f0f0;
+    font-size: 14px;
+    font-family: roboto-medium;
+    padding: 13px;
+    text-align: center;
+    color: #556488;
+    padding-top: 20px;
+    line-height: 20px;
+}
+.finishOuter{
+    background: #fff;
+}
+.finishImage{
+    background-image: url("/assets/images/Loading_icon.gif");
+    width: 50px;
+    background-size: cover;
+    background-position: center;
+    height: 50px;
+    margin: 0 auto;
+}

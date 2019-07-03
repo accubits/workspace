@@ -1,0 +1,33 @@
+<div class="settings-outer">
+  <!-- <div class="storage-outer">
+<div class="storage">
+<h4>STORAGE SIZE</h4>
+<input type="text" placeholder="2 GB">
+</div>
+<div class="atc_btn">Change Storage Size</div>
+  </div> -->
+  <div class="bg-selector">
+    <h4>DASHBOARD BACKGROUND</h4>
+    <div class="bg-img" *ngIf ="!image"></div>
+    <div class="bg-img" *ngIf ="image" [ngStyle]="{'background-image': 'url(' + image + ')'}"></div>
+
+    <div class="profile_fileupload">
+      <button class="btn">Change picture</button>
+      <input type="file" class="atc_btn chg-pic" name="myfile" (change) ="uploadFile($event.target.files)" />
+    </div>
+    <div class="reset">Reset to default</div>
+    <div class="clear"></div>
+  </div>
+  <div class="textarea-outer">
+    <h4>DASHBOARD MESSAGE</h4>
+    <textarea placeholder="Enter Message" rows=5 [(ngModel)]="partnerDataService.changeImage.dashboardMsg"></textarea >
+  </div>
+
+  <div class="profile_edit_footer">
+    <div class="save_button">
+      <button (click)="changePicture()">Save Changes</button>
+        <!-- <button  class="cancel_button" (click)="settingsDataService.editProfile.show = false">Cancel</button> -->
+    </div>
+   
+  </div>
+</div>

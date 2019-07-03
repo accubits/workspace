@@ -1,0 +1,58 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.fp_input input {
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+    outline: none;
+    border: none;
+}
+span.error {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #d9463b !important;
+  padding-left: 3px;
+}
+
+.fp_input label,
+.fp_description label,
+.fp_select label {
+    font-size: 14px;
+    color: #414d5b;
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: block;
+    position: relative;
+}
+
+.fp_input_inline span,
+.fp_input_inline input {
+    display: inline;
+}
+
+.fp_input_inline input {
+    width: 50%;
+    margin-left: 10px;
+}
+
+.fp_input_inline span {
+    font-weight: 400;
+    font-size: 14px;
+    color: #959ea8;
+}
+
+.price_section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.price_sec {
+    width: 40%;
+}
+
+.trans_label label {
+    visibility: hidden;
+}

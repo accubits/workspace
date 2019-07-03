@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* SCSS Document */
+
+/* -----------------------------------------
+        Drive Wrap Left Component |START|
+------------------------------------------*/
+ul,
+ol {
+    list-style-type: none;
+}
+
+.drive_nav_container {
+    background-color: #fff;
+    position: absolute;
+    height: 100%;
+    box-sizing: border-box;
+    width: 200px;
+    box-shadow: 10px 0px 30px -4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 10px 0px 30px -4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+.driv_nav_active h4 {
+    font-family: roboto-bold !important;
+}
+.drive_nav {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #eaeaea;
+    border-left: 4px solid transparent;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.drive_nav h4 {
+    color: #414d5b;
+    font-size: 14px;
+    padding-left: 30px;
+    font-family: Roboto-light;
+}
+
+.drive_nav:hover {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #eaeaea;
+    border-left: 4px solid #fe2341;
+    background-color: #f4f4f4;
+    transition: .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
+    cursor: pointer;
+}
+.drive_nav.driv_nav_active{
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #eaeaea;
+    border-left: 4px solid #fe2341;
+    background-color: #f4f4f4;
+    transition: .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
+    cursor: pointer;
+}
+
+.drive_nav h4:hover {
+    font-family: Roboto-regular;
+    transition: .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
+}
+
+.drive_nav_footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    height: 70px;
+    background-color: #fff;
+}
+
+.driv_footer_storage_desc {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    text-align: center;
+    font-size: 14px;
+}
+
+.driv_footer_storage_desc .driv_footer_storage
+{
+    text-align: left;
+    width: 37%;
+    padding-left: 20px
+}
+.driv_footer_storage_desc .driv_footer_storage_size {
+  text-align: right;
+  width: 54%;
+}
+.driv_footer_storage {
+    color: #b9bfc6;
+    text-transform: capitalize;
+}
+
+.driv_footer_storage_size {
+    color: #526172;
+    font-family: Roboto-medium;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.drive_progressbar_container {
+    padding: 20px 20px 0px 20px;
+    width: 100%;
+    height: 8px;
+    position: relative;
+}
+.drive_progressbar{
+    background-color: #e2ecf7;
+    height: 8px;
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.drive_progress_seek{
+    background-color: #0957be;
+    position: absolute;
+    height: 8px;
+    top: 0px;
+    left: 0px;
+    border-radius: 20px;
+}
+/* -----------------------------------------
+        Drive Wrap Left Component |END|
+------------------------------------------*/

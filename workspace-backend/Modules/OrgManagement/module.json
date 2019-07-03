@@ -1,0 +1,16 @@
+{
+    "name": "OrgManagement",
+    "alias": "orgmanagement",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\OrgManagement\\Providers\\OrgManagementServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

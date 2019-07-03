@@ -1,0 +1,33 @@
+<div class="fp_checkboxes_wrap">
+  <h6>{{checkboxElement.checkboxes.label ||  'Enter the title'}}<span class="error" *ngIf = "checkboxElement.checkboxes.isRequired === true">*</span></h6>
+  <div class="checkbox" *ngFor="let choice of checkboxElement.checkboxes.choices" >
+    <label>
+      <div class="check_outer">
+        <input type="checkbox" id="1_in"  readonly name="" id="" [disabled]="true">
+        <div class="check" for="1_in"></div>
+      </div>
+      {{choice.label || 'Enter the option'}}
+      <span [hidden]="!choice.maxQuantity">   {{choice.maxQuantity}} remaining</span>
+    </label>
+  </div>
+  <!-- <div class="checkbox">
+    <label>
+      <div class="check_outer">
+        <input type="checkbox" id="1_in" name="" id="">
+        <div class="check" for="1_in"></div>
+      </div>
+      Lorem ipsum dolor sit amet
+      <span>12 remaining</span>
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <div class="check_outer">
+        <input type="checkbox" id="1_in" name="" id="">
+        <div class="check" for="1_in"></div>
+      </div>
+      Lorem ipsum dolor sit amet
+      <span>12 remaining</span>
+    </label>
+  </div> -->
+</div>

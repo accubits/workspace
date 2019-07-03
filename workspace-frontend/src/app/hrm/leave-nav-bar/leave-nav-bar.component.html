@@ -1,0 +1,30 @@
+
+<div class="nav_wrap">
+  <ul>
+    <a routerLink="./leave-table" routerLinkActive="active_tab">
+      <li>Leave Requests</li>
+    </a>
+    <a routerLink="./approve-table" routerLinkActive="active_tab">
+      <li>For Approval</li>
+    </a>
+    <a  routerLink="./absence"  routerLinkActive="active_tab">
+      <li>Absence Chart</li>
+    </a>
+    <a  routerLink="./holidays" routerLinkActive="active_tab">
+      <li>Holidays</li>
+    </a>
+    <a *ngIf="checkRole ==='ORG_ADMIN'" routerLink="./leave-type" routerLinkActive="active_tab"><li>Leave Types</li></a>
+  </ul>
+  <div class="year_month_picker" *ngIf="router.url === '/authorized/hrm/leave/absence'">
+    <div class="year_pick">
+    <div class="pick_nav nav_yr_left" (click)="navigateMonthandYear('previous')">
+    </div>
+    <div class="date_data">{{monthName}} {{hrmDataService.absentChart.year}}</div>
+    <div class="pick_nav nav_yr_right" (click)="navigateMonthandYear('next')">
+    </div>
+  </div>
+<div class="atc_btn" (click)="goToToday()">Today</div>
+  </div>
+</div>
+
+

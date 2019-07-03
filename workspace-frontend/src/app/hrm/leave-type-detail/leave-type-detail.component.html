@@ -1,0 +1,88 @@
+<div class="overlaypop" (click)="closeLevDetail()"></div>
+<div class="popup">
+<div class="popup-header-outer">
+    <div class="leave_icon" [ngStyle]="{'background-color': hrmDataService.selectedData.colorCode}"></div>
+  <h4>{{hrmDataService.selectedData.name}}</h4>
+  <div class="pop_close" (click)="closeLevDetail()"></div>
+</div>
+<div class="popup-details">
+<div class="person-details">
+    <div class="leave-type">
+        <h4>TYPE</h4>
+        <div class="absent-reason">
+          <span *ngIf="hrmDataService.selectedData.type === 'paid'" class="leave-type-detail">Paid</span>
+          <span *ngIf="hrmDataService.selectedData.type === 'onduty'" class="leave-type-detail">On Duty</span>
+          <span *ngIf="hrmDataService.selectedData.type === 'unpaid'" class="leave-type-detail">Un Paid</span>
+        </div>
+      </div>
+ <div class="time-details">
+    <h4>LEAVE COUNT</h4>
+    <div class="timeFromTo"><span class="date">{{hrmDataService.selectedData.maximumLeave}}</span></div>
+  </div>
+<div class="leave-type-detail">
+  <h4>DETAILS</h4>
+  <div class="absent-reason">
+   <span class="leave-type-detail">{{hrmDataService.selectedData.description}}</span>
+  </div>
+</div>
+<div *ngIf="hrmDataService.selectedData.allEmployees !== true" class="leave-type-detail">
+  <div class="applicants">
+  <h4>APPLICABLE FOR</h4>
+  <div *ngIf="hrmDataService.selectedData.users.length !== 0" class="profile-details">
+  <span *ngIf="hrmDataService.selectedData.users[0].imageUrl === ''" class="profile-image"></span>
+  <span *ngIf="hrmDataService.selectedData.users[0].imageUrl !== ''" class="profile-image" [ngStyle]="{'background-image': 'url(' + hrmDataService.selectedData.users[0].imageUrl + ')'}"></span>
+  <span class="profile-name">{{hrmDataService.selectedData.users[0].name}}</span>
+  <div *ngIf="hrmDataService.selectedData.users.length > 1" class="atc_btn" (click)="hrmDataService.userCount.show = !hrmDataService.userCount.show"> +{{hrmDataService.selectedData.users.length - 1}}</div>
+</div>
+  </div>
+</div>
+<div *ngIf="hrmDataService.selectedData.allEmployees === true" class="leave-type-detail">
+  <div class="applicants">
+      <h4>APPLICABLE FOR</h4>
+      <section class="all_tag_par">
+        All Employees
+     </section>
+  </div>
+</div>
+</div>
+</div>
+<div *ngIf="checkRole ==='ORG_ADMIN'"  class="popup-footer">
+  <button class="pbtncreate" (click)="edit()">Edit</button>
+  <button class="req-cancel" (click)="delete()">Remove</button>
+</div>
+
+<div class="confirm_popup" *ngIf="hrmDataService.deletePopUp.show">
+  <div class="confirm_pop_body">
+    <section>
+      <div class="close_drop" (click)="hrmDataService.deletePopUp.show = false">
+      </div>
+      <p class="pop_main">{{hrmDataService.deleteMessage.msg}}</p>
+    </section>
+    <section>
+      <div class="confirm_pop_btn" (click)="conformDelete()">
+        Confirm
+      </div>
+      <div class="confirm_pop_btn" (click)="hrmDataService.deletePopUp.show = false">
+        Cancel
+      </div>
+    </section>
+  </div>
+</div>
+
+ <!-- User Count Pop Up -->
+ <div class="filter_cancel_overlay" *ngIf="hrmDataService.userCount.show" (click)="hrmDataService.userCount.show = false"></div>
+ <div class="user_count_pop" *ngIf="hrmDataService.userCount.show">
+   <div class="user_count_pop_header">
+     <h4>Users</h4>
+     <a class="copy_option_close" (click)="hrmDataService.userCount.show = false">&times;</a>
+   </div>
+   <div class="user_count_pop_body">
+     <div *ngFor="let user of hrmDataService.selectedData.users" class="user_count_list">
+       <div *ngIf="user.imageUrl === ''" class="user_count_list_dp"></div>
+       <div *ngIf="user.imageUrl !== ''" class="user_count_list_dp" [ngStyle]="{'background-image': 'url(' + user.imageUrl + ')'}"></div>
+       {{user.name}}
+     </div>
+   </div>
+ </div>
+ <!-- User Count Pop Up -->
+

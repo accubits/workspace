@@ -1,0 +1,147 @@
+<div class="overlaypop" (click) = "closeWorkReport()"></div>
+<div class="form_submit_wrap">
+  <div  class="form_submit_modal">
+    <div class="acc_drop_content acc_up_option">
+      <div class="contentOuter">
+        <div class = "workContent">
+          <div class="workHead">WORK REPORT</div>
+          <div class="workTimingClose" (click)="closeWorkReport()"></div>
+        </div>
+        <div class="dateSectionOuter">
+          <div class="dateOuter">
+            <p>Dates :</p>
+            <p class="time">{{timeReportDataService.clockReportdata.dates.startDate * 1000 | date: 'MMM dd, yyyy'}} - {{timeReportDataService.clockReportdata.dates.endDate * 1000 | date: 'MMM dd, yyyy'}}</p>
+          </div>
+          <div class="dateOuter">
+            <p>To :</p>
+            <div class="time" *ngFor="let to of timeReportDataService.clockReportdata.to">
+              <div class="imgIcon" *ngIf="to.image  === null"></div>
+              <div class="imgIcon" *ngIf="to.image  !== null" [ngStyle]="{'background-image': 'url(' + to.image + ')'}"></div>
+              <div class="imgName">{{to.name}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="textareaContent">
+          <textarea cols="103" placeholder="Enter Report" rows="5" [(ngModel)]="timeReportDataService.clockReportdata.report" ></textarea>
+        </div>
+      <div class="taskMainOuter">
+          <div class="taskOuter">
+            <div class="taskHead">
+              <p>TASKS</p>
+              <p class="taskButton" (click) = "showTaskList = true">Task List</p>
+              <!--tasklist starts-->
+              <div class="filter_close_overlay" *ngIf="showTaskList" (click)="closeList()"></div>
+              <div class="resp_person_dropdown" *ngIf="showTaskList">
+                <div class="resp_drop_head">
+                  <span>TASKS LIST</span>
+                  <div class="close_drop" (click)="closeList()"></div>
+                </div>
+                <div class="drop_down_wrap">
+                  <div class="taskTextbox">
+                    <input type = "text" placeholder="Task"  [(ngModel)]="timeReportDataService.getTasksClockReportInput.q" (ngModelChange)="getTasksForReport();" >
+                  </div>
+                  <section class="drop_body">
+                    <perfect-scrollbar>
+                      <div  class="recent_wrap pad_wrap allFilter" style="padding-top: 0px !important">
+                        <section>
+                          <ul>
+                            <li *ngFor="let task of timeReportDataService.tasksClockReport.tasks" (click)="selectTask(task)">{{task.title}}</li>
+                              
+                          </ul>
+                        </section>
+                      </div>
+                      <!-- <div *ngIf="activeRpTab === 'search'" class="recent_wrap pad_wrap searchFilter">
+                        <section>
+                          <ul>
+                            <li>Task Search</li>
+                            <li>Task Search</li>
+                            <li>Task Search</li>
+                            <li>Task Search</li>
+                            <li>Task Search</li>
+                          </ul>
+                        </section>
+                      </div> -->
+                     
+                      <!-- <div *ngIf="activeRpTab === 'search'" class="drop_search_wrap pad_wrap">
+                        <section *ngFor="let rp of actStreamDataService.responsiblePersons.list" (click)="selctRespPerson(rp)">
+                          <div class="recent_ico">
+      
+                          </div>
+                          {{rp.employee_name}}
+                        </section>
+                      </div> -->
+                    </perfect-scrollbar>
+                  </section>
+                </div>
+              </div>
+              <!--tasklist ends-->
+          </div>
+          <div class="tasklistOuter">
+              <div class="checkBoxOuter" *ngFor="let task of timeReportDataService.clockReportdata.tasks">
+                <label>
+                    <div class="check_outer">
+                      <input type="checkbox" [(ngModel)]="task.isChecked" (ngModelChange)="includeTasktoSubmit($event,task)" >
+                      <div class="check"></div>
+                    </div>
+                </label>
+                <p>{{task.title}}</p>
+              </div>
+              
+          </div>
+        </div> 
+        <div class="taskOuter eventSection">
+            <div class="taskHead">
+              <p>EVENTS</p>
+              <p class="taskButton" (click)="eventList()">Event List</p>
+              <!--eventlist starts-->
+              <div class="filter_close_overlay" *ngIf="eventTaskList" (click)="closeEventList()"></div>
+              <div class="resp_person_dropdown" *ngIf="eventTaskList">
+                <div class="resp_drop_head">
+                  <span>EVENT LIST</span>
+                  <div class="close_drop" (click)="closeEventList()"></div>
+                </div>
+                <div class="drop_down_wrap">
+                  <div class="taskTextbox">
+                    <input type = "text" placeholder="Event" [(ngModel)]="timeReportDataService.getEventsClockReportInput.q" (ngModelChange)="getEventsForReport();" >
+                  </div>
+                  <section class="drop_body">
+                    <perfect-scrollbar>
+                      <div  class="recent_wrap pad_wrap allFilter" style="padding-top: 0px !important">
+                        <section>
+                          <ul>
+                            <li *ngFor="let event of timeReportDataService.eventsClockReport.events" (click)="selectEvent(event)">{{event.eventTitle}}</li>
+                          
+                          </ul>
+                        </section>
+                      </div>
+                    </perfect-scrollbar>
+                  </section>
+                </div>
+              </div>
+              <!--eventlist ends-->
+            </div>
+            <div class="tasklistOuter">
+              <div class="checkBoxOuter" *ngFor="let event of timeReportDataService.clockReportdata.events">
+                <label>
+                    <div class="check_outer">
+                      <input type="checkbox" [(ngModel)]="event.isChecked" (ngModelChange)="includeEventtoSubmit($event,event)">
+                      <div class="check"></div>
+                    </div>
+                </label>
+                <div class="eventSectionContent">
+                  <p class="eventContent">{{event.eventTitle}}</p>
+                  <p>{{event.eventStartDate * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}| {{event.eventEndDate * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</p>
+                </div>
+              </div>
+            
+            </div>
+        </div>
+      </div>
+        <div class="wc_wrap_footer">
+            <button class="red_btn" (click)="sendMonthlyReport(true)">Send to Supervisor</button>
+            <button class="grey_linebtn" (click)="sendMonthlyReport(false)" >Save</button>
+        </div>     
+      </div>
+    </div>
+  </div>
+</div>

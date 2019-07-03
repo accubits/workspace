@@ -1,0 +1,227 @@
+<div class="profile_wrap">
+  <div class="profile_content">
+    <div class="information-wrap">
+      <div class="inform-left">
+        <div class="detail-head">
+          <h4>PERSONAL INFORMATION</h4>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+           <span>PHOTO</span>
+          </div>
+          <div class="detail-right">
+              <div *ngIf="settingsDataService.editSettingsTemplate.imageUrl === null" class="recent_ico"></div>
+              <div *ngIf="settingsDataService.editSettingsTemplate.imageUrl !== null" class="photo" [ngStyle]="{'background-image': 'url(' + settingsDataService.editSettingsTemplate.imageUrl + ')'}"></div>
+            <!-- <div class="photo"></div> -->
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>NAME</span>
+          </div>
+          <div class="detail-right">
+           {{settingsDataService.editSettingsTemplate.name}}
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>DATE OF BIRTH</span>
+          </div>
+          <div class="detail-right">
+            {{settingsDataService.editSettingsTemplate.birthDate * 1000 | date: 'MMM dd, yyyy'}}
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>INTERESTS</span>
+          </div>
+          <div *ngFor="let tag of settingsDataService.editSettingsTemplate.interest;let i = index" class="detail-right">
+            <span class="intrst">{{tag.title}}</span>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <!-- <div class="detail-head">
+          <h4>ATTACHMENTS</h4>
+        </div>
+        <div class="detail-row">
+          <div class="detail-right">
+            <ol>
+              <li>
+                <div class="file">File 1.png</div>
+              </li>
+              <li>
+                <div class="file">File 2.png</div>
+              </li>
+            </ol>
+          </div>
+
+        </div> -->
+        <div class="clear"></div>
+      </div>
+      <div class="inform-right">
+        <div class="detail-head">
+          <h4>USER INFORMATION</h4>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>USER ID</span>
+          </div>
+          <div class="detail-right">
+            IC {{settingsDataService.editSettingsTemplate.id}}
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>EMAIL ID</span>
+          </div>
+          <div class="detail-right">
+              {{settingsDataService.editSettingsTemplate.email}}
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>STATUS</span>
+          </div>
+          <div class="detail-right">
+            <span class="active">Active</span>
+            <!-- <span class="expire">Expire</span> -->
+          </div>
+        </div>
+        <!-- <div class="detail-row">
+          <div class="detail-left">
+            <span>POSITION</span>
+          </div>
+          <div class="detail-right">
+            Teaching Assistant
+          </div>
+        </div> -->
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>DEPARTMENTS</span>
+          </div>
+          <div class="detail-right">
+            <span class="dept">Teaching</span>
+            <span class="dept">Arts <span>Head Of Department</span></span>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>REPORTING TO</span>
+          </div>
+          <div class="detail-right">
+            <div class="profile-img"></div>
+            <span class="profile-name">Peter Palmer</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>DATE OF JOINING</span>
+          </div>
+          <div class="detail-right">
+            24 Oct 2017
+          </div>
+        </div>
+        <!-- <div class="detail-row">
+          <div class="detail-left">
+            <span>ADDRESS</span>
+          </div>
+          <div class="detail-right">
+            24 Lower Kent Bridge Rd, Singapore 119077
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+            <span>HOME PHONE NUMBER</span>
+          </div>
+          <div class="detail-right">
+            +01 75635334268
+          </div>
+        </div> -->
+        <!-- <div class="detail-row">
+          <div class="detail-left">
+            <span>HP NUMBER</span>
+          </div>
+          <div class="detail-right">
+            1155432
+          </div>
+        </div> -->
+        <!-- <div class="detail-row">
+          <div class="detail-left">
+            <span>NRIC / PAN / PASSPORT</span>
+          </div>
+          <div class="detail-right">
+            115543277899034232
+          </div>
+        </div> -->
+      </div>
+      <div class="clear"></div>
+    </div>
+
+
+
+
+
+
+
+    <!-- <div class="profile_content_row">
+      <div class="profile_avatar">
+        <img *ngIf="settingsDataService.editSettingsTemplate.imageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+        <img *ngIf="settingsDataService.editSettingsTemplate.imageUrl !== null" [src]="settingsDataService.editSettingsTemplate.imageUrl" />
+      </div>
+    </div>
+    <div class="profile_content_row">
+      <div class="bio_row">
+        <span class="bio_left">Name</span>
+        <h4 class="bio_right">{{settingsDataService.editSettingsTemplate.firstName}}</h4>
+      </div>
+    </div>
+    <div class="profile_content_row">
+      <div class="bio_row">
+        <span class="bio_left">Email</span>
+        <h4 class="bio_right">{{settingsDataService.editSettingsTemplate.email}}</h4>
+      </div>
+    </div>
+    <div class="profile_content_row">
+      <div class="bio_row">
+        <span class="bio_left">Birthday</span>
+        <h4 class="bio_right">{{settingsDataService.editSettingsTemplate.birthDate  |  date: 'dd-MM-yyy'}}</h4>
+      </div>
+    </div>
+    <div class="profile_content_row">
+      <div class="bio_row">
+        <span class="bio_left">Department</span>
+        <h4 class="bio_right">CEO</h4>
+      </div>
+    </div>
+    <div class="profile_content_row InterestSection">
+      <div class="bio_row">
+        <span class="bio_left">Interests</span>
+         <h4 class="bio_right" *ngFor="let tag of settingsDataService.editSettingsTemplate.interest;let i = index">{{tag.title}}
+          <a class="pe_close" (click)="removeInterest(i)"></a>
+        </h4>
+      </div>
+    </div>
+    <div class="change_psswd_button">
+      <button (click)="settingsDataService.changePassword.show = true">Change Password</button>
+    </div>
+  </div> -->
+    <div class="settings_footer">
+      <button class="pbtncreate" (click)="editProfile()">Edit</button>
+      <button class="req-cancel" (click)="settingsDataService.changePassword.show = true">Change Password</button>
+
+    </div>
+  </div>
+
+
+  <!-- Profile Edit Modal -->
+
+  <app-edit-profile *ngIf="settingsDataService.editProfile.show"></app-edit-profile>
+
+  <!-- Profile Edit Modal -->
+
+  <!-- Change Password Modal -->
+
+  <app-change-password *ngIf="settingsDataService.changePassword.show"></app-change-password>
+
+  <!-- Change Password Modal -->

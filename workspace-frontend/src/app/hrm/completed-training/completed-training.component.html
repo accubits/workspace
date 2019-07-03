@@ -1,0 +1,69 @@
+
+<div class="table_head table_row">
+    <div class="table-blocks">
+      <span>From</span>
+    </div>
+    <div class="table-blocks">
+      training name
+     </div>
+    <div class="table-blocks">
+     date started
+    </div>
+    <div class="table-blocks">
+    duration
+    </div>
+    <div class="table-blocks">
+      cost
+    </div>
+    <div class="table-blocks">
+
+    </div>
+  </div>
+  <section class="table-wrap">
+  <div class="table_list table_row" (click)="showCompletedDetail(i)" *ngFor="let activeTraining of hrmDataService.requestTable.list ;let i=index">
+    <section  class="t_row_hover">
+  <div class="table-blocks employee_detail">
+    <div *ngIf="activeTraining.imageUrl === null" class="employee_image"></div>
+    <div *ngIf="activeTraining.imageUrl !== null" class="employee_image" [ngStyle]="{'background-image': 'url(' + activeTraining.imageUrl + ')'}"></div>
+    <span class="employee_name">{{activeTraining.approverUserName}}</span>
+  </div>
+  <div class="table-blocks">
+    <span class="leave_date_from">{{activeTraining.name}}</span>
+  </div>
+  <div class="table-blocks">
+    <span class="leave_date_from">{{activeTraining.startsOn *1000 | date: 'MMM dd, yyyy'}}</span>
+  </div>
+  <div class="table-blocks">
+    <span class="leave_date_to">{{activeTraining.duration | number:'.0-0'}}</span>
+  </div>
+  <div class="table-blocks">
+    <span class="leave_date_to">{{activeTraining.cost}}</span>
+  </div>
+  <div class="table-blocks approve-blk">
+      <div class="moreoptionOverlay" *ngIf="hrmDataService.moreOption['showMore']" (click)="hideMoreOption()"></div>
+      <div class="more" (click)="showMoreOption($event,i)">
+      <div class="dotPopup"  *ngIf="activeTraining['showMore']" >
+        <div class="fl_more_option_container">
+          <div class="fl_more_option" >
+            <ul>
+              <li (click)="deleteTrainingRequest(activeTraining.slug)">
+                Delete
+              </li>
+              <li (click)="updateTrainingRequest(i,activeTraining)">
+                Edit
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    <div class="clear"></div>
+  </div>
+  </section>
+  </div>
+  </section>
+<!-- <app-completed-detail *ngIf="hrmDataService.completedTrainingDetail.show" ></app-completed-detail> -->
+
+<app-active-training-detail *ngIf="hrmDataService.activeTrainingPop.show" ></app-active-training-detail>
+<app-training-request-form *ngIf="this.hrmDataService.trainingRequestForm.show"></app-training-request-form>
+<app-delete-confirm *ngIf="this.hrmDataService.deleteTrainingRequestForm.show"></app-delete-confirm>
+

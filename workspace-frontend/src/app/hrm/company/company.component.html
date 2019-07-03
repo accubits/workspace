@@ -1,0 +1,54 @@
+<section class="mainOuter">
+  <!-- <perfect-scrollbar class="flowChart"> -->
+    <section class="companyOuter" *ngIf="(hrmDataService.orgTree | json) != '{}'">
+      <div class="blockOuter">
+        <div class="blockhead" (click)="showDetails(hrmDataService.orgTree.departmentSlug)">
+          {{hrmDataService.orgTree.departmentName}}<div class="dotImageOuter" (click)="showPop($event)"> <div class="dotImage"></div></div>
+        </div>
+        <app-dept-pop *ngIf="hrmDataService.deptDetails.show"></app-dept-pop>
+        <div class="filter_cancel_overlay" *ngIf="menu" (click)="closePop()"></div>
+        <div class="menuOuter" *ngIf="menu">
+          <ul>
+            <li (click)="showEdit()">Edit</li>
+            <li (click)="showDetails(hrmDataService.orgTree.departmentSlug)">Add Members</li>
+            <li (click)="addChildDept()">Add Child Department</li>
+            <!-- <li>Delete</li> -->
+          </ul>
+          <app-edit-dept *ngIf="hrmDataService.showEditDepartment.show "></app-edit-dept>
+          <app-add-child-department *ngIf="hrmDataService.showAddChild.show"></app-add-child-department>
+        </div>
+        <div class="subHead First">
+          <div class="head">Head Of Department:</div>
+          <div class="profile">          
+            <div class="icon"></div>{{hrmDataService.orgTree.departmentHeadEmail}}
+          </div>
+        </div>
+        <div class="subHead People memberBox">
+            <div class="member">Members</div>
+            <div class="num">
+              {{hrmDataService.orgTree.memberCount}}<div class="plus" [ngClass]="{'active': profileContent}" (click)="showProfile(hrmDataService.orgTree.departmentSlug)"></div>
+            </div>
+            <div class="profileOuter" *ngIf="profileContent">
+                <div class="profile" *ngFor="let members of hrmDataService.departmentDetails.members">
+                    <div class="icon" *ngIf="members.imageUr == null"></div> 
+                    <div class="icon" *ngIf="members.imageUr !== null" [ngStyle]="{'background-image': 'url(' + members.imageUrl + ')'}"></div> 
+                    {{members.name}}
+                  </div>
+            </div>
+        </div>
+      </div>
+      <div class="count">
+        <div class="num">
+          {{hrmDataService.orgTree.child.length}}<div class="plus" [ngClass]="{'activeBranch': membersList}" (click)="showMembers($event)"></div>
+        </div>
+      </div>
+      <!-- <div class="line"></div> -->
+    </section>
+    
+      <app-tree-block [treeData]="hrmDataService.orgTree.child"></app-tree-block>
+
+</section>
+
+
+
+<!-- <app-new-form></app-new-form> -->

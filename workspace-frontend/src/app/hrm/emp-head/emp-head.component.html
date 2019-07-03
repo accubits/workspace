@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title ph3inline">HRM</h3>
+    <span class=panel-sub-title>Employees</span>
+    <div *ngIf="checkRole ==='ORG_ADMIN'" class="panel-right-holder pbtnsinline" (click)="showPop()">
+      <button class="pbtncreate">New</button>
+    </div>
+    <div class="filter_cancel_overlay" *ngIf="newpop" (click)="closePop()"></div>
+    <ul class="listOuter" *ngIf="newpop">
+      <li (click)="invite()">New Employee</li>
+      <li (click)="dept()">New Department</li>
+    </ul>
+    <app-new-user *ngIf="hrmDataService.invitePop.show"></app-new-user>
+    <app-new-dept *ngIf="hrmDataService.deptPop.show"></app-new-dept>
+  </div>
+</div>
+<app-emp-table-head></app-emp-table-head>
+<div class="bottom_tab_wrap" *ngIf="hrmDataService.employeeDetails.selectedEmployeeIds.length > 0">
+  <div class="bottom_tab">
+    <div class="btm_left_block">
+      <label>
+        <div class="check_outer">
+          <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="hrmDataService.employeeDetails.selectedAll"
+            (ngModelChange)="checkAllEmployees($event)" />
+          <div class="check" for="1_in"></div>
+        </div>
+      </label>
+      <div class="num_tag">{{hrmDataService.employeeDetails.selectedEmployeeIds.length}}
+      </div>
+      <span>Selected</span>
+    </div>
+    <div class="btm_right_block">
+      <div class="bottom_right_btns">
+        <div class="btm_btn_ico edt_btn" (click)="editEmployee()">
+        </div>
+        <div class="btm_btn_ico del_btn" (click)="deleteEmployee()">
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

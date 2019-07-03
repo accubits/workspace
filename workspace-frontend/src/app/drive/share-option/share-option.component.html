@@ -1,0 +1,226 @@
+<div class="share_option">
+  <div class="overlaypop" (click)="driveDataService.shareOption.show = false"></div>
+  <div class="copy_option_wrap">
+    <div class="share_option_header">
+      <h6>Share
+        <p>{{ fileName }}</p> To</h6>
+      <a class="copy_option_close" (click)="driveDataService.shareOption.show = false">&times;</a>
+    </div>
+    <div class="share_option_body">
+      <section class="drop_nav">
+        <ul>
+          <li [ngClass]="{active:activeRpTab == 'link'}" (click)="activeRpTab = 'link'">Link</li>
+          <li [ngClass]="{active:activeRpTab == 'people'}" (click)="selectUser()">People</li>
+        </ul>
+      </section>
+      <section class="drop_body">
+        <perfect-scrollbar>
+          <div *ngIf="activeRpTab === 'link'" class="">
+            <section class="copy_link">
+              <div class="link_drop_in">
+                <input type="text" [(ngModel)]="path">
+              </div>
+             <div class="">
+                <button class="copylink" (click)="destinationFolderListClipboard()">Copy Link</button>
+              </div>
+              <div class="clear"></div>
+            </section>
+          </div>
+          <div *ngIf="activeRpTab === 'people'" class="department_wrap">
+            <section *ngIf="addpple === 'recent'">
+              <div class="peopl_section_one" *ngIf="driveDataService.driveFileManagement.shearedUserList.length > 0">
+                <h4 class="people_section_heading">Shared With</h4>
+                <div *ngFor="let user of driveDataService.driveFileManagement.shearedUserList | slice:0:2" class="user_count_list">
+                  <div *ngIf="user.userImage === null" class="user_count_list_dp"></div>
+                  <div *ngIf="user.userImage !== null" class="user_count_list_dp"
+                    [ngStyle]="{'background-image': 'url(' + user.userImage + ')'}"></div>
+                  <h4> {{user.userName}}</h4>
+                  <!-- <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                    <input readonly type="text" class="" name="text" placeholder="Can View"
+                      [value]="user.permission === 'view' ? 'Can View' : 'Can Update'"
+                      (click)="user.showActions = !user.showActions">
+                    <div class="drop_drop_pop commonn_popup" *ngIf="user.showActions">
+                      <section (click)="user.permission = 'view';user.showActions =  false">
+                        Can View
+                      </section>
+                      <section (click)="user.permission = 'edit';user.showActions =  false">
+                        Can Update
+                      </section>
+                    </div>
+                  </div> -->
+                  <div class="del_ico" (click)="deleteUser(user)">
+                  </div>
+                </div>
+                <div class="show_more" *ngIf="!showPepMore && driveDataService.driveFileManagement.shearedUserList.length > 2" (click)="showPepMore = true">
+                  <p>Show More
+                    <img [src]="assetUrl+'assets/images/form/blue_drop_down.png'" />
+                  </p>
+                </div>
+                <div class="show_less" *ngIf="showPepMore && driveDataService.driveFileManagement.shearedUserList.length > 2" (click)="showPepless = !showPepless">
+                  <div class="user_count_list" *ngFor="let user of driveDataService.driveFileManagement.shearedUserList | slice:2:driveDataService.driveFileManagement.shearedUserList.length" >
+                    <div class="user_count_list_dp"></div>
+                    <h4>{{user.userName}}</h4>
+                    <!-- <span>
+                      <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                        <input type="text" class="" name="text" placeholder="Can View" [value]="user.permission === 'view' ? 'Can View' : 'Can Update'" (click)="user.showActions = !user.showActions">
+                        <div class="drop_drop_pop commonn_popup" *ngIf="user.showActions">
+                          <section (click)="user.permission = 'view';user.showActions =  false">
+                            Can View
+                          </section>
+                          <section (click)="user.permission = 'edit';user.showActions =  false">
+                            Can Update
+                          </section>
+                        </div>
+                      </div>
+                    </span> -->
+                    <div class="del_ico" (click)="deleteUser(user)">
+                    </div>
+                  </div>
+                  <p *ngIf="showPepMore" (click)="showPepMore =  false">Show Less
+                    <img [src]="assetUrl+'assets/images/form/blue_drop_up.png'" />
+                  </p>
+                </div>
+              </div>
+              <div class="peopl_section_one">
+                <h4 class="people_section_heading">Add People</h4>
+                <input type="text" placeholder="Search" (input)="onSearchChange($event.target.value)"
+                  class="add-pple-input">
+                <section class="drop_nav">
+                  <ul>
+                    <li [ngClass]="{active:addpple == 'recent'}" (click)="addpple = 'recent'">People</li>
+                    <!-- <li [ngClass]="{active:addpple == 'department'}" (click)="addpple = 'department'">Department</li> -->
+                  </ul>
+                </section>
+                <section class="user_drop_body">
+                  <perfect-scrollbar>
+                    <div *ngIf="addpple === 'recent'" class="">
+                      <section *ngFor="let user of driveDataService.driveFileManagement.userList"
+                        [hidden]="user.existing" class="recent_ppl">
+                        <section (click)="sheredUser(user)">
+                          <div *ngIf="user.employeeImage === null" class="recent_ico"></div>
+                          <div *ngIf="user.employeeImage !== null" class="recent_ico"
+                            [ngStyle]="{'background-image': 'url(' + user.employeeImage + ')'}"></div>
+                          <div>
+                            {{user.employee_name}}
+                          </div>
+                        </section>
+                      </section>
+                      <section *ngIf="noUser === true">There are no people in the list</section>
+                    </div>
+                    <div *ngIf="addpple === 'department'" class="">
+                      <section class="recent_deprt"  *ngFor="let dept of driveDataService.departmentList.list"
+                        [hidden]="dept.existing" (click)="sheredDepartment(dept)">
+                        <div>
+                          {{dept.departmentName}}
+                        </div>
+                      </section>
+                      <section *ngIf="noDept === true">There are no department in the list</section>
+                    </div>
+                  </perfect-scrollbar>
+                </section>
+              </div>
+            </section>
+            <!-- <section *ngIf="addpple === 'department'">
+              <div class="peopl_section_one" *ngIf="driveDataService.driveFileManagement.shearedDeptList.length > 0">
+                <h4 class="people_section_heading">Shared Department</h4>
+                <div *ngFor="let dept of driveDataService.driveFileManagement.shearedDeptList | slice:0:2" class="user_count_list_depart">
+                  <h4> {{dept.departmentName}}</h4>
+                  <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                    <div>
+                      <input type="text" class="" name="text"
+                        [value]="dept.permissionName === 'view' ? 'Can View' : 'Can Update'" readonly
+                        (click)="dept.showActions = !dept.showActions">
+                    </div>
+                    <div class="drop_drop_pop commonn_popup" *ngIf="dept.showActions">
+                      <section>
+                        <div (click)="dept.permissionName = 'view';dept.showActions =  false">
+                          can view
+                        </div>
+                      </section>
+                      <section>
+                        <div (click)="dept.permissionName = 'update';dept.showActions =  false">
+                          can update
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <div class="del_ico" (click)="deleteDept(dept)">
+                  </div>
+                </div>
+                <div class="show_more" *ngIf="!showDepMore && driveDataService.driveFileManagement.shearedDeptList.length > 2" (click)="showDepMore = true">
+                  <p>Show More
+                    <img [src]="assetUrl+'assets/images/form/blue_drop_down.png'" />
+                  </p>
+                </div>
+                <div class="show_less" *ngIf="showDepMore && driveDataService.driveFileManagement.shearedDeptList.length > 2" (click)="showDepless = !showDepless">
+                  <div class="user_count_list" *ngFor="let dept of driveDataService.driveFileManagement.shearedDeptList | slice:2:driveDataService.driveFileManagement.shearedDeptList.length" >
+                    <h4> {{dept.departmentName}}</h4>
+                     <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                        <input type="text" class="" name="text" placeholder="Can View" [value]="dept.permission === 'view' ? 'Can View' : 'Can Update'" (click)="dept.showActions = !dept.showActions">
+                        <div class="drop_drop_pop commonn_popup" *ngIf="dept.showActions">
+                          <section (click)="dept.permission = 'view';dept.showActions =  false">
+                            Can View
+                          </section>
+                          <section (click)="dept.permission = 'edit';dept.showActions =  false">
+                            Can Update
+                          </section>
+                        </div>
+                      </div>
+                   <div class="del_ico" (click)="deleteDept(dept)">
+                    </div>
+                  </div>
+                  <p *ngIf="showDepMore" (click)="showDepMore =  false">Show Less
+                    <img [src]="assetUrl+'assets/images/form/blue_drop_up.png'" />
+                  </p>
+                </div>
+              </div>
+              <div class="peopl_section_one">
+                <h4 class="people_section_heading">Add People</h4>
+                <input type="text" placeholder="Search" (input)="onSearchChange($event.target.value)"
+                  class="add-pple-input">
+                <section class="drop_nav">
+                  <ul>
+                    <li [ngClass]="{active:addpple == 'recent'}" (click)="addpple = 'recent'">People</li>
+                    <li [ngClass]="{active:addpple == 'department'}" (click)="addpple = 'department'">Department</li>
+                  </ul>
+                </section>
+                <section class="user_drop_body">
+                  <perfect-scrollbar>
+                    <div *ngIf="addpple === 'recent'" class="">
+                      <section class="recent_ppl" *ngFor="let user of driveDataService.driveFileManagement.userList"
+                        [hidden]="user.existing">
+                        <section (click)="sheredUser(user)">
+                          <div *ngIf="user.employeeImage === null" class="recent_ico"></div>
+                          <div *ngIf="user.employeeImage !== null" class="recent_ico"
+                            [ngStyle]="{'background-image': 'url(' + user.employeeImage + ')'}"></div>
+                          <div>
+                            {{user.employee_name}}
+                          </div>
+                        </section>
+                      </section>
+                      <section *ngIf="noUser === true">There are no people in the list</section>
+                    </div>
+                    <div *ngIf="addpple === 'department'" class="">
+                      <section class="recent_deprt" *ngFor="let dept of driveDataService.departmentList.list"
+                        [hidden]="dept.existing" (click)="sheredDepartment(dept)">
+                        <div>
+                          {{dept.departmentName}}
+                        </div>
+                      </section>
+                      <section *ngIf="noDept === true">There are no department in the list</section>
+                    </div>
+                  </perfect-scrollbar>
+                </section>
+              </div>
+            </section> -->
+            <section>
+              <div class="share_option_foter">
+                <button class="done" (click)="shareFile()">Done</button>
+              </div>
+            </section>
+          </div>
+        </perfect-scrollbar>
+      </section>
+    </div>
+  </div>
+</div>

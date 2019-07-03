@@ -1,0 +1,513 @@
+<div class="task_detail_pop_wrap">
+  <section class="all_pop_in">
+    <div class="task_detail_left">
+      <div class="task_detail_top">
+        <div class="task_detail_pop_head">
+          <p>{{taskDataService.taskDetails.selectedTaskDetails.title}}</p>
+          <label>CREATED ON
+            <span>{{taskDataService.taskDetails.selectedTaskDetails.createdOn * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</span>
+          </label>
+
+          <div class="head_ico_rgt">
+            <section *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus !== 'completedApproved'">
+              <div class="head_ico_in active alert_act"
+                [ngClass]="{'active' : taskDataService.taskDetails.selectedTaskDetails.priority }"
+                (click)="makePriority(!taskDataService.taskDetails.selectedTaskDetails.priority,taskDataService.taskDetails.selectedTaskDetails.favourite)">
+              </div>
+              High Priority
+            </section>
+            <section>
+              <div class="head_ico_in active star_act"
+                [ngClass]="{'active' : taskDataService.taskDetails.selectedTaskDetails.favourite }"
+                (click)="makeFavourite(!taskDataService.taskDetails.selectedTaskDetails.favourite,taskDataService.taskDetails.selectedTaskDetails.priority)">
+              </div>
+              Favourite
+            </section>
+          </div>
+        </div>
+
+        <div class="task_detail_pop_body">
+          <!-- <p>{{taskDataService.taskDetails.selectedTaskDetails.description}}</p> -->
+          <div [innerHTML]="taskDataService.taskDetails.selectedTaskDetails.description"></div>
+
+          <!-- <ol>
+            <li>There are many variations of passages of Lorem Ipsum available</li>
+            <li>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</li>
+            <li>Contrary to popular belief, Lorem Ipsum is not simply random text. </li>
+          </ol> -->
+
+          <div class="tog_opt_wrap" *ngIf="taskDataService.taskDetails.selectedTaskDetails.attachments != '' ">
+            <div class="attach_expan_head">
+              <div class="attach_expan_name">
+                Attachments
+              </div>
+              <div class="uline"></div>
+              <div class="expan_icon" (click)="atAct()" [ngClass]="{active: status}">
+                <img [src]="assetUrl+'assets/images/Minimize.png'" />
+              </div>
+              <div class="clear"></div>
+            </div>
+
+            <section *ngIf="!status">
+              <section *ngFor="let file of taskDataService.taskDetails.selectedTaskDetails.attachments;let index=index">
+                <div class="pop_file_block">
+                  {{index + 1}}.
+                  <span>{{file.taskFileName}}</span>
+                </div>
+                <div class="pop_file_block">
+                  {{file.taskFileSize | filesize}}
+                </div>
+                <div class="pop_file_block right">
+                  <div class="pop_dwn_btn" (click)="downloadFile(file.taskFilePath)">
+                    Download
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </section>
+            </section>
+          </div>
+
+          <div class="tog_opt_wrap" [hidden]="taskDataService.taskDetails.selectedTaskDetails.checklists.total === 0">
+            <div class="attach_expan_head">
+              <div class="attach_expan_name">
+                Checklist ({{taskDataService.taskDetails.selectedTaskDetails.checklists.totalChecked.toString() }} /
+                {{taskDataService.taskDetails.selectedTaskDetails.checklists.total.toString()}})
+              </div>
+              <div class="uline"></div>
+              <div class="expan_icon" (click)="ckAct()" [ngClass]="{active: ckStatus}">
+                <img [src]="assetUrl+'assets/images/Minimize.png'" />
+              </div>
+              <div class="clear"></div>
+            </div>
+            <section *ngIf="!ckStatus">
+              <section class="check_section"
+                *ngFor="let  checkItem of taskDataService.taskDetails.selectedTaskDetails.checklists.data">
+                <label _ngcontent-c4="">
+                  <div _ngcontent-c4="" class="check_outer">
+                    <input _ngcontent-c4="" name="" type="checkbox"
+                      *ngIf="taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_approved'"
+                      [(ngModel)]="checkItem.checklistStatus" (ngModelChange)="updatecheckListStatus(checkItem)">
+                    <input _ngcontent-c4="" name="" type="checkbox"
+                      *ngIf="taskDataService.taskDetails.selectedTaskDetails.taskStatus === 'completed_approved'"
+                      disabled="disabled" [(ngModel)]="checkItem.checklistStatus"
+                      (ngModelChange)="updatecheckListStatus(checkItem)">
+                    <div _ngcontent-c4="" class="check" for="1_in"></div>
+                  </div>
+                </label>
+                <span>{{checkItem.description}}</span>
+              </section>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div class="task_detail_bottom">
+        <div class="task_bottom_head">
+          <div class="bottom_head_blocks" [ngClass]="{active:activeBtmTab == 'comment'}"
+            (click)="switchBottomTabs('comment')">
+            Comments
+          </div>
+          <div class="bottom_head_blocks" [ngClass]="{active:activeBtmTab == 'subtask'}"
+            (click)="switchBottomTabs('subtask')">
+            Subtasks
+          </div>
+          <!--<div class="bottom_head_blocks" [ngClass]="{active:activeBtmTab == 'history'}" (click)="activeBtmTab = 'history'">-->
+          <!--History-->
+          <!--</div>-->
+        </div>
+        <div class="task_bottom_body">
+          <div class="comment_bottom_block" *ngIf="activeBtmTab === 'comment'">
+            <div class="comment_block" *ngFor="let comment of taskDataService.taskDetails.comments;let idx = index">
+              <div class="comment_prof"></div>
+              <div class="comment_head">
+                <span>{{comment.commentedUserName}}</span>
+                {{comment.createdOn * 1000  |  date: 'MMM dd, yyyy, hh:mm a'}}
+
+                <div class="like_reply_button_wrap right" [ngClass]="{active:activeBtmTab == 'subtask'}">
+                  <div class="like_btn" [ngClass]="{'active':comment.like.meLiked}" (click)="likeComment(idx)">
+                  </div>
+                  <div class="reply_btn">
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <p>
+                <!-- <span>@Thobias Henson</span>  -->
+                {{comment.description}}
+              </p>
+            </div>
+            <div class="comment_block">
+              <div class="comment_prof" *ngIf=" settingsDataService.editSettingsTemplate.imageUrl === null"></div>
+              <div class="comment_prof" *ngIf=" settingsDataService.editSettingsTemplate.imageUrl !== null"
+                [ngStyle]="{'background-image': 'url(' + settingsDataService.editSettingsTemplate.imageUrl + ')'}">
+              </div>
+              <div class="comment_head">
+                <span>{{user}}</span>
+                <div class="clear"></div>
+              </div>
+              <div class="comment_text">
+                <textarea placeholder="Type in a comment"
+                  [(ngModel)]="taskDataService.taskDetails.addedCommet"></textarea>
+              </div>
+              <div class="comment_button_wrap">
+                <div class="comment_button bottom_btn" (click)="addCommentsForSelTask();">
+                  Send
+                </div>
+                <div class="comment_button cmt_snd" (click)="cancelCommentsForSelTask();">
+                  Cancel
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="subtask_bottom_block" *ngIf="activeBtmTab === 'subtask'">
+            <section class="no_result" *ngIf="taskDataService.getTasks.subtasksList.length === 0"></section>
+            <section *ngIf="taskDataService.getTasks.subtasksList.length !== 0">
+              <div class="sub_pop_head">
+                <div class="sub_pop_blocks">
+                  NAME
+                </div>
+                <div class="sub_pop_blocks">
+                  DUE DATE
+                </div>
+                <div class="sub_pop_blocks">
+                  PEOPLE
+                </div>
+              </div>
+
+              <div class="sub_pop_body">
+                <section *ngFor="let subTask of taskDataService.getTasks.subtasksList;let idx=index"
+                  (click)="viewSubtaskDetails(idx)">
+                  <div class="sub_pop_blocks">
+                    {{subTask.title}}
+                    <div class="row_in_block" *ngIf="subTask.subtaskCount > 0">{{subTask.subtaskCount}}</div>
+                  </div>
+                  <div class="sub_pop_blocks">
+                    {{subTask.endDate | date: 'MMM dd, yyyy, hh:mm a'}}
+                  </div>
+                  <div class="sub_pop_blocks">
+                    <div class="cr_img" *ngIf="subTask.creatorImage !== null"
+                      [ngStyle]="{'background-image': 'url(' + subTask.creatorImage + ')'}">
+                    </div>
+                    {{subTask.creatorName}}
+                    <div class="user_more_block" *ngIf="subTask.peopleCount > 0" (click)="showSubtaskPeople($event)">
+                      <ng-container>+{{subTask.peopleCount}}</ng-container>
+                      <div class="user_more_pop" *ngIf="this.common_popup">
+                        <div class="cr_head">
+                          CREATOR
+                        </div>
+                        <div class="cr_sec_list">
+                          <div class="cr_img">
+                          </div>
+                          {{subTask.creatorName}}
+
+                        </div>
+                        <div class="cr_head">
+                          RESPONSIBLE PERSON
+                        </div>
+                        <div class="cr_sec_list">
+                          <div class="cr_img">
+                          </div>
+                          {{subTask.responsiblePersonName}}
+                        </div>
+                        <div class="cr_head">
+                          PARTICIPANTS
+                        </div>
+                        <div class="cr_sec_list" *ngFor="let pt of subTask.people.assignees">
+                          <div class="cr_img">
+                          </div>
+                          {{pt.assignee_name}}
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+              </div>
+            </section>
+          </div>
+
+          <!--<div class="history_bottom_block" *ngIf="activeBtmTab === 'history'">-->
+          <!--History-->
+          <!--</div>-->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="task_detail_right">
+      <div class="right_top_head">
+        <div class="status_ico">
+          <img [src]="assetUrl+'assets/images/task/Active_task_icon.png'"
+            *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'active'">
+          <img [src]="assetUrl+'assets/images/task/completed.png'"
+            *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'completedApproved'">
+          <img [src]="assetUrl+'assets/images/task/completed-waiting.png'"
+            *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'completedWaitingApproval'">
+          <img [src]="assetUrl+'assets/images/task/overdue_large.png'"
+            *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'overdue'">
+          <img [src]="assetUrl+'assets/images/task/ongoing.png'"
+            *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'ongoing'">
+          <img [src]="assetUrl+'assets/images/task/pause-button.png'"
+            *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'pause'">
+        </div>
+        <span *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'active'">Active</span>
+        <span
+          *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'completedApproved'">Approved</span>
+        <span
+          *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'completedWaitingApproval'">Completed
+          -Waiting for approval</span>
+        <span *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'overdue'">Overdue</span>
+        <span *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'ongoing'">Ongoing</span>
+        <span *ngIf="taskDataService.taskDetails.selectedTaskDetails.currentTaskStatus == 'pause'">Pause</span>
+        <div class="task_close_pop" (click)="closeDetailPop()">
+          <img [src]="assetUrl+'assets/images/pop_close.png'" />
+        </div>
+      </div>
+
+      <div class="right_progress" *ngIf="taskDataService.taskDetails.selectedTaskDetails.checklists.total > 0">
+        <section>
+          PROGRESS
+          <div class="prog_percent right">{{(taskDataService.taskDetails.selectedTaskDetails.checklists.totalChecked /
+            taskDataService.taskDetails.selectedTaskDetails.checklists.total)
+            | percent }} </div>
+          <div class="clear"></div>
+        </section>
+        <section>
+          <div class="progress_bar">
+            <div class="progress_fill"
+              [ngStyle]="{'width':(taskDataService.taskDetails.selectedTaskDetails.checklists.totalChecked / taskDataService.taskDetails.selectedTaskDetails.checklists.total) |  percent } ">
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <div class="br_line"></div>
+      <section class="due_wrap_sec">
+        <div *ngIf="taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_approved'"
+          class="due_wrap">
+          <div class="due_ico">
+            <img [src]="assetUrl+'assets/images/small-calendar.png'" />
+            <span>DUE DATE</span>
+          </div>
+          <!--10 Jul 2018 | 12:32 AM-->
+          <div class="dp_span">
+            <input [owlDateTime]="dptask" [owlDateTimeTrigger]="dptask"  [attr.value]="taskDataService.taskDetails.selectedTaskDetails.dueDate * 1000 | date: 'MMM dd, yyyy, hh:mm a'"
+              (dateTimeChange)="changeDueDate($event)" [min]="taskDataService.taskPartialUpdates.oldStart_date" readonly>
+            <owl-date-time #dptask [hour12Timer] = "true" [disabled]="(userSlug !== taskDataService.taskDetails.selectedTaskDetails.responsiblePerson.responsiblePersonSlug || !taskDataService.taskDetails.selectedTaskDetails.responsibleCanChangeDueDate) && userSlug !== taskDataService.taskDetails.selectedTaskDetails.creator.creatorSlug"></owl-date-time>
+            <div class="dp_ico"
+              [hidden]="(userSlug !== taskDataService.taskDetails.selectedTaskDetails.responsiblePerson.responsiblePersonSlug || !taskDataService.taskDetails.selectedTaskDetails.responsibleCanChangeDueDate) && userSlug !== taskDataService.taskDetails.selectedTaskDetails.creator.creatorSlug">
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="taskDataService.taskDetails.selectedTaskDetails.taskStatus === 'completed_approved'"
+          class="due_wrap">
+          <div class="due_ico">
+            <img [src]="assetUrl+'assets/images/small_calen_blue.png'" />
+            <span>DUE DATE</span>
+          </div>
+          <ng-container *ngIf="taskDataService.taskDetails.selectedTaskDetails.dueDate">
+            {{taskDataService.taskDetails.selectedTaskDetails.dueDate * 1000| date: 'MMM dd, yyyy, hh:mm a'}}
+          </ng-container>
+          <ng-container *ngIf="!taskDataService.taskDetails.selectedTaskDetails.dueDate">Not Set</ng-container>
+        </div>
+
+        <div class="due_wrap">
+          <div class="due_ico">
+            <img [src]="assetUrl+'assets/images/Task_completed_icon.png'" />
+            <span>ESTIMATE</span>
+          </div>
+          {{taskDataService.taskDetails.selectedTaskDetails.estimateDays}}
+        </div>
+        <div class="due_wrap">
+          <div class="due_ico">
+            <img [src]="assetUrl+'assets/images/small_calen_blue.png'" />
+            <span>START DATE</span>
+          </div>
+          <ng-container *ngIf="taskDataService.taskDetails.selectedTaskDetails.startDate">
+            {{taskDataService.taskDetails.selectedTaskDetails.startDate * 1000| date: 'MMM dd, yyyy, hh:mm a'}}
+          </ng-container>
+          <ng-container *ngIf="!taskDataService.taskDetails.selectedTaskDetails.startDate">Not Set</ng-container>
+        </div>
+        <div *ngIf="taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_approved'"
+          class="due_wrap">
+          <div class="due_ico">
+            <img [src]="assetUrl+'assets/images/alarm.png'" />
+            <span>REMINDER</span>
+          </div>
+          <div *ngIf="taskDataService.taskDetails.selectedTaskDetails.reminder || addReminderValue" class="dp_span">
+            <input [owlDateTime]="dpReminder" [owlDateTimeTrigger]="dpReminder"
+              [attr.value]="taskDataService.taskDetails.selectedTaskDetails.reminder * 1000 | date: 'MMM dd, yyyy, hh:mm a'"
+              (dateTimeChange)="changeReminder($event)" readonly>
+            <owl-date-time #dpReminder [hour12Timer]="true"></owl-date-time>
+            <div class="dp_ico">
+            </div>
+
+          </div>
+          <div class="close_wrap"
+            *ngIf="taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_approved' && taskDataService.taskDetails.selectedTaskDetails.reminder || addReminderValue"
+            (click)="closeDate()">
+          </div>
+
+          <div class="due_wrap"
+            *ngIf="taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_approved' && !taskDataService.taskDetails.selectedTaskDetails.reminder">
+            <div class="dp_span_add">
+              <input [owlDateTime]="dpReminder" placeholder="Add" [owlDateTimeTrigger]="dpReminder" [attr.value]=""
+                (dateTimeChange)="changeReminder($event)" readonly >
+              <owl-date-time #dpReminder [hour12Timer]="true"></owl-date-time>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="taskDataService.taskDetails.selectedTaskDetails.taskStatus === 'completed_approved'"
+          class="due_wrap">
+          <div class="due_ico">
+            <img [src]="assetUrl+'assets/images/small_calen_blue.png'" />
+            <span>REMINDER</span>
+          </div>
+          <ng-container *ngIf="taskDataService.taskDetails.selectedTaskDetails.reminder">
+            {{taskDataService.taskDetails.selectedTaskDetails.reminder * 1000| date: 'MMM dd, yyyy, hh:mm a'}}
+          </ng-container>
+          <ng-container *ngIf="!taskDataService.taskDetails.selectedTaskDetails.reminder">Not Set</ng-container>
+        </div>
+
+
+        <div class="due_wrap">
+          <div class="due_ico">
+            <img [src]="assetUrl+'assets/images/repeat.png'" />
+            <span>REPEAT TASK</span>
+          </div>
+          <ng-container *ngIf="taskDataService.taskDetails.selectedTaskDetails.taskRepeat">
+            {{taskDataService.taskDetails.selectedTaskDetails.taskRepeat}}</ng-container>
+          <ng-container *ngIf="!taskDataService.taskDetails.selectedTaskDetails.taskRepeat">Not Set</ng-container>
+        </div>
+
+
+      </section>
+      <div class="br_line"></div>
+
+      <div class="cr_wrap">
+        <div class="cr_head">
+          CREATOR
+        </div>
+        <section class="cr_list">
+          <div *ngIf="taskDataService.taskDetails.selectedTaskDetails.creator.creatorImage === null" class="cr_img">
+          </div>
+          <div class="cr_img" *ngIf="taskDataService.taskDetails.selectedTaskDetails.creator.creatorImage !== null"
+            [ngStyle]="{'background-image': 'url(' + taskDataService.taskDetails.selectedTaskDetails.creator.creatorImage + ')'}">
+          </div>
+          {{taskDataService.taskDetails.selectedTaskDetails.creator.creatorName}}
+        </section>
+      </div>
+
+      <div class="cr_wrap">
+        <div class="cr_head">
+          RESPONSIBLE PERSON
+
+        </div>
+        <section class="cr_list">
+          <div *ngIf="taskDataService.taskDetails.selectedTaskDetails.responsiblePerson.responsiblePersonImage === null"
+            class="cr_img"></div>
+          <div class="cr_img"
+            *ngIf="taskDataService.taskDetails.selectedTaskDetails.responsiblePerson.responsiblePersonImage !== null"
+            [ngStyle]="{'background-image': 'url(' + taskDataService.taskDetails.selectedTaskDetails.responsiblePerson.responsiblePersonImage + ')'}">
+          </div>
+          {{taskDataService.taskDetails.selectedTaskDetails.responsiblePerson.responsiblePersonName}}
+        </section>
+      </div>
+      <div class="cr_wrap">
+        <div class="cr_head">
+          APPROVER
+        </div>
+        <ng-container *ngIf="taskDataService.taskDetails.selectedTaskDetails.isApprover">
+          <section class="cr_list">
+            <div class="cr_img" *ngIf="taskDataService.taskDetails.selectedTaskDetails.approver.approverImage === null">
+            </div>
+            <div class="cr_img" *ngIf="taskDataService.taskDetails.selectedTaskDetails.approver.approverImage !== null"
+              [ngStyle]="{'background-image': 'url(' + taskDataService.taskDetails.selectedTaskDetails.approver.approverImage + ')'}">
+            </div>
+            {{taskDataService.taskDetails.selectedTaskDetails.approver.approverName}}
+          </section>
+        </ng-container>
+
+        <ng-container *ngIf="!taskDataService.taskDetails.selectedTaskDetails.isApprover">
+            Not Set
+          </ng-container>
+
+      </div>
+      <div class="cr_wrap">
+        <div class="cr_head">
+          PARTICIPANTS
+        </div>
+        <section class="all_tag_par" *ngIf="taskDataService.taskDetails.selectedTaskDetails.isAllParticipants">
+          All Employees
+        </section>
+        <ng-container
+          *ngIf="!taskDataService.taskDetails.selectedTaskDetails.isAllParticipants && taskDataService.taskDetails.selectedTaskDetails.participants.length !==0">
+          <section class="cr_list" *ngFor="let pt of taskDataService.taskDetails.selectedTaskDetails.participants">
+            <div *ngIf="pt.participantImage === null" class="cr_img"></div>
+            <div *ngIf="pt.participantImage !== null" class="cr_img" class="cr_img"
+              [ngStyle]="{'background-image': 'url(' + pt.participantImage + ')'}">
+            </div>
+            {{pt.assignee_name}}
+          </section>
+
+
+        </ng-container>
+        <ng-container
+          *ngIf="!taskDataService.taskDetails.selectedTaskDetails.isAllParticipants && taskDataService.taskDetails.selectedTaskDetails.participants.length ===0">
+          Not Set</ng-container>
+
+      </div>
+
+      <div class="br_line"></div>
+
+    </div>
+    <div class="clear"></div>
+  </section>
+  <div class="task_detail_pop_bottom">
+    <div class="bottom_btn" *ngIf="taskDataService.taskDetails.selectedTaskDetails.userStatusButtons.start"
+      (click)="updateTaskStatus('start')">
+      Start
+    </div>
+    <div class="bottom_btn" *ngIf="taskDataService.taskDetails.selectedTaskDetails.userStatusButtons.pause"
+      (click)="updateTaskStatus('pause')">
+      Pause
+    </div>
+    <div class="bottom_btn bt_can_btn"
+      *ngIf="taskDataService.taskDetails.selectedTaskDetails.userStatusButtons.complete"
+      (click)="updateTaskStatus('complete')">
+      Complete
+    </div>
+    <div class="bottom_btn btn_accepted"
+      *ngIf="taskDataService.taskDetails.selectedTaskDetails.userStatusButtons.accepted"
+      (click)="updateTaskStatus('accepted')">
+      Accepted
+    </div>
+    <div class="bottom_btn btn_return_task"
+      *ngIf="taskDataService.taskDetails.selectedTaskDetails.userStatusButtons.returnTask"
+      (click)="updateTaskStatus('returnTask')">
+      Return Task
+    </div>
+    <div class="bottom_right_panel">
+      <div class="bottom_btn_blocks edt_btm"
+        *ngIf="taskDataService.taskDetails.selectedTaskDetails.isEditable && taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_approved' && taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_waiting_approval'"
+        (click)="editTask()">
+      </div>
+      <div class="bottom_btn_blocks del_btm"
+        *ngIf="taskDataService.taskDetails.selectedTaskDetails.isEditable && taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_approved' && taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_waiting_approval'"
+        (click)="deleteTask()">
+      </div>
+      <div class="bottom_btn_blocks arc_btm" (click)="archiveTask()">
+      </div>
+      <div class="bottom_btn_blocks more_btm"
+      *ngIf="taskDataService.taskDetails.selectedTaskDetails.isEditable && taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_approved' && taskDataService.taskDetails.selectedTaskDetails.taskStatus !== 'completed_waiting_approval'"
+      (click)="deleteTask()">
+    </div>
+    </div>
+  </div>
+</div>

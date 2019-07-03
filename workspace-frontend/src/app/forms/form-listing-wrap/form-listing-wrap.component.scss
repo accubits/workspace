@@ -1,0 +1,316 @@
+@charset "utf-8";
+/* SCSS Document */
+
+/* -----------------------------------------
+        Form Listing |START|
+------------------------------------------*/
+ul,
+ol {
+    list-style-type: none;
+}
+.form_listing_wrap {
+    background-color: #fff;
+    width: 100%;
+    height: calc(100vh - 205px);
+    position: relative;
+}
+
+.new_form {
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.new_form_wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999999;
+    background-color: #fff;
+}
+
+.new_form_wrap_header {
+    background-color: #fff;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    -webkit-box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    -moz-box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    z-index: 1;
+}
+
+.new_form_wrap_header h4 {
+    text-align: center;
+}
+
+.new_form_wrap_footer {
+    height: 70px;
+    line-height: 70px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    -webkit-box-shadow: -10px -20px 68px -28px rgba(34, 34, 34, 0.35);
+    box-shadow: -10px -20px 68px -28px rgba(34, 34, 34, 0.35);
+    background: #fff;
+    z-index: 9;
+}
+
+.new_form_wrap_header .close {
+    position: absolute;
+    right: 20px;
+    color: black;
+    text-decoration: none;
+    font-size: 34px;
+    font-weight: 200;
+    top: -4px;
+}
+
+.new_form_wrap_body {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #fff;
+    margin-top: 30px;
+}
+
+.form_listing_wrap p {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.new_form_content {
+    padding: 0px 20px 80px 20px
+}
+
+.new_form_content_row {
+    width: 100%;
+}
+
+.new_form_content_row .new_form_input {
+    background-color: #f4f4f4;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.new_form_content_row .new_form_short_input {
+    background-color: #f4f4f4;
+    height: 50px;
+    line-height: 50px;
+    width: 40%;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.new_form_content_row .new_form_textarea {
+    background-color: #f4f4f4;
+    height: 120px;
+    padding: 20px;
+    width: 100%;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 20px;
+}
+
+.new_form_footer_next {
+    height: 40px;
+    outline: none;
+    border: none;
+    width: 117px;
+    background-color: #ff2342;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.new_form_footer_cancel {
+    height: 40px;
+    outline: none;
+    border: 1px solid #536273;
+    width: 117px;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    color: #536273;
+}
+
+.new_form_wrap_footer ul {
+    padding-left: 20px;
+}
+
+.new_form_wrap_footer ul li {
+    float: left;
+    padding-right: 20px;
+}
+
+.overlaypop {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999999999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+// Form Admin View Modal
+.form_adminView {
+    position: absolute;
+    top: -98px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 9999999999;
+}
+
+.adminviewoverlay_pop {
+    content: '';
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.729412);
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.form_adminView_header .close {
+    position: absolute;
+    right: 20px;
+    color: #9e9e9e;
+    text-decoration: none;
+    font-size: 34px;
+    font-weight: 200;
+    top: 0;
+    z-index: 2;
+}
+
+.form_adminView_header {
+    height: 80px;
+    line-height: 80px;
+    padding: 0px 55px 0px 20px;
+    z-index: 2;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e6e8f3;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.form_adminView_header h4 {
+    text-align: left;
+    font-family: Roboto-Regular;
+    font-size: 16px;
+    display: block;
+    position: relative;
+    color: #424e5c;
+    width: 650px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form_adminView_body {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+.aMred_btn {
+    line-height: 34px;
+    height: 34px;
+    min-width: 100px;
+    background-color: #ff2e4c;
+    color: #fff;
+    border: 0px;
+    font-size: 13px;
+    font-family: Roboto-Regular;
+}
+
+.aMline_btn {
+    min-width: 100px;
+    line-height: 34px;
+    height: 34px;
+    background-color: #fff;
+    box-shadow: none;
+    border: 1px solid #536273;
+    color: #536273;
+    font-size: 13px;
+    font-family: Roboto-Regular;
+}
+
+.adminModalright button {
+    margin: 0px 5px 0px 5px;
+}
+.Unpublish_popup_wrap{
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    width: 80%;
+    text-align: center;
+    z-index: 1000000000000000000000000;
+    top:100px;
+}
+.Unpublish_popup_body
+{
+    display: inline-block;
+    vertical-align: top;
+    background-color: white;
+    padding: 70px 15px;
+    width: 500px;
+    box-shadow: 0px 0px 20px 0px #0000001a;
+    margin-top: 5%;
+}
+.pb_cancel
+{
+    background-color: white;
+    color: #adadad;
+    border: 1px solid #adadad;
+}
+.Unpublish_popup_body section
+{
+    margin-top: 40px;
+}
+.Unpublish_overlay
+{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    //background-color: red;
+    z-index: 100000000000000000000000;
+    top: 0;
+}
+@media (max-width: 1920px) {}
+
+@media (max-width: 1366px) {
+    .form_listing_wrap {
+        background-color: #fff;
+        width: 100%;
+        height: calc(100vh - 155px);
+        position: relative;
+    }
+}
+
+/* -----------------------------------------
+        Form Listing |END|
+------------------------------------------*/

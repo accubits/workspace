@@ -1,0 +1,29 @@
+<div class="nav_wrap">
+  <ul>
+    <a routerLink="./shared_with_me" routerLinkActive="active_tab">
+      <li>Shared with me</li>
+    </a>
+    <a routerLink="./published" routerLinkActive="active_tab">
+      <li>Published</li>
+    </a>
+    <a routerLink="./drafts" routerLinkActive="active_tab">
+      <li>Drafts</li>
+    </a>
+    <a routerLink="./inactive" routerLinkActive="active_tab">
+      <li>Inactive</li>
+    </a>
+  </ul>
+    <div class="pagination_wrap deal_listing_pagination" *ngIf="dataService.getAllForms.formListsDeatils.forms.length !== 0">
+      <!-- <div class="pagination_elements first_btn">FIRST</div> -->
+      <div class="pagination_outer">
+        <pagination-controls (pageChange)="pageChanged($event)"  previousLabel="" nextLabel=""></pagination-controls>
+      </div>
+      <!-- <div class="pagination_elements">LAST</div> -->
+    </div>
+  <div style="clear: both"></div>
+  <div class="search_wrap" [ngClass]="{'open':showSearch}">
+    <div class="search_icon" (click)="showSearch = true"></div>
+    <div class="search_close" (click)="showSearch = false"></div>
+    <input type="text" placeholder="Search" [(ngModel)]="dataService.getAllForms.searchText"  (ngModelChange)="searchForms()">
+  </div>
+</div>

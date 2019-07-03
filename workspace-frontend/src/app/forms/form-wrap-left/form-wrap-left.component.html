@@ -1,0 +1,149 @@
+<div class="form_wrap_left">
+	<!-- <perfect-scrollbar> -->
+	<div class="left_heading">
+		basic elements
+	</div>
+	<div class="left_elements_row">
+		<div class="left_element_column" (click)="elemetEnter('singleLineText')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'singleLineText', index:'',element:{}}" (dndCopied)="1">
+			<div class="col_ico cLine">
+			</div>
+			Single Line
+		</div>
+		<div class="left_element_column" (click)="elemetEnter('number')" [dndType]="form_elements.type" (dndDragStart)="startDrag($event)" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'number', index:'' , element:{}}" (dndCopied)="2">
+			<div class="col_ico cNum">
+			</div>
+			Number
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="left_elements_row">
+		<div class="left_element_column" (click)="elemetEnter('checkboxes')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'checkboxes', element:{} }" (dndCopied)="3">
+			<div class="col_ico cCbox">
+			</div>
+			Checkboxes
+		</div>
+		<div class="left_element_column" (click)="elemetEnter('multipleChoice')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'multipleChoice', element:{} }" (dndCopied)="4">
+			<div class="col_ico cMchc">
+			</div>
+			Multiple choices
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="left_elements_row">
+		<div class="left_element_column" (click)="elemetEnter('dropdown')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'dropdown', element:{} }" (dndCopied)="5">
+			<div class="col_ico cDrp">
+			</div>
+			Dropdown
+		</div>
+		<div class="left_element_column" (click)="elemetEnter('paragraphText')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'paragraphText', element:{}}" (dndCopied)="6">
+			<div class="col_ico cPar">
+			</div>
+			Paragraph
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="left_heading">
+		dividers
+	</div>
+	<div class="left_elements_row">
+		<div class="left_element_column" (click)="elemetEnter('section')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'section' , element:{}}" (dndCopied)="7">
+			<div class="col_ico cSbrk">
+			</div>
+			Section Break
+		</div>
+		<div class="left_element_column" (click)="elemetEnter('page')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'page',element:{},pagination:{currentPage:0} }" (dndCopied)="8">
+			<div class="col_ico cPbrk">
+			</div>
+			Page 
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="left_heading">
+		fancy elements
+	</div>
+	<div class="left_elements_row">
+		<div class="left_element_column" (click)="elemetEnter('name')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'name',element:{} }" (dndCopied)="9">
+			<div class="col_ico cNme">
+			</div>
+			Name
+		</div>
+		<div class="left_element_column" (click)="elemetEnter('rating')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'rating',element:{}  }" (dndCopied)="19">
+			<div class="col_ico cRating">
+			</div>
+			Rating
+		</div>
+		<!-- <div class="left_element_column" (click)="elemetEnter('fileUpload')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'fileUpload' }" (dndCopied)="10">
+			<div class="col_ico cFupd">
+			</div>
+			File Upload
+		</div>
+		<div class="clear"></div> -->
+	</div>
+	<div class="left_elements_row">
+		<div class="left_element_column" (click)="elemetEnter('address')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'address',element:{}  }" (dndCopied)="11">
+			<div class="col_ico cAdr">
+			</div>
+			Address
+		</div>
+		<div class="left_element_column" (click)="elemetEnter('date')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'date',element:{}  }" (dndCopied)="12">
+			<div class="col_ico cDate">
+			</div>
+			Date
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="left_elements_row">
+		<div class="left_element_column" (click)="elemetEnter('email')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'email',element:{}  }" (dndCopied)="13">
+			<div class="col_ico cEmail">
+			</div>
+			Email
+		</div>
+		<div class="left_element_column" (click)="elemetEnter('time')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'time',element:{}  }" (dndCopied)="14">
+			<div class="col_ico cTime">
+			</div>
+			Time
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="left_elements_row">
+		<div class="left_element_column" (click)="elemetEnter('website')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'website',element:{}  }" (dndCopied)="15">
+			<div class="col_ico cWeb">
+			</div>
+			Website
+		</div>
+		<div class="left_element_column" (click)="elemetEnter('phone')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'phone',element:{}  }" (dndCopied)="16">
+			<div class="col_ico cPhone">
+			</div>
+			Phone
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="left_elements_row">
+		<div class="left_element_column" (click)="elemetEnter('price')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'price',element:{}  }" (dndCopied)="17">
+			<div class="col_ico cPrice">
+			</div>
+			Price
+		</div>
+		<div class="left_element_column" (click)="elemetEnter('likert')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'likert',element:{}  }" (dndCopied)="18">
+			<div class="col_ico cLikert">
+			</div>
+			Likert
+		</div>
+		<div class="clear"></div>
+	</div>
+	<!-- <div class="left_elements_row"> -->
+		<!-- <div class="left_element_column" (click)="elemetEnter('rating')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'rating' }" (dndCopied)="19">
+			<div class="col_ico cRating">
+			</div>
+			Rating
+		</div> -->
+		<!-- <div class="left_element_column" (click)="elemetEnter('userlist')" [dndType]="form_elements.type" [dndDraggable]="{effectAllowed:'copy'}" [dndObject]="{ type: 'item', id: 1, name:'userlist' }" (dndCopied)="20">
+			<div class="col_ico cUserlist">
+			</div>
+			User List
+			<div class="clear"></div>
+		</div> -->
+	<!-- </div> -->
+		
+<!-- </perfect-scrollbar> -->
+</div>

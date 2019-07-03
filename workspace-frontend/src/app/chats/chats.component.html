@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title ph3inline">Chats</h3>
+    <div class="panel-right-holder pbtnsinline">
+      <button class="pbtncreate" (click)="chatDataService.chatNew.show = !chatDataService.chatNew.show">New Message</button>
+      <div class="new_pop" *ngIf="chatDataService.chatNew.show">
+        <app-chat-new-pop></app-chat-new-pop>
+      </div>
+    </div>
+  </div>
+  <div class="chat_wrap">
+    <app-chat-wrap></app-chat-wrap>
+  </div>
+</div>

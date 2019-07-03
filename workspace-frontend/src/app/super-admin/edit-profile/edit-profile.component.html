@@ -1,0 +1,45 @@
+<div class="filter_cancel_overlay" (click)="superAdminDataService.editProfile.show = false"></div>
+<div class="profile_edit_pop_wrap">
+  <div class="profile_edit_head">
+    <h4>Edit Profile</h4>
+    <a class="close" (click)="superAdminDataService.editProfile.show = false">&times;</a>
+  </div>
+  <div class="profile_edit_contents">
+    <div class="profile_edit_content_row">
+      <div class="edit_profile_dp">
+        <div class="profileImage"></div>
+      </div>
+       <div class="profile_fileupload">
+        <button class="btn">Upload a new picture</button>
+        <input type="file" name="myfile"  />
+        <span class="remove_link"  >Remove</span>
+      </div>
+      <div class="max_file_size">
+        <p>Maximum file size - 5 MB</p>
+      </div>
+    </div>
+
+    <div class="profile_edit_content_row">
+      <div class="pe_input_holder">
+        <span>Name:</span>
+        <input class="pe_input_field" type="text" placeholder=""  name="name">
+      </div>
+    </div>
+    <div class="profile_edit_content_row">
+      <div class="pe_input_holder">
+        <span>Email:</span>
+        <input class="pe_input_field" type="text" readonly placeholder=""  name="email">
+      </div>
+    </div>
+  </div>
+  <div class="profile_edit_footer">
+    <div class="save_button">
+      <button>Save</button>
+    </div>
+    <div class="cancel_button">
+      <button (click)="superAdminDataService.editProfile.show = false">Cancel</button>
+    </div>
+  </div>
+</div>
+
+

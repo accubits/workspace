@@ -1,0 +1,78 @@
+<div class="work_details_popup">
+  <div class="work_details_head">
+    <span>DAILY REPORT</span>
+    <div [ngClass]="{'green_tick':timeReportDataService.selectedWorkTimeDetails.isReportConfirmed, 'red_exl': !timeReportDataService.selectedWorkTimeDetails.isReportConfirmed}"></div>
+    <span *ngIf="timeReportDataService.selectedWorkTimeDetails.isReportConfirmed">CONFIRMED</span>
+    <span *ngIf="!timeReportDataService.selectedWorkTimeDetails.isReportConfirmed">UNCONFIRMED</span>
+    <div class="close_drop_det right" (click)="closeDetails()"></div>
+    <!-- <div class="new_btn right">Edit</div> -->
+
+    <div class="clear"></div>
+  </div>
+  <div class="work_details_body">
+    <section>
+      <div class="work_details_main_head">
+        DATE
+      </div>
+      <div class="work_details_main_desc">
+        {{timeReportDataService.selectedWorkTimeDetails.date * 1000 |  date: 'MMM dd, yyyy'}}
+      </div>
+    </section>
+    <section class="prof_pop_block">
+      <div class="details_sec_block left">
+        <div class="work_details_main_head">
+          REPORT FROM
+        </div>
+        <div class="block_profile">
+          <div *ngIf="timeReportDataService.selectedWorkTimeDetails.reportFrom.image === null" class="accord_left_ico"></div>
+          <div *ngIf="timeReportDataService.selectedWorkTimeDetails.reportFrom.image !== null" class="accord_left_ico" [ngStyle]="{'background-image': 'url(' + timeReportDataService.selectedWorkTimeDetails.reportFrom.image + ')'}"></div>
+          {{timeReportDataService.selectedWorkTimeDetails.reportFrom.name}}
+        </div>
+      </div>
+      <div class="details_sec_block right">
+        <div class="work_details_main_head">
+          REPORT TO
+        </div>
+        <div class="block_profile">
+          <div  *ngIf="timeReportDataService.selectedWorkTimeDetails.reportTo.image === null" class="accord_left_ico" ></div>
+          <div  *ngIf="timeReportDataService.selectedWorkTimeDetails.reportTo.image !== null" class="accord_left_ico" [ngStyle]="{'background-image': 'url(' + timeReportDataService.selectedWorkTimeDetails.reportTo.image + ')'}"></div>
+          {{timeReportDataService.selectedWorkTimeDetails.reportTo.name}}
+        </div>
+      </div>
+      <div class="clear"></div>
+    </section>
+    <div class="work_details_main_head bottom_zero">
+      WORKTIME
+    </div>
+  </div>
+  <div class="work_details_body">
+      <div class="dur_tim_block">
+        <div>Duration:</div> <span> {{timeReportDataService.selectedWorkTimeDetails.duration.hours}}</span>H <span>{{timeReportDataService.selectedWorkTimeDetails.duration.minutes}}</span>M
+      </div>
+  </div>
+
+  <div class="started_reason">
+    <div class="dur_tim_block">
+        <div>Started On:</div> <span>{{timeReportDataService.selectedWorkTimeDetails.startedOn  * 1000|    date: 'hh:mm a' }}</span>
+    </div>
+    <div class="conf_panel">
+      <!-- <div class="red_exl conf_red"></div>
+      Changed from {{timeReportDataService.selectedWorkTimeDetails.changedFrom * 1000 |    date: 'hh:mm a' }}
+    </div> -->
+    <!-- <div class="conf_reason">
+        <label>Reason :</label>
+        {{timeReportDataService.selectedWorkTimeDetails.reason}}
+    </div> -->
+  </div>
+  </div>
+  <div class="started_reason">
+      <div class="dur_tim_block">
+        <div>Ended on:</div> <span>{{timeReportDataService.selectedWorkTimeDetails.endedOn * 1000|    date: 'hh:mm a' }}</span>
+      </div>
+  </div>
+
+  <div class="work_details_popup_footer" *ngIf="timeReportDataService.selectedWorkTimeDetails.isConfirmReportButton" (click)="confirmDailyReport()">
+    <div class="conf_report_btn">Confirm Report</div>
+  </div>
+</div>
+

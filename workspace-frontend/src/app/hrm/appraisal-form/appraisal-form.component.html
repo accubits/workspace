@@ -1,0 +1,279 @@
+<div class="formContent">
+  <div class="tab-inner">
+    <div class="pop-head">
+      <h4>Annual review 2018</h4>
+      <p>24 JUL 2018 - 24 AUG 2018</p>
+      <p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+  </div>
+  <div class="tab-inner">
+    <div class="pop-head">
+      <h4>Communication</h4>
+      <div class="select">How do you rate this person  <div class="selectBox" (click)="option()" [ngClass]="{'activeIcon': clickBox}">09 <div class="icon"></div></div>/10
+        <div class="filter_cancel_overlay" *ngIf="selectNum" (click)="closeOption()"></div>
+        <div class="optionBox" *ngIf="selectNum">
+          <ul>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+          </ul>
+        </div>
+      </div>
+      <p class="para">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+    <div class="pop-head">
+      <div class="question">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry?
+      </div>
+      <div class="radioButton">
+          <div class="comment-col">
+              <div class="radio_section">
+                <ul>
+                  <li>
+                    <div class="radio_sector">
+                      <div class="radio_out">
+                        <input id="radio_id3" name="repeat_radio" type="radio" [checked]>
+                        <div class="custom_radio" for="radio_id3"></div>
+                      </div>
+                      Excellence
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="comment-col">
+              <div class="radio_section">
+                <ul>
+                  <li>
+                    <div class="radio_sector">
+                      <div class="radio_out">
+                        <input id="radio_id3" name="repeat_radio" type="radio">
+                        <div class="custom_radio" for="radio_id3"></div>
+                      </div>
+                      Positive
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="comment-col">
+              <div class="radio_section">
+                <ul>
+                  <li>
+                    <div class="radio_sector">
+                      <div class="radio_out">
+                        <input id="radio_id3" name="repeat_radio" type="radio">
+                        <div class="custom_radio" for="radio_id3"></div>
+                      </div>
+                      Negative
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+      </div>
+      <div class="module-name">
+          <label>Description :</label>
+          <textarea rows=5 placeholder=""></textarea>
+      </div>
+    </div>
+    <div class="pop-head">
+      <div class="question">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry?
+      </div>
+      <div class="module-name">
+          <label>Answer :</label>
+          <input type="text" name="" value="" />
+      </div>
+      <!-- <p class="error" *ngIf="!isValidate && !this.hrmDataService.createPerformance.title" >Required Field</p> -->
+
+      <div class="module-name">
+          <label>Comments :</label>
+          <textarea rows=5 placeholder=""></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="tab-inner">
+    <div class="pop-head subHead"  (click)="showMarketing()">
+      <h4>Marketing</h4>
+      <div class="icon"></div>
+    </div>
+    <div class="marketOuter" *ngIf="marketingPop">
+      <div class="select">How do you rate this person  <div class="selectBox" (click)="option()">09 <div class="icon"></div></div>/10
+        <div class="filter_cancel_overlay" *ngIf="selectNum" (click)="closeOption()"></div>
+        <div class="optionBox" *ngIf="selectNum">
+          <ul>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+          </ul>
+        </div>
+      </div>
+      <p class="para">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      <div class="pop-head">
+        <div class="question">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry?
+        </div>
+        <div class="radioButton">
+            <div class="comment-col">
+                <div class="radio_section">
+                  <ul>
+                    <li>
+                      <div class="radio_sector">
+                        <div class="radio_out">
+                          <input id="radio_id3" name="repeat_radio" type="radio" [checked]>
+                          <div class="custom_radio" for="radio_id3"></div>
+                        </div>
+                        Excellence
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="comment-col">
+                <div class="radio_section">
+                  <ul>
+                    <li>
+                      <div class="radio_sector">
+                        <div class="radio_out">
+                          <input id="radio_id3" name="repeat_radio" type="radio">
+                          <div class="custom_radio" for="radio_id3"></div>
+                        </div>
+                        Positive
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="comment-col">
+                <div class="radio_section">
+                  <ul>
+                    <li>
+                      <div class="radio_sector">
+                        <div class="radio_out">
+                          <input id="radio_id3" name="repeat_radio" type="radio">
+                          <div class="custom_radio" for="radio_id3"></div>
+                        </div>
+                        Negative
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+        </div>
+        <div class="module-name">
+            <label>Description :</label>
+            <textarea rows=5 placeholder=""></textarea>
+        </div>
+      </div>
+      <div class="pop-head">
+        <div class="question">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry?
+        </div>
+        <div class="module-name">
+            <label>Answer :</label>
+            <input type="text" name="" value="" />
+        </div>
+        <!-- <p class="error" *ngIf="!isValidate && !this.hrmDataService.createPerformance.title" >Required Field</p> -->
+
+        <div class="module-name">
+            <label>Comments :</label>
+            <textarea rows=5 placeholder=""></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-inner">
+      <div class="pop-head subHead" (click)="showCommmunication()">
+        <h4>Communication</h4>
+        <div class="icon"></div>
+      </div>
+      <div class="marketOuter" *ngIf="communicatePop">
+        <div class="select">How do you rate this person  
+          <div class="selectBox" (click)="option()" [ngClass]="{'activeIcon': currentBox}">09
+           <div class="icon"></div>
+          </div>/10
+          <div class="filter_cancel_overlay" *ngIf="selectNum" (click)="closeOption()"></div>
+          <div class="optionBox" *ngIf="selectNum">
+            <ul>
+              <li>6</li>
+              <li>7</li>
+              <li>8</li>
+            </ul>
+          </div>
+        </div>
+        <p class="para">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <div class="pop-head">
+          <div class="question">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry?
+          </div>
+          <div class="radioButton">
+              <div class="comment-col">
+                  <div class="radio_section">
+                    <ul>
+                      <li>
+                        <div class="radio_sector">
+                          <div class="radio_out">
+                            <input id="radio_id3" name="repeat_radio" type="radio" [checked]>
+                            <div class="custom_radio" for="radio_id3"></div>
+                          </div>
+                          Excellence
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="comment-col">
+                  <div class="radio_section">
+                    <ul>
+                      <li>
+                        <div class="radio_sector">
+                          <div class="radio_out">
+                            <input id="radio_id3" name="repeat_radio" type="radio">
+                            <div class="custom_radio" for="radio_id3"></div>
+                          </div>
+                          Positive
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="comment-col">
+                  <div class="radio_section">
+                    <ul>
+                      <li>
+                        <div class="radio_sector">
+                          <div class="radio_out">
+                            <input id="radio_id3" name="repeat_radio" type="radio">
+                            <div class="custom_radio" for="radio_id3"></div>
+                          </div>
+                          Negative
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+          </div>
+          <div class="module-name">
+              <label>Description :</label>
+              <textarea rows=5 placeholder=""></textarea>
+          </div>
+        </div>
+        <div class="pop-head">
+          <div class="question">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry?
+          </div>
+          <div class="module-name">
+              <label>Answer :</label>
+              <input type="text" name="" value="" />
+          </div>
+          <!-- <p class="error" *ngIf="!isValidate && !this.hrmDataService.createPerformance.title" >Required Field</p> -->
+
+          <div class="module-name">
+              <label>Comments :</label>
+              <textarea rows=5 placeholder=""></textarea>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="nameResponse">
+  <div class="fr_question">
+    <label>{{nameElement.name.label}}</label>
+  </div>
+  <div *ngIf="noAnswerd === false" class="fr_answer flex_start">
+    <p>{{nameElement.name.first}}</p>&nbsp;
+    <p>{{nameElement.name.last}}</p>
+  </div>
+  
+  <div *ngIf="noAnswerd === true" class="fr_answer flex_start">
+    <p>not answered</p>
+  </div>
+
+</div>

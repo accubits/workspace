@@ -1,0 +1,78 @@
+<div class="copy_option">
+  <div class="overlaypop" (click)="driveDataService.moveOption.show = false"></div>
+  <div class="copy_option_wrap">
+    <div class="copy_option_header">
+      <h6>Move
+        <p>{{ fileName }}</p> To
+      </h6>
+      <a class="copy_option_close" (click)="driveDataService.moveOption.show = false">&times;</a>
+    </div>
+    <div class="copy_option_breadcrumb">
+      <ul *ngIf="driveDataService.driveFileManagement.popUpHierarchy.length <= 2">
+        <li (click)="selectDrive()">
+          {{driveDataService.getDriveFiles.selectedTab}}
+          <span>
+            <img [src]="assetUrl+'assets/images/next.png'" />
+          </span>
+        </li>
+        <li *ngFor="let copy of driveDataService.driveFileManagement.popUpHierarchy;let i = index" (click)="openSelectedFolder(copy,i)">
+          {{copy.folderName}}
+          <span>
+            <img [src]="assetUrl+'assets/images/next.png'" />
+          </span>
+        </li>
+      </ul>
+      <ul *ngIf="driveDataService.driveFileManagement.popUpHierarchy.length > 2">
+        <li (click)="selectDrive()">
+          {{driveDataService.getDriveFiles.selectedTab}}
+          <span>
+            <img [src]="assetUrl+'assets/images/next.png'" />
+          </span>
+        </li>
+        <li (click)="openPreviousFolder()">
+          ...
+          <span>
+            <img [src]="assetUrl+'assets/images/next.png'" />
+          </span>
+        </li>
+        <li>
+          {{driveDataService.driveFileManagement.lastFolder}}
+        </li>
+      </ul>
+    </div>
+    <div class="copy_option_body">
+      <div *ngIf="driveDataService.createDestinationFolder.show">
+        <div class="table-blocks">
+        </div>
+        <div class="table-blocks">
+          <div class="file_thumbnail_icon" style="margin-left: 44px;">
+            <img [src]="assetUrl+ 'assets/images/drive/'+ 'folder_thumb.png'" />
+          </div>
+        </div>
+        <div class="table-blocks drive_name" style="margin-left: 4%;">
+          <input type="text" class="newFolderinput" placeholder="New Folder" [(ngModel)]="driveDataService.driveFileManagement.folderName" (keyup.enter)="creatNewFolder()">
+        </div>
+        <div class="table-blocks">
+          <div class="close_drop" (click) ="closePop()">
+          </div>
+        </div>
+      </div>
+      <div class="copy_option_body_list" *ngFor="let folder of driveDataService.driveFileManagement.destinationFolderList">
+        <div *ngIf="folder.isFolder" (click)="selectDestinationFolder(folder)">
+          <img [src]="assetUrl+'assets/images/drive/folder_thumb.png'" />{{folder.fileName}}
+        </div>
+      </div>
+    </div>
+    <div class="copy_option_footer">
+      <div class="module desktop-12 laptop-12 tablet-12" *ngIf="!driveDataService.createDestinationFolder.show">
+        <div class="module desktop-6 laptop-6 tablet-6">
+          <button (click)="moveFile()">Move Here</button>
+        </div>
+        <div class="module desktop-6 laptop-6 tablet-6 more_optio_create_nf" (click)="createFolder()">
+          New Folder
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>

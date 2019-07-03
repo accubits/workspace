@@ -1,0 +1,104 @@
+<div class="overlaypop" (click)="closeLeavReq()"></div>
+<div class="requestPopup">
+  <div class="requestPopup-header">
+    <h4>Leave Request</h4>
+    <div class="pop_close" (click)="closeLeavReq()"></div>
+  </div>
+  <div class="requestPopup-wrap">
+    <div class="leave-pop_expan_wrap request-wrap">
+      <span class="input-title request">Request to:</span>
+      <div *ngIf="hrmDataService.reportingManagerDetails === null" ></div>
+      <div *ngIf="hrmDataService.reportingManagerDetails !== null" class="selected_tag">
+        {{hrmDataService.reportingManagerDetails.reportingManagerName}}</div>
+    </div>
+  </div>
+  <div class="pop-inner">
+    <div class="start-date">
+      <span class="input-title">Starts on:</span>
+      <input type="text" [owlDateTime]="dt1" [min]="todayDate" [owlDateTimeTrigger]="dt1"
+        [(ngModel)]="hrmDataService.leaveCreate.leaveStartsOn">
+      <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+      <div class="close_drop" (click)="clearStartDate()"></div>
+      <p class="error" *ngIf="!isValidated && hrmDataService.leaveCreate.leaveStartsOn === ''">Required Field</p>
+    </div>
+    <div class="leave-mode" class="leave-mode">
+      <label>
+        <div class="check_outer">
+          <input [(ngModel)]="hrmDataService.leaveCreate.startsOnHalfDay" name="" type="checkbox" class="">
+          <div class="check"></div>
+        </div>
+      </label>
+      <span class="input-title">Half Day</span>
+    </div>
+    <div class="end-date">
+      Ends on:
+      <input type="text" [owlDateTime]="dt2" [min]="todayDate" [owlDateTimeTrigger]="dt2"
+        [(ngModel)]="hrmDataService.leaveCreate.leaveEndsOn" (ngModelChange)="valudatedate($event)">
+      <owl-date-time #dt2 [pickerType]="'calendar'"></owl-date-time>
+      <div class="close_drop" (click)="clearEndDate()"></div>
+      <p class="error" *ngIf="!isValidated && hrmDataService.leaveCreate.leaveEndsOn === ''">Required Field</p>
+    </div>
+    <div class="leave-mode">
+      <label>
+        <div class="check_outer">
+          <input *ngIf="dateValidation !== true" [(ngModel)]="hrmDataService.leaveCreate.endsOnHalfDay" name=""
+            type="checkbox" class="">
+          <input *ngIf="dateValidation === true" [(ngModel)]="hrmDataService.leaveCreate.endsOnHalfDay"
+            disabled="disabled" name="" type="checkbox" class="">
+          <div class="check"></div>
+        </div>
+      </label>
+      <span class="input-title">Half Day</span>
+    </div>
+    <div class="overlaypop-lev" *ngIf="reasonList" (click)="reasonHide()"></div>
+    <div class="leave-pop_expan_wrap reason-wrap">
+      <span class="input-title request">Type of Leave:</span>
+      <div class="input-wrap" *ngIf="hrmDataService.leaveCreate.type.length !== 0">
+        <div *ngFor="let type of hrmDataService.leaveCreate.type" class="selected_tag_reason">
+          <span class="input-title">{{type.name}}
+            <div class="select_close" (click)="removeType(type)"></div>
+          </span>
+        </div>
+      </div>
+      <input type="text" placeholder="" (click)="reasonShow()">
+      <p class="error" *ngIf="!isValidated && hrmDataService.leaveCreate.type.length === 0">Required Field</p>
+      <div class="resp_person_dropdown" *ngIf="reasonList">
+        <div class="resp_drop_head">
+          <span>Reason Type</span>
+          <div class="close_drop" (click)="reasonHide()"></div>
+        </div>
+        <div class="drop_down_wrap">
+          <section class="drop_nav">
+            <ul *ngFor="let type of hrmDataService.leaveType.leaveTypeList">
+              <li (click)="selectLeaveType(type)">{{type.name}}</li>
+            </ul>
+          </section>
+
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="text-area-wrap">
+      <div class="leave-pop_expan_wrap reason-wrap">
+        <span class="input-title request">Reason:</span>
+        <textarea [(ngModel)]="hrmDataService.leaveCreate.reason" class="reason" name="" value="" rows=5></textarea>
+        <p class="error" *ngIf="!isValidated && hrmDataService.leaveCreate.reason === ''">Required Field</p>
+      </div>
+    </div>
+    <div *ngIf="hrmDataService.reportingManagerDetails === null" class="request-pop">
+      <h4>Warning</h4>
+      <div class="pop-inner">
+        <p>Employee not assiegned to reporting manager, pleace contact admin</p>
+      </div>
+      <div class="pop-footer">
+        <div class="pbtncreate" (click)="closePop()">Continue</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="requestpopup-footer">
+  <button class="pbtncreate" (click)="createLeavReq()">Create</button>
+  <button class="req-cancel" (click)="closeLeavReq()">Cancel</button>
+</div>

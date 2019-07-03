@@ -1,0 +1,10 @@
+<div class="dash_righ_wrap">
+  <!-- <div class="inact_ov"></div> -->
+  <div class="task_widget">
+    <app-task-widget></app-task-widget>
+  </div>
+
+  <div *ngIf="actStreamDataService.taskWidgetDetails.details.birthdays.length > 0" class="bday_widget">
+    <app-birthday-widget></app-birthday-widget>
+  </div>
+</div>

@@ -1,0 +1,368 @@
+<div class="profile_edit_pop_wrap">
+  <div class="profile_edit_head">
+    <h4>Edit Profile</h4>
+    <a class="close" (click)="hideEditPop()">&times;</a>
+  </div>
+  <div class="information-wrap">
+    <div class="inform-left">
+      <div class="detail-head">
+        <h4>PERSONAL INFORMATION</h4>
+      </div>
+      <div class="detail-row first">
+        <div class="detail-left no-padding">
+          <div class="photo"></div>
+        </div>
+        <div class="detail-right">
+          <div class="atc_btn photo_change">Change Picture</div><span class="info_icon"></span>
+          <div class="removebtn">Remove Picture</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Status</span>
+        </div>
+        <div class="detail-right">
+          <!-- <input type="text" > -->
+          <div class="bar-wrap" (click)="showProcess()">
+            <p class="blue-font">In Progress</p>
+            <div class="bar blue"></div>
+            <div class="bar blue"></div>
+            <div class="bar blue"></div>
+            <div class="bar "></div>
+            <div class="bar "></div>
+            <div class="bar "></div>
+            <div class="bar "></div>
+            <div class="arrow-drop"></div>
+          </div>
+          <div class="overlay" *ngIf="process" (click)="hideProcess()"></div>
+          <div class="drop-down" *ngIf="process">
+            <div class="bar-container">
+              <p class="blue-font">In Progress</p>
+              <div class="bar blue"></div>
+              <div class="bar blue"></div>
+              <div class="bar blue"></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="check-status"></div>
+            </div>
+            <div class="bar-container">
+              <p class="red-font">Unassigned</p>
+              <div class="bar red" data-tooltip="Unassigned"></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+            <div class="bar-container">
+              <p class="magenta-font">Cannot Contact</p>
+              <div class="bar magenta" data-tooltip="Cannot Contact"></div>
+              <div class="bar magenta"></div>
+              <div class="bar magenta"></div>
+              <div class="bar magenta"></div>
+              <div class="bar magenta"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+            <div class="bar-container">
+              <p class="yellow-font">On Hold</p>
+              <div class="bar yellow" data-tooltip="On Hold"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+              <div class="bar yellow"></div>
+            </div>
+            <div class="bar-container">
+              <p class="green-font">Waiting for details</p>
+              <div class="bar green" data-tooltip="Waiting for details"></div>
+              <div class="bar green"></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+            </div>
+            <div class="bar-container">
+              <p class="orange-font">Responsible Assigned</p>
+              <div class="bar orange" data-tooltip="Waiting for details"></div>
+              <div class="bar orange"></div>
+              <div class="bar orange"></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+            </div>
+            <div class="bar-container">
+              <p class="dark-blue-font">Customer</p>
+              <div class="bar dark-blue" data-tooltip="Waiting for details"></div>
+              <div class="bar dark-blue"></div>
+              <div class="bar dark-blue"></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+              <div class="bar "></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Name</span>
+        </div>
+        <div class="detail-right">
+          <input type="text" placeholder="Tobias Henson">
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>User type</span>
+        </div>
+        <div class="detail-right">
+          <div class="overlaypop-lev" *ngIf="status" (click)="hideStatus()"></div>
+          <input type="text" class="status" placeholder="Student" (click)="showStatus()">
+          <div class="arrow-drop-left"></div>
+          <div class="resp_person_dropdown" *ngIf="status">
+            <div class="drop_down_wrap">
+              <section class="drop_body">
+                <div class="recent_wrap ">
+                  <div class="close_drop"></div>
+                  <section>
+                    Lorem Ipsum
+                  </section>
+                  <section>
+                    Lorem Ipsum
+                  </section>
+                  <section>
+                    Lorem Ipsum
+                  </section>
+                  <section>
+                    Lorem Ipsum
+                  </section>
+
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Date of birth</span>
+        </div>
+        <div class="detail-right">
+          <input type="text" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2">
+          <owl-date-time #dt2 [pickerType]="'calendar'"></owl-date-time>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Email id</span>
+        </div>
+        <div class="detail-right">
+          <input type="text" placeholder="tobias@mail.com">
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Phone no.</span>
+        </div>
+        <div class="detail-right">
+          <input type="text" placeholder="1234567890">
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Reporting To</span>
+        </div>
+        <div class="detail-right">
+          <span class="dept-name">Peter Palmer <div class="close_drop"></div></span>
+          <input type="text" class="interest" placeholder="Add Person" (click)="showReporting()">
+          <div class="overlaypop-lev" *ngIf="reporting" (click)="hideReporting()"></div>
+          <div class="resp_person_dropdown" *ngIf="reporting">
+            <div class="resp_drop_head">
+              <span>PEOPLE</span>
+              <div class="close_drop" (click)="hideReporting()"></div>
+            </div>
+
+            <div class="drop_down_wrap">
+              <section class="drop_body">
+                <div class="recent_wrap pad_wrap">
+                  <section>
+                    <div class="recent_ico"></div>
+                    stella
+                  </section>
+                  <section>
+                    <div class="recent_ico"></div>
+                    Peterson
+                  </section>
+
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-head">
+        <h4>Attachment</h4>
+        <div class="attach_btn">Add Attachment</div>
+      </div>
+      <div class="detail-row first">
+        <ol>
+          <li class="attachement-detail"><span>
+              <div class="file">File 1.png</div>
+            </span>
+            <div class="attach_btn1">Change Document</div>
+          </li>
+          <li class="attachement-detail"><span>
+              <div class="file">File 2.png</div>
+            </span>
+            <div class="attach_btn1">Change Document</div>
+          </li>
+        </ol>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="inform-right">
+      <div class="detail-head">
+        <h4>USER INFORMATION</h4>
+      </div>
+      <div class="editbtn">Edit form</div>
+      <div class="detail-wrap top-margin">
+        <label>First Name</label>
+        <div class="detail-row">
+          <div class="detail-right">
+            <input type="text" placeholder="Tobias">
+          </div>
+        </div>
+      </div>
+      <div class="detail-wrap">
+          <label>Last Name</label>
+          <div class="detail-row">
+            <div class="detail-right">
+              <input type="text" placeholder="Henson">
+            </div>
+          </div>
+        </div>
+        <div class="detail-wrap">
+            <label>Date Added</label>
+            <div class="detail-row">
+              <div class="detail-right">
+                  <input type="text" placeholder="12 Jul 2017" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1">
+                  <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+              </div>
+            </div>
+          </div>
+          <div class="detail-wrap">
+              <label>Notes</label>
+              <div class="detail-row">
+                <div class="detail-right">
+                    <textarea rows="5" placeholder="Lorem Ipsum"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="detail-wrap">
+                <label>College</label>
+                <div class="detail-row">
+                  <div class="detail-right">
+                    <input type="text" placeholder="Lorem Ipsum">
+                  </div>
+                </div>
+              </div>
+              <div class="detail-wrap">
+                  <label>Batch</label>
+                  <div class="detail-row">
+                    <div class="detail-right">
+                      <input type="text" placeholder="2019">
+                    </div>
+                  </div>
+                </div>
+      <!-- <div class="detail-row">
+                      <div class="detail-left">
+                          <span>ADDRESS</span>
+                        </div>
+                        <div class="detail-right">
+                            <input type="text" placeholder="24 Lower Kent Bridge Rd, Singapore 119077">
+                        </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-left">
+                        <span>HP NUMBER</span>
+                      </div>
+                      <div class="detail-right">
+                          <input type="text" placeholder="1155432">
+                      </div>
+              </div>
+              <div class="detail-row">
+                  <div class="detail-left">
+                      <span>NRIC / PAN / PASSPORT</span>
+                    </div>
+                    <div class="detail-right">
+                        <input type="text" placeholder="115543277899034232">
+                    </div>
+            </div> -->
+    </div>
+    <div class="clear"></div>
+  </div>
+  <!-- <div class="profile_edit_contents">
+    <div class="profile_edit_content_row">
+      <div class="edit_profile_dp">
+        <img [src]="image" (error)="setImage()">
+      </div>
+      <div class="profile_fileupload">
+        <button class="btn">Upload a file</button>
+        <input type="file" name="myfile" (change) ="uploadFile($event.target.files)" />
+        <span class="remove_link" *ngIf="!hideRemove"  (click)="removeProfile()">Remove</span>
+      </div>
+      <div class="max_file_size">
+        <p>Maximum file size - 5 MB</p>
+      </div>
+    </div>
+
+    <div class="profile_edit_content_row">
+      <div class="pe_input_holder">
+        <span>Name:</span>
+        <input class="pe_input_field" type="text" placeholder="" [(ngModel)]="settingsDataService.editProfile.first_name" name="name">
+      </div>
+    </div>
+    <div class="profile_edit_content_row">
+      <div class="pe_input_holder">
+        <span>Email:</span>
+        <input class="pe_input_field" type="text" readonly placeholder="" [(ngModel)]="settingsDataService.editSettingsTemplate.email"
+          name="email">
+      </div>
+    </div>
+    <div class="profile_edit_content_row">
+      <div class="pe_input_holder dt_pe">
+        <span>Birthday:</span>
+        <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="" [(ngModel)]="settingsDataService.editProfile.birth_date"  >
+        <owl-date-time #dt1 [hour12Timer] = "true"></owl-date-time>
+      </div>
+    </div>
+    <div class="profile_edit_content_row">
+      <div class="pe_tag_input_holder">
+        <span>Interests:</span>
+      <div class="ce_tag"  *ngFor="let tag of settingsDataService.editProfile.interests; let i = index">
+          <div >
+            {{tag.interest}}
+          </div>
+          <div class="pe_close" (click)="deleteInterest(i)"></div>
+        </div>
+         <input type="text" class="mul_input" id="mulinput" (keypress)="addInterest($event)" #myInput [(ngModel)] ="interestValue"/>
+      </div>
+    </div>
+  </div> -->
+  <div class="profile_edit_footer">
+    <div class="save_button">
+      <button>Save</button>
+    </div>
+    <div class="cancel_button" (click)="hideEditPop()">
+      <button>Cancel</button>
+    </div>
+  </div>
+</div>

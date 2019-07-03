@@ -1,0 +1,305 @@
+<section class="as_content" *ngIf="data.type == 'task'">
+  <div class="as_content_sector">
+    <div class="as_content_header">
+      <div class="h_left">
+          <img *ngIf="data.task.taskCreatorImageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+          <img *ngIf="data.task.taskCreatorImageUrl !== null" [src]="data.task.taskCreatorImageUrl" />
+        <div class="user_name_list">
+          <span class="blue">
+            {{data.task.taskCreatorName}}
+          </span>
+          <span class="bt_arw" *ngIf="data.task.taskToAllEmployee == true || data.task.toUsers.length > 0">
+            <img [src]="assetUrl+'assets/images/right_arrow.png'" />
+          </span>
+          <span class="grey_1" *ngIf="data.task.taskToAllEmployee == true">
+            To all Employees
+          </span>
+          <span *ngIf="data.task.taskToAllEmployee == false">
+            <span class="grey_1" *ngFor="let toUser of data.task.toUsers | slice:0:2;let i = index">
+              {{toUser.userName}}{{i === data.task.toUsers.length - 1 ?'':','}}
+            </span>
+            <span *ngIf="data.task.toUsers.length > 2" class="user_more_block" (click)="actStreamDataService.userCount[index] = !actStreamDataService.userCount[index]">
+              + {{data.task.toUsers.length - 2}}
+            </span>
+          </span>
+          <!-- User Count Pop Up -->
+          <div class="filter_cancel_overlay"  *ngIf="actStreamDataService.userCount[index]" (click)="actStreamDataService.userCount[index] = false"></div>
+          <div class="user_count_pop" *ngIf="actStreamDataService.userCount[index]">
+            <div class="user_count_pop_header">
+              <h6>Users</h6>
+              <a class="copy_option_close" (click)="actStreamDataService.userCount[index] = false">&times;</a>
+            </div>
+            <div class="user_count_pop_body">
+              <div *ngFor="let user of data.task.toUsers" class="user_count_list">
+                <div *ngIf="user.userImageUrl === null" class="user_count_list_dp"></div>
+                <div *ngIf="user.userImageUrl !== null" class="user_count_list_dp" [ngStyle]="{'background-image': 'url(' + user.userImageUrl + ')'}"></div>
+                {{user.userName}}
+              </div>
+            </div>
+          </div>
+          <!-- User Count Pop Up -->
+        </div>
+      </div>
+      <div class="h_right">
+        <button class="h_task_button">
+          <img [src]="assetUrl+'assets/images/as/user_created.png'" />
+          <p class="taskButton">Task</p>
+        </button>
+        <h6>{{data.task.createdAt * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</h6>
+        <div class="opt_r" *ngIf="data.task.taskCreatorSlug === loggedUser" (click)="actStreamDataService.optionBtn[index] = !actStreamDataService.optionBtn[index]">
+          <img [src]="assetUrl+'assets/images/more.png'" />
+          <div class="filter_cancel_overlay" *ngIf="actStreamDataService.optionBtn[index]" (click)="!actStreamDataService.optionBtn[index]"></div>
+          <div class="edt_opt_r" *ngIf="actStreamDataService.optionBtn[index]">
+            <section (click)="updateTask()">
+              Edit
+            </section>
+            <section (click)="deleteTask()">
+              Delete
+            </section>
+          </div>
+        </div>
+        <div class="confirm_popup" *ngIf="actStreamDataService.deletePopUp[index]"  (click)="cancelDelete()">
+          <div class="confirm_pop_body">
+            <section>
+              <div class="close_drop" (click)="cancelDelete()">
+              </div>
+              <p class="pop_main">{{actStreamDataService.deleteMessage.msg}}</p>
+            </section>
+            <section>
+              <div class="confirm_pop_btn" (click)="conformDeleteTask()">
+                Confirm
+              </div>
+              <div class="confirm_pop_btn" (click)="cancelDelete()">
+                Cancel
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div (click)="viewTaskDetails(data.task.taskSlug)">
+      <div *ngIf="data.task.taskStatus !== 'overdue'" class="as_content_body task">
+        <img *ngIf="data.task.taskStatus === 'active'" [src]="assetUrl+'assets/images/as/user_created.png'" />
+        <img *ngIf="data.task.taskStatus === 'ongoing'" [src]="assetUrl+'assets/images/as/user_started.png'" />
+        <img *ngIf="data.task.taskStatus === 'pause'" [src]="assetUrl+'assets/images/as/user_paused.png'" />
+        <img *ngIf="data.task.taskStatus === 'completed_waiting_approval'" [src]="assetUrl+'assets/images/as/user_completed.png'" />
+        <img *ngIf="data.task.taskStatus === 'completed_approved'" [src]="assetUrl+'assets/images/as/user_completed.png'" />
+        <h3 class="which_user_1">
+          <span class="name_user">{{data.task.taskCreatorName}}</span>
+          <span *ngIf="data.task.taskStatus === 'active'" class="user_action">created a task</span>
+          <span *ngIf="data.task.taskStatus === 'ongoing'" class="user_action">started task</span>
+          <span *ngIf="data.task.taskStatus === 'pause'" class="user_action">paused task</span>
+          <span *ngIf="data.task.taskStatus === 'completed_waiting_approval'" class="user_action">completed task</span>
+          <span *ngIf="data.task.taskStatus === 'completed_approved'" class="user_action">completed task</span>
+          <span class="task_name">{{data.task.taskTitle}}</span>
+         </h3>
+        <h3 class="which_user_2">
+          <span class="responible">Responsible person</span>
+          <span class="responible_person">- {{data.task.taskResponsiblePersonName}}</span>
+        </h3>
+      </div>
+      <div *ngIf="data.task.taskStatus === 'overdue'" class="as_content_body task">
+       <img [src]="assetUrl+'assets/images/as/task_overdue.png'" />
+        <h3 class="which_user_1">
+         <span class="task_name">{{data.task.taskTitle}}</span>
+         <span class="user_action">is now</span>
+         <span class="over_due">overdue</span>
+        </h3>
+        <h3 class="which_user_2">
+          <span class="responible">Responsible person</span>
+          <span class="responible_person">- {{data.task.taskResponsiblePersonName}}</span>
+        </h3>
+      </div>
+    </div>
+   
+    <div class="as_content_footer">
+      <div class="comment">
+        <div class="comment_icon" (click)="getComments()">
+          <img [src]="assetUrl+'assets/images/as/comment.png'" />
+        </div>
+        <div (click)="getComments()" class="comment_count" >{{commentCount}}</div>
+      </div>
+    </div>
+    <section class="comments_wrap" *ngIf="actStreamDataService.comments[index]">
+      <div class="commented" *ngFor="let comment of data.comments;let idx = index" [hidden]="comment.taskParentCommentSlug !== null">
+        <div class="commented_header">
+            <img *ngIf="comment.commentedUserImage === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+            <img *ngIf="comment.commentedUserImage !== null" [src]="comment.commentedUserImage" />
+           <h4>{{comment.commentedUserName}}</h4>
+          <div *ngIf="loggedUser === comment.commentedUserSlug" class="d_eopt" (click)="actStreamDataService.cmtOptionBtn[idx] = !actStreamDataService.cmtOptionBtn[idx]">
+            <img [src]="assetUrl+'assets/images/more.png'" />
+            <div class="edt_opt_r" *ngIf="actStreamDataService.cmtOptionBtn[idx]">
+              <section (click)="deleteComment(idx)">
+                Delete
+              </section>
+              <section (click)="updateComment(comment)">
+                Edit
+              </section>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="confirm_popup" *ngIf="actStreamDataService.deleteCommentPopUp[idx]">
+          <div class="confirm_pop_body">
+            <section>
+              <div class="close_drop" (click)="cancelDelete()">
+              </div>
+              <p class="pop_main">{{actStreamDataService.deleteMessage.msg}}</p>
+            </section>
+            <section>
+              <div class="confirm_pop_btn" (click)="conformDeleteComment(comment, i)">
+                Confirm
+              </div>
+              <div class="confirm_pop_btn" (click)="cancelDelete()">
+                Cancel
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="commented_body">
+          <p>{{comment.description}}</p>
+        </div>
+        <div class="comment_footer">
+          <div class="like" *ngIf="comment.like.length === 0">
+            <div class="like_iconbg like_icon" (click)="getResponseForComment(comment)"></div>
+            <div class="like_count">
+              0
+            </div>
+          </div>
+          <div class="like" *ngIf="comment.like.length !== 0">
+            <div class="like_iconbg like_icon" [ngClass]="{'active': comment.like.meLiked}" (click)="getResponseForComment(comment)"></div>
+            <div class="like_count">
+              {{comment.like.likeCount}}
+            </div>
+          </div>
+          <div class="reply">
+            <div class="reply_icon" (click)="getCommentReply(comment, idx)">
+              <img [src]="assetUrl+'assets/images/as/reply.png'" />
+            </div>
+            <div (click)="getCommentReply(comment, idx)" class="reply_count">{{comment.replyCount}}</div>
+          </div>
+        </div>
+        <section class="comments_wrap" *ngIf="actStreamDataService.reply[idx]">
+          <div class="commented" *ngFor="let reply of data.comments[idx].reply;let i = index" [hidden]="reply.taskParentCommentSlug === null">
+            <div class="commented_header">
+                <img *ngIf="reply.commentedUserImage === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+                <img *ngIf="reply.commentedUserImage !== null" [src]="reply.commentedUserImage" />
+              <h4>{{reply.commentedUserName}}</h4>
+              <div *ngIf="loggedUser === reply.commentedUserSlug" class="d_eopt" (click)="actStreamDataService.replyOption[i] = !actStreamDataService.replyOption[i]">
+                <img [src]="assetUrl+'assets/images/more.png'" />
+                <div class="edt_opt_r" *ngIf="actStreamDataService.replyOption[i]">
+                  <section (click)="deleteReply(reply, i)">
+                    Delete
+                  </section>
+                  <section (click)="updateCommentReply(reply,comment)">
+                    Edit
+                  </section>
+                </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div class="confirm_popup" *ngIf="actStreamDataService.deleteReplyPopUp[i]">
+              <div class="confirm_pop_body">
+                <section>
+                  <div class="close_drop" (click)="cancelDelete()">
+                  </div>
+                  <p class="pop_main">{{actStreamDataService.deleteMessage.msg}}</p>
+                </section>
+                <section>
+                  <div class="confirm_pop_btn" (click)="conformDeleteReply(comment, idx)">
+                    Confirm
+                  </div>
+                  <div class="confirm_pop_btn" (click)="cancelDelete()">
+                    Cancel
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="commented_body">
+              <p>{{reply.description}}</p>
+            </div>
+            <div class="comment_footer">
+              <div class="like">
+                 <div class="like" *ngIf="reply.like.length === 0">
+                    <div class="like_iconbg like_icon" (click)="replyResponse(reply, comment, idx)"></div>
+                    <div class="like_count">
+                      0
+                    </div>
+                  </div>
+                  <div class="like" *ngIf="reply.like.length !== 0">
+                    <div class="like_iconbg like_icon" [ngClass]="{'active': reply.like.meLiked}" (click)="replyResponse(reply, comment, idx)"></div>
+                    <div class="like_count">
+                      {{reply.like.likeCount}}
+                    </div>
+                  </div> 
+                 </div>
+              <div class="reply">
+                <div class="reply_icon" (click)="replyToReply(reply, comment)">
+                  <img [src]="assetUrl+'assets/images/as/reply.png'" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="to_comment">
+              <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+              <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl !== null" [src]="actStreamDataService.CommentsAndResponses.imageUrl" />
+            <input type="text" placeholder="Reply" class="to_comment_input"  [(ngModel)]="comment.replyTxt" autofocus = true
+              (keydown.enter) = "addCommentReply(comment.replyTxt, comment, idx)"   (input)="showReplayList(comment.replyTxt)">
+              <div class="filter_cancel_overlay" *ngIf="replaylist" (click)="hideReplayList()"></div>
+              <div class="resp_person_dropdown" *ngIf="replaylist">
+                <div class="resp_drop_head">
+                  <span>PEOPLE</span>
+                  <div class="close_drop"></div>
+                </div>
+                <div class="drop_down_wrap">
+                  <div class="drop_down_wrap">
+                    <section class="drop_body">
+                      <div class="recent_wrap pad_wrap">
+                        <section *ngFor="let user of actStreamDataService.responsiblePersons.list"
+                          (click)="selectReplayUser(user,comment)">
+                          <div *ngIf="user.employeeImage === null" class="recent_ico"></div>
+                          <div *ngIf="user.employeeImage !== null" class="recent_ico"
+                            [ngStyle]="{'background-image': 'url(' + user.employeeImage + ')'}"></div>
+                          {{user.employee_name}}
+                        </section>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+      </div>
+      <section>
+        <div class="to_comment">
+            <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+            <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl !== null" [src]="actStreamDataService.CommentsAndResponses.imageUrl" />
+          <input type="text" placeholder="Comment" class="to_comment_input" [(ngModel)]="commentTxt" autofocus
+            (keydown.enter)="addComment()"(ngModelChange)="showList()">
+            <div class="filter_cancel_overlay" *ngIf="list" (click)="hideList()"></div>
+            <div class="resp_person_dropdown" *ngIf="list">
+              <div class="resp_drop_head">
+                <span>PEOPLE</span>
+                <div class="close_drop"></div>
+              </div>
+              <div class="drop_down_wrap">
+                <div class="drop_down_wrap">
+                  <section class="drop_body">
+                    <div class="recent_wrap pad_wrap">
+                      <section *ngFor="let user of actStreamDataService.responsiblePersons.list"
+                        (click)="selectUser(user)">
+                        <div *ngIf="user.employeeImage === null" class="recent_ico"></div>
+                        <div *ngIf="user.employeeImage !== null" class="recent_ico"
+                          [ngStyle]="{'background-image': 'url(' + user.employeeImage + ')'}"></div>
+                        {{user.employee_name}}
+                      </section>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</section>

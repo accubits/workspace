@@ -1,0 +1,162 @@
+<div class="common_overlay" *ngIf ="actStreamDataService.eventShow.show" (click)="closeEvent()"></div>
+<div class="activityOuter">
+  <div class="task_detail_pop_wrap">
+    <section>
+      <div class="eventViewOuter">
+        <div class="task_detail_left">
+          <div class="task_detail_top">
+            <div class="task_detail_pop_head">
+              <p>{{actStreamDataService.createEvent.eventTitle}}</p>
+              <label>CREATED ON
+                <span>{{actStreamDataService.createEvent.eventCreatedAt * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</span>
+              </label>
+            </div>
+
+            <div class="eventContent">
+              <div [innerHTML]="actStreamDataService.createEvent.eventDesc"></div>
+            </div>
+          </div>
+        </div>
+        <div class="task_detail_right">
+          <div class="right_top_head">
+            <div class="status_ico">
+              <h3>{{actStreamDataService.createEvent.eventStart | date: 'MMM'}}</h3>
+              <p>{{actStreamDataService.createEvent.eventStart | date: 'd'}}</p>
+            </div>
+            <div *ngIf="actStreamDataService.createEvent.start">
+              Event
+            </div>
+            <div *ngIf="actStreamDataService.createEvent.onGoing">
+              Event Ongoing
+            </div>
+            <div *ngIf="actStreamDataService.createEvent.end">
+              Event Ended
+            </div>
+          </div>
+          <div class="close" (click)="closeEvent()"></div>
+          <div class="eventOuter">
+            <div class="eventStatus">
+              <div class="eventStart">EVENT START</div>
+              <div class="eventDate">{{actStreamDataService.createEvent.eventStart | date: 'MMM dd, yyy, hh:mm a'}}</div>
+            </div>
+            <div class="eventStatus">
+              <div class="eventStart">EVENT END</div>
+              <div class="eventDate">{{actStreamDataService.createEvent.eventEnd | date: 'MMM dd, yyy, hh:mm a'}}</div>
+            </div>
+            <div class="eventStatus">
+              <div class="eventStart">LOCATION</div>
+              <div class="eventDate">{{actStreamDataService.createEvent.eventLocation}}</div>
+            </div>
+            <div class="br_line"></div>
+            <div class="eventStatus">
+              <div class="eventStart">AVAILABILITY</div>
+              <div class="eventDate" *ngIf="actStreamDataService.createEvent.eventAvailability === null">Not Set</div>
+              <div class="eventDate" *ngIf="actStreamDataService.createEvent.eventAvailability !== null">{{actStreamDataService.createEvent.eventAvailability}}</div>
+            </div>
+            <div class="eventStatus">
+              <div class="eventStart">REPEAT</div>
+              <div class="eventDate" *ngIf="actStreamDataService.createEvent.eventRepeat === null">Not Set</div>
+              <div class="eventDate" *ngIf="actStreamDataService.createEvent.eventRepeat !== null">{{actStreamDataService.createEvent.eventRepeat}}</div>
+            </div>
+            <div class="eventStatus">
+              <div class="eventStart">IMPORTANCE</div>
+              <div class="eventDate" *ngIf="actStreamDataService.createEvent.eventImportance === null">Not Set</div>
+              <div class="eventDate" *ngIf="actStreamDataService.createEvent.eventImportance !== null">{{actStreamDataService.createEvent.eventImportance}}</div>
+            </div>
+            <div class="eventStatus lastChild">
+              <div class="eventStart">ATTENDEES</div>
+            </div>
+            <section class="drop_nav">
+              <ul>
+                <li *ngIf="actStreamDataService.createEvent.goingCount === 0" [ngClass]="{active:activeRpTab === 'attend'}"
+                  (click)="activeRpTab = 'attend'">Attending</li>
+                <li *ngIf="actStreamDataService.createEvent.goingCount !== 0" [ngClass]="{active:activeRpTab === 'attend'}"
+                  (click)="activeRpTab = 'attend'">Attending ({{actStreamDataService.createEvent.goingCount}})</li>
+                <li *ngIf="actStreamDataService.createEvent.eventToAllEmployee === true" [ngClass]="{active:activeRpTab == 'invite'}"
+                  (click)="activeRpTab = 'invite'">Invited</li>
+                <li *ngIf="actStreamDataService.createEvent.eventToAllEmployee === false" [ngClass]="{active:activeRpTab == 'invite'}"
+                  (click)="activeRpTab = 'invite'">Invited ({{actStreamDataService.createEvent.eventMembers.length}})</li>
+                <li *ngIf="actStreamDataService.createEvent.declineCount === 0" [ngClass]="{active:activeRpTab == 'decline'}"
+                  (click)="activeRpTab = 'decline'" class="Declined">Decline</li>
+                <li *ngIf="actStreamDataService.createEvent.declineCount !== 0" [ngClass]="{active:activeRpTab == 'decline'}"
+                  (click)="activeRpTab = 'decline'" class="Declined">Decline
+                  ({{actStreamDataService.createEvent.declineCount}})</li>
+              </ul>
+            </section>
+            <section class="drop_body">
+              <perfect-scrollbar>
+                <div *ngIf="activeRpTab === 'attend'" class="recent_wrap pad_wrap allFilter">
+                  <section *ngFor="let users of actStreamDataService.createEvent.eventMembers" [hidden]="users.eventResponse === 'decline' || users.eventResponse === ''">
+                    {{users.eventUserName}}
+                  </section>
+                </div>
+                <div *ngIf="activeRpTab === 'invite'" class="recent_wrap pad_wrap searchFilter">
+                  <section class="all_tag_par" *ngIf="actStreamDataService.createEvent.eventToAllEmployee">
+                    All employee
+                  </section>
+                  <section *ngIf="!actStreamDataService.createEvent.eventToAllEmployee">
+                    <div *ngFor="let users of actStreamDataService.createEvent.eventMembers">
+                      {{users.eventUserName}}
+                    </div>
+                  </section>
+                </div>
+                <div *ngIf="activeRpTab === 'decline'" class="recent_wrap pad_wrap searchFilter">
+                  <section *ngFor="let users of actStreamDataService.createEvent.eventMembers" [hidden]="users.eventResponse === 'going' || users.eventResponse === ''">
+                    {{users.eventUserName}}
+                  </section>
+                </div>
+              </perfect-scrollbar>
+            </section>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </section>
+    <div *ngIf="actStreamDataService.createEvent.loggedUser === actStreamDataService.createEvent.eventCreatorSlug"
+      class="task_detail_pop_bottom">
+      <div class="currentStatus">Event Organizer</div>
+      <div class="bottom_btn bt_can_btn" (click)="updateEvent()">Edit Event      </div>
+            <div class="bottom_btn bt_can_btn" (click)="closeEvent()">Cancel  </div>
+
+    </div>
+    <div *ngIf="actStreamDataService.createEvent.loggedUser !== actStreamDataService.createEvent.eventCreatorSlug">
+      <div *ngIf="!userResponse" class="task_detail_pop_bottom">
+        <div class="bottom_btn" (click)="eventStatusUpdate(actStreamDataService.createEvent.eventSlug, 'going')">
+          Going
+        </div>
+        <div class="bottom_btn bt_can_btn" (click)="eventStatusUpdate(actStreamDataService.createEvent.eventSlug, 'decline')">
+          Decline
+        </div>
+        <div class="bottom_btn_right">
+          <div class="bottom_btn_blocks opt_btm"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div *ngIf="userResponse" class="task_detail_pop_bottom">
+       
+        <div class="bottom_btn bt_can_btn" (click)="eventStatusChange()">
+          Change Status
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <!-- select event status -->
+    <div class="filter_cancel_overlay" *ngIf="actStreamDataService.eventStatusPopUp.show" (click)="actStreamDataService.eventStatusPopUp.show = false"></div>
+    <div class="event_sts_pop" *ngIf="actStreamDataService.eventStatusPopUp.show">
+      <div class="event_sts_pop_header">
+        <h4>Event Status</h4>
+        <a class="copy_option_close" (click)="actStreamDataService.eventStatusPopUp.show = false">&times;</a>
+      </div>
+      <div class="event_sts_pop_body">
+        <p>{{actStreamDataService.eventMessage.msg}}</p>
+        <div *ngIf="actStreamDataService.createEvent.eventResponse === 'decline'" class="bottom_btn" (click)="eventStatusUpdate(actStreamDataService.createEvent.eventSlug, 'going')">
+          Going
+        </div>
+        <div *ngIf="actStreamDataService.createEvent.eventResponse === 'going'" class="bottom_btn" (click)="eventStatusUpdate(actStreamDataService.createEvent.eventSlug, 'decline')">
+          Decline
+        </div>
+      </div>
+    </div>
+    <!-- select event status  -->
+  </div>
+</div>

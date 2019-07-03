@@ -1,0 +1,188 @@
+<section>
+    <section class="licenseOuter" *ngIf="settingsDataService.getLicenseDetails.status === 'Licensed'">
+    <div class="tableDetailOuter" >
+      <div class="tableDetail" >
+        <h4>STATUS</h4>
+      </div>
+      <div class="tableContent expired" >
+        {{settingsDataService.getLicenseDetails.status}}
+      </div>
+      <!-- <div class="tableContent actve">
+       Active
+      </div> -->
+        <!-- <div class="tableContent inactve">
+       In-Active
+      </div> -->
+        <div class="tableDetail">
+          <h4>USERS</h4>
+        </div>
+        <div class="tableContent">
+          {{settingsDataService.getLicenseDetails.users.totalUsers}}  ( {{settingsDataService.getLicenseDetails.users.licensedUsers}} Used)
+        </div>
+        <div class="tableDetail">
+            <h4>KEY</h4>
+        </div>
+        <div class="tableContent">
+          {{settingsDataService.getLicenseDetails.key}}
+        </div>
+        <div class="tableDetail">
+          <h4>TYPE</h4>
+        </div>
+        <div class="tableContent">
+          {{settingsDataService.getLicenseDetails.type}}
+
+        </div>
+        <div class="tableDetail">
+            <h4>PARTNER</h4>
+          </div>
+          <div class="tableContent">
+              <div class="employee_image" *ngIf="settingsDataService.getLicenseDetails.partnerImage === null"></div>
+              <div class="employee_image" *ngIf="settingsDataService.getLicenseDetails.partnerImage !== null" [ngStyle]="{'background-image': 'url(' +settingsDataService.getLicenseDetails.partnerImage + ')'}"></div>
+
+              <span class="employee_name">{{settingsDataService.getLicenseDetails.partner}}</span>
+          </div>
+    </div>
+    <div class="tableDetailBottom">
+      <div class="tableDetailOuterBottom" >
+        <div class="left_status Blue"></div>
+          <div class="tableDetail" >
+            <h4>REQUESTED ON</h4>
+          </div>
+          <div class="tableContent" >
+              {{settingsDataService.getLicenseDetails.requestedOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}} 
+            </div>
+      </div>
+      <!-- <div class="tableDetailOuterBottom">
+          <div class="left_status Blue"></div>
+          <div class="tableDetail">
+            <h4>APPROVED ON</h4>
+          </div>
+          <div class="tableContent">
+              10 Jul 2018
+          </div>
+      </div> -->
+      <div class="tableDetailOuterBottom start">
+        <div class="left_status Green"></div>
+        <div class="tableDetail">
+          <h4>STARTED ON</h4>
+        </div>
+        <div class="tableContent">
+          {{settingsDataService.getLicenseDetails.startedOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}} 
+                </div>
+      </div>
+      <div class="tableDetailOuterBottomLast">
+        <div class="Dark"></div>
+        <div class="tableDetail">
+          <h4>EXPIRES ON</h4>
+        </div>
+        <div class="tableContent">
+            {{settingsDataService.getLicenseDetails.expiresOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}} 
+
+          </div>
+      </div>
+    </div>
+    </section>
+    <section class="licenseOuter" *ngIf="settingsDataService.getLicenseDetails.status === 'Unlicensed'">
+      <div class="tableDetailOuter" >
+        <div class="tableDetail" >
+          <h4>STATUS</h4>
+        </div>
+        <div class="tableContent expired" >
+          {{settingsDataService.getLicenseDetails.status}}
+        </div>
+        <!-- <div class="tableContent actve">
+         Active
+        </div> -->
+          <!-- <div class="tableContent inactve">
+         In-Active
+        </div> -->
+          <div class="tableDetail">
+            <h4>USERS</h4>
+          </div>
+          <div class="tableContent">
+            --
+          </div>
+          <div class="tableDetail">
+              <h4>KEY</h4>
+          </div>
+          <div class="tableContent">
+            --
+          </div>
+          <div class="tableDetail">
+            <h4>TYPE</h4>
+          </div>
+          <div class="tableContent">
+         --
+  
+          </div>
+          <div class="tableDetail">
+              <h4>PARTNER</h4>
+            </div>
+            <div class="tableContent">
+                <div class="employee_image" *ngIf="settingsDataService.getLicenseDetails.partnerImage === null"></div>
+                <div class="employee_image" *ngIf="settingsDataService.getLicenseDetails.partnerImage !== null" [ngStyle]="{'background-image': 'url(' +settingsDataService.getLicenseDetails.partnerImage + ')'}"></div>
+  
+                <span class="employee_name">{{settingsDataService.getLicenseDetails.partner}}</span>
+            </div>
+      </div>
+      <div class="tableDetailBottom">
+        <div class="tableDetailOuterBottom" >
+          <div class="left_status Blue"></div>
+            <div class="tableDetail" >
+              <h4>REQUESTED ON</h4>
+            </div>
+            <div class="tableContent" >
+              --
+            </div>
+        </div>
+        <!-- <div class="tableDetailOuterBottom">
+            <div class="left_status Blue"></div>
+            <div class="tableDetail">
+              <h4>APPROVED ON</h4>
+            </div>
+            <div class="tableContent">
+                10 Jul 2018
+            </div>
+        </div> -->
+        <div class="tableDetailOuterBottom start">
+          <div class="left_status Green"></div>
+          <div class="tableDetail">
+            <h4>STARTED ON</h4>
+          </div>
+          <div class="tableContent">
+           --
+                  </div>
+        </div>
+        <div class="tableDetailOuterBottomLast">
+          <!-- <div class="left_status Red"></div> -->
+          <div class="Dark"></div>
+
+          <div class="tableDetail">
+            <h4>EXPIRES ON</h4>
+          </div>
+          <div class="tableContent">
+             -- 
+  
+            </div>
+        </div>
+      </div>
+      </section>
+
+    <div class="fs_footer">
+        <button class="fs_footer_next"  *ngIf="settingsDataService.getLicenseDetails.licenseButton.status === 'request'"(click)="showRenewPop()">Request License </button>
+        <button class="fs_footer_next"  *ngIf="settingsDataService.getLicenseDetails.licenseButton.status === 'renew'" (click)="renewLicenseRequests()">Renew</button>
+        <button class="req-cancel" (click)="showLicenseHistory()">License History</button>
+
+
+    </div>
+  </section>
+<app-license-renew *ngIf="settingsDataService.renewLicence.show" ></app-license-renew>
+<app-renew-popup *ngIf="settingsDataService.renewRequestPopup.show"></app-renew-popup>
+
+<app-license-history *ngIf="settingsDataService.licenseHistory.show" ></app-license-history>
+  <!-- <div class="fs_footer">
+      <button class="fs_footer_next" (click)="deleteLicense()">Cancel Request</button>
+      <div class="cancelOuter" *ngIf = "partnerDataService.cancelPop.showPopup">
+          <app-delete-pop></app-delete-pop>
+      </div>
+  </div> -->

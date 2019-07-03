@@ -1,0 +1,66 @@
+<div class="table_head table_row">
+  <div class="table-blocks">
+    From
+  </div>
+  <div class="table-blocks"
+  [ngClass]="{'actives':hrmDataService.leaveList.sortMethod === 'asc' && hrmDataService.leaveList.sortOption === 'dateFrom'}"
+      (click)="sortOperation('dateFrom')">
+      <span class="tb_head_drop_arrow">date from</span>
+  </div>
+  <div class="table-blocks"
+  [ngClass]="{'actives':hrmDataService.leaveList.sortMethod === 'asc' && hrmDataService.leaveList.sortOption === 'dateTo'}"
+      (click)="sortOperation('dateTo')">
+      <span class="tb_head_drop_arrow">date to</span>
+  </div>
+  <div class="table-blocks"
+  [ngClass]="{'actives':hrmDataService.leaveList.sortMethod === 'asc' && hrmDataService.leaveList.sortOption === 'type'}"
+      (click)="sortOperation('type')">
+      <span class="tb_head_drop_arrow">type</span>
+  </div>
+</div>
+<section class="table-wrap">
+  <div class="table_list table_row">
+      <section class="no_result_inOverview" *ngIf="hrmDataService.leaveList.levelist.length === 0">
+        </section>
+      <section class="t_row_hover" *ngFor="let leave of hrmDataService.leaveList.levelist; let i = index">
+        <div class="table-blocks employee_detail" (click)="showEmpDetail(leave)">
+          <div *ngIf="leave.userImage === null" class="employee_image"></div>
+          <div *ngIf="leave.userImage !== null" class="employee_image" [ngStyle]="{'background-image': 'url(' + leave.userImage + ')'}"></div>
+          <span class="employee_name">{{leave.userName}}</span>
+        </div>
+        <div class="table-blocks" (click)="showEmpDetail(leave)">
+          <span class="leave_date_from">{{leave.dateFrom * 1000 | date: 'MMM dd, yyyy'}}</span>
+        </div>
+        <div class="table-blocks" (click)="showEmpDetail(leave)">
+          <span class="leave_date_to">{{leave.dateTo * 1000 | date: 'MMM dd, yyyy'}}</span>
+        </div>
+        <div class="table-blocks approve-blk">
+          <span class="leave_type" (click)="showEmpDetail(leave)">{{leave.leaveType}}</span>
+          <span class="atc_btn" (click)="approveLeave(leave)">Approve</span>
+          <div class="clear"></div>
+        </div>
+      </section>
+  </div>
+
+  <div class="confirm_popup" *ngIf="hrmDataService.deletePopUp.show">
+    <div class="confirm_pop_body">
+      <section>
+        <div class="close_drop" (click)="hrmDataService.deletePopUp.show = false">
+        </div>
+        <p class="pop_main">{{hrmDataService.deleteMessage.msg}}</p>
+      </section>
+      <section>
+          <div class="confirm_pop_btn" *ngIf="hrmDataService.leaveCreate.action === 'aprove'" (click)="conformApprove()">
+              Confirm
+            </div>
+            <div class="confirm_pop_btn" *ngIf="hrmDataService.leaveCreate.action === 'cancel'" (click)="conformCancel()">
+              Confirm
+            </div>
+            <div class="confirm_pop_btn" (click)="hrmDataService.reqConformPopup.show = false">
+              Cancel
+            </div>
+      </section>
+    </div>
+  </div>
+</section>
+<app-request-detail *ngIf="hrmDataService.leavePop.show"></app-request-detail>

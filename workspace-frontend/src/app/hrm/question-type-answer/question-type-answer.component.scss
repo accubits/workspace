@@ -1,0 +1,34 @@
+.comment-area
+{
+  margin: 0;
+  width: 100%;
+}
+.comment-area textarea
+{
+  background-color: #fff;
+  border: 1px solid #edeff7;
+  resize: none;
+  width: 100%;
+  padding: 20px;
+}
+.comment-area input
+{
+  background-color: #fff;
+  border: 1px solid #edeff7;
+  resize: none;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+.comment-area textarea::placeholder
+{
+  color: #bac0c7;
+  font-family: Roboto-Regular;
+  font-size: 14px;
+}
+.comment-area input::placeholder
+{
+  color: #bac0c7;
+  font-family: Roboto-Regular;
+  font-size: 14px;
+}

@@ -1,0 +1,44 @@
+// rating
+ul,
+ol {
+    list-style-type: none;
+}
+.rating_star_container {
+    padding: 20px 0px 20px 0px;
+}
+
+.rating_star_container .star_rating {
+    display: inline-block;
+}
+
+.star_rating {
+    background: url(/assets/images/rating.png);
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.rated {
+    background-position: 20px -20px;
+    z-index: 2;
+}
+
+// rating
+.fr_question {
+    margin: 0px 0px 10px 0px;
+}
+
+.fr_question label {
+    color: #909aa4;
+    font-size: 14px;
+}
+
+.fr_answer p {
+    color: #232b37;
+    font-size: 14px;
+    padding: 10px 0px 10px 0px;
+}

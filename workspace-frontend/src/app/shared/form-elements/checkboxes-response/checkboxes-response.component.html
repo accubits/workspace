@@ -1,0 +1,14 @@
+<div class="fp_checkboxes_wrap">
+  <h6>{{checkBoxElement.checkboxes.label}}</h6>
+  <div class="checkbox" *ngFor="let choice of checkBoxElement.checkboxes.choices">
+    <label>
+      <div class="check_outer">
+        <input type="checkbox" id="1_in" name="" disabled id="" [(ngModel)]="choice.selected" > 
+        <div class="check" for="1_in"></div>
+      </div>
+     {{choice.label}}
+      <!-- <span>12 remaining</span> -->
+    </label>
+  </div>
+ 
+</div>

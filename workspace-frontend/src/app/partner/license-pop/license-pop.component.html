@@ -1,0 +1,72 @@
+<!--popup starts-->
+<div class="modalOuter" (click)="closeOrgDetails()"></div>
+  <div class="form_submit_wrap" >
+    <div  class="form_submit_modal">
+      <div class="headerOuter"> 
+        <div class="fs_header">
+            <h4>LICENSE DETAILS</h4> 
+        </div>
+        <div class="pop_close" (click)="closeOrgDetails()"></div>
+      </div>
+      <div class="nav_wrap">
+        <div class="tableDetailOuter">
+            <div class="tableDetail">
+              <h4>ORGANISATION</h4>
+            </div>
+            <div class="tableContent">
+               {{partnerDataService.selectedOrganisationDetails.name}}
+            </div>
+          </div>
+          <div class="tableDetailBottom">
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>USERS</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedOrganisationDetails.licenseUserCount}}
+
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>TYPE</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedOrganisationDetails.licenseType}}
+
+              </div>
+            </div>
+          </div>
+          <div class="tableDetailOuter">
+              <div class="tableDetail">
+                <h4>KEY</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedOrganisationDetails.licenseKey}}
+              </div>
+          </div>
+          <div class="tableDetailBottom">
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail"> 
+                <h4>STARTED ON</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedOrganisationDetails.licenseStartDate *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>EXPIRES ON</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedOrganisationDetails.licenseExpiryDate *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+              </div>
+            </div>
+          </div>
+          <div class="fs_footer">
+              <button class="fs_footer_next" (click)="renewLicenseRequests()">Renew</button>
+          </div>
+      </div>
+    </div>
+  </div>
+<!--popup ends-->

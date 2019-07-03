@@ -1,0 +1,116 @@
+<div class="elements_wrap number_wrap" (click)="activateElement()" id="{{currentElementIndex}}">
+  <div class="element_pad">
+    <div class="elements_head">
+      <div class="ele_icon ele_icon_number">
+      </div>
+      <h4>Number</h4>
+    </div>
+    <div class="element_body active_element" [dndDragDisabled]='dataService.formElements.focusSelect' [dndDraggable]="{effectAllowed:'move'}" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+      <div class="element_input">
+        <input #focus (focus)="dataService.formElements.focusSelect=true" (blur)= "dataService.formElements.focusSelect=false" type="text" class="" [attr.name]="'number' + currentElementIndex"  [(ngModel)]="numberElement.number.label"   placeholder="Enter the title" (ngModelChange)="validateElement()"><!--dndNoDrag-->
+        <p class="error" *ngIf="!numberElement.isValidated && dataService.formValidation.validating">Required Field</p>
+      </div>
+      <div class="element_line_input"> 
+        <input [disabled]="true"  type="text" class="" name="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127">
+      </div>
+      <div class="ele_icon drag_outer">
+      </div>
+      <div class="module tablet-12 laptop-12 desktop-12">
+      </div>
+      <div class="clear"></div>
+      <div class="module tablet-12 laptop-12 desktop-12">
+        <div class="mod_disp_blk">
+          <div class="element_input element_input_out max_input" [hidden]="!showRange">
+            <span>Min range :</span>
+            <input type="text" class="" (focus)="dataService.formElements.focusSelect=true" (blur)= "dataService.formElements.focusSelect=false" autocomplete="off" name="text" placeholder="Leave it blank if no limit" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" [(ngModel)]="numberElement.number.minRange">
+          </div>
+        </div>
+        <div class="mod_disp_blk">
+          <div class="element_input element_input_out min_input" [hidden]="!showRange">
+            <span>Max range :</span>
+            <input type="text" class="" autocomplete="off" name="text" placeholder="Leave it blank if no limit"  (focus)="dataService.formElements.focusSelect=true" (blur)= "dataService.formElements.focusSelect=false"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" [(ngModel)]="numberElement.number.maxRange">
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="element_body inactive_element" [ngClass]="{'active_element':dataService.formElementToggle.activeIndex === currentElementIndex}" >
+      <div class="p_label">
+        <label>{{numberElement.number.label || 'Enter the title'}}</label>
+      </div>
+      <div class="element_line_input">
+        <input [disabled]="true" type="number" class="" name="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127">
+      </div>
+      <div class="ele_icon drag_outer">
+      </div>
+      <div class="module tablet-12 laptop-12 desktop-12">
+      </div>
+    </div>
+    <div class="element_footer active_element" [ngClass]="{'element_display_block':dataService.formElementToggle.activeIndex === currentElementIndex}">
+      <ul class="efleft">
+        <li>
+          <div class="checkbox tabable">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="numberElement.number.isRequired"><!--(keyup) ="onKey($event)" [ngClass]="{'active': isInput}"-->
+                <div class="check" for="1_in"></div>
+              </div>
+              Required
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox tabable">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="numberElement.number.noDuplicate"><!--(keyup) ="onKey($event)" [ngClass]="{'active': isInput}"-->
+                <div class="check" for="1_in"></div>
+              </div>
+              No duplicate
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox tabable">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="showRange">
+                <div class="check" for="1_in"></div>
+              </div>
+              Range
+            </label>
+          </div>
+        </li>
+      </ul>
+      <ul class="efright">
+        <li class="tabable">
+          <button (click)="deleteElement()">Delete</button><!--(keyup) ="onKey($event)" [ngClass]="{'active': isInput}"-->
+        </li>
+        <li class="tabable">
+          <button (click)="dulpicateElement()">Duplicate</button><!--(keyup) ="onKey($event)" [ngClass]="{'active': isInput}"-->
+        </li>
+      </ul>
+    </div>
+  </div>
+<!-- Delete popup start-->
+  <div *ngIf = "dataService.deletePopup[idx]" class="confirm_popup" >
+    <div class="confirm_pop_body">
+      <section>
+        <div class="close_drop" (click)="closePopup()">
+        </div>
+        <p class="pop_main">Are you sure you want to delete the selected element?</p>
+      </section>
+      <section>
+        <div class="confirm_pop_btn" (click)="deleteConform()">
+          Confirm
+        </div>
+        <div class="confirm_pop_btn" (click)="closePopup()">
+          Cancel
+        </div>
+      </section>
+    </div>
+  </div>
+<!-- Delete popup end-->
+</div>
+
+<!-- <app-delete-confirm-popup *ngIf = "dataService.deletePopup[dataService.deleteCurrentElementIndex]"></app-delete-confirm-popup> -->

@@ -1,0 +1,47 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title ph3inline">LICENSE</h3>
+        <div class="panel-right-holder pbtnsinline">
+            <button class="pbtnfilter" (click)="partnerDataService.showCreateLicensepopup.show = true">New</button>
+        </div>
+      </div>
+      <app-license-header></app-license-header> 
+      <app-create-license *ngIf="partnerDataService.showCreateLicensepopup.show"></app-create-license>
+  </div>
+
+  <router-outlet></router-outlet>
+
+   <!--bottom popup starts-->
+   <div class="bottom_tab_wrap" *ngIf="partnerDataService.selectedLicenseDetails.selectedLicenseIds.length > 0">
+    <div class="bottom_tab">
+        <div class="btm_left_block"> 
+            <label>
+                <div class="check_outer">
+                    <input name="" type="checkbox">
+                    <div class="check" for="1_in"></div>  
+                </div>
+            </label>
+            <div class="num_tag">
+                {{partnerDataService.selectedLicenseDetails.selectedLicenseIds.length}}
+            </div>
+            <span>Selected</span>
+        </div>
+      
+        <div class="btm_right_block">
+            <div class="bottom_right_btns">
+               
+                <!-- <div class="btm_btn_ico edt_btn">
+                </div> -->
+                <div class="btm_btn_ico del_btn">
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+  </div>
+  <!--bottom popup ends-->
+</div>
+
+<app-delete-confirm *ngIf="this.partnerDataService.cancelRequestPop.showPopup"></app-delete-confirm> 
+<app-renew-pop *ngIf="partnerDataService.renewRequestPopup.show"></app-renew-pop>

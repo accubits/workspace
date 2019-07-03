@@ -1,0 +1,18 @@
+<div class="nav_wrap">
+  <ul>
+      <li [ngClass]="{'active': viewContent === 'dashboard'}" (click)="viewContent = 'dashboard'">Dashboard Settings</li>
+      <li [ngClass]="{'active': viewContent === 'profile'}" (click)="viewContent = 'profile'">Profile</li>
+      <!-- <li [ngClass]="{'active': viewContent === 'factor'}" (click)="viewContent = 'factor'">2 Factor Authentication
+        <label>Disabled</label>
+      </li> -->
+  </ul>
+  <div class="settingsContent" *ngIf="viewContent === 'profile'">
+    <app-profile></app-profile>
+  </div>
+  <div class="settingsContent" *ngIf="viewContent === 'factor'">
+    <app-two-factor></app-two-factor>
+  </div>
+   <div class="settingsContent" *ngIf="viewContent === 'dashboard'">
+  <app-dashboard-settings></app-dashboard-settings>
+</div>
+</div>

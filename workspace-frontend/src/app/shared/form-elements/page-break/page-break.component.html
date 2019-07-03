@@ -1,0 +1,68 @@
+<div class="elements_wrap pagebreak_wrap" (click)="activateElement()">
+	<div class="element_pad">
+		<div class="elements_head">
+			<div class="ele_icon ele_icon_pagebreak">
+			</div>
+			<h4>Page </h4>
+		</div>
+		<div class="element_body active_element" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+			<div class="module tablet-12 laptop-12 desktop-12 form_preview_indicator_container">
+				<span class="form_preview_indicator">Page {{currentElement['pagination']['currentPage']}} / {{dataService.formPages.total}}</span>
+			</div>
+			<div class="clear"></div>
+			<div class="module tablet-12 laptop-12 desktop-12 pgebreknextbtnholder">
+				<!-- <div class="pagebreak_next_btn">
+					<button>Next Page</button>
+				</div> -->
+				<!-- <div class="pagebreak_input">
+					<input type="text" class="" name="text" placeholder="Next Page" dndNoDrag [(ngModel)]="pageElement.page.description" >
+				</div> -->
+			</div>
+			<div class="clear"></div>
+			<div class="ele_icon drag_outer">
+			</div>
+		</div>
+		<div class="element_body inactive_element" [ngClass]="{'active_element': dataService.formElementToggle.activeIndex === currentElementIndex}">
+			<div class="module tablet-12 laptop-12 desktop-12 form_preview_indicator_container">
+				<span class="form_preview_indicator">Page {{currentElement['pagination']['currentPage']}} / {{dataService.formPages.total}}</span>
+			</div>
+			<div class="clear"></div>
+			<div class="module tablet-12 laptop-12 desktop-12 pgebreknextbtnholder">
+				<!-- <div class="pagebreak_next_btn">
+					<button>Next Page</button>
+				</div> -->
+			</div>
+			<div class="clear"></div>
+			<div class="ele_icon drag_outer">
+			</div>
+		</div>
+		<div class="element_footer active_element" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+			<ul class="efright">
+				<li>
+					<button (click)="deleteElement()">Delete</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Delete popup start-->
+	<div *ngIf = "dataService.deletePopup[idx]" class="confirm_popup" >
+		<div class="confirm_pop_body">
+		  <section>
+			<div class="close_drop" (click)="closePopup()">
+			</div>
+			<p class="pop_main">Are you sure you want to delete the selected element?</p>
+		  </section>
+		  <section>
+			<div class="confirm_pop_btn" (click)="deleteConform()">
+			  Confirm
+			</div>
+			<div class="confirm_pop_btn" (click)="closePopup()">
+			  Cancel
+			</div>
+		  </section>
+		</div>
+	  </div>
+	<!-- Delete popup end-->
+</div>
+
+<!-- <app-delete-confirm-popup *ngIf = "dataService.deletePopup.show"></app-delete-confirm-popup> -->

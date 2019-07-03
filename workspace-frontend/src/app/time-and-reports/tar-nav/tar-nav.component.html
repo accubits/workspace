@@ -1,0 +1,86 @@
+<div class="nav_wrap">
+  <ul>
+    <a routerLink="./absence" routerLinkActive="active_tab">
+      <li (click)="activeView = 'abscenceView'">Absence Chart</li>
+    </a>
+    <a routerLink="./worktime" routerLinkActive="active_tab">
+      <li (click)="activeView = 'wtimeInfo'">Worktime</li>
+    </a>
+    <a routerLink="./workreport" routerLinkActive="active_tab">
+      <li (click)="activeView = 'workreportView'">Work Report</li>
+    </a>
+  </ul>
+  <div class="tar_nav_right_holder">
+    <div class="wtime_info_wrap" *ngIf="activeView === 'wtimeInfo'">
+      <div class="wtime_info" (click)="wtInfo = !wtInfo">
+        <img [src]="assetUrl+'assets/images/tar/wt_info.png'" />
+        <!-- Work Time Info Modal -->
+        <div class="worktimeInfoModal" *ngIf="wtInfo">
+          <div class="wrinfoHeader">
+            <h4>Legend</h4>
+            <a class="wtinfo_close" (click)="wrInfo = false">×</a>
+          </div>
+          <div class="wrinfoBody">
+            <div class="wrinfoBsection">
+              <p>
+                <img class="greenCheck" [src]="assetUrl+'assets/images/tar/green_check.png'" /> Confirmed Reports</p>
+              <p>
+                <img class="exclamation" [src]="assetUrl+'assets/images/tar/exclamation.png'" /> Unconfirmed Reports</p>
+              <p>
+                <img class="star" [src]="assetUrl+'assets/images/tar/star.png'" /> Head of Departments</p>
+            </div>
+          </div>
+          <div class="wrinfoFooter">
+          </div>
+        </div>
+        <!-- Work Time Info Modal -->
+      </div>
+    </div>
+    <div class="day_page_holder">
+      <button>
+        <img [src]="assetUrl+'assets/images/tar/prev.png'" />
+      </button>
+      <p class="day_info">Friday, 6 July 2018</p>
+      <button>
+        <img [src]="assetUrl+'assets/images/tar/next.png'" />
+      </button>
+    </div>
+    <div class="today">
+      <button>Today</button>
+    </div>
+    <div class="view_drop" *ngIf="activeView === 'abscenceView'">
+      <div class="drop_dropdown_wrap drop_icon_input">
+        <div class="tar_nav_input abscenceViewinput" (click)="abView = !abView">
+          <span>Month</span>
+        </div>
+        <div class="drop_drop_pop commonn_popup" *ngIf="abView">
+          <section (click)="tarDataservice.abMonth.show = !tarDataservice.abMonth.show">
+            Month
+          </section>
+          <!-- <section (click)="tarDataservice.abWeek.show = !tarDataservice.abWeek.show">
+            Week
+          </section> -->
+          <section (click)="tarDataservice.abDay.show = !tarDataservice.abDay.show">
+            Day
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="view_drop" *ngIf="activeView === 'workreportView'">
+      <div class="drop_dropdown_wrap drop_icon_input">
+        <input type="text" class="tar_nav_input" name="text" placeholder="Year" (click)="wrView = !wrView">
+        <div class="drop_drop_pop commonn_popup" *ngIf="wrView">
+          <section (click)="tarDataservice.wrYear.show = !tarDataservice.wrYear.show">
+            Year
+          </section>
+          <section (click)="tarDataservice.wrMonth.show = !tarDataservice.wrMonth.show">
+            Month
+          </section>
+          <!-- <section (click)="tarDataservice.wrWeek.show = !tarDataservice.wrWeek.show">
+            Week
+          </section> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

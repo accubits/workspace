@@ -1,0 +1,42 @@
+<div class="form_submit_wrap">
+  <div  class="form_submit_modal">
+    <div class="acc_drop_content acc_up_option">
+      <div class="contentOuter">
+        <div class = "workContent">
+          <div class="workHead">WORK HOURS TODAY</div>
+          <div class="workTiming">{{currentDate| date: 'MMM dd, yyyy, hh:mm a'}}/ WORKING HOURS : 9AM - 6PM</div>
+        </div>
+        <p class="workTime" *ngIf="clockDataService.clockStatus.currentStatusName">{{clockDataService.clockTimer.hours}} : {{clockDataService.clockTimer.minutes}} <span class="timeHour">H</span><span class="timeSecond">{{clockDataService.clockTimer.seconds}}</span><span class="second">S</span></p>
+       
+        <div class="workOuter">
+          <div class="pause">
+            <div class="pauseBackground" (click)="doClockOutorPause('pause')">
+              <div class="imgCover"></div>
+              <h3>PAUSE<br>WORKING</h3>
+            </div>
+          </div>
+          <div class="pause clock">
+            <div class="pauseBackground" (click)="doClockOutorPause('clockOut')">
+              <div class="imgCover"></div>
+              <h3>CLOCK<br>OUT</h3>
+            </div>
+          </div>
+          <div class="pause editWork">
+            <div class="pauseBackground" (click)="editWorkHours()">
+              <div class="imgCover"></div>
+              <h3>EDIT<br>WORKTIME</h3>
+            </div>
+          </div>
+        </div>
+        <div class="textareaReflection">
+          <textarea rows="8" cols="58" placeholder="Reflection and Achievements for the Day" [(ngModel)]="clockDataService.clockInput.note" ></textarea>
+        </div>
+        <div class="buttonOuter">
+          <!-- <button  (click)="showReport()">Send Report</button> -->
+          <button *ngIf="clockDataService.clockStatus.isWorkReportPrompt" (click)="showReport()">Send Report</button>
+          <!-- <button>View Daily Report</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

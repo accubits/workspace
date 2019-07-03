@@ -1,0 +1,12 @@
+<div class="star_rating_wrap">
+  <label>{{ratingElement.rating.label}}<span *ngIf = "data.rating.isRequired" class="error">*</span></label>
+  <div class="element_input rating_star_container">
+    <div class="star_rating" [ngClass]="{'rated':rating >= 1}" (click)="setRating(1)"></div>
+    <div class="star_rating" [ngClass]="{'rated':rating >= 2}" (click)="setRating(2)" ></div>
+    <div class="star_rating" [ngClass]="{'rated':rating >= 3}" (click)="setRating(3)"></div>
+    <div class="star_rating" [ngClass]="{'rated':rating >= 4}" (click)="setRating(4)"></div>
+    <div class="star_rating" [ngClass]="{'rated':rating >= 5}" (click)="setRating(5)"></div>
+  </div>
+  <p class="error" *ngIf="!ratingElement.isValidated && dataService.formValidation.validating">Required Field</p>
+  <div class="reset" (click)="resetRating()">Reset</div>
+</div>

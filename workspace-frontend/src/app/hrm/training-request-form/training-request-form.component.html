@@ -1,0 +1,86 @@
+<div class="overlaypop" (click)="hideTrainReqForm()"></div>
+<div class="requestPopup">
+  <div class="requestPopup-header">
+    <h4>Training Request</h4>
+    <div class="pop_close" (click)="hideTrainReqForm()"></div>
+  </div>
+  <div class="requestPopup-wrap">
+    <div class="leave-pop_expan_wrap request-wrap">
+      <span class="input-title request">Request to:</span>
+      <div *ngIf="hrmDataService.reportingManagerDetails !== null" class="selected_tag">
+        <span class="input-title"> {{hrmDataService.reportingManagerDetails.reportingManagerName}}
+        </span>
+      </div>
+    </div>
+
+    <div class="start-date">
+      <span class="input-title">Training starts on:</span>
+      <input type="text" [owlDateTime]="dt1" [min]="todayDate" readonly [owlDateTimeTrigger]="dt1"
+        [(ngModel)]="hrmDataService.createTrainingRequest.startsOn">
+      <owl-date-time #dt1 [hour12Timer]="true"></owl-date-time>
+      <p class="error"
+        *ngIf="!hrmDataService.selectedElement.isValidated && !hrmDataService.createTrainingRequest.startsOn">Required
+        Field</p>
+      <div class="close_drop" (click)="closeStartDate()"></div>
+    </div>
+    <div class="end-date">
+      Training ends on:
+      <input type="text" placeholder="" [owlDateTime]="dt2" readonly [min]="todayDate" [owlDateTimeTrigger]="dt2"
+        [(ngModel)]="hrmDataService.createTrainingRequest.endsOn">
+      <owl-date-time #dt2 [hour12Timer]="true"></owl-date-time>
+      <div class="close_drop" (click)="closeEndDate()"></div>
+      <p class="error"
+        *ngIf="!hrmDataService.selectedElement.isValidated && !hrmDataService.createTrainingRequest.endsOn">Required
+        Field</p>
+    </div>
+    <div class="leave-pop_expan_wrap reason-wrap">
+      <span class="input-title request">Training Name:</span>
+      <input type="text" placeholder=""
+        [(ngModel)]="hrmDataService.createTrainingRequest.name">
+      <p class="error"
+        *ngIf="!hrmDataService.selectedElement.isValidated && !hrmDataService.createTrainingRequest.name">Required Field
+      </p>
+     </div>
+    <div class="text-area-wrap end-date">
+      <span>Reason :</span>
+      <textarea class="reason" name="" value="" rows=5 placeholder=""
+        [(ngModel)]="hrmDataService.createTrainingRequest.details"></textarea>
+      <p class="error"
+        *ngIf="!hrmDataService.selectedElement.isValidated && !hrmDataService.createTrainingRequest.details">Required
+        Field</p>
+    </div>
+    <div class="end-date">
+      <span>Cost :</span>
+      <input type="text" placeholder=""
+        onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 0 ||event.charCode == 127"
+        [(ngModel)]="hrmDataService.createTrainingRequest.cost" >
+      <p class="error"
+        *ngIf="!hrmDataService.selectedElement.isValidated && !hrmDataService.createTrainingRequest.cost">Required Field
+        
+      </p>
+      <p class="error"
+      *ngIf="!hrmDataService.selectedElement.isValidated && hrmDataService.createTrainingRequest.cost === '0'">Invalid Value
+      
+    </p>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="hrmDataService.reportingManagerDetails === null" class="request-pop">
+    <h4>Warning</h4>
+    <div class="pop-inner">
+      <p>Employee not assiegned to reporting manager, pleace contact admin</p>
+    </div>
+    <div class="pop-footer">
+      <div class="pbtncreate" (click)="closePop()">Continue</div>
+     </div>
+  </div>
+
+  <div class="requestpopup-footer">
+    <button class="pbtncreate" *ngIf="hrmDataService.createTrainingRequest.action === 'create'"
+      (click)="createTrainingRequest()">Create</button>
+    <button class="pbtncreate" *ngIf="hrmDataService.createTrainingRequest.action === 'update'"
+      (click)="editTrainingRequest()">Update</button>
+    <button class="req-cancel" (click)="hideTrainReqForm()">Cancel</button>
+  </div>

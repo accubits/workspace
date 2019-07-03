@@ -1,0 +1,8 @@
+<div class="fp_input">
+  <label>{{phoneElement.phone.label}}<span *ngIf = "data.phone.isRequired" class="error">*</span></label>
+  <input type="text" class="" name="text" placeholder="Number" [(ngModel)]="phoneSubmit.phone.answer" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" (ngModelChange)="validateElement()">
+  <p class="error" *ngIf="!phoneElement.isValidated && dataService.formValidation.validating && !phoneSubmit.phone.answer">Required Field</p>
+  <p class="error" *ngIf="phoneElement.isValidated && phoneSubmit.phone.answer && !phoneElement.isValidFormat">Invalid phone</p>
+</div>
+
+

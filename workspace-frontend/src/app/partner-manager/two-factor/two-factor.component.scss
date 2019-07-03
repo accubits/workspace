@@ -1,0 +1,146 @@
+.two_factor_wrap {}
+
+.two_factor_content {
+    padding: 30px 30px 60px 30px;
+}
+
+.two_factor_content_row {
+    margin-bottom: 20px;
+    padding: 0px 30px 0px 30px;
+}
+@media (max-width : 1366px){
+    .two_factor_wrap .two_factor_footer {
+        // position: fixed;
+        padding-left: 30px;
+        height: 60px;
+        line-height: 60px;
+        z-index: 1;
+        width: calc(100% - 0px) !important;
+        left: 235px !important;
+        bottom: 0px;
+        background-color: #fff;
+        -webkit-box-shadow: 0px -5px 31px -9px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px -5px 31px -9px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px -5px 31px -9px rgba(0, 0, 0, 0.3);
+    }
+}
+.two_factor_footer {
+    // position: fixed;
+    padding-left: 30px;
+    height: 60px;
+    line-height: 60px;
+    width: calc(100% - 305px) !important;
+    left: 285px !important;
+    bottom: 0px;
+    background-color: #fff;
+    -webkit-box-shadow: 0px -5px 31px -9px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px -5px 31px -9px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px -5px 31px -9px rgba(0, 0, 0, 0.3);
+}
+
+.edit_button button {
+    line-height: 30px;
+    height: 30px;
+    min-width: 100px;
+    background-color: #ff2e4c;
+    color: #fff;
+    border: 0px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.two_factor_input_holder {
+    display: -ms-flexbox;
+    display: flex;
+    width: 40%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    background-color: #f2f2f2;
+    height: 50px;
+    line-height: 50px;
+}
+
+.two_factor_input_holder .two_factor_input_field {
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+}
+
+.two_factor_content_row .b4turning {
+    margin-top: 30px;
+}
+
+.b4turning p {
+    color: #3d4d5f;
+    font-size: 13px;
+    font-family: Roboto-regular;
+}
+
+.b4turning p img {
+    height: 16px;
+    width: 16px;
+    margin-right: 10px;
+}
+
+.qr_wrap {
+    display: flex;
+}
+
+.qr_image img {
+    height: 80px;
+    width: 80px;
+}
+
+.qr_desc {
+    color: #3d4d5f;
+    width: 40%;
+    font-size: 13px;
+    font-family: Roboto-regular;
+    padding: 20px 0px 0px 20px;
+    text-align: left;
+    line-height: 17px;
+}
+
+.two_factor_content_row .checkbox label {
+    color: #3d4d5f;
+    font-size: 13px;
+    font-family: Roboto-regular;
+}
+
+// .two_factor_content_row.checkboxxxx {
+//     padding: 30px 30px 60px 30px;
+// }
+.digital_key {
+    background-color: #f6f6f6;
+    color: #77828c;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 30px;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.digital_key span {
+    color: #1359ff;
+    font-family: roboto-medium;
+    padding-left: 10px;
+}
+
+.two_factor_wrap {
+    position: relative;
+}
+
+.check_outer {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    z-index: 1;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 10px;
+}

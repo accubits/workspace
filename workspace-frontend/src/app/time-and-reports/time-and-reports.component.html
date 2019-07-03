@@ -1,0 +1,590 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title ph3inline">TIME AND REPORTS</h3>
+    <div class="panel-right-holder pbtnsinline">
+      <button class="pbtnfilter" (click)="tarFilter = !tarFilter">
+        <img src="http://localhost:4200/assets/images/filter.png"> Filter</button>
+      <div class="tarFilter" *ngIf="tarFilter">
+        <div class="tarFilter_header">
+          <h4>Filter</h4>
+          <a class="wtinfo_close" (click)="tarFilter = false">×</a>
+        </div>
+        <div class="tarFilter_body">
+          <div class="tarFilter_section">
+            <div class="tarFilter_section_flex">
+              <div class="tarFilter_section_flex_start">
+
+                <div class="tarfilter_reason">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" />
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <p>
+                    <span class="rec_pink"></span>Sick Leave</p>
+                </div>
+                <div class="tarfilter_reason">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" />
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <p>
+                    <span class="rec_blue"></span>Maternity Leave</p>
+                </div>
+                <div class="tarfilter_reason">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" />
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <p>
+                    <span class="rec_green"></span>Annual Leave</p>
+                </div>
+                <div class="tarfilter_reason">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" />
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <p>
+                    <span class="rec_yellow"></span>Business Trip</p>
+                </div>
+                <div class="tarfilter_reason">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" />
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <p>
+                    <span class="rec_red"></span>Absent without reason or official leave</p>
+                </div>
+                <div class="tarfilter_reason">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" />
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <p>
+                    <span class="rec_violet"></span>Other</p>
+                </div>
+                <div class="tarfilter_reason">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" />
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <p>
+                    <span class="rec_aqua"></span>Unpaid Leave</p>
+                </div>
+                <div class="tarfilter_reason">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" />
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  <p>
+                    <span class="rec_grey"></span>Personal Calendars</p>
+                </div>
+              </div>
+              <div class="tarFilter_section_flex_start">
+                <div class="tarFilter_department">
+                  <label>Deparment</label>
+                  <div class="drop_dropdown_wrap drop_icon_input">
+                    <input type="text" class="reason_add_tag_input" name="text" placeholder="CEO" (click)="deparment = !deparment">
+                    <div class="drop_drop_pop commonn_popup" *ngIf="deparment">
+                      <section>
+                        COO
+                      </section>
+                      <section>
+                        CDO
+                      </section>
+                      <section>
+                        CTO
+                      </section>
+                      <section>
+                        CMO
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="tarFilter_footer">
+
+        </div>
+      </div>
+      <button class="pbtncreate" (click)="tarNew = !tarNew">New</button>
+    </div>
+  </div>
+  <div class="tar_wrap">
+    <app-tar-wrap></app-tar-wrap>
+    <div class="tarNew" *ngIf="tarNew">
+      <div class="tarNew_header">
+        <h4>Add New Abscence</h4>
+        <a class="tarNew_close" (click)="tarNew = false">×</a>
+      </div>
+      <div class="tarNew_body">
+        <perfect-scrollbar>
+          <div class="tarNew_section">
+            <div class="tarThreefourth">
+              
+              <div class="tarNew_section_flex">
+                <div class="tarNew_input abscentPerson">
+                  <span class="tarNew_input_label">Abscent Person:</span>
+                  <div class="tarNewtag">Josh Brolin
+                    <div class="tarNewtag_close">x</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tarNew_section_flex">
+                <input type="text" class="tarNew_input startsOn">
+                <span class="tarNew_input_label">Starts On:</span>
+              </div>
+              <div class="tarNew_section_flex">
+                <input type="text" class="tarNew_input endsOn">
+                <span class="tarNew_input_label">Ends On:</span>
+              </div>
+            </div>
+            <div class="tarNew_section_flex">
+              <input type="text" class="tarNew_input">
+              <span class="tarNew_input_label">Type of Abscence:</span>
+            </div>
+            <div class="tarNew_section_flex">
+              <input type="text" class="tarNew_input">
+              <span class="tarNew_input_label">Reason:</span>
+            </div>
+          </div>
+        </perfect-scrollbar>
+      </div>
+      <div class="tarNew_footer">
+        <button class="create">Create</button>
+        <button class="cancel" (click)="tarNew = false">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily Report Unconfirmed -->
+  <!-- <div class="daily_report_unconfirmed">
+    <div class="dr_header">
+      <div class="dr_headleft">
+        <h4>Daily Report</h4>
+        <p>
+          <img class="dr_exclamation" [src]="assetUrl+'assets/images/tar/exclamation.png'" />Unconfirmed</p>
+      </div>
+      <div class="dr_headright">
+        <button class="dr_edit">Edit</button>
+      </div>
+      <a class="close">×</a>
+    </div>
+    <div class="dr_body">
+      <div class="dr_section">
+        <p class="tar_label_head">Date</p>
+        <h4 class="date_detail">18 June 2018</h4>
+      </div>
+      <div class="dr_section">
+        <div class="lf_flex_space_btw">
+          <div class="dr_sectionLeft">
+            <p class="tar_label_head">Report From</p>
+            <div class="dr_report_from">
+              <p>
+                <img class="" [src]="assetUrl+'assets/images/tar/user1.png'" />Stella Little</p>
+            </div>
+          </div>
+          <div class="dr_sectionRight">
+            <p class="tar_label_head">To</p>
+            <div class="dr_report_to">
+              <p>
+                <img class="" [src]="assetUrl+'assets/images/tar/user2.png'" />Peter Palmer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dr_section">
+        <p class="tar_label_head">Worktime</p>
+      </div>
+      <div class="dr_time_row">
+        <p class="dr_time_row_label">Duration:</p>
+        <p class="dr_time_row_data">
+          08
+          <span>H</span>30
+          <span>M</span>
+        </p>
+      </div>
+      <div class="dr_time_row">
+        <p class="dr_time_row_label">Started on:</p>
+        <p class="dr_time_row_data">10:30 am</p>
+        <div class="dr_time_change">
+          <p class="dr_t_c_label">
+            <img class="" [src]="assetUrl+'assets/images/tar/exclamation.png'" />Changed from 11 :30am
+          </p>
+          <p class="dr_t_c_label">Reason:
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+          </p>
+        </div>
+
+      </div>
+      <div class="dr_time_row">
+        <p class="dr_time_row_label">Ended on:</p>
+        <p class="dr_time_row_data"> 08:30 pm</p>
+      </div>
+    </div>
+    <div class="dr_footer">
+      <button class="dr_foot_btn">Confirm Report</button>
+    </div>
+  </div> -->
+  <!-- Daily Report Unconfirmed -->
+
+  <!-- Daily Report Confirmed -->
+  <!-- <div class="daily_report_confirmed">
+    <div class="dr_header">
+      <div class="dr_headleft">
+        <h4>Daily Report</h4>
+        <p class="drc_confirmed">
+          <img class="dr_green_tick" [src]="assetUrl+'assets/images/tar/green_check.png'" />Confirmed</p>
+      </div>
+      <div class="dr_headright">
+        <button class="dr_edit">Edit</button>
+      </div>
+      <a class="close">×</a>
+    </div>
+    <div class="dr_body">
+      <div class="dr_section">
+        <p class="tar_label_head">Date</p>
+        <h4 class="date_detail">18 June 2018</h4>
+      </div>
+      <div class="dr_section">
+        <div class="lf_flex_space_btw">
+          <div class="dr_sectionLeft">
+            <p class="tar_label_head">Report From</p>
+            <div class="dr_report_from">
+              <p>
+                <img class="" [src]="assetUrl+'assets/images/tar/user1.png'" />Stella Little</p>
+            </div>
+          </div>
+          <div class="dr_sectionRight">
+            <p class="tar_label_head">To</p>
+            <div class="dr_report_to">
+              <p>
+                <img class="" [src]="assetUrl+'assets/images/tar/user2.png'" />Peter Palmer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dr_section">
+        <p class="tar_label_head">Worktime</p>
+      </div>
+      <div class="dr_time_row">
+        <p class="dr_time_row_label">Duration:</p>
+        <p class="dr_time_row_data">
+          08
+          <span>H</span>30
+          <span>M</span>
+        </p>
+      </div>
+      <div class="dr_time_row">
+        <p class="dr_time_row_label">Started on:</p>
+        <p class="dr_time_row_data">10:30 am</p>
+        <div class="dr_time_change">
+          <p class="dr_t_c_label">
+            <img class="dr_t_c_l_green_check" [src]="assetUrl+'assets/images/tar/green_check.png'" />Changed from 11 :30am
+          </p>
+          <p class="dr_t_c_label">Reason:
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+          </p>
+        </div>
+
+      </div>
+      <div class="dr_time_row">
+        <p class="dr_time_row_label">Ended on:</p>
+        <p class="dr_time_row_data"> 08:30 pm</p>
+      </div>
+    </div>
+    <div class="drc_footer">
+      <p class="tar_label_head">Report</p>
+      <p class="foo_report">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </div> -->
+  <!-- Daily Report Confirmed -->
+
+
+  <!-- Work Report Excellence -->
+  <!-- <div class="work_report_excellence">
+    <div class="dr_header">
+      <div class="dr_headleft">
+        <h4>Work Report</h4>
+        <p class="wre_excellence">Excellence</p>
+      </div>
+      <div class="dr_headright">
+        <button class="dr_edit">Edit</button>
+      </div>
+      <a class="close">×</a>
+    </div>
+    <div class="dr_body">
+      <div class="dr_section">
+        <p class="tar_label_head">Date</p>
+        <h4 class="date_detail">01 May - 31 May 2018</h4>
+      </div>
+      <div class="dr_section">
+        <div class="lf_flex_space_btw">
+          <div class="dr_sectionLeft">
+            <p class="tar_label_head">Report From</p>
+            <div class="dr_report_from">
+              <p>
+                <img class="" [src]="assetUrl+'assets/images/tar/user1.png'" />Stella Little</p>
+            </div>
+          </div>
+          <div class="dr_sectionMiddle">
+            <p class="tar_label_head">To</p>
+            <div class="dr_report_to">
+              <p>
+                <img class="" [src]="assetUrl+'assets/images/tar/user2.png'" />Peter Palmer</p>
+            </div>
+          </div>
+          <div class="dr_sectionRight">
+            <p class="tar_label_head">Score
+              <button class="wre_change">Change</button>
+            </p>
+            <div class="dr_report_from ex_byon">
+              <p class="excel_p">
+                <img class="star" [src]="assetUrl+'assets/images/tar/star.png'" />Excellence</p>
+              <div class="exel_by">
+                <p>
+                  <span>by:</span>
+                  <img class="" [src]="assetUrl+'assets/images/tar/user2.png'" />Peter Palmer</p>
+                <p>
+                  <span>on: 02 June 2017 | 02:30 pm</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dr_section">
+        <p class="tar_label_head">Worktime</p>
+        <p class="worktime_p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at aliquet neque. Praesent a rutrum arcu. Curabitur
+          posuere luctus congue. Fusce sagittis magna at dui finibus, a sollicitudin erat tincidunt.</p>
+      </div>
+      <div class="wr_section_bottom">
+        <div class="wr_sec_flex">
+          <div class="wr_half_left">
+            <div class="head_underline">
+              <h4>Task</h4>
+            </div>
+            <div class="wr_half_body">
+              <ul>
+                <li>
+                  <p>
+                    <span>1.</span>Create work estimation for the Client</p>
+                </li>
+                <li>
+                  <p>
+                    <span>2.</span>Lorem ipsum dolor sit amet, consectetur</p>
+                </li>
+                <li>
+                  <p>
+                    <span>3.</span>Meet with the new Team Members</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="wr_half_right">
+            <div class="head_underline">
+              <h4>Event</h4>
+            </div>
+            <div class="wr_half_body_event">
+              <ul>
+                <li>
+                  <p class="event_title">
+                    <span>1.</span>Lorem ipsum dolor sit amet, consectetur</p>
+                  <p class="event_dtp">Jun 27 - Jun 28 | 10 am - 02 pm | New York, USA</p>
+                </li>
+                <li>
+                  <p class="event_title">
+                    <span>2.</span>Lorem ipsum dolor sit amet, consectetur</p>
+                  <p class="event_dtp">Jun 27 - Jun 28 | 10 am - 02 pm | New York, USA</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- Work Report Excellence -->
+
+  <!-- Work Report Unconfirmed -->
+  <!-- <div class="work_report_unconfirmed">
+    <div class="dr_header">
+      <div class="dr_headleft">
+        <h4>Work Report</h4>
+        <p class="wre_excellence">Unconfirmed</p>
+      </div>
+      <div class="dr_headright">
+        <button class="dr_edit">Edit</button>
+      </div>
+      <a class="close">×</a>
+    </div>
+    <div class="dr_body">
+      <div class="dr_section">
+        <p class="tar_label_head">Date</p>
+        <h4 class="date_detail">01 May - 31 May 2018</h4>
+      </div>
+      <div class="dr_section">
+        <div class="lf_flex_space_btw">
+          <div class="dr_sectionLeft">
+            <p class="tar_label_head">Report From</p>
+            <div class="dr_report_from">
+              <p>
+                <img class="" [src]="assetUrl+'assets/images/tar/user1.png'" />Stella Little</p>
+            </div>
+          </div>
+          <div class="dr_sectionMiddle">
+            <p class="tar_label_head">To</p>
+            <div class="dr_report_to">
+              <p>
+                <img class="" [src]="assetUrl+'assets/images/tar/user2.png'" />Peter Palmer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dr_section">
+        <p class="tar_label_head">Report</p>
+        <p class="worktime_p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at aliquet neque. Praesent a rutrum arcu. Curabitur
+          posuere luctus congue. Fusce sagittis magna at dui finibus, a sollicitudin erat tincidunt.</p>
+      </div>
+      <div class="wr_section_bottom">
+        <div class="wr_sec_flex">
+          <div class="wr_half_left">
+            <div class="head_underline">
+              <h4>Task</h4>
+            </div>
+            <div class="wr_half_body">
+              <ul>
+                <li>
+                  <p>
+                    <span>1.</span>Create work estimation for the Client</p>
+                </li>
+                <li>
+                  <p>
+                    <span>2.</span>Lorem ipsum dolor sit amet, consectetur</p>
+                </li>
+                <li>
+                  <p>
+                    <span>3.</span>Meet with the new Team Members</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="wr_half_right">
+            <div class="head_underline">
+              <h4>Event</h4>
+            </div>
+            <div class="wr_half_body_event">
+              <ul>
+                <li>
+                  <p class="event_title">
+                    <span>1.</span>Lorem ipsum dolor sit amet, consectetur</p>
+                  <p class="event_dtp">Jun 27 - Jun 28 | 10 am - 02 pm | New York, USA</p>
+                </li>
+                <li>
+                  <p class="event_title">
+                    <span>2.</span>Lorem ipsum dolor sit amet, consectetur</p>
+                  <p class="event_dtp">Jun 27 - Jun 28 | 10 am - 02 pm | New York, USA</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_score">
+      <button>
+        <img class="star" [src]="assetUrl+'assets/images/tar/star.png'" /> Excellence</button>
+      <button>
+        <img class="happy" [src]="assetUrl+'assets/images/tar/happy.png'" /> Positive</button>
+      <button>
+        <img class="sad" [src]="assetUrl+'assets/images/tar/sad.png'" /> Negetive</button>
+    </div>
+  </div> -->
+  <!-- Work Report Unconfirmed -->
+  <!-- Abscence Details -->
+  <!-- <div class="daily_report_confirmed">
+    <div class="dr_header">
+      <div class="dr_headleft">
+        <h4>Abscence Details</h4>
+      </div>
+      <div class="dr_headright ab_detailbtn_space">
+        <button class="dr_edit">Edit</button>
+        <button class="dr_edit">Remove</button>
+      </div>
+      <a class="close">×</a>
+    </div>
+    <div class="dr_body">
+      <div class="dr_section">
+        <p class="tar_label_head">Person</p>
+        <div class="adDetailperson">
+          <p>
+            <img class="" [src]="assetUrl+'assets/images/tar/user1.png'" />Stella Little</p>
+        </div>
+      </div>
+      <div class="dr_section">
+        <p class="tar_label_head">Time</p>
+        <div class="abDetailfromto">
+          <div class="abDetailflex">
+            <p>From:</p>
+            <h4>02 June 2018 | 10:30 AM</h4>
+          </div>
+          <div class="abDetailflex">
+            <p>To:</p>
+            <h4>02 June 2018 | 10:30 AM</h4>
+          </div>
+        </div>
+      </div>
+      <div class="dr_section">
+        <p class="tar_label_head">Type of Abscence
+          <p>
+            <div class="typeOfabscence">
+              <p>
+                <img class="" [src]="assetUrl+'assets/images/tar/rec_yellow.png'" />Business Trip</p>
+            </div>
+      </div>
+    </div>
+    <div class="drc_footer abDetailreason">
+      <p class="tar_label_head">Reason</p>
+      <p class="foo_report">Business Trip</p>
+    </div>
+  </div> -->
+  <!-- Abscence Details -->
+</div>

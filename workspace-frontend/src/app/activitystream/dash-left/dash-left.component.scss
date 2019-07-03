@@ -1,0 +1,74 @@
+.left_widget {
+    display: inline;
+}
+
+.greeting_widget {
+    background-image: url(/assets/images/as/night.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 210px;
+    width: 73%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.calendar_widget {
+    background-image: url(/assets/images/as/cal.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 210px;
+    width: 24%;
+    display: inline-block;
+}
+
+.widget_creation {
+    padding-right: 12px;
+    padding-top: 8px;
+    position: relative;
+    display: block;
+}
+
+.as_panel_wrap {
+    padding-right: 12px;
+    padding-top: 19px;
+    position: relative;
+    display: block;
+}
+
+// Media Queries
+@media (max-width: 1920px) {
+    .calendar_widget {
+        width: 25%;
+    }
+}
+
+@media (max-width: 1600px) {
+    .calendar_widget {
+        width: 24.5%;
+    }
+}
+
+@media (max-width: 1440px) {
+    .calendar_widget {
+        width: 24%;
+    }
+}
+
+@media (max-width: 1366px) {
+    .greeting_widget {
+        height: 164px;
+        width: 73%;
+    }
+    .calendar_widget {
+        height: 164px;
+        width: 24%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .calendar_widget {
+        width: 23.5%;
+    }
+}

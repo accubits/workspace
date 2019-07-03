@@ -1,0 +1,211 @@
+div, p, h1, h2, h3, h4, h5, h6, img {
+    line-height: 100%;
+}
+.form_submit_wrap {
+    position: absolute;
+    width: 500px;
+    border-radius: 0px;
+    z-index: 15;
+    height: 413px;
+    top: 75px;
+    left: -1px
+}
+.form_submit_modal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+// Header Startsa
+.acc_drop_content {
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    top: 0px;
+    left: 0px;
+    width: auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
+    transition: visibility 0.5s;
+    height: 413px;
+}
+
+.acc_drop_content li {
+    background: #fff;
+    border: none;
+    width: 100%;
+    text-align: left;
+    height: 44px;
+    line-height: 44px;
+    color: #424e5c;
+    font-size: 14px;
+    border-bottom: 1px solid #dde0e3;
+    display: flex;
+    cursor: pointer;
+    padding: 0px 10px 0px 56px;
+    position: relative;
+}
+
+.acc_up_option:after,
+.acc_up_option:before {
+    display: block;
+    position: absolute;
+    left: 15%;
+    content: "";
+    width: 0;
+    height: 0;
+}
+
+.acc_up_option:before {
+    top: -10px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid rgba(57, 70, 78, .08);
+}
+
+.acc_up_option:after {
+    top: -9px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 9px solid #fff;
+}
+.contentOuter {
+    margin: 4%;
+}
+.workContent {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    font-family: roboto-regular;
+    line-height: 25px;
+}
+p.workTime {
+    font-family: roboto-bold;
+    font-size: 30px;
+    margin: 17px 0px;
+    color: #536273;
+}
+
+span.timeHour {
+    font-family: roboto-light;
+    padding-right: 5px;
+    font-size: 23px;
+}
+span.timeSecond {
+    font-family: roboto-regular;
+    font-size: 20px;
+    padding-left: 3px;
+    font-family: roboto-bold;
+}
+span.second {
+    padding-left: 4px;
+    font-family: roboto-light;
+    font-size: 20px;
+}
+.workOuter {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+}
+.pause .imgCover {
+    background-image: url("/assets/images/play-button-sing.png");
+    width: 15px;
+    height: 17px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 5px;
+    margin-left: 13px;
+}
+.pause:nth-child(2) .imgCover{
+    background-image: url("/assets/images/pencil-edit-button-copy.png");
+    width: 30px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 0px;
+}
+.pause.clock {
+    background: #04d4d4;
+}
+.pause.editWork{
+    background: #cc1c35;
+    width: 31%;
+}
+.pause{
+    width: 65%;
+    background: #387bff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.pauseBackground {
+    display: flex;
+    padding: 15px 13px;
+    background-image: url("/assets/images/Pause_start.png");
+    color: #fff;
+    font-family: roboto-regular;
+    font-size: 11px;
+    border-radius: 5px;
+    background-position: 260px -7px;
+    background-repeat: no-repeat;
+}
+.clock .pauseBackground {
+    display: flex;
+    padding: 15px 13px;
+    background-image: url("/assets/images/HomeIcon.png");
+    color: #fff;
+    font-family: roboto-regular;
+    font-size: 11px;
+    border-radius: 5px;
+    background-position: 100px 17px;
+    background-repeat: no-repeat;
+}
+.textareaReflection textarea {
+    height: auto;
+    border-radius: 3px;
+    border: .5px solid #e4e4e4;
+    padding: 15px 18px;
+    line-height: 18px;
+    font-family: roboto-regular;
+    margin-top: 4.7%;
+    background: #f2f2f2;
+    resize: none;
+    width: 100%;
+}
+.editWork .pauseBackground{
+    background-image: none;
+}
+.pause h3 {
+    padding-left: 9%;
+    line-height: 14px;
+    font-family: sans-serif;
+    font-size: 12px;
+    padding-top: 2.5%;
+    width: 165px;
+}
+.workOuter .pause.editWork h3 {
+    padding-top: 0%;
+}
+
+.workHead {
+    color: #536273;
+    font-family: roboto-bold;
+}
+.workTiming {
+    color: #75818f;
+}
+.buttonOuter button {
+    background-color: #d9e9fd;
+    color: #006df0;
+    height: 26px;
+    text-align: center;
+    border: none;
+    outline: none;
+    min-width: 55px;
+    text-align: left;
+    border-radius: 3px;
+    margin: 3% 2.5%;
+    margin-left: 0px;
+}

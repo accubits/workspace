@@ -1,0 +1,54 @@
+import { Component, OnInit } from '@angular/core';
+import { PartnerDataService} from '../../shared/services/partner-data.service'
+import { PartnerSandbox} from '../partner.sandbox'
+import { PartnerUtilityService } from '../../shared/services/partner-utility.service'
+
+
+
+@Component({
+  selector: 'app-request-table',
+  templateUrl: './request-table.component.html',
+  styleUrls: ['./request-table.component.scss']
+})
+export class RequestTableComponent implements OnInit {
+  moreOptions : boolean = false; 
+  indexValue: number
+
+  constructor(
+    public partnerDataService : PartnerDataService,
+    public partnerSandbox : PartnerSandbox,
+    public partnerUtilityService:PartnerUtilityService
+
+
+  ) { }
+
+  ngOnInit() {
+    this.partnerDataService.licenseDetails.tab = 'licenseRequests'
+    this.partnerDataService.licensePageDetails.sortBy = 'requestedOn';
+    this.partnerSandbox.getAllLicenses();  
+  }
+  showRequestDetails(i): void { 
+    this.partnerDataService.requestDetailsPop.showPopup = true;
+    this.partnerDataService.selectedLicense = this.partnerDataService.getLicenseDetails.license[i]
+  }
+  closeRequestMore(): void{
+    this.moreOptions = false;
+  }
+  showMoreOption(event,i){
+    event.stopPropagation();
+    this.indexValue = i;
+    //this.moreOptions = !this.moreOptions;
+    this.partnerDataService.getLicenseDetails.license[i]['showMore'] =  !this.partnerDataService.getLicenseDetails.license[i]['showMore'];
+
+  }
+
+  selectTask(event):void{
+    event.stopPropagation();
+  }
+
+  ngOnDestroy(){
+    this.partnerDataService.resetLicenseDetails();
+  }
+
+  
+}

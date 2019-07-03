@@ -1,0 +1,76 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title ph3inline">Forms</h3>
+    <div class="panel-right-holder pbtnsinline">
+      <button class="pbtncreate" (click)="showNewForm()">New</button>
+    </div>
+  </div>
+
+
+</div>
+<div class="form_listing_wrap">
+  <!-- Nav tabs -->
+  <app-form-listing-nav></app-form-listing-nav>
+  <!-- Nav tabs -->
+  <router-outlet></router-outlet>
+  <!-- Share Option -->
+  <app-share-option *ngIf="dataService.shareOption.show"></app-share-option>
+  <!-- Share Option -->
+  <app-send-to *ngIf="dataService.sendToOption.show"></app-send-to>
+
+  <!-- New Form Modal -->
+  <app-new-form *ngIf="dataService.new_form.show"></app-new-form>
+  <!-- New Form Modal -->
+  <!-- Form Admin View Modal -->
+  <div class="form_adminView" *ngIf="dataService.formAdminmodal.show">
+    <div class="adminviewoverlay_pop" (click)="closeResponseView()"></div>
+    <div class="form_adminView_header">
+      <h4>{{dataService.formResponseManagement.reponseDetails.formTitle}}</h4>
+      <a class="close" (click)="closeResponseView()">&times;</a>
+      <div class="adminModalright">
+        <button class="aMline_btn" (click)="showPreview()">Preview</button>
+        <!-- <button class="aMline_btn">Preview</button> -->
+        <button class="aMred_btn" (click)="confirmPublishForm()">Unpublish</button>
+      </div>
+    </div>
+    <div class="form_adminView_body">
+      <app-form-adminmodal-nav></app-form-adminmodal-nav>
+      <!-- <router-outlet></router-outlet> -->
+    </div>
+  </div>
+  <!-- Form Admin View Modal -->
+  <!-- Form Confirmation Pop  -->
+  <div class="confirm_popup" *ngIf="dataService.confirmPop.show" (click)="closeOverlay()">
+    <div class="confirm_pop_body">
+      <section>
+        <div class="close_drop" (click)="dataService.confirmPop.show = false">
+        </div>
+        <p class="pop_main">Are you sure you want to delete the selected file ?</p>
+      </section>
+      <section>
+        <div class="confirm_pop_btn" (click)="deleteForm();">
+          Confirm
+        </div>
+        <div class="confirm_pop_btn" (click)="dataService.confirmPop.show = false">
+          Cancel
+        </div>
+      </section>
+    </div>
+  </div>
+  <!-- Form Confirmation Pop  -->
+</div>
+<!-- Form Submit Modal -->
+<app-form-submit-modal *ngIf="dataService.viewForm.showSubmit"></app-form-submit-modal>
+<!-- Form Submit Modal -->
+  <div class="Unpublish_overlay" *ngIf="dataService.viewForm.unPublishmodal.show" (click)="cancelUnpublished()">
+  </div>
+  <div class="Unpublish_popup_wrap" *ngIf="dataService.viewForm.unPublishmodal.show">
+    <div class="Unpublish_popup_body">
+      Are you sure you want to unpublish ?
+      <section>
+          <button class="pbtncreate" (click)="unPublishForm()">Unpublish</button>
+          <button class="pbtncreate pb_cancel" (click)="cancelUnpublished()">Cancel</button>
+      </section>
+    </div>
+  </div>
+<app-form-preview *ngIf ="dataService.form_preview_modal.show"></app-form-preview>

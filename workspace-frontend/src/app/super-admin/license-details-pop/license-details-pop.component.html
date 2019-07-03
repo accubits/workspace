@@ -1,0 +1,202 @@
+<!--popup starts-->
+<div class="modalOuter" (click)="closeOrgDetails()"></div>
+  <div class="form_submit_wrap" >
+    <div  class="form_submit_modal">
+      <div class="headerOuter"> 
+        <div class="fs_header">
+            <h4>License Details</h4>
+            <span class="green">Ongoing 42 days left</span> 
+        </div>
+        <div class="pop_close" (click)="closeOrgDetails()"></div>
+      </div>
+      <ul class="menu">
+        <li [ngClass]="{active: currentTab === 'current'}" (click)="currentTab = 'current'">Current</li>
+        <li [ngClass]="{active: currentTab === 'history'}" (click)="currentTab = 'history'">History</li>
+      </ul>
+      <div class="nav_wrap" *ngIf="currentTab === 'current'">
+        <div class="licenseContentOuter">
+          <div class="licenseDate">
+            <div class="tableDetailOuter">
+                <div class="tableDetail">
+                  <h4>ORGANISATION</h4>
+                </div>
+                <div class="tableContent">
+                  Big Valley Conservatory
+                </div>
+            </div>
+            <div class="tableDetailOuter">
+              <div class="tableDetail">
+                <h4>PARTNER</h4>
+              </div>
+              <div class="tableContent">
+                <div class="profileImg">
+                </div>
+                <div class="profile">
+                  Marcus  Cruz
+                </div>
+              </div>
+            </div>
+            <div class="tableDetailBottom">
+              <div class="tableDetailOuterBottom">
+                <div class="tableDetail">
+                  <h4>USERS</h4>
+                </div>
+                <div class="tableContent">
+                  125
+
+                </div>
+              </div>
+              <div class="tableDetailOuter keyPoint">
+                  <div class="tableDetail">
+                    <h4>KEY</h4>
+                  </div>
+                  <div class="tableContent">
+                    wfjwpofjwpofjwepof
+                  </div>
+              </div>
+              <div class="tableDetailOuterBottom">
+                <div class="tableDetail">
+                  <h4>TYPE</h4>
+                </div>
+                <div class="tableContent">
+                  Annual
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tableDetailBottom Date">
+            <div class="tableDetailOuterBottom">
+                <div class="statusIcon Blue NoLine"></div>
+                <div class="tableDetail"> 
+                  <h4>REQUESTED ON</h4>
+                </div>
+                <div class="tableContent">
+                  10 Jul 2018 | 12:32 AM
+                </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+                <div class="statusIcon Blue"></div>
+                <div class="tableDetail"> 
+                  <h4>APPROVED ON</h4>
+                </div>
+                <div class="tableContent">
+                  10 Jul 2018 | 12:32 AM
+                </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="statusIcon Green"></div>
+              <div class="tableDetail"> 
+                <h4>STARTED ON</h4>
+              </div>
+              <div class="tableContent">
+                10 Jul 2018
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="statusIcon Null"></div>
+              <div class="tableDetail">
+                <h4>EXPIRES ON</h4>
+              </div>
+              <div class="tableContent">
+                10 Jul 2019
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="fs_footer">
+            <button class="fs_footer_next">Renew</button>
+            <button class="fs_footer_cancel">Delete License</button>
+        </div> -->
+      </div>
+      <div class="historyTab" *ngIf="currentTab === 'history'">
+        <div class="historyHead">
+          <div class="tableHead">
+              <span class="downArrow">TYPE</span>
+          </div>
+          <div class="tableHead">
+              <span class="downArrow">MAX USERS</span>
+          </div>
+          <div class="tableHead">
+              <span class="downArrow">REQUESTED ON</span>
+          </div>
+          <div class="tableHead">
+              <span class="downArrow">APPROVED ON</span>
+          </div>
+          <div class="tableHead">
+              <span class="downArrow">STARTED ON</span>
+          </div>
+          <div class="tableHead">
+              <span class="downArrow">EXPIRED ON</span>
+          </div>
+        </div>
+        <div class="historyContent">
+          <div class="historyRow">
+              <div class="tableHead Content">
+                  <p class="downArrow">Annual</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">100</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2018 | 12:32 AM</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2018 | 12:32 AM</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2019 <span class="status">Upcoming</span></p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow expireDate">10 Jul 2019 <span class="status">Upcoming</span></p>
+              </div>
+          </div>
+          <div class="historyRow">
+              <div class="tableHead Content">
+                  <p class="downArrow">Annual</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">100</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2018 | 12:32 AM</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2018 | 12:32 AM</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2019 <span class="current">Current</span></p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2019 <span class="status">Upcoming</span></p>
+              </div>
+          </div>
+          <div class="historyRow">
+              <div class="tableHead Content">
+                  <p class="downArrow">Annual</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">100</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2018 | 12:32 AM</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2018 | 12:32 AM</p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2019 <span class="status">Upcoming</span></p>
+              </div>
+              <div class="tableHead Content">
+                  <p class="downArrow">10 Jul 2019 <span class="status">Upcoming</span></p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="fs_footer">
+          <button class="fs_footer_next">Renew</button>
+          <button class="fs_footer_cancel">Delete License</button>
+      </div>
+    </div>
+  </div>
+<!--popup ends-->

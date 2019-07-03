@@ -1,0 +1,119 @@
+<div class="overlaypop" (click)="hideTrainingRequest()"></div>
+<div class="training-detail-pop">
+  <!-- popuphead -->
+  <div class="popup-head">
+    <h4>{{hrmDataService.selectedRequest.name}}</h4>
+    <p>Requested</p>
+    <div class="pop_close" (click)="hideTrainingRequest()"></div>
+  </div>
+  <!-- popuphead -->
+  <!-- popup inner -->
+  <div class="train-pop-inner">
+    <div class="tab-head">
+      <ul class="nav_wrap">
+        <a class="activeTab">Details</a>
+      </ul>
+    </div>
+    <div class="tab-inner">
+      <div class="details">
+        <h5>DETAILS</h5>
+        <P>{{hrmDataService.selectedRequest.details}}</P>
+      </div>
+      <div class="details">
+        <h5>REQUEST FROM</h5>
+        <div class="employee_detail">
+          <div class="employee_image" *ngIf="hrmDataService.selectedRequest.imageUrl === null"></div>
+          <div class="employee_image" *ngIf="hrmDataService.selectedRequest.imageUrl !== null" class="employee_image"
+            [ngStyle]="{'background-image': 'url(' + hrmDataService.selectedRequest.imageUrl + ')'}"></div>
+          <span class="employee_name">{{hrmDataService.selectedRequest.userName}}</span>
+        </div>
+      </div>
+      <div class="details">
+        <div class="req-date">
+          <h5>REQUESTED ON</h5>
+          <p>{{hrmDataService.selectedRequest.requestedOn *1000 | date: ' dd MMM yyyy'}} <span></span>
+            {{hrmDataService.selectedRequest.requestedOn *1000 | date: 'hh:mm a'}}</p>
+        </div>
+        <div class="start-date">
+          <h5>STARTS ON</h5>
+          <P>{{hrmDataService.selectedRequest.startsOn *1000 | date: ' dd MMM yyyy'}}</P>
+        </div>
+        <div class="start-date">
+          <h5>ENDS ON</h5>
+          <P>{{hrmDataService.selectedRequest.endsOn *1000 | date:' dd MMM yyyy'}}</P>
+        </div>
+      </div>
+      <div class="details">
+        <h5>COST</h5>
+        <P>{{hrmDataService.selectedRequest.cost}}</P>
+      </div>
+
+    </div>
+  </div>
+  <!-- popup inner -->
+  <div class="overlay" *ngIf="approvePop" (click)="hideApprovePop()"></div>
+  <div class="approve-pop" *ngIf="approvePop">
+    <h4>Select training evaluation forms to continue</h4>
+    <div class="pop-inner">
+      <div class="select-form">
+        <label>Post Training</label>
+        <input type="text" placeholder="Select form" readonly (click)="showSelectForm()" />
+        <div class="arrow_drop" (click)="showSelectForm()"></div>
+        <div *ngIf="postTrainingForm !== ''" class="selected_tag"> {{postTrainingForm}}
+          <div class="select_close" (click)="removepostTrainingForm()"></div>
+        </div>
+        <div class="drop-down" *ngIf="selectForm">
+          <ul *ngFor="let form of hrmDataService.getFeedbackForms;let i=index">
+            <li (click)="selectTraining(form)">{{form.formTitle}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="select-form">
+        <label>Post Course</label>
+        <div class="overlay" *ngIf="courseForm" (click)="hideCourseForm()"></div>
+        <input type="text" placeholder="Select form" readonly (click)="showCourseForm()" />
+        <div class="arrow_drop"></div>
+        <div *ngIf="postCourseForm !== ''" class="selected_tag"> {{postCourseForm}}
+          <div class="select_close" (click)="removepostCourseForm()"></div>
+        </div>
+        <div class="drop-down" *ngIf="courseForm">
+          <ul *ngFor="let form of hrmDataService.getCourseForms ;let i=index">
+            <li (click)="selectCourse(form)">{{form.formTitle}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pop-footer">
+      <div class="pbtncreate" (click)="approveRequest()">Continue</div>
+      <div class="req-cancel" (click)="hideApprovePop()">Cancel</div>
+    </div>
+  </div>
+
+  <!-- Delete popup start-->
+  <div *ngIf="hrmDataService.deleteConfirmPopup.show" class="confirm_popup">
+    <div class="confirm_pop_body">
+      <section>
+        <div class="close_drop" (click)="closePopup()">
+        </div>
+        <p class="pop_main">Are you sure you want to cancel the selected training?</p>
+      </section>
+      <section>
+        <div class="confirm_pop_btn" (click)="deleteConform()">
+          Confirm
+        </div>
+        <div class="confirm_pop_btn" (click)="closePopup()">
+          Cancel
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<div class="detail-footer">
+  <div class="pbtncreate approvebtn" (click)="showApprovePop()">Accept Request</div>
+  <div class="pbtncreate" (click)="rejectTraining()">Reject Request</div>
+  <div class="select-wrap-credit">
+    <p><span class="info_icon"></span>Training Credits Remaining:
+      {{hrmDataService.trainingStatus.trainingBudget.currentBalance}}</p>
+  </div>
+ <!-- Delete popup end-->
+</div>

@@ -1,0 +1,391 @@
+<div class="overlaypop"  (click)="closePop()"></div>
+<div class="create-module-popup">
+  <div class="moduleContent">
+    <div class="pop-head"><h4>ADD APPRAISAL CYCLE</h4></div>
+    <div class="pop-inner">
+      <div class="module-name">
+          <label>Name of the Appraisal :</label>
+          <input type="text" name="" value="" [(ngModel)]= "hrmDataService.createAppraisalCycle.title">
+      </div>
+      <p class="error" *ngIf="!isValidated && !hrmDataService.createAppraisalCycle.title" >Required Field</p>
+
+      <div class="module-name">
+          <label>Description :</label>
+          <textarea rows=5 placeholder="" [(ngModel)]= "hrmDataService.createAppraisalCycle.description"></textarea>
+      </div>
+      <p class="error" *ngIf="!isValidated && !hrmDataService.createAppraisalCycle.description" >Required Field</p>
+
+      <div class="qustion-wrap">
+        <div class="question"><span class="line"></span>
+          <div class="question-head">
+            <div class="question-title">
+              <h4>Appraisal Cycle Period</h4>
+            </div>
+            <div class="comment-select">
+              <div class="comment-col">
+                <div class="radio_section">
+                  <ul>
+                    <li>
+                      <div class="radio_sector">
+                        <div class="radio_out">
+                          <input id="radio_id3" name="repeat_radio" type="radio" (change)="selectType('fullYear')">
+                          <div class="custom_radio" for="radio_id3"></div>
+                        </div>
+                        Full year Cycle
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="comment-col">
+                <div class="radio_section">
+                  <ul>
+                    <li>
+                      <div class="radio_sector">
+                        <div class="radio_out">
+                          <input id="radio_id3" name="repeat_radio" type="radio" (change)="selectType('halfYear')">
+                          <div class="custom_radio" for="radio_id3"></div>
+                        </div>
+                        Half year Cycle
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="comment-col">
+                <div class="radio_section">
+                  <ul>
+                    <li>
+                      <div class="radio_sector">
+                        <div class="radio_out">
+                          <input id="radio_id3" name="repeat_radio" type="radio" (change)="selectType('custom')">
+                          <div class="custom_radio" for="radio_id3"></div>
+                        </div>
+                        Custom Cycle
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="module-name">
+              <div class="date_remind_wrap">
+                <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="" [(ngModel)]="hrmDataService.createAppraisalCycle.cycle.startDate">
+                <span class="ct_labelinInput">Appraisal Cycle start date</span>
+                <owl-date-time  #dt1 [hour12Timer] = "true"></owl-date-time>
+                 <div class="calender_icon">
+                  <img [src]="assetUrl+'assets/images/calendar.png'" />
+                </div>
+              </div>
+
+              <div class="date_remind_wrap">
+                <input [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" placeholder="" [(ngModel)]="hrmDataService.createAppraisalCycle.cycle.endDate">
+                <span class="ct_labelinInput">Appraisal Cycle end date</span>
+                <owl-date-time #dt2 [hour12Timer] = "true"></owl-date-time>
+                <div class="calender_icon">
+                    <img [src]="assetUrl+'assets/images/calendar.png'" />
+                </div>
+              </div>
+
+              <div class="date_remind_wrap">
+                <input [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3" placeholder="" [(ngModel)]="hrmDataService.createAppraisalCycle.cycle.processingStartDate">
+                <span class="ct_labelinInput">Appraisal Processing start date</span>
+                <owl-date-time  #dt3 [hour12Timer] = "true"></owl-date-time>
+                <div class="calender_icon">
+                    <img [src]="assetUrl+'assets/images/calendar.png'" />
+                </div>
+              </div>
+
+              <div class="date_remind_wrap" >
+                <input [owlDateTime]="dt4" [owlDateTimeTrigger]="dt4" placeholder="" [(ngModel)]="hrmDataService.createAppraisalCycle.cycle.processingEndDate">
+                <span class="ct_labelinInput">Appraisal Processing end date</span>
+                <owl-date-time #dt4 [hour12Timer] = "true"></owl-date-time>
+                <div class="calender_icon">
+                    <img [src]="assetUrl+'assets/images/calendar.png'" />
+                </div>
+              </div>
+          </div>
+          <div class="question-head"><span class="line"></span>
+            <div class="question-title">
+              <h4>Applicable for</h4>
+            </div>
+            <div class="comment-select">
+              <div class="comment-col">
+                <div class="radio_section">
+                  <ul>
+                    <li [ngClass]= "{'active': selectSwitch == 'department'}" (click)="selectSwitch =='department'">
+                      <div class="radio_sector">
+                        <div class="radio_out">
+                          <input id="radio_id3" name="repeat_radio" type="radio" [checked]="selectSwitch == 'department'">
+                          <div class="custom_radio" for="radio_id3"></div>
+                        </div>
+                        Department
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="comment-col">
+                <div class="radio_section">
+                  <ul>
+                    <li [ngClass]= "{'active': selectSwitch == 'employee'}" (click)="selectSwitch == 'employee'">
+                      <div class="radio_sector">
+                        <div class="radio_out">
+                          <input id="radio_id3" name="repeat_radio" type="radio" [checked]="selectSwitch == 'employee'">
+                          <div class="custom_radio" for="radio_id3"></div>
+                        </div>
+                        Employee
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="comment-col">
+                <div class="radio_section">
+                  <ul>
+                    <li [ngClass]= "{'active': selectSwitch == 'organization'}" (click)="selectSwitch == 'organization'">
+                      <div class="radio_sector">
+                        <div class="radio_out">
+                          <input id="radio_id3" name="repeat_radio" type="radio" [checked]="selectSwitch == 'organization'">
+                          <div class="custom_radio" for="radio_id3"></div>
+                        </div>
+                        Whole Organization
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dept" *ngIf= "selectSwitch === 'department'">
+                  <p>Departments:</p>
+                  <div class="selected_tag">
+                      All Departments
+                      <div class="select_close"></div>
+                  </div>
+                  <div class="filter_cancel_overlay" *ngIf="userlistingdrop" (click)="userlistingdrop = false"></div>
+                  <div class="cw_select drop_icon_input">
+                      <input type="text" class="" autocomplete="off" name="text" placeholder="Add Departments" (click)="userlistingdrop = true">
+                      <div class="drop_down_wrap" *ngIf="userlistingdrop">
+                          <section class="drop_nav msg_nav">
+                              <ul>
+                                  <li *ngFor="let dept of hrmDataService.departmentList.list; let i=index" [hidden]="dept.existing" (click)="selectDepartment(dept)" >{{dept.departmentName}}</li>
+                               </ul>
+                          </section>
+                          <a class="select_close" (click)="userlistingdrop = false"></a>
+                      </div>
+
+                  </div>
+                </div>
+                <div class="dept" *ngIf= "selectSwitch === 'employee'">
+                  <p>Employees:</p>
+                  <div class="selected_tag">
+                      All Employee
+                      <div class="select_close"></div>
+                  </div>
+                  <div class="filter_cancel_overlay" *ngIf="userlistingdrop" (click)="userlistingdrop = false"></div>
+                  <div class="cw_select drop_icon_input">
+                      <input type="text" class="" autocomplete="off" name="text" placeholder="Add Employees" (click)="userlistingdrop = true">
+                      <div class="drop_down_wrap" *ngIf="userlistingdrop">
+                          <section class="drop_nav msg_nav">
+                              <ul>
+                                  <li *ngFor="let emp of hrmDataService.employeeList.list" (click)="selectEmployee(emp)">
+                                      <div *ngIf="emp.employeeImage === null" class="recent_ico"></div>
+                                      <div *ngIf="emp.employeeImage !== null" class="recent_ico" [ngStyle]="{'background-image': 'url(' + emp.employeeImage + ')'}"></div>
+                                      {{emp.employeeName}}
+                                  </li>
+                               </ul>
+                          </section>
+                          <a class="select_close" (click)="userlistingdrop = false"></a>
+                      </div>
+
+                  </div>
+                </div>
+            </div>
+
+          </div>
+
+          <div class="question-head"><span class="line"></span>
+            <div class="question-title Review">
+              <h4>Reviewers</h4>
+            </div>
+            <div class="comment-select checkBox">
+              <div class="comment-col">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id="" (click)="selectDept()"/>
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  Head of Department
+              </div>
+              <div class="dept" *ngIf="selectDeptOption">
+                <p>Departments:</p>
+                <!-- <div class="selected_tag">
+                    All Departments
+                    <div class="select_close"></div>
+                </div> -->
+                <div class="filter_cancel_overlay" *ngIf="listing" (click)="listing = false"></div>
+                <div class="cw_select drop_icon_input">
+                    <input type="text" class="" autocomplete="off" name="text" placeholder="Add Departments" (click)="listing = true">
+                    <div class="drop_down_wrap" *ngIf="listing">
+                        <section class="drop_nav msg_nav">
+                            <ul>
+                                <li>HR</li>
+                                <li>HR</li>
+                                <li>HR</li>
+                            </ul>
+                        </section>
+                        <!-- <a class="select_close" (click)="listing = false"></a> -->
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="comment-select checkBox">
+                <div class="comment-col">
+                    <div class="checkbox">
+                      <label>
+                        <div class="check_outer">
+                          <input type="checkbox" id="1_in" name="" id="" (click)="selectEmployee()"/>
+                          <div class="check" for="1_in"></div>
+                        </div>
+                      </label>
+                    </div>
+                    Employee
+                </div>
+                <div class="dept" *ngIf="selectEmpOption">
+                  <p>Employees:</p>
+                  <!-- <div class="selected_tag">
+                      All Departments
+                      <div class="select_close"></div>
+                  </div> -->
+                  <div class="filter_cancel_overlay" *ngIf="empListing" (click)="empListing = false"></div>
+                  <div class="cw_select drop_icon_input">
+                      <input type="text" class="" name="text" autocomplete="off" placeholder="Add Employees" (click)="empListing = true">
+                      <div class="drop_down_wrap" *ngIf="empListing">
+                          <section class="drop_nav msg_nav">
+                              <ul>
+                                  <li>HR</li>
+                                  <li>HR</li>
+                                  <li>HR</li>
+                              </ul>
+                          </section>
+                          <!-- <a class="select_close" (click)="empListing = false"></a> -->
+                      </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="question-head Module"><span class="line"></span>
+            <div class="question-title">
+              <h4>Modules</h4>
+            </div>
+            <div class="comment-select checkBox">
+              <div class="comment-col">
+                  <div class="checkbox">
+                    <label>
+                      <div class="check_outer">
+                        <input type="checkbox" id="1_in" name="" id=""/>
+                        <div class="check" for="1_in"></div>
+                      </div>
+                    </label>
+                  </div>
+                  1. Time and reports
+              </div>
+              <div class="modWeight">
+                <div class="weightOuter">
+                  Weightage: <span>25</span>%
+                </div>
+              </div>
+            </div>
+            <div class="comment-select checkBox">
+                <div class="comment-col">
+                    <div class="checkbox">
+                      <label>
+                        <div class="check_outer">
+                          <input type="checkbox" id="1_in" name="" id=""/>
+                          <div class="check" for="1_in"></div>
+                        </div>
+                      </label>
+                    </div>
+                    2. Task scores
+                </div>
+                <div class="modWeight">
+                  <div class="weightOuter">
+                    Weightage: <span>40</span>%
+                  </div>
+                </div>
+            </div>
+            <div class="comment-select checkBox">
+                <div class="comment-col">
+                    <div class="checkbox">
+                      <label>
+                        <div class="check_outer">
+                          <input type="checkbox" id="1_in" name="" id=""/>
+                          <div class="check" for="1_in"></div>
+                        </div>
+                      </label>
+                    </div>
+                    3. KRA
+                </div>
+                <div class="modWeight">
+                  <div class="weightOuter">
+                    Weightage: <span>35</span>%
+                  </div>
+                </div>
+            </div>
+    </div>
+    <div class="addmoduleOuter">
+      <div class="addModule">
+        <div class="addComponent">
+          Communication
+        </div>
+        <div class="modWeight">
+          <div class="weightOuter">
+            Weightage: <span><input type="text" placeholder="25"></span>%
+          </div>
+        </div>
+        <div class="remove">
+          <h4>Remove</h4>
+        </div>
+      </div>
+      <div class="addModule">
+        <div class="addLink" (click)="addMember()">
+          + Add Module
+        </div>
+      </div>
+        <!--member popup starts-->
+    <div class="filter_cancel_overlay" *ngIf="addMemberPop" (click)="closeAddPop()"></div>
+    <div class="memberPopOuter" *ngIf="addMemberPop">
+      <div class="popHead">
+        <div class="popHeadName">ADD MODULES</div>
+        <div class="closeIcon" (click)="closeAddPop()">
+        </div>
+      </div>
+      <div class="selectMembers">
+          <div class="search_wrap open">
+            <input id="myText" placeholder="Search" type="text"/>
+          </div>
+          <div class="memberModules">
+            <uL>
+              <li>Coding</li>
+              <li>Marketing</li>
+              <li>Communication</li>
+              <li>Management</li>
+            </uL>
+          </div>
+      </div>
+    </div>
+    <!--member popup ends-->
+    </div>
+    <div class="pop-footer">
+      <button class="pbtncreate">Submit</button>
+      <button class="req-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+

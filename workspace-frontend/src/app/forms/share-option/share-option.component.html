@@ -1,0 +1,150 @@
+<div class="shareoptionOverlay" (click)="closeShareOption()"></div>
+<div class="share_option">
+  <div class="share_option_header">
+    <h6>SHARE
+      <span>Form - {{dataService.formShare.formTitle}}</span>
+    </h6>
+    <a class="copy_option_close" (click)="closeShareOption()">&times;</a>
+  </div>
+  <div class="share_option_body">
+    <section class="user_drop_nav">
+      <ul>
+        <!-- <li [ngClass]="{active:activeRpTab == 'link'}" (click)="activeRpTab = 'link'">Link</li> -->
+        <li [ngClass]="{active:activeRpTab == 'people'}" (click)="activeRpTab = 'people'">People</li>
+      </ul>
+    </section>
+    <section class="user_drop_body">
+      <!-- <div *ngIf="activeRpTab === 'link'" class="">
+        <section class="copy_link">
+          <div class="link_drop_in">
+            <input type="text" placeholder="https://www.workspace.com/authentication">
+          </div>
+          <div class="user_count_list anyone">
+            <p>Anyone with the link can</p>
+            <span>
+              <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                <input type="text" class="" name="text" placeholder="Can View" (click)="firstchoice = !firstchoice">
+                <div class="drop_drop_pop commonn_popup" *ngIf="firstchoice">
+                  <section>
+                    Can View
+                  </section>
+                  <section>
+                    Can Update
+                  </section>
+                </div>
+              </div>
+            </span>
+          </div>
+          <div class="">
+            <button class="copylink hvr-shadow">Copy Link</button>
+          </div>
+          <div class="clear"></div>
+        </section>
+      </div> -->
+      <div *ngIf="activeRpTab === 'people'" class="department_wrap">
+        <section>
+          <div class="peopl_section_one">
+            <h4 class="people_section_heading">Shared With</h4>
+            <div class="userListOuter">
+              <div class="user_count_list" *ngFor="let user of dataService.sharedUsers.sharedUserList | slice:0:2" >
+                <div class="user_count_list_dp"></div>
+                <h4>{{user.userName}}</h4>
+                <span>
+                  <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                    <input readonly type="text" class="" name="text" placeholder="Can View" [value]="user.permission === 'view' ? 'Can View' : 'Can Update'"  (click)="user.showActions =  !user.showActions">
+                    <div class="drop_drop_pop commonn_popup" *ngIf="user.showActions">
+                      <section (click)="user.permission = 'view';user.showActions =  false">
+                        Can View
+                      </section>
+                      <section  (click)="user.permission = 'edit';user.showActions =  false">
+                        Can Update
+                      </section>
+                    </div>
+                  </div>
+                </span>
+                <div class="del_ico" (click)="removeUSer(user)">
+                </div>
+              </div>
+              <div class="show_more" *ngIf="!showMore && dataService.sharedUsers.sharedUserList.length > 2" (click)="showMore = true">
+                <p>Show More
+                  <img [src]="assetUrl+'assets/images/form/blue_drop_down.png'" />
+                </p>
+              </div>
+              <div class="show_less" *ngIf="showMore && dataService.sharedUsers.sharedUserList.length > 2" (click)="show_less = !show_less">
+                <div class="user_count_list" *ngFor="let user of dataService.sharedUsers.sharedUserList | slice:2:dataService.sharedUsers.sharedUserList.length" >
+                  <div class="user_count_list_dp"></div>
+                  <h4>{{user.userName}}</h4>
+                  <span>
+                    <div class="user_count_input drop_dropdown_wrap drop_icon_input">
+                      <input type="text" class="" name="text" placeholder="Can View" [value]="user.permission === 'view' ? 'Can View' : 'Can Update'" (click)="user.showActions = !user.showActions">
+                      <div class="drop_drop_pop commonn_popup" *ngIf="user.showActions">
+                        <section (click)="user.permission = 'view';user.showActions =  false">
+                          Can View
+                        </section>
+                        <section (click)="user.permission = 'edit';user.showActions =  false">
+                          Can Update
+                        </section>
+                      </div>
+                    </div>
+                  </span>
+                  <div class="del_ico" (click)="removeUSer(user)">
+                  </div>
+                </div>
+                <p *ngIf="showMore" (click)="showMore =  false">Show Less
+                  <img [src]="assetUrl+'assets/images/form/blue_drop_up.png'" />
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="peopl_section_one">
+            <h4 class="people_section_heading">Add People</h4>
+            <input type="text" placeholder="Search" class="add-pple-input" [(ngModel)]="searchText" (ngModelChange)="initOrChangeUserList()">
+
+            <section class="user_drop_nav">
+              <ul>
+                <li [ngClass]="{active:addpple == 'all'}" (click)="addpple = 'all'">All </li>
+               <!-- <li [ngClass]="{active:addpple == 'department'}" (click)="addpple = 'department'">Department</li> -->
+                <!-- <li [ngClass]="{active:addpple == 'search'}" (click)="addpple = 'search'">Search1</li> -->
+              </ul>
+            </section>
+            <section class="user_drop_body user_body_drop drop-shared">
+              <div class="" *ngIf="addpple === 'all'" >
+                <section class="recent_ppl" *ngFor="let resuser of taskDataService.responsiblePersons.list" [hidden]="resuser.existing" (click)="selectUser(resuser)">
+                  <div class="recent_ico" *ngIf="resuser.employeeImage !== null" [ngStyle]="{'background-image': 'url(' + resuser.employeeImage + ')'}">
+                  </div>
+                  {{resuser.employee_name}}
+                </section>
+              
+              </div>
+              <!-- <div *ngIf="addpple === 'department'" class="">
+                <section class="recent_ppl">
+                  <div class="recent_ico">
+                  </div>
+                  Peter Palmer
+                </section>
+                <section class="recent_ppl">
+                  <div class="recent_ico">
+                  </div>
+                  Peter Palmer
+                </section>
+              </div> -->
+              <div *ngIf="addpple === 'search'" class="">
+                <section class="recent_ppl" *ngFor="let resuser of taskDataService.responsiblePersons.list" [hidden]="resuser.existing" (click)="selectUser(resuser)">
+                  <div class="recent_ico">
+                  </div>
+                  {{resuser.employee_name}}
+                </section>
+               
+              </div>
+            </section>
+           
+          </div>
+        </section>
+      </div>
+    </section>
+
+  </div>
+  <section class="user_drop_footer">
+    <button (click)="shareForm()">Done</button>
+  </section>
+</div>

@@ -1,0 +1,52 @@
+.tab-inner
+{
+  padding: 10px 0 30px 0px;
+}
+.training-name
+{
+  border-bottom: 1px solid #e4e6e9;
+  padding: 20px;
+}
+.training-name label
+{
+  padding: 20px 0;
+  color: #9ca4ae;
+  font-size: 14px;
+}
+.training-name input
+{
+  padding: 20px 0;
+  color: #323b45;
+  border: 0;
+  width: 100%;
+}
+::placeholder
+{
+  color: #323b45 ;
+  font-size: 14px;
+}
+.learned-selector p
+{
+  padding-bottom :20px;
+  color: #9ca4ae;
+  font-size: 14px;
+}
+.learned-selector
+{
+padding: 20px;
+}
+.input-title
+{
+  color: #536273 ;
+  font-size: 14px;
+  margin: 0px 20px;
+}
+.feedbk-check
+{
+  margin: 10px 0 ;
+}
+.checked
+{
+color: #323b45;
+font-weight: bold;
+}

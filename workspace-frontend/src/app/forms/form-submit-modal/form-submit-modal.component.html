@@ -1,0 +1,28 @@
+<!-- Form Submit Modal -->
+
+<div class="form_submit_wrap">
+  <div class="form_submit_modal">
+    <div class="form_outer_shadow">
+      <div class="fs_header">
+        <h4>{{dataService.viewForm.selectedFormDetails.formTitle}}</h4>
+        <p>{{dataService.viewForm.selectedFormDetails.description}}</p>
+        <a class="close" (click)="closeFormSubmit()">&times;</a>
+      </div>
+      <div class="fs_body">
+        <perfect-scrollbar>
+          <div class="fs_body_sector" *ngFor="let element of dataService.viewForm.selectedPage[dataService.viewForm.selectdPageSlug]">
+            <app-form-submit-loader [data]="element"></app-form-submit-loader>
+          </div>
+        </perfect-scrollbar>
+      </div>
+      <div class="fs_footer">
+        <button class="fs_footer_next ft_lft" *ngIf="dataService.viewForm.pageSlugs.indexOf(dataService.viewForm.selectdPageSlug) == dataService.viewForm.pageSlugs.length - 1" (click)="submitFormResponse()">Submit</button>
+        <button class="fs_footer_next ft_lft"  *ngIf="dataService.viewForm.pageSlugs.indexOf(dataService.viewForm.selectdPageSlug) != dataService.viewForm.pageSlugs.length - 1" (click)="goToNext()">Next Page</button>
+        <button class="fs_footer_next ft_lft"  *ngIf="dataService.viewForm.pageSlugs.indexOf(dataService.viewForm.selectdPageSlug) != 0" (click)="goToPrevious()">Previous Page</button>
+        <button class="fs_footer_cancel" (click)="closeFormSubmit()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form Submit Modal -->

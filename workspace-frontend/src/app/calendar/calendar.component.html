@@ -1,0 +1,21 @@
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title ph3inline">CALENDAR</h3>
+          <div class="panel-right-holder pbtnsinline">
+              <!-- <button class="pbtnfilter" (click)="newPop()">New</button> -->
+              <div class="createNew" *ngIf ="calendarDataService.createPopup.showPopup">
+                  <app-create-new></app-create-new>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="calendarContent">
+        <app-calendar-sidebar></app-calendar-sidebar>
+        <router-outlet></router-outlet>
+        <!-- <app-calendar-main></app-calendar-main> -->
+        <!-- <app-calendar-week></app-calendar-week> -->
+        <!-- <app-calendar-day></app-calendar-day> -->
+    </div>
+    <div class="clear"></div>

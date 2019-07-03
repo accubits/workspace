@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/partnermanagement",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\PartnerManagement\\Providers\\PartnerManagementServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\PartnerManagement\\": ""
+        }
+    }
+}

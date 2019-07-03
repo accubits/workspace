@@ -1,0 +1,65 @@
+<div class="table_head table-row" >
+  <div class="table-blocks">
+    MODULE NAME
+  </div>
+  <div class="table-blocks">
+    CREATED AT
+  </div>
+  <!-- <div class="table-blocks">
+    DEADLINE
+  </div> -->
+</div>
+<div class="table_inner table-row">
+  <section class="t_row_hover" *ngFor="let performance of hrmDataService.getPerformance.kraModules;let i=index" (click)="showKraModule(i)">
+    <div class="table-blocks">
+      {{performance.title}}
+    </div>
+    <div class="table-blocks">
+      {{performance.createdAt *1000 | date: 'MMM dd, yyyy'}}
+    </div>
+    <!-- <div class="table-blocks">
+      5 may 2019
+    </div> -->
+    <div class="table-blocks">
+      <!-- <div class="more" (click)="showMoreOption($event)"> -->
+        <div class="more" (click)="showMoreOption($event,i)">
+          <div class="dotPopup"  *ngIf="performance['showMore']">
+            <div class="fl_more_option_container">
+              <div class="fl_more_option" >
+                <ul>
+                  <li (click)="showDelete()">
+                    Delete
+                  </li>
+                  <li (click)="showEdit(performance)">
+                    Edit
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="confirm_popup" *ngIf="hrmDataService.deleteConfirmPopup.show" >
+      <div class="confirm_pop_body">
+        <section>
+          <div class="close_drop" (click)="cancelPopup($event)">
+          </div>
+          <p class="pop_main">Are you sure you want to delete the selected performance ? </p>
+        </section>
+        <section>
+          <div class="confirm_pop_btn" (click) ="deletePerformance($event,performance.slug)">
+            Confirm
+          </div>
+          <div class="confirm_pop_btn" (click)="cancelPopup($event)">
+            Cancel
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+ 
+  
+</div>
+<app-kra-module-detail *ngIf="hrmDataService.kraModuleDetail.show" ></app-kra-module-detail>
+<app-new-module *ngIf="hrmDataService.showEditPopup.show"></app-new-module>
+

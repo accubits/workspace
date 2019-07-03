@@ -1,0 +1,28 @@
+<div class="fp_likert_wrap">
+  <label>Evaluate the following statements</label>
+  <table>
+    <thead>
+      <tr>
+        <th>Statements</th>
+        <th *ngFor="let column of likertElement.likert.columns">{{column.column || 'Column'}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stmnt of likertElement.likert.statements;let inx=index">
+        <td data-label="Statements">{{stmnt.stmt}}</td>
+        <td data-label="Strongly Disagree" *ngFor="let column of likertElement.likert.columns;let idx=index">
+          <div class="fp_table_radio_likert">
+            <div class="radio_out">
+              <input id="radio_id3" name="repeat_radio + {{inx}}" type="radio" disabled  [checked]="checkItem(stmnt.stmtId,column.colId)">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+          </div>
+          <!-- <div class="likert_count_in_td">1</div> -->
+        </td>
+      
+      </tr>
+      <tr>
+
+    </tbody>
+  </table>
+</div>

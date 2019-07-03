@@ -1,0 +1,8 @@
+<div class="fp_input">
+  <label>{{websiteElement.website.label}}<span *ngIf = "data.website.isRequired" class="error">*</span></label>
+  <input type="text" class="" name="text" [(ngModel)]="websiteSubmit.website.answer"placeholder="Website link" (ngModelChange)="validateElement()">
+  <p class="error" *ngIf="!websiteElement.isValidated && dataService.formValidation.validating && !websiteSubmit.website.answer">Required Field</p>
+  <p class="error" *ngIf="!websiteElement.isValidFormat && dataService.formValidation.validating && websiteSubmit.website.answer">Invalid website</p>
+
+
+</div>

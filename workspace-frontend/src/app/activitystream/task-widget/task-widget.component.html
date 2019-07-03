@@ -1,0 +1,105 @@
+<div class="task_widget_wrap">
+
+  <div class="tw_header">
+      <div class="wid_head">Task</div>
+      <div class="create_overlay ovl" *ngIf="firstchoice" (click)="firstchoice = false">
+        </div>
+      <div class="tw_drop drop_dropdown_wrap" (click)="firstchoice = !firstchoice">
+          <span *ngIf="clickStatus == 'sevenDays'">7 days</span>
+          <span *ngIf="clickStatus == 'thirtyDays'">30 days</span>
+          <span *ngIf="clickStatus == 'oneyear'">1 Year</span>
+          <div class="dropdown_arw"></div>
+          <div class="drop_drop_pop commonn_popup" *ngIf="firstchoice">
+            <section (click)="updateTaskStatus('sevenDays')">
+              7 Days
+            </section>
+            <section (click)="updateTaskStatus('thirtyDays')">
+              30 Days
+            </section>
+            <section (click)="updateTaskStatus('oneyear')">
+              1 Year
+            </section>
+          </div>
+      </div>
+    <button (click)="goToTask()">+ New</button>
+  </div>
+  <div class="tw_body">
+    <div class="">
+      <div class="tw_body_row">
+        <h4>ACTIVE TASKS</h4>
+        <div class="tw_icon_count">
+          <h6>
+            <img [src]="assetUrl+'assets/images/Active_task_icon.png'" /> {{actStreamDataService.taskWidgetDetails.details.overview.active}}
+          </h6>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="tw_body_row">
+        <h4>TASK OVERDUE</h4>
+        <div class="tw_icon_count">
+          <h6>
+            <img [src]="assetUrl+'assets/images/as/danger.png'" /> {{actStreamDataService.taskWidgetDetails.details.overview.overdue}}
+          </h6>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="">
+      <div class="tw_body_row">
+        <h4>UPCOMING DEADLINE</h4>
+        <div class="tw_icon_count">
+          <h6>
+            <img [src]="assetUrl+'assets/images/as/hp.png'" /> {{actStreamDataService.taskWidgetDetails.details.overview.upcomingDeadline}}
+          </h6>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="tw_body_row">
+        <h4>HIGH PRIORITY TASKS</h4>
+        <div class="tw_icon_count">
+          <h6>
+            <img [src]="assetUrl+'assets/images/as/warning.png'" /> {{actStreamDataService.taskWidgetDetails.details.overview.priority}}
+          </h6>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="your_task_holder">
+    <!-- <div class="yt_header">
+      <h4>YOUR TASK</h4>
+      <div class="nex_prev">
+        <button>
+          <img [src]="assetUrl+'assets/images/as/prev.png'" />
+        </button>
+        <button>
+          <img [src]="assetUrl+'assets/images/as/next.png'" />
+        </button>
+        <div class="clear"></div>
+      </div>
+    </div> -->
+
+    <app-task-carousel-widget></app-task-carousel-widget>
+
+    <!-- <div class="yt_body">
+      <div class="task_card_slider">
+        <div class="task_card" *ngFor="let taskCard of taskCards; let i = index;">
+          <img [src]="assetUrl+'assets/images/task/more.png'" />
+          <p>{{taskCard.time}}</p>
+          <h4>{{taskCard.message}}</h4>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="">
+                <div class="check" for="1_in"></div>
+              </div>
+              Complete
+            </label>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="clear"></div>
+  </div>
+
+</div>

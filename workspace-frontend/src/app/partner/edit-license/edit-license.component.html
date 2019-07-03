@@ -1,0 +1,50 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="form_submit_wrap">
+    <!-- <div class="overlaypop" (click)="closeCreatePopup()"></div> -->
+    <div  class="form_submit_modal">
+      <div class="fs_header">
+          <h4>EDIT LICENSE REQUEST</h4>   
+      </div>
+      <div class="content"> 
+        
+        <div class="fieldOuter element_input  left" (click)="orgShow=!orgShow">
+            <input type="text" readonly  value = "{{partnerDataService.updateLicense.name}}"/>
+            <!-- <div class="drop_icon_input"></div> -->
+            <!-- <div class="drop_drop_pop commonn_popup" *ngIf="orgShow">
+                <section *ngFor= "let organisation of partnerDataService.getOrganisationDetails.organizations" (click)='organisations(organisation)'>
+                {{organisation.name}}
+                </section>
+               
+              </div> -->
+        </div>
+        <div class="fieldOuter right">
+            <input type="text" placeholder="Max Users"  [(ngModel)]="partnerDataService.updateLicense.maxUsers" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" [(ngModel)]="partnerDataService.createLicense.maxUsers" /> 
+            <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !partnerDataService.updateLicense.maxUsers" >Required Field</p> 
+
+          </div>
+      
+        <div class="fieldOuter left">
+          <div class="element_input drop_dropdown_wrap" (click)="toggleShow=!toggleShow">
+            <div class="drop_icon_input"></div>
+            <input class="ng-pristine ng-valid ng-touched" name="text" placeholder="Annual"  [(ngModel)]="partnerDataService.updateLicense.licenseType" readonly="true" type="text" ng-reflect-name="text" ng-reflect-model="">
+            <div class="drop_drop_pop commonn_popup" *ngIf="toggleShow">
+              <section >
+                Annual
+              </section>
+              <!-- <section>
+                choice 2
+              </section> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+      <div class="fs_footer">
+        <button class="fs_footer_next" (click)="editLicenses()">Save</button>
+        <button class="fs_footer_cancel" (click)="this.partnerDataService.showEditLicensepopup.show = false ">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+

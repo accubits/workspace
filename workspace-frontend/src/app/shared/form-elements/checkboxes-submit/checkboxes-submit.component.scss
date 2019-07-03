@@ -1,0 +1,36 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.fp_checkboxes_wrap h6 {
+    font-size: 14px;
+    color: #414d5b;
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: block;
+    position: relative;
+}
+
+.fp_checkboxes_wrap .checkbox {
+    margin-bottom: 20px;
+}
+
+.fp_checkboxes_wrap .checkbox span {
+    margin-left: 20px;
+    font-style: italic;
+    color: #959ea8;
+}
+
+.fp_checkboxes_wrap .checkbox .check_outer {
+    margin-right: 15px;
+}
+
+.fp_checkboxes_wrap .checkbox label {
+    font-size: 14px;
+}
+span.error {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #d9463b;
+    padding-left: 3px;
+}

@@ -1,0 +1,246 @@
+<section class="fixed">
+	<header>
+		<nav class="iCosys-navigation _flex" id="nav-head">
+			<div class="iCosys-logo-container">
+				<a (click)="menutoggle.toggleMenu = !menutoggle.toggleMenu" class="iCosys-toggle-btn pull-left dark_theme">
+					<img [src]="assetUrl+'assets/images/menu.png'" />
+				</a>
+				<a (click)="menutoggle.toggleMenu = !menutoggle.toggleMenu" class="iCosys-toggle-btn pull-left white_theme">
+					<img [src]="assetUrl+'assets/images/menu_dark.png'" />
+				</a>
+				<a class="iCosys-logo dark_theme">
+					<img [src]="assetUrl+'assets/images/logo.png'" />
+				</a>
+				<a class="iCosys-logo white_theme">
+					<img [src]="assetUrl+'assets/images/log_dark.png'" />
+				</a>
+			</div>
+			<!-- <div class="searchonheader_wrap">
+				<form id="topbarsearch">
+					<input type="search" placeholder="Search">
+				</form>
+			</div> -->
+			<div class="header_search">
+				<div class="search_wrap" [ngClass]="{'open':this.showSearch}">
+					<div class="search_icon" (click)="this.showSearch = true"></div>
+					<div class="search_close" (click)="this.showSearch = false"></div>
+					<input type="text" placeholder="Search">
+				</div>
+			</div>
+			<div class="nav_right_wrap">
+				<div class="iCosys-top-nav-container">
+						<div class="filter_cancel_overlay" *ngIf="this.clockDataService.clockManagement.workReport" (click)="closeOverlay()"></div>
+					<div class="nav-working-holder" (click)="showClocks()">
+						<h4>
+							<label *ngIf="clockDataService.clockStatus.isPreviousDayClockout && (clockDataService.clockStatus.currentStatusName === 'clockIn' || clockDataService.clockStatus.currentStatusName === 'clockContinue')">WORKING</label>
+							<label *ngIf="clockDataService.clockStatus.currentStatusName === ''">START WORKING</label>
+							<label *ngIf="clockDataService.clockStatus.currentStatusName === 'pause' && clockDataService.clockStatus.isPreviousDayClockout">PAUSED</label>
+							<label *ngIf="clockDataService.clockStatus.currentStatusName === 'clockOut' || clockDataService.clockStatus.currentStatusName === 'earlyClockout'">CLOCKED OUT</label>
+							<label *ngIf="!clockDataService.clockStatus.isPreviousDayClockout">Close Previous Working days To clock in</label>
+
+
+								<cd-timer #basicTimer *ngIf="clockDataService.clockStatus.isPreviousDayClockout && (clockDataService.clockStatus.currentStatusName === 'clockIn' || clockDataService.clockStatus.currentStatusName === 'clockContinue' || clockDataService.clockStatus.currentStatusName === 'pause')" [autoStart]="false"
+								 [startTime]="clockDataService.clockManagement.stratTime" format="hms" (onTick)="updateTimer($event)" (onStop)="updateStopishTime($event)"></cd-timer>
+						
+						</h4>
+					</div>
+					<!--paused, clockout , close previous content starts-->
+					<!-- <div class="nav-working-holder" (click)= "showClocks()">
+							<div class="workStatus Paused">
+								<div class="statusImg"></div>
+								<h4>PAUSED
+									<cd-timer #basicTimer [autoStart]="false" format="hms"></cd-timer>
+								</h4>
+							</div>
+							<div class="workStatus Clocked">
+								<div class="statusImg"></div><h4>CLOCKED OUT
+									<cd-timer #basicTimer [autoStart]="false" format="hms"></cd-timer>
+								</h4>
+							</div>
+							<div class="workStatus Close">
+								<div class="statusImg"></div><h4>Close Previous Working days To clock in
+									<cd-timer #basicTimer [autoStart]="false" format="hms"></cd-timer>
+								</h4>
+							</div>
+					</div> -->
+					<!--paused, clockout , close previous content ends-->
+					
+					<div class="workStatusDisplay" *ngIf="clockDataService.clockManagement.workReport">
+						<!--showClock-->
+						<!-- <app-previous-day *ngIf="workReport"></app-previous-day> -->
+						<app-work-report *ngIf="clockDataService.clockManagement.showWorkReport"></app-work-report>
+						<app-work-hours-start [hidden]="clockDataService.clockManagement.showWorkReport" (clockIn)="startClock()" *ngIf="clockDataService.clockStatus.clockStatusButtons.clockIn && clockDataService.clockStatus.isPreviousDayClockout" [hidden]="clockDataService.clockManagement.showWorkReport"></app-work-hours-start>
+						<app-work-hours-pause [hidden]="clockDataService.clockManagement.showWorkReport" (clockOut)="stopOrPauseClock($event)" *ngIf="clockDataService.clockStatus.clockStatusButtons.clockOut && clockDataService.clockStatus.isPreviousDayClockout && (clockDataService.clockStatus.currentStatusName === 'clockIn' || clockDataService.clockStatus.currentStatusName === 'clockContinue')  "></app-work-hours-pause>
+						<app-work-hours-resume  [hidden]="clockDataService.clockManagement.showWorkReport" (clockResume)="stopOrResumeClock($event)" *ngIf="clockDataService.clockStatus.clockStatusButtons.clockContinue && clockDataService.clockStatus.isPreviousDayClockout && clockDataService.clockStatus.currentStatusName === 'pause'"></app-work-hours-resume>
+						<app-work-hours-continue [hidden]="clockDataService.clockManagement.showWorkReport" (clockContinue)="stopOrContinue()" *ngIf="clockDataService.clockStatus.currentStatusName === 'earlyClockout'"></app-work-hours-continue>
+						<app-previous-day [hidden]="clockDataService.clockManagement.showWorkReport" (clockOutPrevios)="clockOutPreviosDay()" *ngIf="!clockDataService.clockStatus.isPreviousDayClockout"></app-previous-day>
+						<app-edit-work [hidden]="clockDataService.clockManagement.showWorkReport" *ngIf="clockDataService.clockManagement.editWork"></app-edit-work>
+					</div>
+
+
+					<div class="bellnotify">
+						<a class="dropdown-toggle dark_theme">
+							<img [src]="assetUrl+'assets/images/notification-clear.png'" />
+						</a>
+						<a class="dropdown-toggle white_theme">
+							<img [src]="assetUrl+'assets/images/notification_dark.png'" />
+						</a>
+					</div>
+
+					<div class="chatnotify" (click)="ch_drop = !ch_drop">
+						<div class="chat_drop">
+							<div class="nwhite_theme"></div>
+							<div class="ndark_theme"></div>
+							<!-- Notification drop -->
+							<div class="chatnotify_drop acc_up_option" *ngIf="ch_drop">
+								<div class="ch_header">
+									<div class="ch_headleft">
+										<h4>Messages</h4>
+									</div>
+									<div class="ch_headright">
+										<button class="ch_edit">New Message</button>
+									</div>
+								</div>
+								<div class="ch_body">
+									<div class="ch_section">
+										<perfect-scrollbar>
+											<div class="user_row user_rowActive">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<span class="noify_red"></span>
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="user_row">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="user_row">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<!-- <img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" /> -->
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="user_row">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+											<div class="user_row">
+												<div class="user_row_head">
+													<div class="user_row_head_left">
+														<img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" />
+														<h4 class="user_head_name">Stella Little</h4>
+													</div>
+													<div class="user_row_head_right">
+														<p class="user_head_time">4:30 pm</p>
+													</div>
+												</div>
+												<div class="user_row_body">
+													<div class="user_message">
+														<!-- <img class="userIcon" [src]="assetUrl+'assets/images/tar/user1.png'" /> -->
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod metus ipsum, ac molestie
+															enim
+															pretium non.
+														</p>
+													</div>
+												</div>
+											</div>
+										</perfect-scrollbar>
+									</div>
+									<div class="ch_footer">
+
+									</div>
+								</div>
+							</div>
+							<!-- Notification drop -->
+						</div>
+					</div>
+				</div>
+
+				<div id="pic-wrapper" (click)="account = true" class="account-holder acc_drop">
+					<span>Hi {{user}}</span>
+					<div id="profile-pic">
+						<img [src]="settingsDataService.editSettingsTemplate.imageUrl" *ngIf="settingsDataService.editSettingsTemplate.imageUrl">
+						<img [src]="assetUrl+'assets/images/def_img.png'" *ngIf="!settingsDataService.editSettingsTemplate.imageUrl">
+					</div>
+					<img class="account-dd" [src]="assetUrl+'assets/images/account-dd.png'" />
+					<img class="account_dd_dark" [src]="assetUrl+'assets/images/dropdown.png'" />
+					<ul class="acc_drop_content acc_up_option" *ngIf="account">
+						<!-- <li>
+							<img class="four_square" [src]="assetUrl+'assets/images/four_square.png'" />
+							<p>Switch to Organization Dashboard</p>
+						</li>
+						<li>
+							<img class="four_square" [src]="assetUrl+'assets/images/four_square.png'" />
+							<p>Switch to Partner Manager Dashboard</p>
+						</li> -->
+						<li (click)="logout()">
+							<img class="logOut" [src]="assetUrl+'assets/images/logout.png'" />
+							<p>Logout</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="log_overlay" (click)="account = false" *ngIf="account"></div>
+		</nav>
+	</header>
+</section>
+
+<!-- <app-create-report *ngIf="clockDataService.clockStatus.isWorkReportPrompt"></app-create-report> -->

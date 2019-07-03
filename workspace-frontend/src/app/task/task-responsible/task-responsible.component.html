@@ -1,0 +1,17 @@
+<div class="taskActive_wrap">
+
+  <div class="table_outer_block">
+    <section class="no_result" *ngIf="taskDataService.getTasks.taskList.length === 0">
+
+    </section>
+
+    <section *ngIf="taskDataService.getTasks.taskList.length !== 0">
+      <app-task-list-header></app-task-list-header>
+      <div *ngFor="let task of taskDataService.getTasks.taskList | paginate: { itemsPerPage: taskDataService.getTasks.perPage, currentPage:taskDataService.getTasks.page,totalItems: taskDataService.getTasks.total };let index=index" class="table_body table_row">
+        <app-task-listing [task]="task" [index]="index"></app-task-listing>
+      </div>
+    </section>
+  </div>
+
+</div>
+

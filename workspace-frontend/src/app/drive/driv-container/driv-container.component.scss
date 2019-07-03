@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* SCSS Document */
+
+/* -----------------------------------------
+        Drive Container |START|
+------------------------------------------*/
+ul,
+ol {
+    list-style-type: none;
+}
+.drive_wrap {
+    background-color: #fff;
+    position: relative;
+    height: calc(100vh - 205px);
+}
+
+.new_drop_wrap {
+    position: absolute;
+    right: 21px;
+    width: 140px;
+    top: 66px;
+    background-color: #fff;
+    -webkit-box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.new_drop_wrap ul li {
+    height: auto;
+    line-height: 100%;
+    font-size: 13px;
+    width: 100%;
+    border-bottom: 1px solid #eaeaea;
+    padding: 13px;
+    cursor: pointer;
+    /* text-align: center; */
+    color: #556576;
+    font-family: roboto-regular;
+}
+
+.new_drop_wrap ul li:last-child {
+    border-bottom: none;
+}
+
+.new_drop_wrap ul li:hover {
+    background-color: #0957be;
+    color: white;
+}
+
+.formwrap_upload {
+    width: 100%;
+    height: 300px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    line-height: 15px;
+    font-family: roboto-regular;
+}
+
+.upload_drive {
+    background-color: #fff;
+    -webkit-box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    position: absolute;
+    top: -8px;
+    width: 80%;
+    right: 20px;
+}
+
+.formwrap_upload img {
+    width: 37px;
+    height: 35px;
+    margin-top: 90px;
+    margin-bottom: 20px;
+}
+
+.formwrap_upload p {
+    font-weight: 300;
+    color: #626f7f;
+    margin-top: 10px;
+}
+
+.formwrap_upload p span {
+    font-weight: 300;
+    color: #29cc97;
+    position: relative;
+}
+
+.formwrap_upload input {
+    visibility: hidden;
+}
+
+.up_option:after,
+.up_option:before {
+    display: block;
+    position: absolute;
+    right: 5%;
+    content: "";
+    border-style: none double solid;
+    width: 0;
+    height: 0;
+}
+
+.up_option:before {
+    top: -10px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid rgba(57, 70, 78, .08);
+}
+
+.up_option:after {
+    top: -9px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 9px solid #fff;
+}
+
+.file_up_option_wrap {
+    position: relative;
+    z-index: 9999999999;
+    background-color: #fff;
+}
+
+.overlaypop {
+    background-color: transparent;
+    z-index: 999999999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@media (max-width: 1366px) {
+    .drive_wrap {
+        background-color: #fff;
+        position: relative;
+        height: calc(100vh - 155px);
+    }
+}
+
+/* -----------------------------------------
+        Drive Container |END|
+------------------------------------------*/

@@ -1,0 +1,48 @@
+<div class="overlaypop" (click)="closePop()"></div>
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+    <div class="form_submit_wrap">
+      <div  class="form_submit_modal">
+        <div class="fs_header">
+            <h4>CREATE CHILD DEPARTMENT</h4>   
+        </div>
+        <div class="content"> 
+            <div class="fieldOuter emailContent">
+                <input type="text" placeholder="Department Name" [(ngModel)]="hrmDataService.createDept.name" > 
+                <!-- <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !partnerDataService.createLicense.maxUsers" >Required Field</p>  -->
+            </div>
+            <div class="fieldOuter element_input  left">
+              <div class="roleBox">
+                <input type="text" placeholder="Select Parent Department" [disabled]="true" [(ngModel)]="hrmDataService.deptMainName.paretDeptName" > 
+                  <!-- <div class="drop_drop_pop commonn_popup" *ngIf="parentShow">
+                        <ul>
+                          <li *ngFor="let dept of hrmDataService.allDepartmentsList.departments" (click)="selectParentDepartment(dept)">{{dept.departmentName}}</li>
+                       
+                        </ul>
+                  </div> -->
+              </div>
+              <!-- <div class="filter_cancel_overlay" *ngIf="parentShow" (click)="closeParent()"></div> -->
+            </div> 
+            <div class="fieldOuter right">
+              <div class="element_input drop_dropdown_wrap roleBox" (click)="headPop()">
+                <input type="text" placeholder="Select Head of Department" [disabled]="true" [(ngModel)]="selHeadOfDept">
+                <!-- <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !partnerDataService.createLicense.licenseType" >Required Field</p>   -->
+                <div class="drop_drop_pop commonn_popup" *ngIf="head">
+                    <ul>
+                      <li *ngFor="let emp of hrmDataService.employeeList.list" (click)="selectHeadDepartment(emp)">{{emp.employeeName}}</li>
+                    </ul>
+                </div>
+              </div>
+              <div class="filter_cancel_overlay" *ngIf="head" (click)="closeHead()"></div>
+            </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="fs_footer">
+        <button class="fs_footer_next" (click)="createNewDept()">Create</button>
+        <button class="fs_footer_cancel" (click)="closePop()">Cancel</button>
+      </div>
+    </div>
+</div>
+
+  
+  

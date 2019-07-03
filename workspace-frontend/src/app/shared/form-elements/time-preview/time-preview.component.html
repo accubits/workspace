@@ -1,0 +1,38 @@
+<div class="module tablet-6 laptop-6 desktop-6 fp_timewrap">
+    <div class="fp_body">
+        <label>{{timeElement.time.label|| "Enter the title"}}<span class="error" *ngIf = "timeElement.time.isRequired === true">*</span></label>
+      <ul> 
+        <li>
+          <div class="fp_input">
+            <input type="text" class="" name="text" placeholder="HH" [disabled]="true">
+          </div>
+        </li>
+        <li>
+          <div class="fp_input trans_label">
+            <!-- <label>Time</label> -->
+            <input type="text" class="" name="text" placeholder="MM" [disabled]="true">
+          </div>
+        </li>
+        <li>
+          <div class="fp_input trans_label">
+            <!-- <label>Time</label> -->
+            <input type="text" class="" name="text" placeholder="SS" [disabled]="true">
+          </div>
+        </li>
+        <li>
+          <div class="fp_input trans_label drop_icon_input fp_ampm">
+            <!-- <label>Time</label> -->
+            <input type="text" class="" name="text" placeholder="AM" (click)="fp_ampm = !fp_ampm">
+            <div class="drop_drop_pop commonn_popup" *ngIf="fp_ampm">
+              <section>
+                AM
+              </section>
+              <section>
+                PM
+              </section>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>

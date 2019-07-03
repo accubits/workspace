@@ -1,0 +1,54 @@
+<div class="detailsOuter">
+ <div class="tableDetailOuter">
+    <div class="tableDetail">
+      <h4>ORGANISATION NAME</h4>
+    </div>
+    <div class="tableContent">
+      {{partnerDataService.selectedOrganisation.name}}
+    </div>
+  </div>
+  <div class="tableDetailBottom">
+    <div class="tableDetailOuterBottom">
+      <div class="tableDetail">
+        <h4>COUNTRY</h4>
+      </div>
+      <div class="tableContent">
+        {{partnerDataService.selectedOrganisation.countryName}}
+      </div>
+    </div>
+    <div class="tableDetailOuterBottom">
+        <div class="tableDetail">
+          <h4>CREATED ON</h4>
+        </div>
+        <div class="tableContent">
+         {{partnerDataService.selectedOrganisation.orgCreatedAt *1000 | date: 'MMM dd, yyyy, hh:mm a'  }}
+        </div>
+      </div>
+    <div class="tableDetailOuterBottom">
+      <div class="tableDetail">
+        <h4>VERTICAL</h4>
+      </div>
+      <div class="tableContent">
+        {{partnerDataService.selectedOrganisation.verticalName}}
+      </div>
+    </div>
+    <div class="tableDetailOuterBottom">
+        <div class="tableDetail">
+          <h4>ADMIN</h4>
+        </div>
+        <div class="tableContentProfile">
+          <p class="profileImage"></p>
+          <p class="profileContent">{{ partnerDataService.selectedOrganisation.adminUserNames}}</p>
+        </div>
+    </div>
+  </div>
+
+
+</div>
+<div *ngIf = "partnerDataService.showDelete.showPopup" class="fs_footer">
+    <button class="fs_footer_next"  (click)="editOrganisation()">Edit</button>
+    <button class="fs_footer_cancel" (click)="deleteOrganisation()">Delete</button>
+</div>
+<app-edit-org *ngIf="partnerDataService. showEditOrganisationpopup.show"></app-edit-org>
+<app-delete-org-pop *ngIf= "partnerDataService.cancelPop.showPopup"></app-delete-org-pop>
+

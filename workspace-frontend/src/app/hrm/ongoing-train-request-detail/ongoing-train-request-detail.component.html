@@ -1,0 +1,72 @@
+<div class="overlaypop" (click)="closeDetail()"></div>
+<div class="training-detail-pop">
+  <!-- popuphead -->
+  <div class="popup-head">
+    <h4>{{hrmDataService.selectedRequest.name}}</h4>
+    <p><span>Approved</span></p>
+    <div class="pop_close" (click)="closeDetail()"></div>
+  </div>
+   <!-- popuphead -->
+   <!-- popup inner -->
+   <div class="train-pop-inner">
+     <div class="tab-head">
+       <ul class="nav_wrap">
+         <a class="activeTab">Details</a>
+       </ul>
+     </div>
+     <div class="tab-inner">
+     <div class="details">
+       <h5>DETAILS</h5>
+       <P>{{hrmDataService.selectedRequest.details}}</P>
+     </div>
+     <div class="details">
+        <div class="person-detail">
+        <h5>REQUESTED FROM</h5>
+           <div class="employee_detail">
+            <div class="employee_image-req" *ngIf="hrmDataService.selectedRequest.imageUrl === null"></div>
+            <div class="employee_image-req" *ngIf="hrmDataService.selectedRequest.imageUrl !== null" class="employee_image" [ngStyle]="{'background-image': 'url(' + hrmDataService.selectedRequest.imageUrl + ')'}"></div>
+
+            <span class="employee_name">{{hrmDataService.selectedRequest.userName}}</span>
+          </div>
+        </div>
+        <div class="person-detail">
+            <h5>APPROVED BY</h5>
+               <div class="employee_detail">
+                <div class="employee_image"></div>
+                <div *ngIf="hrmDataService.selectedRequest.approverUserImageUrl === null" class="employee_image"></div>
+                <div *ngIf="hrmDataService.selectedRequest.approverUserImageUrl !== null" class="employee_image" [ngStyle]="{'background-image': 'url(' + hrmDataService.selectedRequest.approverUserImageUrl + ')'}"></div>
+                <span class="employee_name">{{hrmDataService.selectedRequest.approverUserName}}</span>
+              </div>
+            </div>
+         </div>
+         <div class="details">
+            <div class="req-date">
+            <h5>REQUESTED ON</h5>
+              <p>{{hrmDataService.selectedRequest.requestedOn *1000 | date: 'dd MMM yyyy'}} <span></span> {{hrmDataService.selectedRequest.requestedOn *1000 | date: 'hh:mm a'}}</p>
+            </div>
+            <div class="req-date">
+                <h5>APPROVED ON</h5>
+                  <p>{{hrmDataService.selectedRequest.approvedAt *1000 | date: ' dd MMM  yyyy'}}<span></span> {{hrmDataService.selectedRequest.approvedAt *1000 | date: 'hh:mm a'}}</p>
+                </div>
+                <div class="req-date">
+                  <h5>ACTIVATED ON</h5>
+                    <p>10 jul 2018 <span></span> 10:30 AM</p>
+                  </div>
+                  <!-- <div class="req-date">
+                      <h5>ENDS ON</h5>
+                        <p>{{hrmDataService.selectedRequest.endsOn *1000 | date: 'dd MMM yyyy'}}</p>
+                      </div> -->
+              </div>
+              <div class="details">
+                  <h5>COST</h5>
+                  <P>{{hrmDataService.selectedRequest.cost}}</P>
+                  </div>
+
+   </div>
+  </div>
+   <!-- popup inner -->
+
+</div>
+<!-- <div class="detail-footer">
+  <div class="pbtncreate" (click)="deactivateRequest()">Deactivate</div>
+</div> -->

@@ -1,0 +1,10 @@
+<div class="star_rating_wrap fr_question">
+  <label>{{ratingElement.rating.label}}</label>
+  <div class="element_input rating_star_container">
+    <div class="star_rating" [ngClass]="{'rated':ratingElement.rating.answer >= 1}"></div>
+    <div class="star_rating" [ngClass]="{'rated':ratingElement.rating.answer >= 2}"></div>
+    <div class="star_rating" [ngClass]="{'rated':ratingElement.rating.answer >= 3}"></div>
+    <div class="star_rating" [ngClass]="{'rated':ratingElement.rating.answer >= 4}"></div>
+    <div class="star_rating" [ngClass]="{'rated':ratingElement.rating.answer >= 51}"></div>
+  </div>
+</div>

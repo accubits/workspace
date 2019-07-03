@@ -1,0 +1,230 @@
+<div class="commonOverlay" (click) = "closepop()"></div>
+    <section class="internal_drop_body">
+        <!-- Event -->
+        <div class="mod_head_block template_p">
+            <h3>CREATE NEW EVENT</h3>
+            <!-- <div class="templateOuter">
+                <p>Template:</p>
+                <div class="select" (click)="showSelect()">
+                    <span>Select</span>
+                    <div class="dropdown_arw"></div>
+                </div>
+                <div class="selectList" *ngIf ="selectPop">
+                    <ul>
+                        <li>template1</li>
+                        <li>template2</li>
+                        <li>template3</li>
+                        <li>template4</li>
+                    </ul>
+                </div>
+            </div> -->
+        </div>
+        <section class="eventOuter">
+            <div class="wc_body">
+                <div class="title_desc_wrap">
+                    <input type="text" class="wc_wrap_title_input" placeholder="Enter Title" [(ngModel)]="actStreamDataService.createEvent.eventTitle"
+                    [ngClass]="{'err_out': !isValidated && !actStreamDataService.createEvent.eventTitle}">
+                <div class="editor_outer eventPortion" [ngClass]="{'err_out': !isValidated && !actStreamDataService.msgEditor.text}">
+                    <app-editor></app-editor>
+                </div>
+                </div>
+                <div class="event_control_wrap">
+                    <div class="event_row"><!--style="margin-top:20px;"-->
+                        <div class="e_input_holder" [ngClass]="{'err_out': !isValidated && !actStreamDataService.createEvent.eventStart}">
+                            <span>Event Start:</span>
+                            <input class="e_input_field" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder=""
+                                [(ngModel)]="actStreamDataService.createEvent.eventStart">
+                            <owl-date-time #dt1 [hour12Timer] = "true"></owl-date-time>
+                        </div>
+                        <div class="e_input_holder" [ngClass]="{'err_out': !isValidated && !actStreamDataService.createEvent.eventEnd}">
+                            <span>Event End:</span>
+                            <input class="e_input_field" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" placeholder=""
+                                [(ngModel)]="actStreamDataService.createEvent.eventEnd">
+                            <owl-date-time #dt2 [hour12Timer] = "true"></owl-date-time>
+                        </div>
+                        <div class="checkbox event_day_check">
+                            <label>
+                                <div class="check_outer">
+                                    <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="actStreamDataService.createEvent.eventAllDay">
+                                    <div class="check" for="1_in"></div>
+                                </div>
+                                All Day
+                            </label>
+                        </div>
+                    </div>
+                    <div class="event_row">
+                        <div class="set_rem_sec">
+                            <div class="checkbox">
+                                <label>
+                                    <div class="check_outer">
+                                        <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="reminderOpt"
+                                            (change)="setReminder()">
+                                        <div class="check" for="1_in"></div>
+                                    </div>
+                                    Set Reminder
+                                </label>
+                            </div>
+                            <input class="set_rem_count" type="text" [disabled]="reminderDisabled" placeholder=""
+                                [ngClass]="{'err_out': reminderOpt && count === ''}" [(ngModel)]="count" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        </div>
+                        <div class="set_rem_sec">
+                            <div class="minutes_drop_drop drop_dropdown_wrap drop_icon_input">
+                                <input type="text" [disabled]="reminderDisabled" class="" name="text" placeholder=""
+                                    [ngClass]="{'err_out': reminderOpt && type === ''}" readonly [(ngModel)]="type"
+                                    (click)="typeDd = !typeDd">
+                                <div class="drop_drop_pop commonn_popup" *ngIf="typeDd">
+                                    <section (click)="setType('Minutes')">
+                                        Minutes
+                                    </section>
+                                    <section (click)="setType('Hours')">
+                                        Hours
+                                    </section>
+                                    <section (click)="setType('Days')">
+                                        Days
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event_row">
+                        <div class="e_input_holder location_holder">
+                             <span>Location:</span>
+                             <input class="e_input_field" type="text" placeholder="81 Victoria Singapore 4567" name="name"
+                                 [(ngModel)]="actStreamDataService.createEvent.eventLocation" [ngClass]="{'err_out': !isValidated && !actStreamDataService.createEvent.eventLocation}">
+                         </div>
+                     </div>
+
+                     <div class="event_row">
+                        <div class="to">
+                            <p>Members:</p>
+                            <div class="selected_tag" *ngFor="let user of actStreamDataService.toUsers.toUsers;let idex =index">
+                                    {{user.name}}
+                                    <div class="select_close" (click)="removeUsers(user)"></div>
+                                </div>
+                                 <div class="selected_tag" *ngIf="actStreamDataService.toUsers.toAllEmployee === true">
+                                All Employees
+                                <div class="select_close" (click)="removeAllEmployees()"></div>
+                            </div>
+                            <div class="cw_select drop_icon_input">
+                                <input type="text" class="" name="text" placeholder="Add Participants" [(ngModel)]="actStreamDataService.responsiblePersons.searchParticipantsTxt"
+                                (click)="initOrChangeparticipantsList()" (click)="userlistingdrop = true"
+                                (blur)="resetUserList()" [ngClass]="{'err_out': !isValidated && actStreamDataService.toUsers.toUsers.length === 0 && !actStreamDataService.toUsers.toAllEmployee}"> 
+                                <div class="resp_person_dropdown" *ngIf="userlistingdrop">
+                                    <section class="drop_nav msg_nav">
+                                        <a class="close" (click)="userlistingdrop = false">×</a>
+                                        <ul>
+                                            <li>People</li>
+                                        </ul>
+                                    </section>
+                                    <div class="drop_down_wrap">
+                                       <section class="drop_body">
+                                          <div class="recent_wrap pad_wrap">
+                                            <ul>
+                                                 <li *ngFor="let users of actStreamDataService.responsiblePersons.list"
+                                                [hidden]="users.existing" (click)="selectUser(users)">
+                                                <span *ngIf="users.employeeImage === null" class="imgIcon"></span>
+                                                <span *ngIf="users.employeeImage !== null" class="imgIcon" [ngStyle]="{'background-image': 'url(' + users.employeeImage + ')'}"></span>{{users.employee_name}}</li>
+                                             </ul>
+                                          </div> 
+                                         </section>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more_option" (click)="actStreamDataService.moreOption.show = !actStreamDataService.moreOption.show">
+                        <p *ngIf="!actStreamDataService.moreOption.show">More Options
+                            <img [src]="assetUrl+'assets/images/as/blue_drop_down.png'" />
+                        </p>
+                    </div>
+                    <div class="more_hidden" *ngIf="actStreamDataService.moreOption.show === true">
+                        <div class="more_hidden_row">
+                            <p>Availability</p>
+                            <div class="minutes_drop_drop drop_dropdown_wrap drop_icon_input">
+                                <div class="filter_cancel_overlay" *ngIf="AvaDd" (click)="closeOverlay()"></div>
+                                <input type="text" class="" name="text" placeholder="Occupied" readonly [(ngModel)]="actStreamDataService.createEvent.eventAvailability"
+                                    (click)="AvaDd = !AvaDd">
+                                <div class="drop_drop_pop commonn_popup" *ngIf="AvaDd">
+                                    <section (click)="setAvaOpt('Occupied')">
+                                        Occupied
+                                    </section>
+                                    <section (click)="setAvaOpt('Undecided')">
+                                        Undecided
+                                    </section>
+                                    <section (click)="setAvaOpt('Free')">
+                                        Free
+                                    </section>
+                                    <section (click)="setAvaOpt('Away (Add to Absence Chart)')">
+                                        Away (Add to Absence Chart)
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="more_hidden_row">
+                            <p>Repeat</p>
+                            <div class="minutes_drop_drop drop_dropdown_wrap drop_icon_input">
+                                <div class="filter_cancel_overlay" *ngIf="repDd" (click)="closeOverlay()"></div>
+                                <input type="text" class="" name="text" placeholder="Never" readonly [(ngModel)]="actStreamDataService.createEvent.eventRepeat"
+                                    (click)="repDd = !repDd">
+                                <div class="drop_drop_pop commonn_popup" *ngIf="repDd">
+                                    <section (click)="setRepeateOpt('Never')">
+                                        Never
+                                    </section>
+                                    <section (click)="setRepeateOpt('Daily')">
+                                        Daily
+                                    </section>
+                                    <section (click)="setRepeateOpt('Weekly')">
+                                        Weekly
+                                    </section>
+                                    <section (click)="setRepeateOpt('Monthly')">
+                                        Monthly
+                                    </section>
+                                    <section (click)="setRepeateOpt('Yearly')">
+                                        Yearly
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="more_hidden_row">
+                            <p>Calendar</p>
+                            <div class="minutes_drop_drop drop_dropdown_wrap drop_icon_input">
+                                <input [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3" placeholder="" (click)="calendar = !calendar">
+                                <owl-date-time #dt3></owl-date-time>
+                            </div>
+                        </div> -->
+                        <div class="more_hidden_row">
+                            <p>Importance</p>
+                            <div class="minutes_drop_drop drop_dropdown_wrap drop_icon_input">
+                                <div class="filter_cancel_overlay" *ngIf="impDd" (click)="closeOverlay()"></div>
+                                <input type="text" class="" name="text" placeholder="Normal" readonly [(ngModel)]="actStreamDataService.createEvent.eventImportance"
+                                    (click)="impDd = !impDd">
+                                <div class="drop_drop_pop commonn_popup" *ngIf="impDd">
+                                    <section (click)="setImpOpt('Low')">
+                                        Low
+                                    </section>
+                                    <section (click)="setImpOpt('Normal')">
+                                        Normal
+                                    </section>
+                                    <section (click)="setImpOpt('High')">
+                                        High
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hide_option" (click)="clearMoreOption()">
+                            <p>Hide Options
+                                <img [src]="assetUrl+'assets/images/as/blue_drop_up.png'" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wc_wrap_footer">
+                <button class="red_btn" *ngIf="actStreamDataService.createEvent.eventSlug === ''" (click)="createNewEvent()">Create</button>
+                <button class="red_btn" *ngIf="actStreamDataService.createEvent.eventSlug !== ''" (click)="updateEvent()">Update</button>
+                <button class="grey_linebtn" (click)="cancelEvent()">Cancel</button>
+            </div>
+
+        </section>
+        <!-- Event -->
+    </section>

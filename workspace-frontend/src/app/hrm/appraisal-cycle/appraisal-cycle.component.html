@@ -1,0 +1,87 @@
+<div class="table_head table-row" >
+  <div class="table-blocks">
+    APPRAISAL CYCLES
+  </div>
+  <div class="table-blocks">
+    STARTED ON
+  </div>
+  <div class="table-blocks">
+    DEADLINE
+  </div>
+</div>
+<div class="table_inner table-row">
+  <section class="t_row_hover" (click)="appraisalAnnual()">
+    <div class="table-blocks">
+      Quarterly review Jun 2018 - Oct 2018
+    </div>
+    <div class="table-blocks">
+      29 Jun 2018
+    </div>
+
+    <div class="table-blocks">
+      29 Oct 2018
+    </div>
+    <div class="table-blocks" (click)="more()">
+      <div class="more"></div>
+    </div>
+    <div class="filter_cancel_overlay" *ngIf = "hrmDataService.moreOption.show" (click)="closeMore()"></div>
+    <app-more-option *ngIf = "hrmDataService.moreOption.show"></app-more-option>
+  </section>
+  <section class="t_row_hover" >
+    <div class="table-blocks">
+      Quarterly review Jun 2018 - Oct 2018
+    </div>
+    <div class="table-blocks">
+      29 Jun 2018
+    </div>
+    <div class="table-blocks">
+      29 Oct 2018
+    </div>
+    <div class="table-blocks">
+      <div class="more"></div>
+    </div>
+  </section>
+  <section class="t_row_hover" >
+    <div class="table-blocks">
+      Quarterly review Jun 2018 - Oct 2018
+    </div>
+    <div class="table-blocks">
+      29 Jun 2018
+    </div>
+    <div class="table-blocks">
+      29 Oct 2018
+    </div>
+    <div class="table-blocks">
+      <div class="more"></div>
+    </div>
+  </section>
+  <section class="t_row_hover" >
+    <div class="table-blocks">
+      Quarterly review Jun 2018 - Oct 2018
+    </div>
+    <div class="table-blocks">
+      29 Jun 2018
+    </div>
+    <div class="table-blocks">
+      29 Oct 2018
+    </div>
+    <div class="table-blocks">
+      <div class="more"></div>
+    </div>
+  </section>
+  <section class="t_row_hover" >
+    <div class="table-blocks">
+      Quarterly review Jun 2018 - Oct 2018
+    </div>
+    <div class="table-blocks">
+      29 Jun 2018
+    </div>
+    <div class="table-blocks">
+      29 Oct 2018
+    </div>
+    <div class="table-blocks">
+      <div class="more"></div>
+    </div>
+  </section>
+</div>
+<app-appraisal-annual-review *ngIf="hrmDataService.appraisalReview.show"></app-appraisal-annual-review>

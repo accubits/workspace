@@ -1,0 +1,247 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.nav_wrap {
+    background-color: white;
+    position: relative;
+}
+.nav_wrap ul {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    border-bottom: 1px solid #f2f2f2;
+}
+@media (max-width: 1366px)
+{
+    .nav_wrap ul li {
+        margin: 0px 25px;
+        padding: 20px 0px 20px 0px;
+    }
+}
+@media (max-width: 1460px)
+{
+    .nav_wrap ul li {
+        font-size: 14px;
+    }
+}
+
+
+.drive_wrap{
+    position: relative;
+}
+.nav_wrap ul li a {
+    color: #424e5c !important;
+}
+
+/*pagination*/
+.deal_listing_pagination .ngx-pagination a
+{
+    height: 27phx !important;
+    line-height: 23px !important;
+}
+.deal_listing_pagination .ngx-pagination .current {
+    font-weight: 600;
+    background: transparent !important;
+    color: #178ccb;
+    cursor: default;
+    border-radius: 6px;
+}
+.pagination_wrap{
+    color: #7b7b7b;
+    font-family: roboto-medium;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    width: 29%;
+}
+
+.pagination_elements{
+    display: inline-block;
+    vertical-align: top;
+    z-index: 10;
+    position: relative;
+    margin: 0px 2px;
+    cursor: pointer;
+}
+.pagination_outer{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 40%;
+    margin-top: 15px;
+}
+.pagination_elements
+{
+    margin-top: 24px;
+}
+.ngx-pagination
+{
+    margin-bottom: 0rem !important;
+}
+.nav_wrap .deal_listing_pagination .ngx-pagination .current {
+    padding: 2px 10px !important;
+    background: red;
+    color: #178ccb;
+    cursor: default;
+    border-radius: 4px;
+    /* margin-bottom: 12px; */
+    line-height: 22px !important;
+}
+.nav_wrap .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default;
+    margin-top: 3px !important;
+}
+li.pagination-previous.disabled {
+    margin-top: 3px !important;
+}
+li.pagination-next.disabled {
+    margin-top: 3px !important;
+}
+.pagination-previous::before
+{
+    margin-top: 14px !important;
+}
+.deal_listing_pagination .ngx-pagination .current
+{
+    background: red !important;
+}
+
+.activeTab li {
+         border-bottom: 3px solid #ff2e4c !important;
+         font-weight: bold;
+         color: #424e5c;
+ }
+.mob_drop li:hover::after {
+    background-color:transparent;
+}
+
+//search icon starts
+.search_wrap {
+    position: relative; //margin-top: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+    float: right;
+    margin: 10px 20px 0px 0px;
+    vertical-align: middle;
+    -webkit-transition: width 0.2s linear 0s;
+    -moz-transition: width 0.2s linear 0s;
+    -ms-transition: width 0.2s linear 0s;
+    -o-transition: width 0.2s linear 0s;
+    transition: width 0.2s linear 0s;
+}
+
+.search_wrap .search_icon {
+    position: absolute;
+    top: 17px;
+    right: 8px;
+    width: 17px;
+    height: 16px;
+    background-image: url("/assets/images/searchdark.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.search_wrap input {
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    font-size: 14px;
+    line-height: 11px;
+    width: 0px;
+    padding: 5px 0px;
+    border: 0px solid;
+    border-radius: 0px !important;
+    height: 40px;
+    transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+    background-color: transparent;
+}
+
+.search_wrap .search_close {
+    position: absolute;
+    top: 17px;
+    right: 8px;
+    width: 17px;
+    height: 16px;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+    background-image: url("/assets/images/searchClose.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.search_wrap.open {
+    width: 185px;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.search_wrap.open input {
+    padding: 5px 15px;
+    width: 100%;
+    transition: all ease 0.4s; //border-bottom: 1px solid #cbcbcb;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.search_wrap.open .search_close {
+    display: block;
+}
+//search icon ends
+.legend
+{
+  position: absolute;
+  top: 25px;
+  opacity: .7;
+  right: 80px;
+  background-image: url(/assets/images/settings/info_copy.png);
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  cursor: pointer;
+}
+.head-icon
+{
+  background-image: url(/assets/images/assets-employees/star.png);
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: top;
+}
+.legend-detail
+{
+  position: absolute;
+  right: 311px;
+  top: 5px;
+}
+.recent_wrap
+{
+  padding: 20px;
+  color: #424e5c;
+  font-size: 14px;
+  vertical-align: top;
+}
+.resp_drop_head {
+  color: #536273;
+  font-size: 14px;
+
+}
+.recent_wrap p
+{
+  vertical-align: -webkit-baseline-middle;
+  display: inline-block;
+}

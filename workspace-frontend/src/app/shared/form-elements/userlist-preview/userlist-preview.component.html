@@ -1,0 +1,153 @@
+<div class="module tablet-12 laptop-4 desktop-4 fp_input fp_userlisting drop_icon_input">
+  <label>Select Users</label>
+  <input type="text" class="" name="text" placeholder="Select" (click)="userlistingdrop = !userlistingdrop">
+  <div class="drop_down_wrap" *ngIf="userlistingdrop">
+    <section class="drop_nav">
+      <ul>
+        <li [ngClass]="{active:activeRpTab == 'recent'}" (click)="activeRpTab = 'recent'">Recent</li>
+        <li [ngClass]="{active:activeRpTab == 'dept'}" (click)="activeRpTab = 'dept'">Departments</li>
+        <li [ngClass]="{active:activeRpTab == 'search'}" (click)="activeRpTab = 'search'">Search</li>
+      </ul>
+    </section>
+    <section class="drop_body">
+      <div *ngIf="activeRpTab === 'recent'" class="recent_wrap pad_wrap">
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+      </div>
+      <div *ngIf="activeRpTab === 'dept'" class="department_wrap pad_wrap">
+        <div class="accord_wrap">
+          <div class="accord_head">
+            <div class="accord_arrow"></div>Icosys
+          </div>
+          <div class="accord_head_body">
+            <section>
+              <div class="recent_ico">
+
+              </div>
+              Peter Palmer
+            </section>
+            <section>
+              <div class="recent_ico">
+
+              </div>
+              Peter Palmer
+            </section>
+          </div>
+          <div class="accord_sub_head accord_head">
+            <div class="accord_arrow"></div>Media
+          </div>
+          <div class="accord_subhead_body">
+            <section>
+              <div class="recent_ico">
+
+              </div>
+              Peter Palmer
+            </section>
+            <section>
+              <div class="recent_ico">
+
+              </div>
+              Peter Palmer
+            </section>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="activeRpTab === 'search'" class="drop_search_wrap pad_wrap">
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+        <section>
+          <div class="recent_ico">
+
+          </div>
+          Peter Palmer
+        </section>
+      </div>
+    </section>
+  </div>
+</div>

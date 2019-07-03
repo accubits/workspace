@@ -1,0 +1,38 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title ph3inline">PARTNERS</h3>
+      </div>
+  </div>
+  <!--table head starts-->
+  <div class="tableHeadOuter">
+    <div class="tableHead darkArrow">Name <span class="arrowImageFirst"></span></div>
+    <div class="tableHead">Country <span class="arrowImage"></span></div>
+    <div class="tableHead">Phone <span class="arrowImage"></span></div>
+  </div>
+  <!--table head ends-->
+  <!--table content starts-->
+  <div class="table-outer">
+  <div class="tableContentOuter" *ngFor="let partners of partnerManagerDataService.getPartnersDetails.partners">
+    <div class="tableContent Name">
+      <div class="Image"></div>
+      <div class="tableName">{{partners.name}}</div>
+    </div>
+    <div class="tableContent Status">{{partners.partnerCountry}}
+    </div>
+    <div class="tableContent Access">
+      {{partners.phone}}
+       </div>
+    <div class="tableContent switchPartner" *ngIf= "cookieService.get('partnerSlug') !== partners.partnerSlug" (click)="switchPartners(partners)">
+      <p>Switch to Partner</p>
+    </div>
+    <!--switch tab starts-->
+    <div class="dashboardTab" *ngIf= "cookieService.get('partnerSlug') === partners.partnerSlug" (click)="partnerDashboard()">
+      Go to partner Dashboard
+    </div>
+    <!--switch tab ends-->
+  </div>
+</div>
+
+  <!--table content ends-->
+</div>

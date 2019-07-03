@@ -1,0 +1,563 @@
+<div class="create-popup_wrap">
+  <div class="ctaskmodal_header">
+    <div class="mod_header_left">
+      <div class="mod_head_block" (click)="taskDataService.createTask.priority = !taskDataService.createTask.priority">
+        <div class="hd_block_ico">
+          <img *ngIf="!taskDataService.createTask.priority" [src]="assetUrl+'assets/images/high_priority_unfill.png'">
+          <img *ngIf="taskDataService.createTask.priority" [src]="assetUrl+'assets/images/high_priority.png'">
+        </div>
+        <p>High Priority</p>
+      </div>
+      <div class="mod_head_block" (click)="taskDataService.createTask.favourite = !taskDataService.createTask.favourite">
+        <div class="hd_block_ico">
+          <img *ngIf="!taskDataService.createTask.favourite" [src]="assetUrl+'assets/images/star_dim.png'">
+          <img *ngIf="taskDataService.createTask.favourite" [src]="assetUrl+'assets/images/star.png'">
+        </div>
+        <p>Favourite</p>
+      </div>
+    </div>
+    <h3>CREATE NEW TASK</h3>
+    <div class="mod_header_right">
+      <div class="mod_head_block template_p">
+        <p>Template:</p>
+        <div class="select" (click)="temp_popup = !temp_popup">
+            <span *ngIf = "selectedTemplateName === ''">Select</span>
+          <span *ngIf = "selectedTemplateName !== ''">{{selectedTemplateName}}</span>
+          <div class="dropdown_arw"></div>
+          <div class="sel_opt_box" *ngIf="temp_popup">
+            <section *ngFor="let template of taskDataService.taskTemplates.lists" (click)="loadFromTemplate(template)">
+              {{template.title}}
+            </section>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="close" (click)="closeCreatePopup()">
+        <img [src]="assetUrl+'assets/images/pop_close.png'">
+      </div> -->
+    </div>
+  </div>
+  <div class="ctaskmodal_body">
+    <div class="title_desc_wrap">
+      <input type="text" placeholder="Title" [(ngModel)]="taskDataService.createTask.title" [ngClass]="{'err_out': !isValidated && !taskDataService.createTask.title}">
+      <p class="error" *ngIf="!isValidated && !taskDataService.createTask.title">Required Field</p>
+      <!-- <textarea placeholder="Description" [(ngModel)]="taskDataService.createTask.description" [ngClass]="{'err_out': !isValidated && !taskDataService.createTask.description}"></textarea> -->
+      <div class="ckeditorin_createtaskpop">
+        <ck-editor name='editor1' [config]="editorConfig" [(ngModel)]="taskDataService.createTask.description" skin='moono-lisa'
+          language='en' [fullPage]='true'></ck-editor>
+      </div>
+      <p class="error" *ngIf="!isValidated && !taskDataService.createTask.description">Required Field</p>
+    </div>
+
+    <section class="">
+      <div class="date_remind_wrap">
+        <!--<angular2-date-picker class="ang_datepicker" name="wrrt" [(ngModel)]="date" [settings]="settings"></angular2-date-picker>-->
+        <input [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3" placeholder="" [(ngModel)]="taskDataService.createTask.startDate">
+        <span class="ct_labelinInput">Start Date</span>
+        <owl-date-time #dt3 [hour12Timer] = "true"></owl-date-time>
+        <div class="calender_icon">
+          <img [src]="assetUrl+'assets/images/calendar.png'" />
+        </div>
+      </div>
+
+
+      <div class="date_remind_wrap" [ngClass]="{'err_out': !isValidated && !taskDataService.createTask.endDate}">
+        <!--<angular2-date-picker class="ang_datepicker" name="wrrt" [(ngModel)]="date" [settings]="settings"></angular2-date-picker>-->
+        <input [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" placeholder="" [(ngModel)]="taskDataService.createTask.endDate">
+        <span class="ct_labelinInput">Due Date</span>
+        <owl-date-time #dt2 [hour12Timer] = "true"></owl-date-time>
+        <div class="calender_icon">
+          <img [src]="assetUrl+'assets/images/calendar.png'" />
+        </div>
+        <!-- {{taskDataService.createTask.endDate}} -->
+        <p class="error" *ngIf="!isValidated && !taskDataService.createTask.endDate">Required Field</p>
+      </div>
+      <!-- <p class="error" *ngIf="!isValidated && !taskDataService.createTask.endDate">Required Field</p> -->
+      <!--<div class="more_btn">More</div>-->
+
+
+      <div class="date_remind_wrap">
+        <input [owlDateTime]="dt4" [owlDateTimeTrigger]="dt4" placeholder="" [(ngModel)]="taskDataService.createTask.reminder">
+        <span class="ct_labelinInput">Remind</span>
+        <owl-date-time #dt4 [hour12Timer] = "true"></owl-date-time>
+        <!--<angular2-date-picker  class="ang_datepicker" name="wrrt" [(ngModel)]="date" [settings]="settings"></angular2-date-picker>-->
+        <div class="calender_icon">
+          <img [src]="assetUrl+'assets/images/calendar.png'" />
+        </div>
+      </div>
+    </section>
+
+    <section class="bottomContent">
+      <div class="pop_expan_wrap" [ngClass]="{'err_out': !isValidated && !taskDataService.createTask.responsiblePerson.responsiblePersonId}">
+        <input type="text" [(ngModel)]="searchText" placeholder="" (ngModelChange)="initOrChangeResPrsnList()" (click)="showResPrsnList = true" (blur)="resetRepPerson()">
+        <span class="ct_labelinInput">Responsible Persons</span>
+
+        <div class="selected_tag" *ngIf="taskDataService.createTask.responsiblePerson.responsiblePersonId">
+          {{taskDataService.createTask.responsiblePerson.responsiblePersonName}}
+          <div class="select_close" (click)="removeRespPrsn()"></div>
+        </div>
+        <div class="resp_person_dropdown_top" *ngIf="showResPrsnList">
+          <div class="resp_drop_head">
+            <span>PEOPLE</span>
+            <div class="close_drop" (click)="showResPrsnList = false"></div>
+          </div>
+          <div class="drop_down_wrap">
+            <section class="drop_nav">
+              <ul>
+                <!-- <li [ngClass]="{active:activeRpTab == 'all'}" (click)="activeRpTab = 'all'">All</li> -->
+                <!-- <li [ngClass]="{active:activeRpTab == 'dept'}" (click)="activeRpTab = 'dept'">Departments</li> -->
+                <!-- <li [ngClass]="{active:activeRpTab == 'search'}" (click)="activeRpTab = 'search'">Search</li> -->
+              </ul>
+            </section>
+            <section class="drop_body">
+                <div class="recent_wrap pad_wrap">
+                  <section *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selctRespPerson(rp)">
+                      <div class="recent_ico"  *ngIf="rp.employeeImage === null">
+                        </div>
+                    <div class="recent_ico" *ngIf="rp.employeeImage !== null" [ngStyle]="{'background-image': 'url(' + rp.employeeImage + ')'}">
+
+                    </div>
+                    {{rp.employee_name}}
+                  </section>
+                </div>
+                
+                <div *ngIf="activeRpTab === 'search'" class="drop_search_wrap pad_wrap">
+                  <section *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selctRespPerson(rp)">
+                    <div class="recent_ico">
+
+                    </div>
+                    {{rp.employee_name}}
+                  </section>
+                </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <p class="error" *ngIf="!isValidated && !taskDataService.createTask.responsiblePerson.responsiblePersonId">Required Field</p>
+      <!-- <div class="more_btn" (click)="showParticipants = !showParticipants">Participants</div> -->
+    </section>
+
+
+    <section>
+      <div class="pop_expan_wrap">
+        <input type="text" placeholder="" [(ngModel)]="searchParticipants" (ngModelChange)="initOrChangeparticipantList()" (click)="showPartList = true" (blur)="resetPartcipnts()">
+        <span class="ct_labelinInput">Participants</span>
+        <div class="selected_tag"  *ngFor="let participant of taskDataService.createTask.assignees;let idex =index">
+          {{participant.assigneeName}}
+          <div class="select_close" (click)="removePartcipants(participant,idex)"></div>
+        </div>
+        <div class="selected_tag" *ngIf="taskDataService.createTask.to_all_participants == true">
+          All Employees
+          <div class="select_close" (click)="removeAllEmployees()"></div>
+      </div>
+        <div class="resp_person_dropdown_top" *ngIf="showPartList">
+          <div class="resp_drop_head">
+            <span>PEOPLE</span>
+            <div class="close_drop" (click)="showPartList = false;searchParticipants = ''"></div>
+          </div>
+          <div class="drop_down_wrap">
+            <section class="drop_nav">
+              <ul>
+                <!-- <li [ngClass]="{active:activeParticiapntTab === 'all'}" (click)="activeParticiapntTab = 'all'">All</li> -->
+                <!-- <li [ngClass]="{active:activeParticiapntTab === 'dept'}" (click)="activeParticiapntTab = 'dept'">Departments</li> -->
+                <!-- <li [ngClass]="{active:activeParticiapntTab === 'search'}" (click)="activeParticiapntTab = 'search'">Search</li> -->
+              </ul>
+            </section>
+            <section class="drop_body">
+              <div  class="recent_wrap pad_wrap">
+                  <!-- <section class="allEmp" *ngIf="taskDataService.createTask.to_all_participants == false" (click)="selectAllEmployees()">
+                      <div class="all_emp">
+                          A
+                      </div>
+                      All Employees
+                  </section> -->
+                <section [hidden]="rp.existing" *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selectPartcipants(rp)">
+                    <div class="recent_ico"  *ngIf="rp.employeeImage === null">
+                      </div>
+                  <div class="recent_ico" *ngIf="rp.employeeImage !== null" [ngStyle]="{'background-image': 'url(' + rp.employeeImage + ')'}">
+                  </div>
+                  {{rp.employee_name}}
+                </section>
+              </div>
+              
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="attach_btns">
+      <div class="atc_btn" *ngIf="!taskDataService.createTaksPopManagement.showAttachments" (click)="taskDataService.createTaksPopManagement.showAttachments = !taskDataService.createTaksPopManagement.showAttachments">
+        Add Attachments
+        <img [src]="assetUrl+'assets/images/clip.png'" />
+      </div>
+      <div class="atc_btn" *ngIf="!taskDataService.createTaksPopManagement.showCheckList" (click)="taskDataService.createTaksPopManagement.showCheckList = !taskDataService.createTaksPopManagement.showCheckList">
+          Add Checklist
+          <img [src]="assetUrl+'assets/images/checklist.png'" />
+      </div>
+    </section>
+    <section class="attach_expan_wrap" *ngIf="taskDataService.createTaksPopManagement.showAttachments">
+      <div class="attach_expan_head">
+        <div class="attach_expan_name">
+          Attachments
+        </div>
+        <div class="uline"></div>
+        <div class="expan_icon" (click)="taskDataService.createTaksPopManagement.showAttachments = false">
+          <img [src]="assetUrl+'assets/images/Minimize.png'" />
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="upload_wrap">
+        <input type="file" (change)="uploadTaskFiles($event.target.files)" multiple #inputFile>
+        <div class="up_ico">
+          <img [src]="assetUrl+'assets/images/upload.png'" />
+        </div>
+        <p>Drag and drop files here or
+          <span class="selectFiles">Select files</span> to upload
+          <!-- <span class="upfomdrive">Upload from drive</span> -->
+          <br> maximum file size- 5 MB </p>
+      </div>
+      <div class="attach_stat_wrap" *ngFor="let file of taskDataService.createTask.existingFiles;let index=index">
+        <div class="stst_block">
+          <span>{{index+1}}.</span>
+          {{file.name}}
+        </div>
+        <div class="stst_block">
+          {{file.size|filesize}}
+        </div>
+        <div class="stst_block">
+          <!-- Uploading.... -->
+        </div>
+        <div class="stst_block">
+          <div class="stat_rem" (click)="removeExistingFiles(index)">
+            Remove
+          </div>
+        </div>
+      </div>
+
+      <div class="attach_stat_wrap" *ngFor="let file of taskDataService.createTask.fileList;let index=index">
+        <div class="stst_block">
+          <span>{{taskDataService.createTask.existingFiles.length+index+1}}.</span>
+          {{file.name}}
+        </div>
+        <div class="stst_block">
+          {{file.size|filesize}}
+        </div>
+        <div class="stst_block">
+          <!-- Uploading.... -->
+        </div>
+        <div class="stst_block">
+          <div class="stat_rem" (click)="removeUploadedFiles(index)">
+            Remove
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class="checklist_expan_wrap" *ngIf="taskDataService.createTaksPopManagement.showCheckList">
+      <div class="attach_expan_head">
+        <div class="attach_expan_name">
+          Checklist
+        </div>
+        <div class="uline"></div>
+        <div class="expan_icon" (click)="taskDataService.createTaksPopManagement.showCheckList = false">
+          <img [src]="assetUrl+'assets/images/Minimize.png'" />
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="check_wrap">
+        <div [sortablejs]="taskDataService.createTask.checklists">
+          <div class="checklist_listing" *ngFor="let cl of taskDataService.createTask.checklists;let idx=index">
+            <div class="drag_ico">
+              <img [src]="assetUrl+'assets/images/move.png'" />
+            </div>
+            <div class="checkbox check_drag">
+              <label>
+                <div class="check_outer">
+                  <input name="" type="checkbox" [(ngModel)]="cl.checklistStatus">
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+            </div>
+            <div class="clist_cnt">{{cl.description}}</div>
+            <div class="stat_rem" (click)="removeAcheckListItem(idx)">
+              Remove
+            </div>
+          </div>
+        </div>
+
+
+        <div class="checklist_wrap">
+          <input type="text" placeholder="Add checklist" [(ngModel)]="checkingItem" >
+          <div class="add_an" (click)="addCheckList()">Add</div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class="attach_expan_wrap">
+      <div class="attach_expan_head p_left">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input name="" type="checkbox" [(ngModel)]="showParentSection" >
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+        <div class="attach_expan_name">
+          Add Parent task
+        </div>
+        <div class="uline" [hidden]="!showParentSection"></div>
+      </div>
+      <section [hidden]="!showParentSection">
+        <section>
+          <div class="pop_expan_wrap">
+            <input type="text" placeholder="" [(ngModel)]="searchTextParent" (ngModelChange)="initOrChangeParentTask()" (click)="showParentTaskList = true">
+            <span class="ct_labelinInput">Select Parent Task</span>
+            <div class="selected_tag" *ngIf="taskDataService.createTask.parentTask.parentTaskSlug">
+              {{taskDataService.createTask.parentTask.parentTaskTitle}}
+              <div class="select_close" (click)="removeParentTask()"></div>
+            </div>
+            <div class="resp_person_dropdown_top" *ngIf="showParentTaskList">
+              <div class="resp_drop_head">
+                <span>TASK</span>
+                <div class="close_drop" (click)="showParentTaskList = false"></div>
+              </div>
+              <div class="drop_down_wrap">
+                <section class="drop_nav">
+                  <ul>
+                    <!-- <li [ngClass]="{active:activeParentTab == 'recentTaskparent'}" (click)="activeParentTab = 'recentTaskparent'">Recent</li> -->
+                    <!-- <li [ngClass]="{active:activeParentTab == 'allTaskparent'}" (click)="activeParentTab = 'allTaskparent'">All</li> -->
+                    <!-- <li [ngClass]="{active:activeParentTab == 'searchTaskparent'}" (click)="activeParentTab = 'searchTaskparent'">Search</li> -->
+                  </ul>
+                </section>
+                <section class="drop_body">
+                  <div *ngIf="activeParentTab === 'recentTaskparent'" class="recent_wrap pad_wrap">
+                    <section *ngFor="let pt of taskDataService.parentTasks.list" (click)="selectParentTask(pt)">
+                      Peter Palmer
+                    </section>
+                  </div>
+                  <div *ngIf="activeParentTab === 'allTaskparent'" class="department_wrap pad_wrap">
+                    <section *ngFor="let pt of taskDataService.parentTasks.list" (click)="selectParentTask(pt)">
+                      {{pt.title}}
+                    </section>
+                  </div>
+                  <div *ngIf="activeParentTab === 'searchTaskparent'" class="drop_search_wrap pad_wrap">
+                    <section *ngFor="let pt of taskDataService.parentTasks.list" (click)="selectParentTask(pt)">
+                      {{pt.title}}
+                    </section>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <p class="error" *ngIf="showParentSection === true && taskDataService.createTask.parentTask.parentTaskSlug === ''">Required Field</p>
+      <section class="check_opt_sec">
+        <label>
+          <div class="check_outer">
+            <input name="" type="checkbox" [(ngModel)]="taskDataService.createTask.responsiblePersonCanChangeTime">
+            <div class="check" for="1_in"></div>
+          </div>
+        </label>
+        Responsible person can change due date
+      </section>
+      <section class="check_opt_sec">
+        <label>
+          <div class="check_outer">
+            <input name="" type="checkbox" [(ngModel)]="taskDataService.createTask.approveTaskCompleted" (change)="approveTaskCompleted(taskDataService.createTask.approveTaskCompleted)">
+            <div class="check" for="1_in"></div>
+          </div>
+        </label>
+        Do not require approve task when completed
+      </section>
+
+      <section class="appr_head" [hidden]="taskDataService.createTask.approveTaskCompleted">
+        <div class="pop_expan_wrap" [ngClass]="{'err_out': !isValidated && !taskDataService.createTask.approveTaskCompleted && !taskDataService.createTask.approver.approverSlug}">
+          <input type="text" class="select_approver" placeholder="" (click)="showApproverlist = true" [(ngModel)]="searchTextApprvr"
+            (ngModelChange)="initOrChangeApprvrList()">
+          <span class="ct_labelinInput">Select Approver</span>
+          <div class="selected_tag" *ngIf="taskDataService.createTask.approver.approverSlug">
+            {{taskDataService.createTask.approver.approverName}}
+            <div class="select_close" (click)="removeApprover()"></div>
+          </div>
+          <div class="resp_person_dropdown_top" *ngIf="showApproverlist">
+            <div class="resp_drop_head">
+              <span>PEOPLE</span>
+              <div class="close_drop" (click)="showApproverlist = false"></div>
+            </div>
+            <div class="drop_down_wrap">
+              <section class="drop_nav">
+                <ul>
+                  <!-- <li [ngClass]="{active:activeApproverTab == 'allApprover'}" (click)="activeApproverTab = 'allApprover'">All</li> -->
+                  <!-- <li [ngClass]="{active:activeApproverTab == 'searchApprover'}" (click)="activeApproverTab = 'searchApprover'">Search</li> -->
+                </ul>
+              </section>
+              <section class="drop_body">
+                <div  class="recent_wrap  pad_wrap">
+                  <section *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selectApprover(rp)">
+                    {{rp.employee_name}}
+
+                    <div class="recent_ico to_zero"  *ngIf="rp.employeeImage === null">
+                      </div>
+
+                      <div class="recent_ico to_zero"  *ngIf="rp.employeeImage !== null" [ngStyle]="{'background-image': 'url(' + rp.employeeImage + ')'}">
+                        </div>
+                  </section>
+                </div>
+                 
+              </section>
+            </div>
+          </div>
+        </div>
+        <p class="error" *ngIf="!isValidated && !taskDataService.createTask.approver.approverSlug">Required Field</p>
+      </section>
+
+
+    </section>
+    <!-- </section> -->
+
+
+    <section class="attach_expan_wrap">
+      <div class="attach_expan_head p_left">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input name="" type="checkbox" [(ngModel)]="taskDataService.createTaskRepeat.showRepeat" >
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+        <div class="attach_expan_name">
+          Repeat task
+        </div>
+        <div class="uline" [hidden]="!taskDataService.createTaskRepeat.showRepeat"></div>
+      </div>
+      <section class="recent_block" [hidden]="!taskDataService.createTaskRepeat.showRepeat">
+        <div class="repeat_wrap">
+          <div class="marg_span_top">Repeat every</div>
+          <div class="num_block">
+            <input type="text" placeholder="1" [(ngModel)]="taskDataService.createTask.repeat.repeatEvery">
+          </div>
+          <div class="week_block">
+            <!--<input type="text">-->
+            <div class="span_dropdown_wrap" (click)="common_popup = !common_popup">
+              {{taskDataService.createTask.repeat.repeatType | capitalize}}
+              <div class="dropdown_arw"></div>
+              <div class="span_drop_pop commonn_popup" *ngIf="this.common_popup">
+                <section (click)="selctFrequency('day')">
+                  Day
+                </section>
+                <section (click)="selctFrequency('week')">
+                  Week
+                </section>
+                <section (click)="selctFrequency('month')">
+                  Month
+                </section>
+                <section (click)="selctFrequency('year')">
+                  Year
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="week_wrap" [hidden]="taskDataService.createTask.repeat.repeatType !== 'week'">
+          <section *ngFor="let day of taskDataService.createTask.repeat.week | objectIterate ;let in = index">
+            <label>
+              <div class="check_outer">
+                <input name="{{'day' + in}}" type="checkbox" [(ngModel)]="taskDataService.createTask.repeat.week[day.key]">
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+            {{day.key}}
+          </section>
+
+        </div>
+
+        <p>Ends :</p>
+
+        <section class="top_sect">
+          <div class="per_wrap">
+            <div class="radio_out">
+              <input type="radio" name="repeat_radio" id="radio_id" value="never" [(ngModel)]="taskDataService.createTask.taskEndOption">
+              <div class="custom_radio" for="radio_id"></div>
+            </div>
+          </div>
+          <div class="marg_span">Never</div>
+        </section>
+
+        <section class="top_sect">
+          <div class="per_wrap">
+            <div class="radio_out">
+              <input type="radio" name="repeat_radio" id="radio_id2" value="on" [(ngModel)]="taskDataService.createTask.taskEndOption">
+              <div class="custom_radio" for="radio_id2"></div>
+            </div>
+            <div class="marg_span">0n</div>
+            <div class="date_remind_wrap" [hidden]="taskDataService.createTask.taskEndOption !== 'on'">
+              <!--<angular2-date-picker class="ang_datepicker" name="wrrt" [(ngModel)]="date" [settings]="settings"></angular2-date-picker>-->
+              <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="" [(ngModel)]="taskDataService.createTask.repeat.ends.on">
+              <span class="ct_labelinInput">Date Time</span>
+              <owl-date-time #dt1 [hour12Timer] = "true"></owl-date-time>
+              <div class="calender_icon">
+                <img [src]="assetUrl+'assets/images/calendar.png'" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="top_sect">
+          <div class="per_wrap">
+            <div class="radio_out">
+              <input type="radio" name="repeat_radio" id="radio_id3" value="after" [(ngModel)]="taskDataService.createTask.taskEndOption">
+              <div class="custom_radio" for="radio_id3"></div>
+            </div>
+            <div class="marg_span">After</div>
+            <div class="num_block">
+              <input placeholder="1" type="text" [(ngModel)]="taskDataService.createTask.repeat.ends.after">
+            </div>
+            Occurrences
+          </div>
+        </section>
+      </section>
+    </section>
+  </div>
+
+  <div class="ctaskmodal_footer">
+    <ul>
+      <li>
+        <button class="ctmodal_createbtn" (click)="createNewTask()">Create</button>
+      </li>
+      <li>
+        <button class="ctmodal_cancelbtn" (click)="taskDataService.resetCreateTask()">Cancel</button>
+      </li>
+    </ul>
+    <div class="template-add right">
+      Add to templates
+      <label>
+        <div class="check_outer">
+          <input name="" type="checkbox" [(ngModel)]="taskDataService.createTask.isTemplate">
+          <div class="check" for="1_in"></div>
+        </div>
+      </label>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="resp_overlay" *ngIf="showResPrsnList" (click)="showResPrsnList = false"></div>
+
+  <div class="resp_overlay" *ngIf="showPartList" (click)="showPartList = false"></div>
+
+  <div class="resp_overlay" *ngIf="showParentTaskList" (click)="showParentTaskList = false"></div>
+
+  <div class="resp_overlay" *ngIf="showApproverlist" (click)="showApproverlist = false"></div>
+
+  <div class="resp_overlay" *ngIf="temp_popup" (click)="temp_popup = false"></div>
+
+</div>
+

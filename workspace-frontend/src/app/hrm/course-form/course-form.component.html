@@ -1,0 +1,56 @@
+<div class="tab-inner">
+
+  <div class="training-name">
+      <div class="pbtncreate" (click)="courseFeedback()">Give Course Feedback</div>
+
+    <label>Enter Training Name</label>
+    <input type="text" placeholder="Lorem Ipsum" readonly>
+  </div>
+  <div class="training-name">
+      <label>Score</label>
+      <input type="text" placeholder="21" readonly>
+    </div>
+    <div class="learned-selector" >
+      <p>Select things learned</p>
+        <div  class="feedbk-check">
+            <label>
+              <div class="check_outer">
+                <input name="" type="checkbox" class="">
+                <div class="check"></div>
+              </div>
+            </label>
+            <span class="input-title">Lorem Ipsum is simply dummy </span>
+          </div>
+          <div  class="feedbk-check">
+              <label>
+                <div class="check_outer">
+                  <input name="" type="checkbox" class="">
+                  <div class="check"></div>
+                </div>
+              </label>
+              <span class="input-title"> printing and typesetting industry</span>
+            </div>
+            <div  class="feedbk-check">
+                <label>
+                  <div class="check_outer">
+                    <input name="" type="checkbox" class="" checked>
+                    <div class="check"></div>
+                  </div>
+                </label>
+                <span class="input-title checked">industry's standard dummy </span>
+              </div>
+    </div>
+</div>
+<!-- <div class="overlay"></div> -->
+            <div class="approve-pop" *ngIf="hrmDataService.showScorePopup.show">
+                <h4>Enter training course</h4>
+                <div class="pop-inner">
+                  <div class="select-form">
+                  <input type="text" placeholder="0-100" [(ngModel)]="hrmDataService.showScorePopup.score"/>
+                </div>
+
+                </div>
+                <div class="pop-footer">
+                    <div class="pbtncreate" (click)="submitCourseRating()">Submit</div>
+                </div>
+                </div>

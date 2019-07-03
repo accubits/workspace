@@ -1,0 +1,48 @@
+<div class="monthTop">
+  <div class="monthOuter">
+    <div class="alertIcon" (click)="showLegend()"></div>
+    <div class="legendPop" *ngIf = "legendView">
+      <div class="legendHead">
+        <p>Legend</p>
+        <p class="closeIcon"></p>
+      </div>
+      <div class="legendContent">
+        <div class="legendIcon"></div>
+        <div class="legendData Starting">Events</div>
+      </div>
+      <div class="legendContent">
+        <div class="legendIcon"></div>
+        <div class="legendData">Leaves and Holidays</div>
+      </div>
+      <div class="legendContent">
+        <div class="legendIcon Dot"></div>
+        <div class="legendData">Overdue Task</div>
+      </div>
+      <div class="legendContent">
+        <div class="legendIcon Last"></div>
+        <div class="legendData Ending">Task</div>
+      </div>
+    </div>
+    <div class="monthSelect" (click)="showType()">
+      <span>{{calendarDataService.getCalendarInput.type}}</span>
+      <!-- <span>Month</span> -->
+     
+      <div class="monthIcon"></div>
+    </div>
+    <div class="selectOuter" *ngIf = "typeSelect">
+      <ul>
+        <a routerLink='../calendarMonth' (click)="updateCalendarType('month')">
+          <li>Month</li>
+        </a>
+        <a routerLink='../calendarWeek' (click)="updateCalendarType('week')">
+          <li>Week</li>
+        </a>
+        <a routerLink='../calendarDay' (click)="updateCalendarType('day')">
+          <li>Day</li>
+        </a>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="commonOverlay" *ngIf="showOverlay" (click)="closeOverlay()"></div> 

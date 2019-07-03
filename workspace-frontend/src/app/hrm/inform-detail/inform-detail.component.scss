@@ -1,0 +1,167 @@
+.information-wrap
+{
+  width: 100%;
+  height: auto;
+  overflow: auto;
+}
+.inform-left
+{
+  width: 45%;
+  float: left;
+  color: #5a6470;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.inform-right
+{
+  width: 55%;
+  float: left;
+  padding-bottom: 50px;
+  border-left: 1px solid #e8eaec;
+  font-size: 14px;
+
+
+}
+.detail-head
+{
+  width: 100%;
+  margin-bottom: 20px;
+  color: #5a6470;
+  padding: 20px;
+  font-size: 14px;
+  background-color: #f6f6f6;
+}
+.detail-row
+{
+  padding: 15px 20px;
+  width: 100%;
+  display: inline-block;
+}
+.detail-left
+{
+  width: 35%;
+  float: left;
+  font-family: Roboto-medium;
+  color: #bdc3c9;
+  padding: 0 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.inform-right .detail-right
+{
+  width: 45%;
+}
+.detail-right
+{
+  width: 50%;
+  color: #424e5c ;
+  float: left;
+  padding: 0 20px;
+  position: relative;
+  font-family: Roboto-medium;
+}
+.detail-right .intrst{
+  padding: 5px 10px;
+  background-color: #f6f6f6;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 31%;
+  font-size: 13px;
+  float: left;
+  text-align: center;
+  border-radius: 3px;
+}
+.photo
+{
+background-image: url(/assets/images/all/tdp1.png);
+height: 100px;
+width: 100px;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+.detail-right span
+{
+  width: 100%;
+  display: inline-block;
+}
+.file
+{
+  color: #4890f3;
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.detail-right  .active
+{
+  color: #4bd099;
+}
+.detail-right  .expire
+{
+  color: red;
+}
+.detail-right .dept{
+  padding: 10px 20px;
+  background-color: #f6f6f6;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  width: auto;
+  vertical-align: top;
+  border-radius: 3px;
+}
+.detail-right .dept span{
+  color:#feb720;
+  display: table;
+  margin-left: 0px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+.profile-img
+{
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  background-image: url(/assets/images/all/tdp2.png);
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  border-radius: 50%;
+}
+.profile-name
+{
+  color: #4890f3;
+  display: inline-block;
+  padding-left: 50px;
+  margin-top: 5px;
+}
+.nav_wrap ul li {
+  margin: 0px 20px !important;
+  font-size: 14px;
+  padding: 20px 0px !important;
+}
+@media screen and (max-width:1366px)
+{
+  .information-wrap
+{
+  height: 433px;
+}
+.detail-right .intrst{
+  padding: 5px 10px;
+  background-color: #f6f6f6;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  width: auto;
+  font-size: 13px;
+  float: left;
+  border-radius: 3px;
+}
+.detail-right
+{
+  width: 65%;
+}
+.inform-right .detail-right {
+  width: 60%;
+}
+}

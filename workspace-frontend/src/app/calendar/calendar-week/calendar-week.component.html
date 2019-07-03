@@ -1,0 +1,107 @@
+<div class="work_panel_right">
+
+  <section class="calendarOuter">
+    <app-calendar-nvbar></app-calendar-nvbar>
+    
+    <div class="datesOuter">
+      <div class="dateHeads brd_lft">
+        <div class="time_wid"></div>
+        <!-- <p class="timeSpaceTop"></p> -->
+        <div class="lightColor Outer" *ngFor="let calendarDetails of calendarDataService.calenderReport.calendar;let idx=index">
+          <div class="tp_dt">{{calendarDetails.dayName}}<span class="weekDate">{{calendarDetails.dateStr * 1000 | date:'dd'}}</span>
+          </div>
+          <!-- <span>May</span> -->
+          <div class="leave" *ngFor="let calendarEv of calendarDetails.overview.event;let idx=index" [hidden]="idx>0"><img [src]="assetUrl+'assets/images/man-white.png'" style="width: 12px ; height: 15px;"/>{{calendarEv.title}}</div>
+          
+          <div class="event1 Details" *ngFor="let calendarTs of calendarDetails.overview.task;let idx=index" [hidden]="idx>1">
+              <span class="dot"></span><span>{{calendarTs.title}}</span>
+          </div>
+          <span class="eventContent" *ngIf = "calendarDetails.overview.totalCount > '2'" (click)="showOverlayPop(idx)">view all ({{calendarDetails.overview.totalCount}})</span>
+
+          <div class="commonOverlay" *ngIf = "calendarDataService.calendarReportModel.showEventDetails[idx]" (click)="closeOverlay()" (click) ="calendarDataService.calendarReportModel.showEventDetails[idx]=false"></div> 
+
+
+          <div *ngIf = "calendarDataService.calendarReportModel.showEventDetails[idx]" class="popcontent eventDetails">
+            <div class="dateOuter">
+              <div>
+                {{calendarDetails.date | date:'dd'}} <span>{{calendarDetails.dayName}}</span>
+              </div>
+              <div class="closeIcon" (click) ="calendarDataService.calendarReportModel.showEventDetails[idx]=false"></div>
+            </div>
+              <ul>
+                <li class="event1 Details" *ngFor="let calendarevt of calendarDetails.overview.event"><span class="dot"></span><span>{{calendarevt.title}}</span></li>
+                <!-- <li class="event2 Details"><span class="dot"></span><span>Create workfileworkfile</span></li>
+                <li class="event3 Details"><span class="dot popView"></span><span>Event 6</span></li> -->
+                <li class="redEvent" *ngFor="let calendarTsk of calendarDetails.overview.task">{{calendarTsk.title}}</li>
+              </ul>
+            </div>
+
+          <section class="time_repeat" *ngFor="let calendarEvent of calendarDetails.timing;let idx=index">
+              <!-- <div class="event_in_plot" *ngFor="let calendarEventName of calendarEvent.taskAndEvents.event;let idx=index">
+                    {{calendarEventName.title}}
+              </div> -->
+              <!-- <div class="leave" *ngFor="let calendarEventName of calendarEvent.taskAndEvents.event;let idx=index"><img src="/assets/images/man-white.png" style="width: 12px ; height: 15px;"/>
+                {{calendarEventName.title}}
+              </div> -->
+            </section>
+
+          <div class="event1 Details" *ngFor="let calendarTask of calendarDetails.task;let idx=index" [hidden]="idx>0">
+              <span class="dot"></span><span>{{calendarTask.title}}</span>
+          </div>
+
+        </div>
+        <div class="clear"></div>
+      </div>
+      <section class="montt_main_outer">
+          <perfect-scrollbar>
+          <div class="dateHeads timeSection brd_lft">
+              <section>
+                  <div class="time_wid tm_ht">
+                    <section>1 AM</section>
+                    <section>2 AM</section>
+                    <section>3 AM</section>
+                    <section>4 AM</section>
+                    <section>5 AM</section>
+                    <section>6 AM</section>
+                    <section>7 AM</section>
+                    <section>8 AM</section>
+                    <section>9 AM</section>
+                    <section>10 AM</section>
+                    <section>11 AM</section>
+                    <section>12 PM</section>
+                    <section>1 PM</section>
+                    <section>2 PM</section>
+                    <section>3 PM</section>
+                    <section>4 PM</section>
+                    <section>5 PM</section>
+                    <section>6 PM</section>
+                    <section>7 PM</section>
+                    <section>8 PM</section>
+                    <section>9 PM</section>
+                    <section>10 PM</section>
+                    <section>11 PM</section>
+                    <section>12 PM</section>
+                  </div>
+                <!-- <p class="timeSpace">2 pm</p> -->
+                <div class="lightColor" *ngFor="let calendarDetails of calendarDataService.calenderReport.calendar;let idx=index">
+                  <section class="time_repeat" *ngFor="let calendarTiming of calendarDetails.timing;let idx=index">
+                    <div class="event_in_plot" [ngStyle]="{'height': 30 * ((calendarEvent.endDateHour  +  1) - calendarEvent.startDateHour) + 'px' , 'width': 98 - (3 * (calendarEvent.startDateHour)) + '%'}" *ngFor="let calendarEvent of calendarTiming.taskAndEvents.event;let idx=index">
+                        {{calendarEvent.title}}
+                    </div>
+                  </section>
+                  <!-- <div class="taskOuter">
+                    <p class="taskHead">Task</p>
+                    <p class="taskContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <p class="taskHead">1pm - 4pm</p>
+                  </div> -->
+                </div> 
+                <div style="clear: both;"></div>
+              </section>
+          </div>
+        </perfect-scrollbar>
+      </section>
+
+    </div>
+  </section>
+
+</div>

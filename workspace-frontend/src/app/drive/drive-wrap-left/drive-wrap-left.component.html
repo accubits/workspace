@@ -1,0 +1,24 @@
+<div class="module drive_nav_container">
+  <div *ngFor="let type of driveDataService.getDriveFiles.driveType" (click)="selectedDrive(type)">
+    <div class="drive_nav" routerLink="./{{type.routerLink}}" routerLinkActive="driv_nav_active">
+      <h4>{{type.displayName}}</h4>
+    </div>
+  </div>
+  <div class="drive_nav_footer">
+    <div class="driv_footer_storage_desc">
+      <div class="driv_footer_storage">
+        Storage
+      </div>
+      <div *ngIf="driveDataService.getDriveFiles.storage" class="driv_footer_storage_size">
+        {{driveDataService.getDriveFiles.driveStorage.used | filesizeMB}}/{{driveDataService.getDriveFiles.driveStorage.total}} GB
+      </div>
+    </div>
+    <div class="drive_progressbar_container">
+      <div class="drive_progressbar">
+        <div class="drive_progress_seek" [ngStyle]="{'width': driveDataService.getDriveFiles.driveStorage.usagePercentage + 'px'}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>

@@ -1,0 +1,17 @@
+.panel-heading .panel-sub-title {
+  font-size: 14px;
+  color: #bac0c7;
+  font-weight: 300;
+  font-family: roboto-regular;
+  }
+.panel-sub-title::before
+{
+  height: 2px;
+  width: 1px;
+  content: '|';
+   margin: 0 10px;
+}
+.pbtncreate
+{
+  width: auto;
+}

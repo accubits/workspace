@@ -1,0 +1,23 @@
+<div class="loginbglayer">
+  <div class="loginbgoverlay">
+  </div>
+
+  <div class="login_container">
+      <div class="welcome_block fleft">
+          <p>Welcome to</p>
+          <div class="work_logo">
+              <img [src]="assetUrl+'assets/images/Layer%20679.png'">
+          </div>
+      </div>
+      <div class="login_form fright">
+          <router-outlet></router-outlet>
+<!-- <app-register-form></app-register-form> -->
+      </div>
+      <div class="clearfix"></div>
+  </div>
+
+  <footer>
+      Powered by
+      <img [src]="assetUrl+'/assets/images/unnamed.png'">
+  </footer>
+</div>

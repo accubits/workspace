@@ -1,0 +1,17 @@
+.worktime_wrap {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+.wt_left {
+    width: 22%;
+    border-right: 1px solid #dde0e3;
+}
+
+.wt_right {
+    width: 80%;
+}

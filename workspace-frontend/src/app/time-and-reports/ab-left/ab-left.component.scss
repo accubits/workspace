@@ -1,0 +1,47 @@
+.ab_left_wrap {
+    background-color: #fff;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.chart_left_head {
+    height: 43px;
+    line-height: 43px;
+    background-color: #f3f3f3;
+    padding: 0px 10px 0px 30px;
+}
+
+.chart_left_head p {
+    font-size: 14px;
+    font-family: Roboto-Medium;
+    color: #536273;
+}
+
+.chart_left_head p img {
+    width: 9px;
+    height: 5px;
+    margin-left: 5px;
+}
+
+.name_row {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px 10px 0px 30px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #dde0e3;
+}
+
+.name_row img {
+    width: 25px;
+    height: 25px;
+    margin-top: 12px;
+    margin-right: 10px;
+}
+
+.name_row p {
+    color: #424e5c;
+    font-family: Roboto-Regular;
+    font-size: 13px;
+}

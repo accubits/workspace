@@ -1,0 +1,33 @@
+.chat_container {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.left_wrap {
+    position: relative;
+    width: 20%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 10px 0px 30px -4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 10px 0px 30px -4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.right_wrap {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.file_attachment {
+    position: absolute;
+    bottom: 40px;
+    right: 0px;
+    left: 0px;
+    z-index: 2;
+}

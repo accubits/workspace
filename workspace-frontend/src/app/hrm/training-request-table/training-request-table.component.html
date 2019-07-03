@@ -1,0 +1,51 @@
+
+<div class="table_head table_row">
+  <div class="table-blocks">
+    <span>From</span>
+  </div>
+  <div class="table-blocks">
+ training name
+   </div>
+  <div class="table-blocks">
+   date requested
+  </div>
+  <div class="table-blocks">
+  duration
+  </div>
+  <div class="table-blocks">
+    cost
+  </div>
+  <div class="table-blocks">
+
+  </div>
+</div>
+<section class="table-wrap">
+    <section class="no_result_inOverview" *ngIf="hrmDataService.requestTable.list.length === 0">
+      </section>
+  
+<div class="table_list table_row" (click)="showTrainingRequest(i)" *ngFor="let training of hrmDataService.requestTable.list ;let i=index" >
+    <section  class="t_row_hover">
+  <div class="table-blocks employee_detail">
+    <div *ngIf="training.imageUrl === null" class="employee_image"></div>
+    <div *ngIf="training.imageUrl !== null" class="employee_image" [ngStyle]="{'background-image': 'url(' + training.imageUrl + ')'}"></div>
+    <span class="employee_name">{{training.userName}}</span>
+  </div>
+  <div class="table-blocks">
+    <span class="leave_date_from">{{training.name}}</span>
+  </div>
+  <div class="table-blocks">
+    <span class="leave_date_from">{{training.requestedOn *1000 | date: ' dd MMM yyyy'}}</span>
+  </div>
+  <div class="table-blocks">
+    <span class="leave_date_to">{{training.duration | number:'.0-0'}} days</span>
+  </div>
+  <div class="table-blocks">
+    <span class="leave_date_to">{{training.cost}}</span>
+  </div> 
+  </section>
+</div>
+</section>
+<app-training-request-form *ngIf="this.hrmDataService.trainingRequestForm.show"></app-training-request-form>
+<app-delete-confirm *ngIf="this.hrmDataService.deleteTrainingRequestForm.show"></app-delete-confirm>
+
+

@@ -1,0 +1,61 @@
+<div class="nav_wrap">
+  <ul>
+    <a routerLink='./workTime' routerLinkActive="active_tab" >
+      <li>Worktime</li>
+    </a>
+    <a routerLink='./workReport' routerLinkActive="active_tab">
+      <li>Work reports</li>
+    </a>
+  </ul>
+  <div class="tar_nav_right_holder">
+    <div class="legend_btn" *ngIf="router.url === '/authorized/timeReports/workTime'" (click)="showLegendPop()"></div>
+
+    <div class="legend_pop" *ngIf="showLegend">
+      <div class="legend_head">
+        LEGEND
+        <div class="leg_close" (click)="closeLegendPop()">
+          <img [src]="assetUrl+'assets/images/searchClosedark.png'" />
+        </div>workTime
+      </div>
+      <div class="legend_body">
+        <section>
+          <div class="leg_ico cnf_ico"></div>
+          Confirmed reports
+        </section>
+        <section>
+          <div class="leg_ico uncf_ico"></div>
+          Unconfirmed reports
+        </section>
+        <section>
+          <div class="leg_ico ho_ico"></div>
+          Head of department
+        </section>
+      </div>
+    </div>
+
+    <div class="year_month_picker" *ngIf="router.url === '/authorized/timeReports/workTime'">
+      <div class="pick_nav nav_yr_left" (click)="navigateMonthandYear('previous')">
+      </div>
+      <div class="date_data">{{monthName}} {{this.timeReportDataService.getWorkTimeInput.monthYear.year}}</div>
+      <div class="pick_nav nav_yr_right" (click)="navigateMonthandYear('next')">
+      </div>
+    </div>
+
+
+    <div class="year_month_picker" *ngIf="currentUrl === '/authorized/timeReports/workReport'">
+      <div class="pick_nav nav_yr_left" (click)="navigateYear('previous')">
+      </div>
+      <div class="date_data"> {{this.timeReportDataService.getWorkReportInput.year}}</div>
+      <div class="pick_nav nav_yr_right" (click)="navigateYear('next')">
+      </div>
+    </div>
+
+
+    <!-- <div class="today_btn">
+      Todays
+    </div> -->
+
+  </div>
+</div>
+
+<div class="resp_overlay" *ngIf="showLegend" (click)="closeLegendPop()"></div>

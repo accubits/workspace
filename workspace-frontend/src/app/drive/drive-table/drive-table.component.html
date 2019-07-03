@@ -1,0 +1,125 @@
+<div class="drivTableContent">
+  <div class="table_body table_row">
+    <section>
+      <div class="table-blocks">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="drive.fileSelect" (change)="selectedFile(drive.fileSelect, drive)">
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="table-blocks">
+        <div class="active file_thumbnail_icon folder_icon" *ngIf="drive.isFolder">
+          <img [src]="assetUrl+ 'assets/images/drive/'+ 'folder_thumb.png'" (click)="openFileFolder()" />
+        </div>
+        <div class="active file_thumbnail_icon" *ngIf="!drive.isFolder">
+          <img [src]="drive.fileName | imageextension" />
+        </div>
+      </div>
+
+      <div class="table-blocks drive_name">
+        <div *ngIf="driveDataService.renameFile[index]">
+          <input placeholder="Change Name" class="newFolderinput" [(ngModel)]="driveDataService.driveFileManagement.newFileName"
+            (keydown.enter)="changeFileName()" #myInput />
+          {{ myInput.focus() }}
+        </div>
+        {{drive.fileName}}
+      </div>
+
+      <div class="table-blocks inp_hov" *ngIf="drive.isFolder" (click)="openFileFolder()">
+        {{drive.modifiedDate * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+        <div class="inp_edit_key"></div>
+      </div>
+
+      <div class="table-blocks inp_hov" *ngIf="!drive.isFolder">
+        {{drive.modifiedDate * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+        <div class="inp_edit_key"></div>
+      </div>
+
+      <div class="table-blocks" *ngIf="drive.isFolder">
+        -
+      </div>
+
+      <div class="table-blocks" *ngIf="!drive.isFolder">
+        {{drive.contentSize | filesize}}
+      </div>
+
+      <div class="table-blocks">
+        <div *ngIf="drive.members.length > 0">
+         <div *ngIf="drive.members[0].userImage === null" class="table_row_pic"></div>
+            <div *ngIf="drive.members[0].userImage !== null" class="table_row_pic" [ngStyle]="{'background-image': 'url(' + drive.members[0].userImage + ')'}"></div>
+          <div class="table_row_pic_name">
+            {{drive.members[0].userName}}
+          </div>
+          <div class="user-wrap" *ngIf="drive.members.length > 1">
+            <div class="user_more_block" (click)="sharedUser(drive)">
+              + {{drive.members.length - 1}}
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="drive.members.length === 0">
+          --
+        </div>
+        <div class="row_option_ico" (click)="selectedOption(drive)">
+          <div>
+            <img [src]="assetUrl+'assets/images/more.png'" />
+          </div>
+          <!-- More Option Pop -->
+          <div class="drive_more_option_container" *ngIf="drive.moreOptionShow">
+            <div class="drive_more_option_containerOverlay" (click)="!drive.moreOptionShow"></div>
+            <div class="drive_more_option">
+              <ul>
+                <li *ngIf="driveDataService.getDriveFiles.selectedTab !== 'Shared With Me'" (click)="driveDataService.copyOption.show = true">
+                  Copy
+                </li>
+                <li *ngIf="driveDataService.getDriveFiles.selectedTab !== 'Shared With Me'" (click)="driveDataService.moveOption.show = true">
+                  Move
+                </li>
+                <li *ngIf="driveDataService.getDriveFiles.selectedTab !== 'Shared With Me'" (click)="renameOption()">
+                  Rename
+                </li>
+                <li *ngIf="driveDataService.getDriveFiles.selectedTab !== 'Shared With Me'" (click)="deleteFile()">
+                  Delete
+                </li>
+                <li (click)="driveDataService.shareOption.show = true">
+                  Share
+                </li>
+                <div *ngIf="!drive.isFolder">
+                  <li (click)="downloadFile()"> Download </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <!-- More Option Pop -->
+        </div>
+        <div class="clear"></div>
+      </div>
+      <!-- User Count Pop Up -->
+      <div class="overlay" *ngIf="driveDataService.userCount[index]" (click)="driveDataService.userCount[index] = false"></div>
+      <div class="user_count_pop" *ngIf="driveDataService.userCount[index]">
+        <div class="user_count_pop_header">
+          <h6>Shared With</h6>
+          <a class="copy_option_close" (click)="driveDataService.userCount[index] = false">&times;</a>
+        </div>
+        <div class="user_count_pop_body">
+          <div *ngFor="let user of driveDataService.driveFileManagement.shearedUserList" class="user_count_list">
+            <div *ngIf="user.userImage === null" class="user_count_list_dp"></div>
+            <div *ngIf="user.userImage !== null" class="user_count_list_dp" [ngStyle]="{'background-image': 'url(' + user.userImage + ')'}"></div>
+            {{user.userName}}
+            <!-- <div class="user_count_input drop_dropdown_wrap">
+              <input type="text" class="" name="text" [value]="user.permissionName === 'view' ? 'Can View' : 'Can Update'"
+                readonly>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- User Count Pop Up -->
+    </section>
+  </div>
+</div>
+

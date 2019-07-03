@@ -1,0 +1,190 @@
+<div class="overlaypop" (click)="closeNewLev()"></div>
+<div class="newLeavePop">
+  <div class="newLeavePop-head">
+    <h4>NEW LEAVE TYPE</h4>
+    <div class="pop_close" (click)="closeNewLev()"></div>
+  </div>
+  <div class="newLeavePop-inner">
+    <div class="name">
+      <label>Name : </label>
+      <input type="text" placeholder="" [(ngModel)]="hrmDataService.leaveType.name">
+      <p class="error" *ngIf="!isValidated && !hrmDataService.leaveType.name">Required Field</p>
+    </div>
+    <div class="new-leave-type">
+      <section>
+        <span class="">Reason Type :</span>
+        <div class="overlaypop-color" *ngIf="newReasonList" (click)="hideNewReason()"></div>
+        <input type="text" [(ngModel)]="hrmDataService.leaveType.resonType" readonly (click)="showNewReason()">
+        <div class="resp_person_dropdown" *ngIf="newReasonList">
+          <div class="resp_drop_head">
+            <span>Reason Type</span>
+            <div class="close_drop" (click)="hideNewReason()"></div>
+          </div>
+          <div class="drop_down_wrap">
+            <section class="drop_nav">
+              <ul>
+                <li (click)="selectType('Paid')">Paid</li>
+                <li (click)="selectType('Un Paid')">Un Paid</li>
+                <li (click)="selectType('On Duty')">On Duty</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+        <div class="arrow_drop" (click)="showNewReason()"></div>
+      </section>
+    </div>
+    <div class="color-picker">
+      <span class="color-tag">Color :</span>
+      <div class="overlaypop-color" *ngIf="colorPicker" (click)="hideColorPicker()"></div>
+      <div class="color-select" (click)="showColorPicker()">
+        <span class="color" [ngStyle]="{'background-color': hrmDataService.leaveType.colorCode}"></span>
+        <div class="arrow_drop_color"></div>
+      </div>
+      <div class="resp_color_dropdown" *ngIf="colorPicker">
+        <div class="drop_down_wrap">
+          <section class="drop_nav">
+            <span (click)="pickColor('#ffcaca')" class="color-pick pink" [class.active]="hrmDataService.leaveType.colorCode === '#ffcaca'"></span>
+            <span (click)="pickColor('#87f399')" class="color-pick green" [class.active]="hrmDataService.leaveType.colorCode === '#87f399'"></span>
+            <span (click)="pickColor('#ffff00')" class="color-pick yellow" [class.active]="hrmDataService.leaveType.colorCode === '#ffff00'"></span>
+            <span (click)="pickColor('#87cefa')" class="color-pick blue" [class.active]="hrmDataService.leaveType.colorCode === '#87cefa'"></span>
+            <span (click)="pickColor('#ff2e4c')" class="color-pick red" [class.active]="hrmDataService.leaveType.colorCode === '#ff2e4c'"></span>
+            <span (click)="pickColor('#9acd32')" class="color-pick green-yellow" [class.active]="hrmDataService.leaveType.colorCode === '#9acd32'"></span>
+            <span (click)="pickColor('#0000ff')" class="color-pick dark-blue" [class.active]="hrmDataService.leaveType.colorCode === '#0000ff'"></span>
+            <span (click)="pickColor('#b50cb5')" class="color-pick lavender" [class.active]="hrmDataService.leaveType.colorCode === '#b50cb5'"></span>
+            <span (click)="pickColor('#808080')" class="color-pick grey" [class.active]="hrmDataService.leaveType.colorCode === '#808080'"></span>
+            <span (click)="pickColor('#ff4500')" class="color-pick orange" [class.active]="hrmDataService.leaveType.colorCode === '#ff4500'"></span>
+            <span (click)="pickColor('#ff0000')" class="color-pick dark-red" [class.active]="hrmDataService.leaveType.colorCode === '#ff0000'"></span>
+            <span (click)="pickColor('#9f7adc')" class="color-pick light-blue" [class.active]="hrmDataService.leaveType.colorCode === '#9f7adc'"></span>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="textarea-wrap">
+      <label>Description :</label>
+    <textarea rows=5 placeholder="" [(ngModel)]="hrmDataService.leaveType.description"></textarea>
+  </div>
+    <p class="error" *ngIf="!isValidated && !hrmDataService.leaveType.description">Required Field</p>
+  </div>
+  <section>
+    <div class="nav_wrap">
+      <ul>
+        <li [ngClass]="{active:type ==='applicable'}" (click)="applicable('applicable')">Applicable For</li>
+        <li [ngClass]="{active:type ==='notappli'}" (click)="applicable('notappli')">Not Applicable For</li>
+      </ul>
+    </div>
+    <div class="tab-main">
+      <div class="" *ngIf="type === 'applicable'">
+        <div class="name-tab">
+          <div class="overlaypop-color" *ngIf="newNameList" (click)="hideNewName()"></div>
+          <div class="leave-pop_expan_wrap request-wrap">
+            <span class="input-title request">Name :</span>
+            <span *ngIf="hrmDataService.toUsers.toAllEmployee !== true">
+            <div *ngFor="let user of hrmDataService.toUsers.toUsers" class="selected_tag">
+             <span class="input-title">{{user.name}}
+                <div class="select_close" (click)="removeUsers(user)"></div>
+              </span>
+              </div>
+            </span>
+            <div *ngIf="hrmDataService.toUsers.toAllEmployee === true" class="selected_tag">
+              <span class="input-title">
+                All Employees
+                <div class="select_close" (click)="removeAllEmployees()"></div>
+              </span>
+            </div>
+            <input type="text" placeholder="" (click)="showNewName()">
+            <div class="resp_person_dropdown" *ngIf="newNameList">
+              <div class="resp_drop_head">
+                <span>PEOPLE</span>
+                <div class="close_drop" (click)="hideNewName()"></div>
+              </div>
+              <div class="drop_body">
+                <section>
+                  <div class="recent_wrap pad_wrap">
+                    <section class="allEmp" *ngIf="!hrmDataService.toUsers.toAllEmployee" (click)="selectAllEmployees()">
+                      <div class="all_emp">
+                        A
+                      </div>
+                      All Employees
+                    </section>
+                  </div>
+                </section>
+                <section>
+                  <div class="recent_wrap pad_wrap List">
+                    <section *ngFor="let emp of hrmDataService.employeeList.list" [hidden]="emp.existing" (click)="selectEmployee(emp)">
+                      <div *ngIf="emp.employeeImage === null" class="recent_ico"></div>
+                      <div *ngIf="emp.employeeImage !== null" class="recent_ico" [ngStyle]="{'background-image': 'url(' + emp.employeeImage + ')'}"></div>
+                      {{emp.employeeName}}
+                    </section>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+          <p class="error" *ngIf="!isValidated && hrmDataService.leaveType.isApplicableFor && !hrmDataService.toUsers.toAllEmployee && hrmDataService.toUsers.toUsers.length === 0">Required Field</p>
+        </div>
+
+        <section class="period-count">
+          <div class="new-leave-count">
+            <span class="">Leave Count :</span>
+            <input type="text" [(ngModel)]="hrmDataService.leaveType.leaveCount" onkeypress="return event.charCode >= 46 && event.charCode <= 57">
+          </div>
+         </section>
+         <p class="error" *ngIf="!isValidated && hrmDataService.leaveType.isApplicableFor && hrmDataService.leaveType.leaveCount === ''">Required Field</p>
+         <p class="error" *ngIf="!isValidated && hrmDataService.leaveType.isApplicableFor && hrmDataService.leaveType.leaveCount === '0'">Invalid Leave count</p>
+       <div class="clear"></div>
+
+      </div>
+    </div>
+    <div class="tab-main">
+      <div class="" *ngIf="type === 'notappli'">
+        <div class="name-tab">
+          <div class="overlaypop-color" *ngIf="newNonNameList" (click)="hideNonNewName()"></div>
+          <div class="leave-pop_expan_wrap request-wrap">
+            <span class="input-title request">Name :</span>
+            <div *ngFor="let user of hrmDataService.toUsers.toUsers" class="selected_tag">
+              <span class="input-title">{{user.name}}
+                <div class="select_close" (click)="removeUsers(user)"></div>
+              </span>
+            </div>
+            <input type="text" placeholder="" (click)="showNonNewName()">
+            <div class="resp_person_dropdown" *ngIf="newNonNameList">
+              <div class="resp_drop_head">
+                <span>PEOPLE</span>
+                <div class="close_drop" (click)="hideNonNewName()"></div>
+              </div>
+              <div class="drop_down_wrap">
+                <div class="drop_down_wrap">
+                  <section class="drop_body">
+                    <div class="recent_wrap pad_wrap">
+                      <section *ngFor="let emp of hrmDataService.employeeList.list" [hidden]="emp.existing" (click)="selectEmployee(emp)">
+                        <div *ngIf="emp.employeeImage === null" class="recent_ico"></div>
+                        <div *ngIf="emp.employeeImage !== null" class="recent_ico" [ngStyle]="{'background-image': 'url(' + emp.employeeImage + ')'}"></div>
+                        {{emp.employeeName}}
+                      </section>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="error" *ngIf="!isValidated && !hrmDataService.leaveType.isApplicableFor && hrmDataService.toUsers.toUsers.length === 0">Required Field</p>
+        </div>
+
+        <section class="period-count">
+          <div class="new-leave-count">
+            <span class="">Leave Count :</span>
+            <input type="text" [(ngModel)]="hrmDataService.leaveType.leaveCount" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+          </div>
+         </section>
+         <p class="error" *ngIf="!isValidated && !hrmDataService.leaveType.isApplicableFor && hrmDataService.leaveType.leaveCount === ''">Required Field</p>
+         <p class="error" *ngIf="!isValidated && !hrmDataService.leaveType.isApplicableFor && hrmDataService.leaveType.leaveCount === '0'">Invalid leave count</p>
+        <div class="clear"></div>
+
+      </div>
+      <div class="newLeavePop-footer">
+        <button *ngIf="hrmDataService.leaveType.action === 'create'" class="pbtncreate" (click)="createLeaveType()">Create</button>
+        <button *ngIf="hrmDataService.leaveType.action !== 'create'" class="pbtncreate" (click)="editLeaveType()">Update</button>
+        <button class="req-cancel" (click)="closeNewLev()">Cancel</button>
+      </div>
+    </div>

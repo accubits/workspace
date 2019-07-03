@@ -1,0 +1,48 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="overlaypop" (click)="partnerDataService.showEditOrganisationpopup.show = false"></div>
+  <div class="form_submit_wrap">
+    <div  class="form_submit_modal">
+      <div class="fs_header">
+          <h4>EDIT ORGANISATION</h4>   
+      </div>
+      <div class="content">
+        <label>ORGANISATION DETAILS</label>
+        <input type="text" placeholder="" [(ngModel)]="partnerDataService.updateOrganisation.name"/> 
+        <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !partnerDataService.updateOrganisation.name" >Required Field</p> 
+
+        <div class="fieldOuter">
+          <div class="filter_close_overlay" *ngIf="toggleShow" (click)="hideOverlay()"></div>
+          <div class="element_input drop_dropdown_wrap" (click)="showSelect()">
+            <div class="drop_icon_input"></div>
+            <input class="ng-pristine ng-valid ng-touched" name="text" placeholder="" [(ngModel)]="this.partnerDataService.updateOrganisation.countryName" readonly="true" type="text" ng-reflect-name="text" ng-reflect-model="">
+            <div class="drop_drop_pop commonn_popup" *ngIf="toggleShow">
+              <section *ngFor= "let country of partnerDataService.countryTemplate.countries" (click)='countries(country)'>{{country.name}}
+              </section>
+              <!-- <section>
+                choice 2
+              </section> --> 
+            </div>
+          </div>
+          <div class="filter_close_overlay" *ngIf="toggleShowLast" (click)="hideLastOverlay()"></div>
+          <div class="element_input drop_dropdown_wrap" (click)="showSelectLast()">
+            <div class="drop_icon_input"></div>
+            <input class="ng-pristine ng-valid ng-touched" name="text" placeholder="" [(ngModel)]="this.partnerDataService.updateOrganisation.verticalName"  readonly="true" type="text" ng-reflect-name="text" ng-reflect-model="">
+            <div class="drop_drop_pop commonn_popup  secondOption" *ngIf="toggleShowLast">
+              <section *ngFor= "let vertical of partnerDataService.getVerticals.verticals" (click)='verticals(vertical)'> {{vertical.name}}
+              </section>
+              <!-- <section>
+                choice 2
+              </section> -->
+            </div>
+          </div>
+        </div>
+        <label>ADMIN DETAILS</label>
+        <input type="text" placeholder="" readonly [(ngModel)]= "partnerDataService.updateOrganisation.email" />
+      </div>
+      <div class="fs_footer">
+        <button class="fs_footer_next" (click)="editOrganisations()" >Save</button>
+        <button class="fs_footer_cancel" (click)="partnerDataService.showEditOrganisationpopup.show = false">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<!--popup updated-->
+<div class="modalOuter" (click)="closepop()"></div>
+  <div class="form_submit_wrap">
+    <div  class="form_submit_modal">
+      <div class="headerOuter">
+        <div class="fs_header">
+            <h4>LICENSE REQUEST DETAILS</h4> <span>Approved</span>
+        </div>
+        <div class="pop_close" (click)="closepop()"></div>
+      </div>
+      <div class="nav_wrap">
+        <div class="tableDetailBottom">
+          <div class="tableDetailOuter">
+              <div class="tableDetail">
+                <h4>ORGANISATION</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedCurrentLicenses.orgName}}
+
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>USERS</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedCurrentLicenses.maxUsers}}
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>KEY</h4>
+              </div>
+              <div class="tableContent">
+                {{partnerDataService.selectedCurrentLicenses.key}}
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>TYPE</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedCurrentLicenses.licenseType}}
+              </div>
+            </div>
+        </div>
+        <div class="tableDetailOuterNext">
+            <div class="tableDetailOuterBottomLast" *ngIf ="partnerDataService.selectedCurrentLicenses.requestedOn">
+              <div class="left_status Blue"></div>
+              <div class="tableDetail" *ngIf ="partnerDataService.selectedCurrentLicenses.requestedOn">
+                <h4>REQUESTED ON</h4>
+              </div>
+              <div class="tableContent" *ngIf ="partnerDataService.selectedCurrentLicenses.requestedOn">
+                  {{partnerDataService.selectedCurrentLicenses.requestedOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+              </div>
+            </div>
+            <div class="tableDetailOuterBottomLast">
+              <div class="left_status Blue"></div>
+              <div class="tableDetail">
+                <h4>APPROVED ON</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedCurrentLicenses.approvedOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="Dark"></div>
+              <div class="tableDetail">
+                <h4>AWAITING ACTIVATION</h4>
+              </div>
+            </div>
+        </div>
+        </div>
+        <div class="fs_footer Request">
+            <button class="fs_footer_next" (click)="applyLicenses()">Apply</button>
+            <!-- <button class="fs_footer_cancel" (click)="deleteLicenses()">Delete License</button> -->
+            <app-delete-pop *ngIf= "partnerDataService.cancelPop.showPopup"></app-delete-pop>
+        </div>
+    </div>
+  </div>
+
+
+<!--popup updated ends-->

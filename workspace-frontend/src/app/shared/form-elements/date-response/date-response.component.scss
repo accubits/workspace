@@ -1,0 +1,53 @@
+ul,
+ol {
+    list-style-type: none;
+}
+.fp_timewrap {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.fp_input input {
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    background-color: #f1f1f1;
+    outline: none;
+    border: none;
+}
+
+.fp_input label,
+.fp_description label,
+.fp_select label {
+    font-size: 14px;
+    color: #414d5b;
+    font-weight: 500;
+    padding-bottom: 10px;
+    display: block;
+    position: relative;
+}
+
+.fp_body {
+    position: relative;
+}
+
+.fp_body ul li {
+    float: left;
+    width: 15%;
+    margin-right: 10px;
+}
+
+.fr_question {
+    margin: 0px 0px 10px 0px;
+}
+
+.fr_question label {
+    color: #909aa4;
+    font-size: 14px;
+}
+
+.fr_answer p {
+    color: #232b37;
+    font-size: 14px;
+    padding: 10px 0px 10px 0px;
+}

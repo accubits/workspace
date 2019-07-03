@@ -1,0 +1,20 @@
+<div class="price_section">
+  <div class="price_sec">
+    <div class="fp_input fp_input_inline">
+      <label>{{priceElement.price.label}}<span *ngIf = "data.price.isRequired" class="error">*</span></label>
+      <span>Dollars</span>
+      <input type="text" class="" name="text" placeholder="" [(ngModel)]="priceSubmit.price.currency" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" (ngModelChange)="validateElement()">
+      <p class="error" *ngIf="!priceElement.isValidated && dataService.formValidation.validating && !priceSubmit.price.currency">Required Field</p>
+
+    </div>
+  </div>
+  <div class="price_sec">
+    <div class="fp_input fp_input_inline trans_label">
+      <label>Price</label>
+      <span>Cents</span>
+      <input type="text" class="" name="text" placeholder="" [(ngModel)]="priceSubmit.price.currencyUnit" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" (ngModelChange)="validateElement()">
+      <p class="error" *ngIf="!priceElement.isValidated && dataService.formValidation.validating && !priceSubmit.price.currencyUnit">Required Field</p>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="elements_wrap fileupload_wrap" (click)="activateElement()">
+  <div class="element_pad">
+    <div class="elements_head">
+      <div class="ele_icon ele_icon_fileupload">
+      </div>
+      <h4>File Upload</h4>
+    </div>
+    <div class="element_body active_element" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+      <div class="element_input">
+        <input type="text" class="" name="text" placeholder="Enter the title" [(ngModel)]="fileElement.fileUpload.label">
+      </div>
+      <div class="">
+        <label id="ctFile" for="file" class="formwrap_upload">
+          <img [src]="assetUrl+'assets/images/upload.png'" />
+          <p>Cick here to upload or
+            <span>Upload from Dive</span>
+          </p>
+          <p>Maximum file size - 5mb</p>
+          <input [disabled]="true" type="file" change="onFilechange($event)" id="file" />
+        </label>
+      </div>
+
+      <div class="ele_icon drag_outer">
+      </div>
+    </div>
+    <div class="element_body inactive_element" [ngClass]="{'active_element': dataService.formElementToggle.activeIndex === currentElementIndex}">
+      <div class="p_label">
+        <label>{{fileElement.fileUpload.label || "Enter the title"}}</label>
+      </div>
+      <div class="">
+        <label id="ctFile" for="file" class="formwrap_upload">
+          <img [src]="assetUrl+'assets/images/upload.png'" />
+          <p>Cick here to upload or
+            <span>Upload from Dive</span>
+          </p>
+          <p>Maximum file size - 5mb</p>
+          <input [disabled]="true" type="file" change="onFilechange($event)" id="file" />
+        </label>
+      </div>
+
+      <div class="ele_icon drag_outer">
+      </div>
+    </div>
+    <div class="element_footer active_element" [ngClass]="{'element_display_block': dataService.formElementToggle.activeIndex === currentElementIndex}">
+      <ul class="efleft">
+        <li>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="fileElement.fileUpload.isRequired">
+                <div class="check" for="1_in"></div>
+              </div>
+              Required
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="" name="" id=""  >
+                <div class="check" for=""></div>
+              </div>
+              Allow Multiple Upload
+            </label>
+          </div>
+        </li>
+      </ul>
+      <ul class="efright">
+        <li>
+          <button (click)="deleteElement()">Delete</button>
+        </li>
+        <li>
+          <button (click)="dulpicateElement()">Duplicate</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Delete popup start-->
+  <div *ngIf = "dataService.deletePopup[idx]" class="confirm_popup" >
+    <div class="confirm_pop_body">
+      <section>
+        <div class="close_drop" (click)="closePopup()">
+        </div>
+        <p class="pop_main">Are you sure you want to delete the selected element?</p>
+      </section>
+      <section>
+        <div class="confirm_pop_btn" (click)="deleteConform()">
+          Confirm
+        </div>
+        <div class="confirm_pop_btn" (click)="closePopup()">
+          Cancel
+        </div>
+      </section>
+    </div>
+  </div>
+<!-- Delete popup end-->
+</div>

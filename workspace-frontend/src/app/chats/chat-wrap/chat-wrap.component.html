@@ -1,0 +1,11 @@
+<div class="chat_container">
+  <div class="left_wrap">
+    <app-chat-wrap-left></app-chat-wrap-left>
+  </div>
+  <div class="right_wrap">
+    <app-chat-wrap-right></app-chat-wrap-right>
+  </div>
+  <div class="file_attachment" *ngIf="chatDataService.attachmentModal.show">
+    <app-chat-attachment></app-chat-attachment>
+  </div>
+</div>

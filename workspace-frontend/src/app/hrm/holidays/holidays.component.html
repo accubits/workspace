@@ -1,0 +1,77 @@
+<div class="table_head table_row">
+  <div class="table-blocks" [ngClass]="{'actives':hrmDataService.holiday.sortMethod === 'asc' && hrmDataService.holiday.sortOption === 'name'}"
+  (click)="sortOperation('name')">
+    <span class="holiday-head-name">Name</span>
+  </div>
+  <div class="table-blocks" [ngClass]="{'actives':hrmDataService.holiday.sortMethod === 'asc' && hrmDataService.holiday.sortOption === 'date'}"
+  (click)="sortOperation('date')">
+    <span class="holiday-heads">Date</span>
+  </div>
+  <div class="table-blocks" [ngClass]="{'actives':hrmDataService.holiday.sortMethod === 'asc' && hrmDataService.holiday.sortOption === 'repeatYearly'}"
+  (click)="sortOperation('repeatYearly')">
+    <span class="holiday-heads">Repeat yearly</span>
+  </div>
+  <div class="table-blocks" [ngClass]="{'actives':hrmDataService.holiday.sortMethod === 'asc' && hrmDataService.holiday.sortOption === 'restricted'}"
+  (click)="sortOperation('restricted')">
+    <span class="holiday-heads">Restricted</span>
+  </div>
+  <div class="table-blocks" [ngClass]="{'actives':hrmDataService.holiday.sortMethod === 'asc' && hrmDataService.holiday.sortOption === 'info'}"
+  (click)="sortOperation('info')">
+    info
+  </div>
+</div>
+
+<section class="table-wrap">
+    <section class="no_result_inOverview" *ngIf="hrmDataService.holiday.holidayList.length === 0">
+      </section>
+  <div class="table_list table_row" *ngFor="let holiday of hrmDataService.holiday.holidayList; let i = index">
+     <section class="t_row_hover">
+      <div class="table-blocks employee_detail">
+        <span class="employee_name">{{holiday.name}}</span>
+      </div>
+      <div class="table-blocks">
+        <span class="leave_date_from">{{holiday.date * 1000 | date: 'MMM dd, yyyy'}}</span>
+      </div>
+      <div class="table-blocks">
+        <span *ngIf="holiday.repeatYearly === false" class="leave_date_to">No</span>
+        <span *ngIf="holiday.repeatYearly === true" class="leave_date_to">Yes</span>
+      </div>
+      <div class="table-blocks">
+        <span *ngIf="holiday.restricted === false" class="leave_date_to">No</span>
+        <span *ngIf="holiday.restricted === true" class="leave_date_to">Yes</span>
+       </div>
+      <div class="table-blocks approve-blk">
+        <span class="leave_type">{{holiday.info}}</span>
+        <div *ngIf="checkRole ==='ORG_ADMIN'" class="more" (click)="hrmDataService.optionBtn[i] = !hrmDataService.optionBtn[i]"></div>
+       <div class="filter_cancel_overlay" *ngIf="hrmDataService.optionBtn[i]" (click)="hrmDataService.optionBtn[i] = !hrmDataService.optionBtn[i]"></div>
+   <div class="edt_opt_r" *ngIf="hrmDataService.optionBtn[i]">
+    <section (click)="updateHoliday(i, holiday)">
+      Edit
+    </section>
+    <section (click)="deleteHoliday(holiday.holidaySlug)">
+      Delete
+    </section>
+  </div>
+        <div class="clear"></div>
+     </div>
+      </section>
+       <div class="confirm_popup" *ngIf="hrmDataService.deletePopUp.show">
+          <div class="confirm_pop_body">
+            <section>
+              <div class="close_drop" (click)="hrmDataService.deletePopUp.show = false">
+              </div>
+              <p class="pop_main">{{hrmDataService.deleteMessage.msg}}</p>
+            </section>
+            <section>
+              <div class="confirm_pop_btn" (click)="conformDeleteHoliday()">
+                Confirm
+              </div>
+              <div class="confirm_pop_btn" (click)="hrmDataService.deletePopUp.show = false">
+                Cancel
+              </div>
+            </section>
+          </div>
+        </div>
+  </div>
+ </section>
+<app-add-holiday *ngIf="hrmDataService.addHoliday.show"></app-add-holiday>

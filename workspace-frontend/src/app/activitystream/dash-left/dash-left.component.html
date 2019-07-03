@@ -1,0 +1,17 @@
+<div class="left_widget">
+  <div class="greeting_widget">
+    <app-greeting-widget></app-greeting-widget>
+  </div>
+  <div class="calendar_widget">
+    <app-calendar-widget></app-calendar-widget>
+  </div>
+
+  <div class="widget_creation">
+    <app-widget-creation></app-widget-creation>
+  </div>
+
+  <div class="as_panel_wrap" *ngIf="!actStreamDataService.activityCreatePopUp.show">
+    <app-activity-stream-panel></app-activity-stream-panel>
+  </div>
+</div>
+<div class="clear"></div>

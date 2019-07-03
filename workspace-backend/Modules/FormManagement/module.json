@@ -1,0 +1,16 @@
+{
+    "name": "FormManagement",
+    "alias": "formmanagement",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\FormManagement\\Providers\\FormManagementServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

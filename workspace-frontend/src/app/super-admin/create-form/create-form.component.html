@@ -1,0 +1,43 @@
+<div class="new_form">
+  <div class="overlaypop" (click)="closePop()"></div>
+  <div class="new_form_wrap">
+    <div class="new_form_wrap_header">
+      <h4>Create New Form</h4>
+    </div>
+    <div class="new_form_wrap_body">
+      <div class="new_form_content">
+        <div class="new_form_content_row">
+          <input type="text" placeholder="Title" class="new_form_input" />
+        </div>
+        <div class="new_form_content_row">
+          <textarea class="new_form_textarea" maxlength="25" placeholder="Description"></textarea>
+        </div>
+        <div class="new_form_content_row">
+            <div class="checkbox">
+                <label>
+                  <div class="check_outer">
+                    <input name="" type="checkbox">
+                    <div class="check" for="1_in"></div>
+                  </div>
+                </label>
+                <span>Allow multiple submission</span>
+              </div>
+              
+        </div>
+        <!-- <div class="new_form_content_row">
+          <input type="text" placeholder="Add Collaborators" class="new_form_short_input">
+        </div> -->
+      </div>
+    </div>
+    <div class="new_form_wrap_footer">
+      <ul>
+        <li>
+          <button class="new_form_footer_next">Create</button>
+        </li>
+        <li>
+          <button class="new_form_footer_cancel" (click)="closePop()">Cancel</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

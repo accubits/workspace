@@ -1,0 +1,38 @@
+<div class="nav_wrap">
+  <ul *ngIf="checkRole ==='ORG_ADMIN'">
+      <a routerLink="./organization-setting" routerLinkActive="active_tab">
+        <li>Organization Settings</li>
+      </a>
+      <a routerLink="./license-setting" routerLinkActive="active_tab">
+        <li>License</li>
+      </a>
+    <a routerLink="./app-profile" routerLinkActive="active_tab">
+      <li>Profile</li>
+    </a>
+
+    <a routerLink="./app-two-factor" routerLinkActive="active_tab">
+      <li>2 Factor Authentication
+        <label>Disabled</label>
+      </li>
+
+    </a>
+  </ul>
+  <ul *ngIf="checkRole ==='ORG_EMPLOYEE'">
+    <!-- <a routerLink="./organization-setting" routerLinkActive="active_tab">
+      <li>Organization Settings</li>
+    </a>
+    <a routerLink="./license-setting" routerLinkActive="active_tab">
+      <li>License</li>
+    </a> -->
+  <a routerLink="./app-profile" routerLinkActive="active_tab">
+    <li>Profile</li>
+  </a>
+
+  <a routerLink="./app-two-factor" routerLinkActive="active_tab">
+    <li>2 Factor Authentication
+      <label>Disabled</label>
+    </li>
+
+  </a>
+</ul>
+</div>

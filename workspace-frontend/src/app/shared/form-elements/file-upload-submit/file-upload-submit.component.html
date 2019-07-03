@@ -1,0 +1,15 @@
+<div class="">
+  <div class="fp_input fp_upload_label_heading">
+    <label>File upload</label>
+  </div>
+  <div class="">
+    <label id="ctFile" for="file" class="formwrap_upload">
+      <img [src]="assetUrl+'assets/images/upload.png'" />
+      <p>Cick here to upload or
+        <span>Upload from dive</span>
+      </p>
+      <p>Maximum file size - 5mb</p>
+      <input type="file" change="onFilechange($event)" id="file" />
+    </label>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="addresswrap">
+  <div class="fr_question">
+    <label>{{addressElement.address.label}}</label>
+  </div>
+  <div *ngIf="noAnswerd === false" >
+    <div class="fr_answer">
+      <p>{{addressElement.address.streetAddress}}</p>
+    </div>
+    <div class="fr_answer">
+      <p>{{addressElement.address.addressLine2}}</p>
+    </div>
+    <div class="fr_answer">
+      <p>{{addressElement.address.city}}</p>
+    </div>
+    <div class="fr_answer">
+      <p>{{addressElement.address.state}}</p>
+    </div>
+    <div class="fr_answer">
+      <p>{{addressElement.address.zipCode}}</p>
+    </div>
+    <div class="fr_answer">
+      <p>{{countryElement.name }}</p>
+    </div>
+  </div>
+  <div *ngIf="noAnswerd === true" class="fr_answer">
+    <p>not answered</p>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.ab_chart_wrap {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+.ab_left {
+    width: 20%;
+    border-right: 1px solid #dde0e3;
+}
+
+.ab_right {
+    width: 80%;
+}

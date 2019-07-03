@@ -1,0 +1,54 @@
+<div class="filter_outer">
+    <div class="filter_head">
+      Filter
+      <div class="close_drop" (click)="closeWorkTimeFilter()"></div>
+    </div>
+    <div class="filter_body">
+      <div class="filter_in left">
+        <p>Types:</p>
+        <div class="left_block_filt">
+            <label>
+                <div class="check_outer">
+                  <input name="" type="checkbox" [(ngModel)]="workTimeFilter.confirmed" >
+                  <div class="check" for="1_in"></div>
+                </div>
+            </label>
+            <div class="left_ico_cont conf_ico"></div>
+            <span>Confirmed</span>
+        </div>
+        <div class="left_block_filt">
+            <label>
+                <div class="check_outer">
+                  <input name="" type="checkbox" [(ngModel)]="workTimeFilter.unConfirmed" >
+                  <div class="check" for="1_in"></div>
+                </div>
+            </label>
+            <div class="left_ico_cont unConf_ico"></div>
+            <span>Unconfirmed</span>
+        </div>
+      </div>
+      <div class="filter_in right">
+        <p>Department:</p>
+        <div class="filt_dept_drop" (click)="droplistSection = !droplistSection">
+          <span *ngIf="timeReportDataService.departmentLists.departments.length !== 0" >All</span>
+          <span *ngIf="timeReportDataService.departmentLists.departments.length === 0" >{{selDeptName}}</span>
+          <div class="dropdown_arw"></div>
+          <div class="overlay" *ngIf="droplistSection"  (click)="closelistSection"></div>
+
+          <div class="filt_dept_opt" *ngIf="droplistSection">
+            <perfect-scrollbar>
+              <section *ngFor="let dept of timeReportDataService.departmentLists.departments" (click)="selctDept(dept)">{{dept.departmentName}}</section>
+
+            </perfect-scrollbar>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="filter_footer">
+      <div class="filter_reset_btn" (click)="resetFilter()">Reset</div>
+      <div class="filter_reset_btn apply_filt" (click)="applyFilter()">Apply</div>
+    </div>
+  </div>
+
+  <div class="filter_drop_overlay"></div>

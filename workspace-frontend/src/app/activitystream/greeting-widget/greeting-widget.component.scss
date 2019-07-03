@@ -1,0 +1,39 @@
+.widget {
+    position: relative;
+    display: block;
+    width: 100%;
+    float: left;
+    height: 210px;
+}
+
+.greeting h4 {
+    padding: 35px 0px 0px 20px;
+    color: #fff;
+    line-height: 23px;
+    font-family: roboto-bold;
+}
+
+.quotes {
+    position: absolute;
+    bottom: 18px;
+    left: 20px;
+    color: #fff;
+}
+.quote_content p {
+    font-size: 13.5px;
+    line-height: 17px;
+    color: rgb(255, 255, 255);
+    font-family: roboto-regular;
+}
+.quotes p span {
+    font-style: italic;
+    padding-left: 20px;
+    font-size: 14px;
+    font-family: roboto-light;
+}
+// Media Queries
+@media (max-width: 1366px) {
+    .widget {
+        height: 164px;
+    }
+}

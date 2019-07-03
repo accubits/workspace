@@ -1,0 +1,17 @@
+ <div class="as_wrap">
+        <div class="create_overlay" *ngIf="actStreamDataService.showCreatetaskpopup.show" (click)="actStreamDataService.showCreatetaskpopup.show = false">
+            
+        </div>
+        <div class="create_overlay" *ngIf="actStreamDataService.eventView.show" (click)="actStreamDataService.eventView.show = false">
+            
+        </div>
+    <div class="dash_left">
+        <app-dash-left></app-dash-left>
+    </div>
+    <div class="dash_right">
+        <app-dash-right></app-dash-right>
+    </div>
+    <app-create-taskpop *ngIf="actStreamDataService.showCreatetaskpopup.show"></app-create-taskpop>
+    <div *ngIf = "actStreamDataService.fetchActivityStream.scrollArrow === true" class="scrollArrow" (click)="goTop()"></div>
+</div>
+<div class="clear"></div>

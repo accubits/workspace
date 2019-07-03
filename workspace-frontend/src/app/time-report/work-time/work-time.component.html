@@ -1,0 +1,92 @@
+<div class="work_panel_wrap">
+  <drag-scroll style="height: 66vh;">
+    <div class="work_panel_left">
+      <div class="work_panel_left_head">
+        <span>Name</span>
+      </div>
+      <div class="work_panel_left_body">
+        <section *ngFor="let worktime of timeReportDataService.workTimeReport.workTime;let idx = index">
+          <div class="management wt_accord" (click)="timeReportDataService.showDetails[idx] = !timeReportDataService.showDetails[idx]">
+            <!--(click)="worktime['showUsers'] = !worktime['showUsers']"-->
+            <h4>{{worktime.departmentName}}</h4>
+            <img class="acc_down acc_up" [src]="assetUrl+'assets/images/tar/down_arrow.png'">
+          </div>
+          <ng-container *ngIf="timeReportDataService.showDetails[idx]">
+            <div class="accord_left_content" *ngFor="let user of worktime.users">
+              <div *ngIf="user.userImage === null" class="accord_left_ico"></div>
+              <div *ngIf="user.userImage !== null" class="accord_left_ico" [ngStyle]="{'background-image': 'url(' + user.userImage  + ')'}"></div>
+
+              <div class="det_name">{{user.name}} </div>
+              <div class="small_star" *ngIf="user.isHeadOfDepartment">
+                <img class="acc_down acc_up" [src]="assetUrl+'assets/images/tar/small_star.png'" />
+              </div>
+              <div class="left_content_time">
+                <span class="duration">days</span>
+                <span>{{user.totalWorkedDays}}</span>
+                <span class="duration">hours</span>
+                <span>{{user.totalWorkedHours}}</span>
+                <span class="durationTime">h</span>
+                <span>{{user.totalWorkedMinutes}}</span>
+                <span class="durationTime">m</span>
+              </div>
+            </div>
+          </ng-container>
+        </section>
+      </div>
+    </div>
+    <div class="work_panel_right">
+      <drag-scroll style="height: 100%;">
+        <!-- <perfect-scrollbar> -->
+        <section class="scroll_section">
+          <!--trial starts-->
+          <!--trial ends-->
+          <div class="cal_right_head">
+            <!-- <div class="digi_day"> -->
+            <ng-container *ngIf="timeReportDataService.workTimeReport.workTime.length > 0">
+              <div class="digi_day" *ngFor="let report of timeReportDataService.workTimeReport.workTime[0].users[0].workDayReport">
+                {{report.day}}
+              </div>
+            </ng-container>
+
+          </div>
+          <div class="cal_right_section_details">
+            <!-- details for one department start -->
+            <section *ngFor="let worktime of timeReportDataService.workTimeReport.workTime;let idx=index">
+              <div class="details_row_wrap">
+                <div class="wt_accord">
+
+                </div>
+
+                <ng-container *ngIf="timeReportDataService.showDetails[idx]">
+                  <div class="accord_blocks_outer" *ngFor="let user of worktime.users">
+                    <div class="digi_day" *ngFor="let report of user.workDayReport" (click)="workTimeDetails(user.orgDepartmentSlug,report.reportSlug)">
+                      <ng-container *ngIf="report.hours !==null && (report.absent | json) === '{}'">
+                        <div class="green_tick" [ngClass]="{'green_tick': report.confirm, 'red_exl': !report.confirm}"></div>
+                        <p>
+                          <span>{{report.hours}}</span> H
+                          <span>{{report.minutes}}</span> M</p>
+                      </ng-container>
+                      <ng-container *ngIf="!report.hours && (report.absent | json) !== '{}'">
+                        <div class="leave_bar" (click)="workTimePop(report,user)" [ngStyle]="{'width': 90 * ((report.absent.endDay  +  1) - report.absent.startDay) + 'px'}">
+                          {{report.absent.reason}}
+                        </div>
+                        <app-work-time-pop *ngIf="timeReportDataService.workTimeDetailPop.show"></app-work-time-pop>
+                      </ng-container>
+                    </div>
+
+
+                  </div>
+                </ng-container>
+
+              </div>
+            </section>
+
+            <!-- details for one department end -->
+          </div>
+        </section>
+        <!-- </perfect-scrollbar> -->
+      </drag-scroll>
+    </div>
+  </drag-scroll>
+  <div class="clear"></div>
+</div>

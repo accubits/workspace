@@ -1,0 +1,15 @@
+<div class="fp_checkboxes_wrap">
+  <h6>{{checkboxElement.checkboxes.label}}<span *ngIf = "data.checkboxes.isRequired" class="error">*</span></h6>
+  <p class="error" *ngIf="!checkboxElement.isValidated && dataService.formValidation.validating">Select a choice</p>
+  <div class="checkbox" *ngFor="let choice of checkboxElement.checkboxes.choices;let idx = index">
+      <label>
+          <div class="check_outer">
+        <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="choice.selected" [(ngModel)]="choice.selected" (ngModelChange)="manageChoice($event,choice.optId)" >
+        <div class="check" for="1_in"></div>
+      </div>
+      {{choice.label}}
+      <span [hidden]="choice.maxQuantity == 0">{{choice.maxQuantity - choice.alreadySelectedCount}} remaining</span>
+    </label>
+  </div>
+
+</div>

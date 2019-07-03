@@ -1,0 +1,21 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="overlaypop" (click)="closePop()"></div>
+    <div class="form_submit_wrap">
+      <div  class="form_submit_modal">
+        <div class="fs_header">
+            <h4>CREATE VERTICAL</h4>  
+        </div>
+        <div class="content">
+          <input type="text" class="orgBox" placeholder="Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" [(ngModel)]="superAdminDataService.verticalDetails.name"> 
+          <p class="error" *ngIf="!superAdminDataService.selectedElement.isValidated && !superAdminDataService.verticalDetails.name" >Required Field</p>
+         <textarea class="desc" rows="10" cols="50" placeholder="Description" [(ngModel)]="superAdminDataService.verticalDetails.description"></textarea>
+         <p class="error" *ngIf="!superAdminDataService.selectedElement.isValidated && !superAdminDataService.verticalDetails.description" >Required Field</p>
+        </div>
+        <div class="fs_footer">
+            <button *ngIf=" this.superAdminDataService.verticalDetails.slug === null" class="fs_footer_next" (click)="create()">Create</button>
+            <button *ngIf=" this.superAdminDataService.verticalDetails.slug !== null" class="fs_footer_next" (click)="update()">Update</button>
+          <button class="fs_footer_cancel" (click)="closePop()">Cancel</button>
+        </div>
+      </div>
+    </div>
+</div>

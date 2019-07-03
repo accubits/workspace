@@ -1,0 +1,15 @@
+<div class="calendar_widget_wrap">
+  <div class="calendar_widget">
+    <div class="cal_icon">
+      <img [src]="assetUrl+'assets/images/as/cal_icon.png'" />
+    </div>
+    <div class="day">{{day}}</div>
+    <div class="date">
+      <h4>{{date | date: 'dd'}}</h4>
+      <p>{{date | date: 'MMMM'}}</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- | date: 'MMM dd, yyyy, hh:mm a' -->

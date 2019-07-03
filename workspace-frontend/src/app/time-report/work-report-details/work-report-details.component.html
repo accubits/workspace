@@ -1,0 +1,91 @@
+<div class="work_report_popup">
+    <div class="work_details_head">
+      <span>WORK REPORT</span>
+      <span *ngIf ="timeReportDataService.selectedWorkReportDetails.isReportConfirmed === true">Confirmed</span>
+      <span *ngIf ="timeReportDataService.selectedWorkReportDetails.isReportConfirmed === false">Unconfirmed</span>
+      <div class="close_drop_det right" (click)="closeWorkReportDetails()"></div>
+      <div class="new_btn right">Edit</div>
+      <div class="clear"></div>
+    </div>
+    <div class="work_details_body">
+      <section>
+        <div class="work_details_main_head">
+          DATE
+        </div>
+        <div class="work_details_main_desc">
+          {{timeReportDataService.selectedWorkReportDetails.reportPeriod.fromDate * 1000 |  date: 'MMM dd, yyyy '}} - {{timeReportDataService.selectedWorkReportDetails.reportPeriod.toDate * 1000 |  date: 'MMM dd, yyyy'}}
+        </div>
+      </section>
+
+      <section>
+          <div class="details_sec_block left">
+              <div class="work_details_main_head">
+                REPORT FROM
+              </div>
+              <div class="block_profile">
+                <div *ngIf="timeReportDataService.selectedWorkReportDetails.reportFrom.image  === null"class="accord_left_ico"></div>
+                <div *ngIf="timeReportDataService.selectedWorkReportDetails.reportFrom.image  !== null" class="accord_left_ico" [ngStyle]="{'background-image': 'url(' + timeReportDataService.selectedWorkReportDetails.reportFrom.image + ')'}"></div>
+                {{timeReportDataService.selectedWorkReportDetails.reportFrom.name}}
+              </div>
+          </div>
+          <div class="details_sec_block left">
+              <div class="work_details_main_head">
+                TO
+              </div>
+              <div class="block_profile">
+                <div class="accord_left_ico"  *ngIf="timeReportDataService.selectedWorkReportDetails.reportTo.image  === null"></div>
+                <div class="accord_left_ico" *ngIf = "timeReportDataService.selectedWorkReportDetails.reportTo.image !== null" [ngStyle]="{'background-image': 'url(' + timeReportDataService.selectedWorkReportDetails.reportTo.image + ')'}"></div>
+                {{timeReportDataService.selectedWorkReportDetails.reportTo.name}}
+              </div>
+          </div>
+          <div class="details_sec_block ov_bl right">
+              <div class="work_details_main_head">
+                OVERALL TASK SCORE
+              </div>
+              <div class="block_profile">
+                <div class="foot_ico star_ico"></div>
+                <span>  {{timeReportDataService.selectedWorkReportDetails.overallTaskScore}}</span>
+              </div>
+          </div>
+          <div class="clear"></div>
+      </section>
+
+      <section>
+        <div class="work_details_main_head">
+          REPORT
+        </div>
+        <div class="report_cont">
+          {{timeReportDataService.selectedWorkReportDetails.reportTitle}}
+        </div>
+      </section>
+
+      <section>
+        <div class="task_event_block left">
+        <div class="work_details_main_head">
+            TASK
+        </div>
+        <ol>
+          <li *ngFor="let task of timeReportDataService.selectedWorkReportDetails.tasks"> {{task.title}}</li>
+
+        </ol>
+        </div>
+        <div class="task_event_block right">
+          <div class="work_details_main_head">
+            EVENT
+          </div>
+          <ol class="event_ol">
+            <li *ngFor="let event of timeReportDataService.selectedWorkReportDetails.events">
+              <p>{{event.eventTitle}}</p>
+              {{event.eventStartDate * 1000 |  date: 'MMM dd, yyyy, hh:mm a'}} - {{event.eventEndDate  * 1000 |  date: 'MMM dd, yyyy, hh:mm a'}}| {{event.location}}
+            </li>
+
+          </ol>
+        </div>
+        <div class="clear"></div>
+      </section>
+    </div>
+
+    <div class="footer" *ngIf = "timeReportDataService.selectedWorkReportDetails.confirmButton === true">
+<div class="pbtncreate" (click)="confirmReport()">Confirm Report</div>
+
+</div>

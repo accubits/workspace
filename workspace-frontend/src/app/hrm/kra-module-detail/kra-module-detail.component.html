@@ -1,0 +1,54 @@
+
+<div class="overlay" (click)="hideKraModule()"></div><div class="kra-module-detail">
+<div class="pop-head">
+    <div class="back" (click)="hideKraModule()"><div class="prev"> </div>Back</div>
+
+  <h4>{{hrmDataService.selectedPerformance.title}}</h4>
+  <p>PERFORMANCE INDICATOR MODULE <span class="pipe"> | </span> CREATED ON <b> {{hrmDataService.selectedPerformance.createdAt *1000 | date: 'MMM dd, yyyy'}}</b></p>
+  <div class="pop_close" (click)="hideKraModule()"></div>
+</div>
+<div class="pop-inner">
+  <p>{{this.hrmDataService.selectedPerformance.description}}</p>
+      <div class="question" *ngFor = "let qust of hrmDataService.selectedPerformance.questions;let i = index"><span class="line"></span>
+        <div class="question-head">
+          <div class="question-title">
+            <h4>Question {{i+1}}</h4>
+          </div>
+            <div class="comment-select">
+              <div class="comment-col">
+              <div class="input-title">Type : </div>
+              <span class="input-title" *ngIf="qust.type === 'answerText'">Text</span>
+              <span  class="input-title"  *ngIf="qust.type === 'rating'">Rating</span>
+            </div>
+          </div>
+        </div>
+        <div class="qustion-list" >
+            <p>{{qust.question}} ?</p>
+        </div>
+        <app-question-type-rating  *ngIf="qust.type == 'rating'"></app-question-type-rating>
+        <app-question-type-answer  *ngIf="qust.type == 'answerText'"></app-question-type-answer>
+      </div>
+      <!-- <div class="question"><span></span>
+        <div class="question-head">
+          <div class="question-title">
+            <h4>Question 2</h4>
+          </div>
+            <div class="comment-select">
+              <div class="comment-col">
+              <div class="input-title">Type : Answer</div>
+            </div>
+          </div>
+        </div>
+        <div class="qustion-list">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ?</p>
+        </div>
+        <app-question-type-answer></app-question-type-answer>
+      </div> -->
+    </div>
+</div>
+<div class="pop-footer">
+    <button class="pbtncreate" (click)="showEdit()">Edit</button>
+    <button class="pbtncreate" (click)="deletePerformance()">Delete</button>
+    <!-- <button class="req-cancel" (click)="hideKraModule()">Cancel</button> -->
+  </div>
+<app-new-module *ngIf="hrmDataService.showEditPopup.show"></app-new-module>

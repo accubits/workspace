@@ -1,0 +1,14 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+      <h3 class="panel-title ph3inline">FORMS</h3>
+      <div class="panel-right-holder pbtnsinline">
+          <button class="pbtnfilter" (click)="openForm()">New Form</button>
+      </div>
+      <app-create-form *ngIf="superAdminDataService.createForm.show"></app-create-form>
+      </div>
+  </div>
+ 
+  <app-form-header></app-form-header>
+  <router-outlet></router-outlet>
+</div>

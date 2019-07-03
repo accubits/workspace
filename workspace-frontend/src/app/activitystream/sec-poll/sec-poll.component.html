@@ -1,0 +1,363 @@
+<section class="as_content">
+  <div class="as_content_sector">
+    <div class="as_content_header">
+      <div class="h_left">
+        <img *ngIf="data.poll.pollCreatorImageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+        <img *ngIf="data.poll.pollCreatorImageUrl !== null" [src]="data.poll.pollCreatorImageUrl" />
+        <div class="user_name_list">
+          <span class="blue">
+            {{data.poll.pollCreatorName}}
+          </span>
+          <span class="bt_arw">
+            <img [src]="assetUrl+'assets/images/right_arrow.png'" />
+          </span>
+          <span class="grey_1" *ngIf="data.poll.toAllEmployee == true">
+            To all Employees
+          </span>
+          <span *ngIf="data.poll.toAllEmployee == false">
+            <span class="grey_1" *ngFor="let toUser of data.poll.toUsers | slice:0:2;let i = index">
+              {{toUser.userName}}{{i === data.poll.toUsers.length - 1 ?'':','}}
+            </span>
+            <span *ngIf="data.poll.toUsers.length > 2" class="user_more_block" (click)="actStreamDataService.userCount[index] = !actStreamDataService.userCount[index]">
+              + {{data.poll.toUsers.length - 2}}
+            </span>
+          </span>
+          <!-- User Count Pop Up -->
+          <div class="filter_cancel_overlay" *ngIf="actStreamDataService.userCount[index]" (click)="actStreamDataService.userCount[index] = false"></div>
+          <div class="user_count_pop" *ngIf="actStreamDataService.userCount[index]">
+            <div class="user_count_pop_header">
+              <h6>Users</h6>
+              <a class="copy_option_close" (click)="actStreamDataService.userCount[index] = false">&times;</a>
+            </div>
+            <div class="user_count_pop_body">
+              <div *ngFor="let user of data.poll.toUsers" class="user_count_list">
+                <div *ngIf="user.userImageUrl === null" class="user_count_list_dp"></div>
+                <div *ngIf="user.userImageUrl !== null" class="user_count_list_dp" [ngStyle]="{'background-image': 'url(' + user.userImageUrl + ')'}"></div>
+                {{user.userName}}
+              </div>
+            </div>
+          </div>
+          <!-- User Count Pop Up -->
+        </div>
+      </div>
+      <div class="h_right">
+        <div *ngIf="data.poll.status === 'Closed'" class="poll_notif">This poll has ended</div>
+        <h6>{{data.poll.createdAt * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</h6>
+      <div class="opt_r" *ngIf="data.poll.pollCreatorSlug === loggedUser  && data.poll.status !== 'Closed'" (click)="actStreamDataService.optionBtn[index] = !actStreamDataService.optionBtn[index]">
+          <img [src]="assetUrl+'assets/images/more.png'" />
+          <div class="overlaypop" *ngIf="actStreamDataService.optionBtn[index]" (click)="!actStreamDataService.optionBtn[index]"></div>
+          <div class="edt_opt_r" *ngIf="actStreamDataService.optionBtn[index]">
+            <section (click)="updatePoll()">
+              Edit
+            </section>
+            <section (click)="deletePoll()">
+              Delete
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="confirm_popup" *ngIf="actStreamDataService.deletePopUp[index]" (click)="cancelDelete()">
+        <div class="confirm_pop_body">
+          <section>
+            <div class="close_drop" (click)="cancelDelete()">
+            </div>
+            <p class="pop_main">{{actStreamDataService.deleteMessage.msg}}</p>
+          </section>
+          <section>
+            <div class="confirm_pop_btn" (click)="conformDeletePoll()">
+              Confirm
+            </div>
+            <div class="confirm_pop_btn" (click)="cancelDelete()">
+              Cancel
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="as_content_body message">
+      <h4>{{data.poll.pollTitle}}</h4>
+      <p [innerHTML]="data.poll.pollDesc"></p>
+      <div class="poll_wrap" *ngIf="data.poll.status !== 'Closed' && !vote && !view">
+        <div class="poll_content" *ngFor="let qst of data.poll.pollQuestions;let qi = index">
+          <div class="poll_header">
+            {{qst.pollQuestion}}
+          </div>
+          <div class="poll_body" *ngFor="let ans of qst.answerOptions;let ai = index">
+            <section *ngIf="qst.allowMultipleChoice === true">
+              <div class="check_section">
+                <ul>
+                  <li>
+                    <div class="checkbox">
+                      <label>
+                        <div class="check_outer">
+                          <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="ans.selected" (change)="multipleChoiceSelection(ans.selected,qst.pollQuestionId,ans.pollOptId,qi)">
+                          <div class="check" for="1_in"></div>
+                        </div>
+                        {{ans.pollOption}}
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section *ngIf="qst.allowMultipleChoice === false">
+              <div class="radio_section">
+                <ul>
+                  <li>
+                    <div class="radio_sector">
+                      <div class="radio_out">
+                        <input id="radio_id3" name="repeat_radio" type="radio" [checked]="ans.selected" (change)="singleChoiceSelection(qst,ans)">
+                        <div class="custom_radio" for="radio_id3"></div>
+                      </div>
+                      {{ans.pollOption}}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="poll_footer">
+          <button class="red_button" (click)="submitVote(data.poll.pollSlug)">Vote</button>
+          <button class="outline_button" (click)="viewResults()">Results</button>
+          <button class="outline_button" *ngIf="creater" (click)="closeVote(data.poll.pollSlug)">Stop</button>
+        </div>
+      </div>
+      <div class="poll_wrap" *ngIf="data.poll.status !== 'Closed'  && vote || view">
+        <div class="poll_content" *ngFor="let qst of data.poll.pollQuestions">
+          <div class="poll_header">
+            {{qst.pollQuestion}}
+          </div>
+          <div class="poll_body" *ngFor="let ans of qst.answerOptions;let i = index">
+            <section>
+              <div class="slider_holder">
+                <div class="slider_left">
+                  {{ans.pollOption}}
+                </div>
+                <div class="slider_right">
+                  <span>{{ans.pollResult.totalSelected}}</span>
+                  <div class="range">
+                     <div class="range_fill" [ngStyle]="{'width': (ans.pollResult.totalSelected / ans.pollResult.totalVotted) * 100 + '%'}"></div>
+                   </div>
+                   <div *ngIf="ans.pollResult.totalSelected !== 0" class="range_cent">{{((ans.pollResult.totalSelected / ans.pollResult.totalVotted) * 100).toFixed() + '%'}}</div> 
+                   <div *ngIf="ans.pollResult.totalSelected === 0" class="range_cent">0%</div> 
+                 </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="poll_footer">
+          <button *ngIf="data.poll.votted" class="outline_button visit_again" (click)="voteAgain()">Vote Again</button>
+          <button *ngIf="!data.poll.votted" class="outline_button visit_again" (click)="voteAgain()">Vote</button>
+          <button class="outline_button" *ngIf="creater" (click)="closeVote(data.poll.pollSlug)">Stop</button>
+        </div>
+      </div>
+      <div class="poll_wrap" *ngIf="data.poll.status === 'Closed'">
+        <div class="poll_content" *ngFor="let qst of data.poll.pollQuestions">
+          <div class="poll_header">
+            {{qst.pollQuestion}}
+          </div>
+          <div class="poll_body" *ngFor="let ans of qst.answerOptions;let i = index">
+            <section>
+              <div class="slider_holder">
+                <div class="slider_left">
+                  {{ans.pollOption}}
+                </div>
+                <div class="slider_right">
+                  <span>{{ans.pollResult.totalSelected}}</span>
+                  <div class="range">
+                    <div class="range_fill" [ngStyle]="{'width': (ans.pollResult.totalSelected / ans.pollResult.totalVotted) * 100 + '%'}"></div>
+                   </div>
+                   <div *ngIf="ans.pollResult.totalSelected !== 0" class="range_cent">{{((ans.pollResult.totalSelected / ans.pollResult.totalVotted) * 100).toFixed() + '%'}}</div> 
+                   <div *ngIf="ans.pollResult.totalSelected === 0" class="range_cent">0%</div> 
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="as_content_footer">
+      <div class="like">
+        <div class="like_iconbg like_icon" [ngClass]="{'active': data.poll.yourPollResponse === 'like'}" (click)="pollResponse()">
+        </div>
+        <div class="like_count">
+          {{responseCount}}
+        </div>
+      </div>
+      <div class="comment">
+        <div class="comment_icon" (click)="getPollComments()">
+          <img [src]="assetUrl+'assets/images/as/comment.png'" />
+        </div>
+        <div (click)="getPollComments()" class="comment_count">{{commentCount}}</div>
+      </div>
+    </div>
+    <section class="comments_wrap" *ngIf="actStreamDataService.comments[index]">
+      <div class="commented" *ngFor="let comment of data.comments;let idx = index" [hidden]="comment.pollParentCommentSlug !== null">
+        <div class="commented_header">
+            <img *ngIf="comment.commentCreatorImageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+            <img *ngIf="comment.commentCreatorImageUrl !== null" [src]="comment.commentCreatorImageUrl" />
+          <h4>{{comment.commentCreatorUserName}}</h4>
+          <div *ngIf="loggedUser === comment.commentCreatorUserSlug" class="d_eopt" (click)="actStreamDataService.cmtOptionBtn[idx] = !actStreamDataService.cmtOptionBtn[idx]">
+            <img [src]="assetUrl+'assets/images/more.png'" />
+            <div class="edt_opt_r" *ngIf="actStreamDataService.cmtOptionBtn[idx]">
+              <section (click)="deleteComment(idx)">
+                Delete
+              </section>
+              <section (click)="updateComment(comment)">
+                Edit
+              </section>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="confirm_popup" *ngIf="actStreamDataService.deleteCommentPopUp[idx]">
+          <div class="confirm_pop_body">
+            <section>
+              <div class="close_drop" (click)="!actStreamDataService.deleteCommentPopUp[idx]">
+              </div>
+              <p class="pop_main">{{actStreamDataService.deleteMessage.msg}}</p>
+            </section>
+            <section>
+              <div class="confirm_pop_btn" (click)="conformDeleteComment(comment)">
+                Confirm
+              </div>
+              <div class="confirm_pop_btn" (click)="!actStreamDataService.deleteCommentPopUp[idx]">
+                Cancel
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="commented_body">
+          <p>{{comment.comment}}</p>
+        </div>
+        <div class="comment_footer">
+          <div class="like">
+            <div class="like_iconbg like_icon" [ngClass]="{'active': comment.yourCommentResponse === 'like'}" (click)="getResponseForComment(comment, idx)"></div>
+            <div class="like_count">
+              {{comment.commentResponses.length}}
+            </div>
+          </div>
+          <div class="reply">
+            <div class="reply_icon" (click)="getCommentReply(comment, idx)">
+              <img [src]="assetUrl+'assets/images/as/reply.png'" />
+            </div>
+            <div (click)="getCommentReply(comment, idx)" class="reply_count">{{comment.replyCount}}</div>
+          </div>
+        </div>
+        <section class="comments_wrap" *ngIf="actStreamDataService.reply[idx]">
+          <div class="commented" *ngFor="let reply of data.comments[idx].reply;let i = index" [hidden]="reply.pollParentCommentSlug === null">
+            <div class="commented_header">
+                <img *ngIf="reply.commentCreatorImageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+                <img *ngIf="reply.commentCreatorImageUrl !== null" [src]="reply.commentCreatorImageUrl" />
+              <h4>{{reply.commentCreatorUserName}}</h4>
+              <div *ngIf="loggedUser === reply.commentCreatorUserSlug" class="d_eopt" (click)="actStreamDataService.replyOption[i] = !actStreamDataService.replyOption[i]">
+                <img [src]="assetUrl+'assets/images/more.png'" />
+                <div class="edt_opt_r" *ngIf="actStreamDataService.replyOption[i]">
+                  <section (click)="deleteReply(reply, i)">
+                    Delete
+                  </section>
+                  <section (click)="updateCommentReply(reply,comment)">
+                    Edit
+                  </section>
+                </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div class="confirm_popup" *ngIf="actStreamDataService.deleteReplyPopUp[i]">
+              <div class="confirm_pop_body">
+                <section>
+                  <div class="close_drop" (click)="cancelDelete()">
+                  </div>
+                  <p class="pop_main">{{actStreamDataService.deleteMessage.msg}}</p>
+                </section>
+                <section>
+                  <div class="confirm_pop_btn" (click)="conformDeleteReply(comment, idx)">
+                    Confirm
+                  </div>
+                  <div class="confirm_pop_btn" (click)="cancelDelete()">
+                    Cancel
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="commented_body">
+              <p>{{reply.comment}}</p>
+            </div>
+            <div class="comment_footer">
+              <div class="like">
+                <div class="like_iconbg like_icon" [ngClass]="{'active': reply.yourCommentResponse === 'like'}" (click)="replyResponse(reply, comment, idx)"></div>
+                <div class="like_count">
+                  {{reply.commentResponses.length}}
+                </div>
+              </div>
+              <div class="reply">
+                <div class="reply_icon" (click)="replyToReply(reply, comment)">
+                  <img [src]="assetUrl+'assets/images/as/reply.png'" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="to_comment">
+              <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+              <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl !== null" [src]="actStreamDataService.CommentsAndResponses.imageUrl" />
+            <input type="text" placeholder="Reply" class="to_comment_input" [(ngModel)]="comment.replyTxt" autofocus=true
+              (keydown.enter)="addCommentReply(comment.replyTxt, comment, idx)"   (input)="showReplayList(comment.replyTxt)">
+              <div class="filter_cancel_overlay" *ngIf="replaylist" (click)="hideReplayList()"></div>
+              <div class="resp_person_dropdown" *ngIf="replaylist">
+                <div class="resp_drop_head">
+                  <span>PEOPLE</span>
+                  <div class="close_drop"></div>
+                </div>
+                <div class="drop_down_wrap">
+                  <div class="drop_down_wrap">
+                    <section class="drop_body">
+                      <div class="recent_wrap pad_wrap">
+                        <section *ngFor="let user of actStreamDataService.responsiblePersons.list"
+                          (click)="selectReplayUser(user,comment)">
+                          <div *ngIf="user.employeeImage === null" class="recent_ico"></div>
+                          <div *ngIf="user.employeeImage !== null" class="recent_ico"
+                            [ngStyle]="{'background-image': 'url(' + user.employeeImage + ')'}"></div>
+                          {{user.employee_name}}
+                        </section>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+      </div>
+      <section>
+        <div class="to_comment">
+            <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+            <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl !== null" [src]="actStreamDataService.CommentsAndResponses.imageUrl" />
+          <input type="text" placeholder="Comment" class="to_comment_input" [(ngModel)]="commentTxt" autofocus
+            (keydown.enter)="addPollComment()"(ngModelChange)="showList()">
+            <div class="filter_cancel_overlay" *ngIf="list" (click)="hideList()"></div>
+            <div class="resp_person_dropdown" *ngIf="list">
+              <div class="resp_drop_head">
+                <span>PEOPLE</span>
+                <div class="close_drop"></div>
+              </div>
+              <div class="drop_down_wrap">
+                <div class="drop_down_wrap">
+                  <section class="drop_body">
+                    <div class="recent_wrap pad_wrap">
+                      <section *ngFor="let user of actStreamDataService.responsiblePersons.list"
+                        (click)="selectUser(user)">
+                        <div *ngIf="user.employeeImage === null" class="recent_ico"></div>
+                        <div *ngIf="user.employeeImage !== null" class="recent_ico"
+                          [ngStyle]="{'background-image': 'url(' + user.employeeImage + ')'}"></div>
+                        {{user.employee_name}}
+                      </section>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</section>

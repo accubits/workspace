@@ -1,0 +1,161 @@
+<section *ngIf="partnerDataService.getOrgLicenseDetails.status ==='Licensed'">
+  <section class="licenseOuter">
+  <div class="tableDetailOuter" >
+    <div class="tableDetail" >
+      <h4>STATUS</h4>
+    </div>
+    <div class="tableContent expired" >
+      {{partnerDataService.getOrgLicenseDetails.status }}
+
+    </div>
+    <!-- <div class="tableContent actve">
+     Active
+    </div> -->
+      <!-- <div class="tableContent inactve">
+     In-Active
+    </div> -->
+      <div class="tableDetail">
+        <h4>USERS</h4>
+      </div>
+      <div class="tableContent">
+          {{partnerDataService.getOrgLicenseDetails.users.totalUsers }}
+
+      </div>
+      <div class="tableDetail">
+          <h4>KEY</h4>
+      </div>
+      <div class="tableContent">
+        {{partnerDataService.getOrgLicenseDetails.key }}
+      </div>
+      <div class="tableDetail">
+        <h4>TYPE</h4>
+      </div>
+      <div class="tableContent">
+        {{partnerDataService.getOrgLicenseDetails.type }}
+
+      </div>
+  </div>
+  <div class="tableDetailBottom">
+    <div class="tableDetailOuterBottom" >
+      <div class="left_status Blue"></div>
+        <div class="tableDetail" *ngIf="partnerDataService.selectedOrganisation.licenseRequestedOn">
+          <h4>REQUESTED ON</h4>
+        </div>
+        <div class="tableContent" *ngIf="partnerDataService.selectedOrganisation.licenseRequestedOn" >
+          {{partnerDataService.getOrgLicenseDetails.requestedOn *1000 | date: 'MMM dd, yyyy, hh:mm a' }}
+        </div>
+    </div>
+    <div class="tableDetailOuterBottom">
+        <div class="left_status Blue"></div>
+        <div class="tableDetail">
+          <h4>APPROVED ON</h4>
+        </div>
+        <div class="tableContent">
+          {{partnerDataService.getOrgLicenseDetails.licenseApprovedOn *1000 | date: 'MMM dd, yyyy, hh:mm a' }}
+        </div>
+    </div>
+    <div class="tableDetailOuterBottom start">
+      <div class="left_status Green"></div>
+      <div class="tableDetail">
+        <h4>STARTED ON</h4>
+      </div>
+      <div class="tableContent">
+        {{partnerDataService.getOrgLicenseDetails.startedOn *1000 | date: 'MMM dd, yyyy, hh:mm a' }}
+      </div>
+    </div>
+    <div class="tableDetailOuterBottomLast">
+      <!-- <div class="left_status Red"></div> -->
+           <div class="Dark"></div> 
+      <div class="tableDetail">
+        <h4>EXPIRES ON</h4>
+      </div>
+      <div class="tableContent">
+        {{partnerDataService.getOrgLicenseDetails.expiresOn *1000 | date: 'MMM dd, yyyy, hh:mm a' }}
+        </div>
+    </div>
+  </div>
+  </section>
+  <div class="fs_footer">
+      <button class="fs_footer_next" (click)="renewLicenseRequests()">Renew </button>
+
+  </div>
+</section>
+ <section *ngIf="partnerDataService.getOrgLicenseDetails.status ==='Unlicensed'" class="BottomSection">
+  <div class="licenseContentOuter">
+    <div class="tableDetailOuter" >
+      <div class="tableDetail">
+        <h4>STATUS</h4>
+      </div>
+      <div class="tableContent status">
+        Unlicensed
+      </div>
+      <div class="tableDetail">
+          <h4>USERS</h4>
+        </div>
+        <div class="tableContent">
+          --
+
+        </div>
+        <div class="tableDetail">
+            <h4>KEY</h4>
+        </div>
+        <div class="tableContent">
+        --
+        </div>
+        <div class="tableDetail">
+          <h4>TYPE</h4>
+        </div>
+        <div class="tableContent">
+            --
+
+        </div>
+    </div>
+    <div class="tableDetailBottom">
+      <div class="tableDetailOuterBottom">
+          <div class="tableDetail">
+            <h4>REQUESTED ON</h4>
+          </div>
+          <div class="tableContent">
+              --
+          </div>
+      </div>
+      <div class="tableDetailOuterBottom">
+          <div class="tableDetail">
+            <h4>APPROVED ON</h4>
+          </div>
+          <div class="tableContent">
+              --
+          </div>
+      </div>
+      <div class="tableDetailOuterBottom">
+        <div class="tableDetail">
+          <h4>STARTED ON</h4>
+        </div>
+        <div class="tableContent">
+            --
+        </div>
+      </div>
+      <div class="tableDetailOuterBottom">
+        <div class="tableDetail">
+          <h4>EXPIRES ON</h4>
+        </div>
+        <div class="tableContent">
+            --
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="fs_footer">
+    <button class="fs_footer_next" (click)="requestLicense()">Request License</button>
+  </div>
+</section>
+<app-create-org-license *ngIf="this.partnerDataService.requestLicensePopup.show"></app-create-org-license>
+
+<app-renew-pop *ngIf="partnerDataService.renewRequestPopup.show "></app-renew-pop>
+
+<!-- <div class="fs_footer">
+    <button class="fs_footer_next" (click)="deleteLicense()">Cancel Request</button>
+    <div class="cancelOuter" *ngIf = "partnerDataService.cancelPop.showPopup">
+        <app-delete-pop></app-delete-pop>
+    </div>
+</div> -->

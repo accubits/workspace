@@ -1,0 +1,275 @@
+.publish-pop
+{
+    position: absolute;
+    background-color: #fff;
+    height: 100%;
+    min-height: 87vh;
+    width: 100%;
+    right: 0px;
+    z-index: 11111;
+    top: -133px;
+}
+.nav_wrap ul li{
+    border-bottom: 3px solid #ff2e4c !important;
+    font-weight: bold;
+    color: #424e5c;
+}
+.nav_wrap ul {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    -webkit-box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+}
+.prev{
+    background-image: url("/assets/images/prev.png");
+    background-position: center;
+    margin-top: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+}
+.next{
+    background-image: url(/assets/images/next.png);
+    background-position: center;
+    margin-top: 30px;
+    height: 12px;
+    background-repeat: no-repeat;
+}
+.pic{
+    background-image: url(/assets/images/account-dp.png);
+    background-size: cover;
+    background-position: center;
+    width: 30px;
+    border-radius: 50%;
+    height: 30px;
+    background-repeat: no-repeat;
+    margin-top: 24px;
+}
+.indi_bodysection_pad {
+    padding: 15px 20px 15px 20px;
+    border-bottom: 1px solid #f4f0f0;
+}
+.indi_bodysection_pad:nth-child(4) {
+    border-bottom: none;
+}
+.choiceOuter {
+    display: flex;
+    flex-wrap: wrap;
+}
+.choiceOuter h4 {
+    color: #535b66;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+    display: block;
+    margin-top: 5px;
+    margin-left: 12px;
+}
+@media (max-width: 1366px){
+    .nav_wrap ul li {
+        text-decoration: none;
+        color: #75818f;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0px 35px;
+        font-size: 14px;
+        padding: 25px 0px 25px 0px;
+        cursor: pointer;
+        font-size: 14px;
+        position: relative;
+    }
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+.form_indi_header {
+    height: 80px;
+    line-height: 80px;
+    width: 100%;
+    background-color: #f5f5f5;
+    z-index: 1;
+    padding: 0px 20px 0px 20px;
+}
+
+.form_indi_header_left ul li {
+    float: left;
+    padding-right: 10px;
+}
+
+.form_indi_header_left_count ul li {
+    float: left;
+}
+
+.form_indi_header_left_count ul li button {
+    background-color: #d8e8fc;
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 20px;
+}
+
+.form_indi_header_left_count ul li button img {
+    height: 11px;
+    width: auto;
+}
+
+.indi_dp {
+    width: 30px;
+    height: auto;
+}
+
+.indi_res_profile ul li {
+    float: left;
+    padding-right: 10px;
+    padding-left: 7px;
+}
+
+.form_indi_header_right ul li {
+    float: right;
+    padding-left: 10px;
+}
+
+.form_indi_header_right ul li p {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.form_indi_header_right ul li span {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #919ba5;
+}
+
+.indi_secton_devider {
+    height: 2px;
+    float: left;
+    width: 100%;
+    background-color: #eef0f1
+}
+
+.indi_bodysection_pad {
+    padding: 15px 20px 15px 20px;
+}
+
+.indi_res_titlewrap label,
+.indi_res_numberewrap label,
+.indi_res_choicewrap label,
+.indi_res_websitewrap label {
+    color: #909aa4;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+    display: block;
+}
+
+.indi_res_titlewrap h4,
+.indi_res_numberewrap h4,
+.indi_res_choicewrap h4,
+.indi_res_websitewrap h4 {
+    color: #232b37;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+    display: block;
+}
+
+.indi_webite_link {
+    color: #0058eb !important;
+}
+
+.indi_res_choicewrap .checkbox {
+    margin-bottom: 20px;
+    padding-top: 15px;
+}
+
+.indi_res_choicewrap .checkbox .check_outer {
+    margin-right: 15px;
+}
+
+.indi_res_choicewrap .checkbox label {
+    color: #232b37;
+}
+
+.indi_res_choicewrap .checkbox span {
+    margin-left: 20px;
+    font-style: italic;
+    color: #959ea8;
+}
+
+.form_indi_body {
+    background-color: #fff;
+}
+
+.indi_bodysection_pad input {
+    color: #323b45;
+    width: 100%;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.indi_bodysection_pad input::placeholder {
+    color: #323b45;
+}
+
+.indi_user {
+    color: #98a1ab;
+    text-transform: uppercase;
+}
+
+.indi_username {
+    color: #536273;
+    font-family: Roboto-Medium;
+}
+
+.indi_date {
+    color: #536273;
+    font-family: Roboto-Medium;
+}
+
+.indi_submitted_date {
+    color: #9fa7b1;
+}
+
+.indi_count {
+    color: #75818f;
+}
+
+.no_result_inOverview {
+    background-image: url(/assets/images/NoResult.png);
+    width: 368px;
+    height: 400px;
+    margin: 0 auto;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.modalOuter {
+    position: fixed;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+// Media Queries
+@media (max-width: 1024px) {}
+
+@media (max-width: 1280px) {}
+
+@media (max-width: 1366px) {}
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1600px) {}
+
+@media (max-width: 1680px) {}
+
+@media (max-width: 1920px) {}
+
+/* ---------------------------------------------
+        Form Individul Response Modal |END|
+-----------------------------------------------*/

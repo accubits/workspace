@@ -1,0 +1,250 @@
+.clear {
+    clear: both !important;
+}
+
+.subtabar {
+    // height: 140px;
+    -webkit-box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    box-shadow: -10px 20px 68px -28px rgba(34, 34, 34, 0.35);
+    border-top: 1px solid #edeff7;
+    padding-bottom: 10px;
+}
+
+.sub_subtabar {
+    // height: 140px;
+    display: inline-block;
+    width: 16%;
+    text-align: left;
+    padding: 0px 0px 0px 34px;
+}
+.taskcard_header {
+    font-family: roboto-regular;
+    font-size: 13px;
+}
+
+.sub_subtabar h4 {
+    font-size: 14px;
+    /* font-weight: bold; */
+    color: #98a1ab;
+    padding-top: 40px;
+    padding-bottom: 28px;
+    font-family: roboto-bold;
+}
+
+.sub_subtabar p {
+    font-size: 22px;
+    font-family: Roboto-Medium;
+    color: #424e5c;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sub_subtabar img {
+    vertical-align: middle;
+    height: auto;
+    width: auto;
+    margin-right: 16px;
+}
+
+.taskCardcontainer {
+    padding: 25px 13px 30px 35px;
+}
+
+.taskcard {
+    width: 364px;
+    height: 221px;
+    background-color: #f5f5f5;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    padding: 20px 20px 20px 30px;
+    position: relative;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.tchleftholder {
+    display: inline-block;
+}
+
+.tchleftholder p {
+    color: #536273;
+}
+
+.tchrightholder {
+    float: right;
+}
+
+.tchrightholder ul {
+    list-style: none !important;
+}
+
+.tchrightholder ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.taskCarddesc {
+    font-size: 16px;
+ //   color: #cc1c35;
+    padding-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Roboto-Medium;
+}
+
+/* Circular Progress bar */
+
+@-webkit-keyframes load {
+    0% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes load {
+    0% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.progress {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+}
+
+.progress>li {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: #93A2AC;
+    font-weight: 100;
+}
+
+.progress>li:before {
+    content: attr(data-name);
+    position: absolute;
+    width: 100%;
+    bottom: -2rem;
+    font-weight: 300;
+}
+
+.progress>li:after {
+    content: attr(data-percent);
+    position: absolute;
+    width: 100%;
+    top: 39px;
+    left: 3px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.progress svg {
+    width: 76px;
+    height: 76px;
+}
+
+.progress svg:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.progress svg:nth-child(2) path {
+    fill: none;
+    stroke-width: 25;
+    stroke-dasharray: 629;
+    stroke: #f5f5f5;
+    /* opacity: .9; */
+    -webkit-animation: load 10s;
+    animation: load 3s;
+}
+
+.taskCard_btm {
+    margin-top: 40px;
+}
+
+.taskCard_btm .checkbox label {
+    color: #b6bbc0;
+    font-family: roboto-regular;
+    font-size: 15px;
+}
+
+.taskCard_btm .checkbox .check_outer {
+    margin-right: 5px;
+}
+
+.progress_svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.taskcard .checkbox {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.subtabarOuter {
+    margin: 17px 0px;
+}
+@media (max-width: 1600px) {
+    .taskcard {
+        width: 32%;
+        height: 200px;
+    }
+    .taskCard_btm {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 1460px) {
+    .sub_subtabar h4 {
+        font-size: 11px !important;
+    }
+    .sub_subtabar p {
+        font-size: 18px !important;
+    }
+    .taskcard {
+        font-size: 13px;
+        padding: 15px 15px 15px 20px;
+    }
+    .taskCarddesc {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .taskcard {
+        width: 32%;
+        height: 176px;
+    }
+    // .subtabar {
+    //     height: 100px;
+    // }
+    // .sub_subtabar {
+    //     height: 100px;
+    // }
+    .sub_subtabar h4 {
+        font-size: 13px;
+        font-weight: bold;
+        color: #98a1ab;
+        padding-top: 30px;
+        padding-bottom: 0px;
+    }
+    .nav_wrap ul li {
+        margin: 0px 25px;
+        padding: 20px 0px 20px 0px;
+        margin-right: 30px;
+    }
+    .taskCard_btm {
+        margin-top: 10px;
+    }
+}
+.progress svg {
+    width: 76px;
+    height: 76px;
+    margin-top: 10px !important;
+}

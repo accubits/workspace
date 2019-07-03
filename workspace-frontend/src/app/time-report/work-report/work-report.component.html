@@ -1,0 +1,153 @@
+<div class="work_panel_wrap">
+  <drag-scroll style="height: 66vh;">
+    <div class="work_panel_left">
+      <div class="work_panel_left_head">
+         <span>Name</span>
+      </div>
+      <div class="work_panel_left_body">
+        <section *ngFor="let report of timeReportDataService.workReportData.workReport;let idx = index">
+          <div class="management wt_accord" (click)="report['showUsers']= !report['showUsers']">
+              <h4>{{report.departmentName}}</h4>
+              <img class="acc_down acc_up" [src]="assetUrl+'assets/images/tar/down_arrow.png'" >
+          </div>
+
+          <ng-container *ngIf="idx === 0 && report['showUsers']">
+          <div class="accord_left_content" *ngFor="let user of report.users">
+              <div *ngIf="user.userImage === null" class="accord_left_ico"></div>
+              <div *ngIf="user.userImage !== null" class="accord_left_ico" [ngStyle]="{'background-image': 'url(' + user.userImage  + ')'}"></div>
+            <!-- <div class="accord_left_ico"></div> -->
+            <div class="det_name">{{user.userName}} </div>
+            <div class="small_star" *ngIf="user.isHeadOfDepartment">
+                <img class="acc_down acc_up" [src]="assetUrl+'assets/images/tar/small_star.png'" />
+            </div>
+            <div class="left_content_time">
+              Reports <span>{{user.totalReports}}</span> unconfirmed <span>{{user.unconfirmed}}</span>
+            </div>
+            <div class="left_content_icons">
+              <div class="left_ico_cont star_ico"></div>
+              <span class="blue_span">{{user.scoreRatings.excellent}}%</span>
+              <div class="left_ico_cont hap_ico"></div>
+              <span class="green_span">{{user.scoreRatings.positive}}%</span>
+              <div class="left_ico_cont sad_ico"></div>
+              <span class="red_span">{{user.scoreRatings.negative}}%</span>
+            </div>
+          </div>
+        </ng-container>
+          <ng-container *ngIf="idx !== 0 && report['showUsers']">
+          <div class="accord_left_content" *ngFor="let user of report.users">
+            <div class="accord_left_ico">
+
+            </div>
+            <div class="det_name">{{user.userName}} </div>
+            <div class="small_star">
+                <img class="acc_down acc_up" [src]="assetUrl+'assets/images/tar/small_star.png'" />
+            </div>
+            <div class="left_content_time">
+              Reports <span>{{user.totalReports}}</span> unconfirmed <span>{{user.unconfirmed}}</span>
+            </div>
+            <div class="left_content_icons">
+              <div class="left_ico_cont star_ico"></div>
+              <span class="blue_span">{{user.scoreRatings.excellent}}%</span>
+              <div class="left_ico_cont hap_ico"></div>
+              <span class="green_span">{{user.scoreRatings.positive}}%</span>
+              <div class="left_ico_cont sad_ico"></div>
+              <span class="red_span">{{user.scoreRatings.negative}}%</span>
+            </div>
+          </div>
+        </ng-container>
+        </section>
+
+      </div>
+    </div>
+    <div class="work_panel_right">
+      <drag-scroll style="height: 100%;">
+        <!-- <perfect-scrollbar> -->
+          <section class="scroll_section">
+          <div class="cal_right_head">
+              <div class="digi_day">
+                  JAN
+                </div>
+                <div class="digi_day">
+                  FEB
+                </div>
+                <div class="digi_day">
+                  MAR
+                </div>
+                <div class="digi_day">
+                  APR
+                </div>
+                <div class="digi_day">
+                  MAY
+                </div>
+                <div class="digi_day">
+                  JUN
+                </div>
+                <div class="digi_day">
+                  JUL
+                </div>
+                <div class="digi_day">
+                  AUG
+                </div>
+                <div class="digi_day">
+                  SEP
+                </div>
+                <div class="digi_day">
+                  OCT
+                </div>
+                <div class="digi_day">
+                  NOV
+                </div>
+                <div class="digi_day">
+                  DEC
+                </div>
+          </div>
+          <div class="cal_right_section_details">
+            <!-- details for one department start -->
+            <section *ngFor="let report of timeReportDataService.workReportData.workReport;let idx =index">
+              <div class="details_row_wrap">
+                <div class="wt_accord">
+
+                </div>
+                <ng-container *ngIf="idx == 0 && report['showUsers']">
+                <div class="accord_blocks_outer" *ngFor="let user of report.users">
+                  <div class="digi_day"  *ngFor="let time of user.reportTimeline" (click)="getDetailedWorkReport(time)">
+                    <!-- <div class="green_tick"></div>
+                    <p><span>08</span> H <span>30</span> M</p> -->
+                    <ng-container *ngIf="time.startDate">
+                    <div class="leave_bar" [ngStyle]="{'width': '103px'}" >
+                      {{time.reportTitle}}
+                    </div>
+                    </ng-container>
+                  </div>
+
+                </div>
+                </ng-container>
+
+                <ng-container *ngIf="idx !== 0 && report['showUsers']">
+                <div class="accord_blocks_outer" *ngFor="let user of report.users">
+                  <div class="digi_day"  *ngFor="let time of user.reportTimeline" (click)="getDetailedWorkReport(time)">
+                    <!-- <div class="green_tick"></div>
+                    <p><span>08</span> H <span>30</span> M</p> -->
+                    <ng-container *ngIf="time.startDate">
+                    <div class="leave_bar" [ngStyle]="{'width': '103px'}" >
+                      {{time.reportTitle}}
+                    </div>
+                    </ng-container>
+                  </div>
+
+                </div>
+                </ng-container>
+
+
+              </div>
+            </section>
+            <!-- details for one department end -->
+          </div>
+        </section>
+        <!-- </perfect-scrollbar> -->
+      </drag-scroll>
+    </div>
+  </drag-scroll>
+    <div class="clear"></div>
+</div>
+<!-- <app-work-report-details></app-work-report-details> -->

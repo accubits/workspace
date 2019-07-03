@@ -1,0 +1,33 @@
+<div class="drive_wrap">
+  <div class="table_outer_block">
+    <div class="table_head table_row" *ngIf="partnerDataService.getOrganisationDetails.organizations.length !== 0">
+      <div class="table-blocks">
+        <div class="checkbox">
+          <label>
+            <div class="check_outer">
+              <input type="checkbox" id="1_in" name="" id="" [(ngModel)]="partnerDataService.organisationDetails.selectedAll" (ngModelChange)="checkAllOrganisations($event)"/>
+              <div class="check" for="1_in"></div>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="table-blocks Organisation" [ngClass]="{'actives':partnerDataService.OrganisationPageDetails.sortBy == 'organization' && partnerDataService.OrganisationPageDetails.sortOrder == 'asc' }"  (click)="sortOrganisation('organization')">
+        <!-- <span class="tb_head_drop_arrow">ORGANISATION NAME</span> -->
+        <span class="downArrow">ORGANISATION NAME</span>
+
+      </div>
+      <div class="table-blocks" [ngClass]="{'actives':partnerDataService.OrganisationPageDetails.sortBy == 'country' && partnerDataService.OrganisationPageDetails.sortOrder == 'asc' }"  (click)="sortOrganisation('country')">
+        <span class="downArrow">COUNTRY</span>
+      </div>
+      <div class="table-blocks" [ngClass]="{'actives':partnerDataService.OrganisationPageDetails.sortBy == 'vertical' && partnerDataService.OrganisationPageDetails.sortOrder == 'asc' }"  (click)="sortOrganisation('vertical')">
+        <span class="downArrow">VERTICAL</span>
+      </div>
+      <div class="table-blocks" [ngClass]="{'actives':partnerDataService.OrganisationPageDetails.sortBy == 'admin' && partnerDataService.OrganisationPageDetails.sortOrder == 'asc' }"  (click)="sortOrganisation('admin')">
+        <span class="downArrow">ADMIN</span>
+      </div>
+      <div class="table-blocks" [ngClass]="{'actives':partnerDataService.OrganisationPageDetails.sortBy == 'createdOn' && partnerDataService.OrganisationPageDetails.sortOrder == 'asc' }"  (click)="sortOrganisation('createdOn')">
+        <!-- <span class="downArrow">CREATED ON</span> -->
+      </div>
+    </div>
+  </div>
+</div>

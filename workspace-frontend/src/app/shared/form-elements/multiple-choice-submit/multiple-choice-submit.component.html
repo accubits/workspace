@@ -1,0 +1,19 @@
+<div class="fp_radio_wrap">
+  <h6>{{multipleChoiceElement.multipleChoice.label}}<span *ngIf = "data.multipleChoice.isRequired" class="error">*</span></h6>
+  <p class="error" *ngIf="!multipleChoiceElement.isValidated && dataService.formValidation.validating">Select a choice</p>
+
+  <div class="fp_choices" *ngFor="let choice of multipleChoiceElement.multipleChoice.choices;let index=index">
+    <div class="radio_out">
+      <input id="" name="" type="radio" [checked]="choice.selected" (click) ="manageChoice(index,choice.optId)">
+      <div class="custom_radio" for="radio_id3"></div>
+    </div>
+    <span>{{choice.label}}</span>
+  </div>
+   <!-- <div class="fp_choices">
+    <div class="radio_out">
+      <input id="radio_id3" name="repeat_radio" type="radio">
+      <div class="custom_radio" for="radio_id3"></div>
+    </div>
+    <input type="text" class="fp_choice_input" name="text" placeholder="Other">
+  </div> -->
+</div>

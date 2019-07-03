@@ -1,0 +1,26 @@
+<div class="fp_timewrap">
+  <div class="fp_body">
+    <ul>
+        <p><label>{{dateElement.date.label}}<span *ngIf = "data.date.isRequired"  class="error">*</span></label></p>
+      <li>
+        <div class="fp_input">
+          <input type="text" class="" name="text" placeholder="DD" maxlength="2"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" [(ngModel)]="day"  (ngModelChange)="validateElement()">
+        </div>
+      </li>
+      <li>
+        <div class="fp_input trans_label">
+          <input type="text" class="" name="text" placeholder="MM" maxlength="2"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127"  [(ngModel)]="month"  (ngModelChange)="validateElement()">
+        </div>
+      </li>
+      <li>
+        <div class="fp_input trans_label">
+          <input type="text" class="" name="text" placeholder="YYYY"  maxlength="4" onkeypress="return (event.charCode >= 48 && event.charCode <= 57 )||event.charCode == 43 ||event.charCode == 8 ||event.charCode == 9 ||event.charCode == 32 ||event.charCode == 0 ||event.charCode == 127" [(ngModel)]="year" (ngModelChange)="validateElement()">
+        </div>
+      </li>
+      <div class="clear"></div>
+    </ul>
+    <p class="error" *ngIf="!dateElement.isValidated && dataService.formValidation.validating &&( !day || !month || !year)">Required Field</p>
+    <p class="error" *ngIf="!dateElement.isValidFormat && dataService.formValidation.validating && dateSubmit.date.answer ">Invalid Date</p>
+    <p class="error" *ngIf="dataService.showDate.show">Invalid Date</p>
+  </div>
+</div>

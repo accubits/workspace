@@ -1,0 +1,635 @@
+.work_panel_right{
+    width: 100%;
+    padding-left: 21%;
+    // overflow-x: scroll;
+}
+.calendarOuter {
+    width: 100%;
+    background: #fff;
+    height: 100%;
+    //padding-left: 270px;
+}
+.monthOuter {
+    text-align: right;
+    position: relative;
+}
+perfect-scrollbar {
+    height: calc(100vh - 388px);
+}
+.alertIcon {
+    background-image: url("/assets/images/settings/info_copy.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 17px;
+    background-position: center;
+    position: absolute;
+    top: 22px;
+    right: 155px;
+    cursor: pointer;
+}
+.monthSelect {
+    padding: 19.5px;
+    background: #f4f4f4;
+}
+.monthSelect span {
+    background: #fff;
+    padding: 6px 40px;
+    font-family: roboto-regular;
+    font-size: 14px;
+    padding-left: 20px;
+    cursor: pointer;
+    padding-right: 60px;
+}
+.monthIcon {
+    background-image: url("/assets/images/down-arrow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 13px;
+    background-position: center;
+    position: absolute;
+    top: 23px;
+    right: 40px;
+}
+.datesOuter {
+    // display: flex;
+    // position: relative;
+    //padding-left:40px;
+}
+.time_wid
+{
+    width: 40px;
+    height: 130px;
+    float: left;
+    border-right: 1px solid #eaeaea;
+}
+.tm_ht
+{
+    height: auto;
+}
+.tm_ht section
+{
+    height: 30px;
+    font-size: 10px;
+    text-align: right;
+    padding-right: 5px;
+}
+.brd_lft
+{
+    border-left: 1px solid #eaeaea;
+}
+.datesOuter .dateHeads .dateOuter p {
+    color: #414d5b;
+    font-size: 23px;
+    font-family: roboto-regular;
+	border: none;
+    height: auto;
+    margin-bottom: 10px;
+}
+.dateHeads .lightColor , .dateHeads .darkColor {
+    height: 130px;
+    font-size: 12px;
+    position: relative;
+    font-family: roboto-regular;
+    border: 1px solid #eaeaea;
+    border-left: none;
+    border-top: none;
+    float: left;
+    width: 13.5%;
+}
+.tp_dt
+{
+    padding: 5px 10px;
+}
+@media (max-width: 1366px){
+    .datesOuter .dateHeads p.timeSpace {
+        width: 25%;
+        border-right: 1px solid #eaeaea;
+        font-size: 11px;
+        color: #414d5b;
+        text-align: right;
+        padding-right: 3px;
+        padding-top: 10px;
+    }
+    perfect-scrollbar{
+        height: calc(100vh - 346px);
+    }
+    
+    .eventDetails ul {
+        padding-left: 13px;
+        padding-right: 13px;
+        margin: 0px !important;
+    }
+    .popcontent .event1 span.dot{
+        background: #ff2342;
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        border-radius: 50%;
+        bottom: 6px;
+        left: 0;
+    }
+    
+    .popcontent .event1 span, .popcontent .event2 span {
+        padding-left: 10px;
+        font-size: 12px;
+    }
+    
+    .popcontent .event1.Details, .popcontent .event2.Details, .event3.Details {
+        width: 94%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 4px 0px;
+        margin-bottom: 0px;
+        position: relative;
+    }
+
+}
+@media (max-width: 1920px){
+    .dateHeads p.timeSpace {
+        width: 23%;
+        border-right: 1px solid #eaeaea;
+        font-size: 11px;
+        color: #414d5b;
+        text-align: right;
+        padding-right: 3px;
+        padding-top: 10px;
+    }
+}
+.dateHeads p, .dateHeads .lightColor {
+    color: #aeb5bd;
+}
+.timeSpaceTop {
+    width: 20%;
+    border-right: 1px solid #eaeaea;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.dateHeads p.taskHead {
+    height: auto !important;
+    color: #007ae2 !important;
+    font-size: 11px;
+    margin-bottom: 7px;
+}
+.dateHeads .lightColor .taskOuter , .dateHeads .lightColor .eventOuter {
+    // background: #e4edff;
+    // padding: 10%;
+    height: auto;
+    position: absolute;
+    left: 5px;
+}
+.lightColor .taskOuter p.taskContent {
+    color: #414d6f;
+    font-family: roboto-medium;
+    width: 82px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.lightColor .eventOuter p.taskContent{
+    color: #fff;
+    font-family: roboto-medium;
+ }
+ .timeSection .lightColor .eventOuter p.taskHead {
+    color: #fff !important;
+    /* font-size: 11px !important; */
+}
+.dateHeads .lightColor .eventOuter  {
+    background: #007ae2;
+    padding: 10%;
+    width: 93%;
+}
+.dateHeads .lightColor .taskOuter  {
+    background: #e4edff;
+    padding: 10%;
+    width: 93%;
+}
+// .dateHeads.timeSection p , .dateHeads.timeSection div {
+//     border-bottom: none !important;
+//     height: 38.7px;
+// }
+.event_in_plot
+{
+    width: 100%;
+    background-color: #007ae2;
+    color: white;
+    padding: 6px 6px;
+    position:absolute;
+    top:0;
+    left:0;
+    border:1px solid white;
+}
+
+.timeSection section .lightColor
+{
+    border-bottom: none !important;
+    height: auto !important;
+}
+.timeSection section .lightColor .time_repeat
+{
+    height: 30px;
+    display:flex;
+    position: relative;
+}
+.calendarOuter .datesOuter .dateHeads .timeSection {
+    height: 50px;
+    border-bottom: none;
+}
+.dateHeads p , .dateHeads .lightColor {
+    color: #aeb5bd;
+}
+span.weekDate {
+    margin-left: 5px;
+    margin-right: 21px;
+    font-size: 14px;
+}
+.event1.Details, .event2.Details, .event3.Details {
+    width: 94%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 4px 0px;
+    margin-bottom: 5px;
+    position:relative;
+}
+span.dot {
+    background: #ff2342;
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    border-radius: 50%;
+    border: 50%;
+    left: 10px;
+    top: 8px;
+    padding-left: 0px !important;
+}
+.event1 span, .event2 span {
+    padding-left: 20px;
+    font-size: 12px;
+}
+.leave img {
+    margin-right: 5px;
+}
+.leave {
+    width: calc(100% + 1px);
+    height: 25px;
+    width: 100%;
+    background-color: #f0a7c4;
+    z-index: 1;
+    left: -1px;
+    text-align: left;
+    padding: 6px;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 12px;
+}
+.seminar img {
+    margin-right: 5px;
+    position: absolute;
+    top: 5px;
+    left: 13px;
+}
+.currentDate span{
+    color: #ff2342;
+    font-family: roboto-regular;
+}
+span.seminar{
+    position: absolute;
+    height: 25px;
+    width: 400%;
+    background-color: #ff2342;
+    z-index: 1;
+    left: 1px;
+    top: 50%;
+    text-align: left;
+    padding: 7px;
+    padding-left: 35px !important;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 5px;
+    padding-left: 12px;
+    padding-top: 6px;
+    cursor:pointer;
+}
+.darkColor span.seminar {
+    width: 100%;
+    top: 70%;
+    background-color: #007ae2;
+}
+
+span.dot {
+    background: #ff2342;
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    /* z-index: 1; */
+    border-radius: 50%;
+    //left: 3px;
+    bottom: 6px;
+}
+span.event1 , span.event2 {
+    position: absolute;
+    width: 117px;
+    /* background-color: #ff2342; */
+    left: 1px;
+    bottom: 20px;
+    text-align: left;
+    padding: 2px;
+    color: #595959;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 11px;
+    white-space: nowrap;
+    border-radius: 3px;
+    font-family: roboto-regular;
+    padding-top: 4px;
+    padding-left: 12px;
+    padding-bottom: 2px;
+}
+span.event2{
+    position: absolute;
+    width: 115px;
+    /* background-color: #ff2342; */
+    left: 1px;
+    bottom: 5px;
+}
+.popcontent.Details span.eventContent {
+    bottom: 2px;
+    left: 60px;
+}
+span.eventContent {
+    //position: absolute;
+    color: #007ae2;
+    font-family: roboto-medium;
+    bottom: 0px;
+	cursor: pointer;
+    font-size: 11px;
+    padding-left: 10px;
+    
+}
+.legendPop {
+    background: #fff;
+    position: absolute;
+    right: 45px;
+    width: 50%;
+    height: auto;
+    top: 10px;
+    z-index: 2;
+    box-shadow: 2px 2px 17px 3px #cecece;
+}
+.legendContent {
+    text-align: left;
+    font-size: 14px;
+    color: #75818f;
+    font-family: roboto-medium;
+    display: flex;
+    padding: 10px;
+}
+.legendHead {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: roboto-medium;
+    color: #536273;
+    border-bottom: 1px solid #eaeaea;
+    /* padding-bottom: 12px; */
+    padding: 15px;
+    padding-left: 19px;
+}
+.legendHead p.closeIcon {
+    margin-top: 0px;
+    width: 13px;
+    height: 13px;
+}
+.legendContent {
+    text-align: left;
+    font-size: 14px;
+    color: #75818f;
+    font-family: roboto-medium;
+    display: flex;
+}
+// .legendOverlay{
+//     position: fixed;
+//     width: 50%;
+//     height: 32%;
+//     right: 14px;
+//     top: 30%;
+//     z-index: 3;
+// }
+.eventDetails {
+    background: #fff;
+    //position: absolute !important;
+    bottom: 15px;
+    width: 160px;
+    left: 0px;
+    position: relative;
+    z-index: 11;
+    box-shadow: 2px 2px 17px 3px #cecece;
+}
+.popcontent.Details .eventDetails {
+    background: #fff;
+    //position: absolute;
+    top: 3px;
+    width: 160px;
+    left: 0px;
+    //height: 170px;
+    z-index: 111;
+    box-shadow: 0px 30px 114px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.closeIcon {
+    background-image: url("/assets/images/searchClosedark.png");
+    width: 10px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 13px;
+    /* margin-right: 11px; */
+    margin-left: 12px;
+	cursor: pointer;
+}
+.dateOuter {
+    display: flex;
+}
+.popcontent .eventDetails span.dot.popView {
+    top: 7px !important;
+    padding-left: 0px !important;
+    left: 9px !important;
+}
+.eventDetails .event3 span {
+    padding-left: 12px!important;
+}
+.eventDetails li.event3.Details {
+    left: 0px;
+}
+.datesOuter .dateHeads .dateOuter {
+    color: #414d5b;
+    font-size: 23px;
+    font-family: roboto-regular;
+	border: none;
+    height: auto;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    padding: 3px 10px;
+}
+.eventDetails ul {
+    margin-left: 13px;
+    margin-right: 13px;
+}
+li.redEvent {
+    background: #f5223f;
+    color: #fff;
+    font-size: 11px;
+    padding: 4px;
+    /* font-family: roboto-regular; */
+    padding-left: 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+}
+li.blueEvent {
+    color: #fff;
+    font-size: 11px;
+    padding: 4px;
+    /* font-family: roboto-regular; */
+    padding-left: 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    background: #0075d9;
+}
+
+.dateOuter span {
+    font-size: 13px;
+}
+.dateHeads {
+    width: 100%;
+    // height: 83px;
+    font-size: 12px;
+    position: relative;
+    font-family: roboto-regular;
+    // border: 1px solid #eaeaea;
+    border-left: none;
+    height: 100%;
+    // padding: 7px 13px;
+    border-top: none;
+    // white-space: nowrap;
+}
+.popcontent div{
+    position: relative;
+    color: #afafaf;
+    font-family: roboto-light;
+}
+
+.legendData.Starting {
+    margin-top: 20px;
+}
+.legendData.Ending {
+    margin-bottom: 20px;
+}
+
+
+.legendIcon {
+    background-image: url("/assets/images/grey-calendar.png");
+    width: 27px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 13px;
+    margin-right: 15px;
+    margin-left: 10px;
+}
+.legendContent:nth-child(3) .legendIcon {
+    background-image: url("/assets/images/grey-man.png");
+    width: 27px;
+    height: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 0px;
+}
+.legendData {
+    margin-top: 5px;
+    color: #536273;
+}
+.legendIcon.Dot {
+    background-color: #ff6f6f;
+    background-image: none;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-left: 24px;
+    margin-top: 10px;
+    margin-right: 21px;
+}
+.legendIcon.Last{
+	background-color: #8cc4f7;
+    background-image: none;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-left: 24px;
+    margin-top: 10px;
+    margin-right: 21px;
+}
+.time_div{    
+    position: absolute;
+    left: -30px;
+}
+.montt_main_outer
+{
+    position: relative;
+}
+@media (max-width: 1920px){
+    .closeIcon {
+        background-image: url("/assets/images/searchClosedark.png");
+        width: 10px;
+        height: 10px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 13px;
+        margin-left: 0px;
+        cursor: pointer;
+    }
+}
+.selectOuter ul {
+    background: #fff;
+    position: absolute;
+    /* border: 1px solid; */
+    z-index: 2;
+    /* text-align: right; */
+    right: 15px;
+    top: 15px;
+    width: 15%;
+    box-shadow: 2px 2px 17px 3px #cecece;
+}
+.selectOuter li {
+    padding: 10px 10px 10px 15px;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 0px;
+    color: #27456a;
+    font-family: roboto-medium;
+    cursor: pointer;
+}
+.selectOuter li:hover {
+    background: #f4f4f4;
+    transition: all 0.4s ease-out;
+}
+.commonOverlay{
+    position: fixed !important;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    right: 1%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}

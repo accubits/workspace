@@ -1,0 +1,11 @@
+<div class="fp_description">
+  <div class="fr_question">
+    <label>{{paragraphElement.paragraphText.label}}</label>
+  </div>
+  <div *ngIf="paragraphElement.paragraphText.answer !== ''" class="fr_answer">
+    <p> {{paragraphElement.paragraphText.answer}}</p>
+  </div>
+  <div *ngIf="paragraphElement.paragraphText.answer === ''" class="fr_answer">
+    <p>not answered</p>
+  </div>
+</div>

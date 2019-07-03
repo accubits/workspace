@@ -1,0 +1,323 @@
+<section class="as_content">
+  <div class="as_content_sector">
+    <div class="as_content_header">
+      <div class="h_left">
+        <img *ngIf="data.event.eventCreatorImageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+        <img *ngIf="data.event.eventCreatorImageUrl !== null" [src]="data.event.eventCreatorImageUrl" />
+        <div class="user_name_list">
+          <span class="blue">
+            {{data.event.eventCreatorName}}
+          </span>
+          <span class="bt_arw">
+            <img [src]="assetUrl+'assets/images/right_arrow.png'" />
+          </span>
+          <span class="grey_1" *ngIf="data.event.toAllEmployee == true">
+            To all Employees
+          </span>
+          <span *ngIf="data.event.toAllEmployee == false">
+            <span class="grey_1" *ngFor="let toUser of data.event.toUsers | slice:0:2;let i = index">
+              {{toUser.userName}}{{i === data.event.toUsers.length - 1 ?'':','}}
+            </span>
+            <span *ngIf="data.event.toUsers.length > 2" class="user_more_block" (click)="actStreamDataService.userCount[index] = !actStreamDataService.userCount[index]">
+              + {{data.event.toUsers.length - 2}}
+            </span>
+          </span>
+          <!-- User Count Pop Up -->
+          <div class="filter_cancel_overlay" *ngIf="actStreamDataService.userCount[index]" (click)="actStreamDataService.userCount[index] = false"></div>
+          <div class="user_count_pop" *ngIf="actStreamDataService.userCount[index]">
+            <div class="user_count_pop_header">
+              <h6>Users</h6>
+              <a class="copy_option_close" (click)="actStreamDataService.userCount[index] = false">&times;</a>
+            </div>
+            <div class="user_count_pop_body">
+              <div *ngFor="let user of data.event.toUsers" class="user_count_list">
+                <div *ngIf="user.userImageUrl === null" class="user_count_list_dp"></div>
+                <div *ngIf="user.userImageUrl !== null" class="user_count_list_dp" [ngStyle]="{'background-image': 'url(' + user.userImageUrl + ')'}"></div>
+                {{user.userName}}
+              </div>
+            </div>
+          </div>
+          <!-- User Count Pop Up -->
+        </div>
+      </div>
+      <div class="h_right">
+        <h6>{{data.event.createdAt * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</h6>
+        <div class="opt_r" *ngIf="data.event.eventCreatorSlug === loggedUser" (click)="actStreamDataService.optionBtn[index] = !actStreamDataService.optionBtn[index]">
+          <img [src]="assetUrl+'assets/images/more.png'" />
+          <div class="overlaypop" *ngIf="actStreamDataService.optionBtn[index]" (click)="!actStreamDataService.optionBtn[index]"></div>
+          <div class="edt_opt_r" *ngIf="actStreamDataService.optionBtn[index]">
+            <section (click)="updateEvent()">
+              Edit
+            </section>
+            <section (click)="deleteEvent()">
+              Delete
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="confirm_popup" *ngIf="actStreamDataService.deletePopUp[index]">
+        <div class="confirm_pop_body">
+          <section>
+            <div class="close_drop" (click)="cancelDelete()">
+            </div>
+            <p class="pop_main">{{actStreamDataService.deleteMessage.msg}}</p>
+          </section>
+          <section>
+            <div class="confirm_pop_btn" (click)="conformEventDelete()">
+              Confirm
+            </div>
+            <div class="confirm_pop_btn" (click)="cancelDelete()">
+              Cancel
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="as_content_body event_user_view" (click)="showEvent()">
+      <div class="event">
+        <div class="cal_grey_wrap">
+          <p class="cgw_month">{{data.event.eventStart * 1000 | date: 'MMM'}}</p>
+          <p class="cgw_date">{{data.event.eventStart * 1000 | date: 'd'}}</p>
+        </div>
+        <div *ngIf="startDate === endDate " class="event_details">
+
+          <h4>{{data.event.eventTitle}}</h4>
+          <p *ngIf="!data.event.eventAllDay" class="event_venue">{{data.event.eventStart * 1000 | date: 'MMM dd, yyyy'}}, {{startTime}} - {{endTime}} |
+            {{data.event.eventLocation}}</p>
+          <p *ngIf="data.event.eventAllDay" class="event_venue">{{data.event.eventStart * 1000 | date: 'MMM dd, yyyy'}} |
+              {{data.event.eventLocation}}</p>
+        </div>
+
+
+        <div *ngIf="startDate !== endDate" class="event_details">
+          <!-- <span *ngIf="data.event.eventAllDay">aaaa</span> -->
+          <h4>{{data.event.eventTitle}}</h4>
+          <p class="event_venue">
+            <span *ngIf="!data.event.eventAllDay">{{data.event.eventStart * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</span>
+            <span *ngIf="data.event.eventAllDay">{{data.event.eventStart * 1000 | date: 'MMM dd, yyyy'}}</span>
+            -
+            <span *ngIf="!data.event.eventAllDay">{{data.event.eventEnd * 1000 | date: 'MMM dd, yyyy, hh:mm a'}}</span>
+            <span *ngIf="data.event.eventAllDay">{{data.event.eventEnd * 1000 | date: 'MMM dd, yyyy'}}</span>
+
+            | {{data.event.eventLocation}}</p>
+        </div>
+      </div>
+      <div>
+        EVENT DESCRIPTION
+        <div class="eventContent" [innerHTML]="data.event.eventDesc"></div>
+      </div>
+      <!--event view popup starts-->
+
+      <!--event view popup ends-->
+    </div>
+    <div class="event_button" *ngIf="edited && data.event.eventCreatorSlug !== loggedUser">
+      <section class="hasGoing" *ngIf="!hasGoing && !hasDecline">
+        <button class="going" (click)="eventStatusUpdate(data.event.eventSlug, 'going')">Going</button>
+        <button class="decline" (click)="eventStatusUpdate(data.event.eventSlug, 'decline')">Decline</button>
+      </section>
+      <div *ngIf="hasGoing" class="event_tail">
+        <p class="yhread">
+          <img [src]="assetUrl+'assets/images/as/read_check.png'" /> You are going to this event</p>
+      </div>
+      <div *ngIf="hasDecline" class="event_tail">
+        <p class="yhread">
+          You are not attending this event</p>
+      </div>
+      <div *ngIf="showCount" class="event_tail">
+        <p class="yhr_sep">|</p>
+        <p>Going
+          <span class="read_count">
+            {{goingCount.length}} </span></p>
+        <p>Decline
+          <span class="read_count">
+            {{declineCount.length}} </span></p>
+      </div>
+    </div>
+    <div class="as_content_footer">
+      <div class="like">
+        <div class="like_iconbg like_icon" [ngClass]="{'active': data.event.yourEventResponse === 'like'}" (click)="eventResponse()">
+        </div>
+        <div class="like_count">
+          {{responseCount}}
+        </div>
+      </div>
+      <div class="comment">
+        <div class="comment_icon" (click)="getEventComments()">
+          <img [src]="assetUrl+'assets/images/as/comment.png'" />
+        </div>
+        <div (click)="getEventComments()" class="comment_count">{{commentCount}}</div>
+      </div>
+    </div>
+    <section class="comments_wrap" *ngIf="actStreamDataService.comments[index]">
+      <div class="commented" *ngFor="let comment of data.comments;let idx = index" [hidden]="comment.eventParentCommentSlug !== null">
+        <div class="commented_header">
+          <img *ngIf="comment.commentCreatorImageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+          <img *ngIf="comment.commentCreatorImageUrl !== null" [src]="comment.commentCreatorImageUrl" />
+          <h4>{{comment.commentCreatorUserName}}</h4>
+          <div *ngIf="loggedUser === comment.commentCreatorUserSlug" class="d_eopt" (click)="actStreamDataService.cmtOptionBtn[idx] = !actStreamDataService.cmtOptionBtn[idx]">
+            <img [src]="assetUrl+'assets/images/more.png'" />
+            <div class="filter_cancel_overlay" *ngIf="actStreamDataService.cmtOptionBtn[idx]" (click)="!actStreamDataService.cmtOptionBtn[idx]"></div>
+            <div class="edt_opt_r" *ngIf="actStreamDataService.cmtOptionBtn[idx]">
+              <section (click)="deleteComment(idx)">
+                Delete
+              </section>
+              <section (click)="updateComment(comment)">
+                Edit
+              </section>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="confirm_popup" *ngIf="actStreamDataService.deleteCommentPopUp[idx]" (click)="cancelDelete()">
+          <div class="confirm_pop_body">
+            <section>
+              <div class="close_drop" (click)="cancelDelete()">
+              </div>
+              <p class="pop_main">{{actStreamDataService.deleteMessage.msg}}</p>
+            </section>
+            <section>
+              <div class="confirm_pop_btn" (click)="conformDeleteComment(comment)">
+                Confirm
+              </div>
+              <div class="confirm_pop_btn" (click)="cancelDelete()">
+                Cancel
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="commented_body">
+          <p>{{comment.comment}}</p>
+        </div>
+        <div class="comment_footer">
+          <div class="like">
+            <div class="like_iconbg like_icon" [ngClass]="{'active': comment.yourCommentResponse === 'like'}" (click)="getResponseForComment(comment, idx)"></div>
+            <div class="like_count">
+              {{comment.commentResponses.length}}
+            </div>
+          </div>
+          <div class="reply">
+            <div class="reply_icon" (click)="getCommentReply(comment, idx)">
+              <img [src]="assetUrl+'assets/images/as/reply.png'" />
+            </div>
+            <div (click)="getCommentReply(comment, idx)" class="reply_count">{{comment.replyCount}}</div>
+          </div>
+        </div>
+        <section class="comments_wrap" *ngIf="actStreamDataService.reply[idx]">
+          <div class="commented" *ngFor="let reply of data.comments[idx].reply;let i = index" [hidden]="reply.eventParentCommentSlug === null">
+            <div class="commented_header">
+              <img *ngIf="reply.commentCreatorImageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+              <img *ngIf="reply.commentCreatorImageUrl !== null" [src]="reply.commentCreatorImageUrl" />
+              <h4>{{reply.commentCreatorUserName}}</h4>
+              <div *ngIf="loggedUser === reply.commentCreatorUserSlug" class="d_eopt" (click)="actStreamDataService.replyOption[i] = !actStreamDataService.replyOption[i]">
+                <img [src]="assetUrl+'assets/images/more.png'" />
+                <div class="filter_cancel_overlay" *ngIf="actStreamDataService.replyOption[i]" (click)="actStreamDataService.replyOption[i]"></div>
+                <div class="edt_opt_r" *ngIf="actStreamDataService.replyOption[i]">
+                  <section (click)="deleteReply(reply, i)">
+                    Delete
+                  </section>
+                  <section (click)="updateCommentReply(reply,comment)">
+                    Edit
+                  </section>
+                </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div class="confirm_popup" *ngIf="actStreamDataService.deleteReplyPopUp[i]">
+              <div class="confirm_pop_body">
+                <section>
+                  <div class="close_drop" (click)="cancelDelete()">
+                  </div>
+                  <p class="pop_main">{{actStreamDataService.deleteMessage.msg}}</p>
+                </section>
+                <section>
+                  <div class="confirm_pop_btn" (click)="conformDeleteReply(comment, idx)">
+                    Confirm
+                  </div>
+                  <div class="confirm_pop_btn" (click)="cancelDelete()">
+                    Cancel
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="commented_body">
+              <p>{{reply.comment}}</p>
+            </div>
+            <div class="comment_footer">
+              <div class="like">
+                <div class="like_iconbg like_icon" [ngClass]="{'active': reply.yourCommentResponse === 'like'}" (click)="replyResponse(reply, comment, idx)"></div>
+                <div class="like_count">
+                  {{reply.commentResponses.length}}
+                </div>
+              </div>
+              <div class="reply">
+                <div class="reply_icon" (click)="replyToReply(reply, comment)">
+                  <img [src]="assetUrl+'assets/images/as/reply.png'" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="to_comment">
+            <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+            <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl !== null" [src]="actStreamDataService.CommentsAndResponses.imageUrl" />
+            <input type="text" placeholder="Reply" class="to_comment_input" [(ngModel)]="comment.replyTxt" autofocus=true
+              (keydown.enter)="addCommentReply(comment.replyTxt, comment, idx)"   (input)="showReplayList(comment.replyTxt)">
+              <div class="filter_cancel_overlay" *ngIf="replaylist" (click)="hideReplayList()"></div>
+              <div class="resp_person_dropdown" *ngIf="replaylist">
+                <div class="resp_drop_head">
+                  <span>PEOPLE</span>
+                  <div class="close_drop"></div>
+                </div>
+                <div class="drop_down_wrap">
+                  <div class="drop_down_wrap">
+                    <section class="drop_body">
+                      <div class="recent_wrap pad_wrap">
+                        <section *ngFor="let user of actStreamDataService.responsiblePersons.list"
+                          (click)="selectReplayUser(user,comment)">
+                          <div *ngIf="user.employeeImage === null" class="recent_ico"></div>
+                          <div *ngIf="user.employeeImage !== null" class="recent_ico"
+                            [ngStyle]="{'background-image': 'url(' + user.employeeImage + ')'}"></div>
+                          {{user.employee_name}}
+                        </section>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+      </div>
+      <section>
+        <div class="to_comment">
+          <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl === null" [src]="assetUrl+'assets/images/all/tdp1.png'" />
+          <img *ngIf="actStreamDataService.CommentsAndResponses.imageUrl !== null" [src]="actStreamDataService.CommentsAndResponses.imageUrl" />
+          <input type="text" placeholder="Comment" class="to_comment_input" [(ngModel)]="commentTxt" autofocus
+            (keydown.enter)="addEventComment()"(ngModelChange)="showList()">
+            <div class="filter_cancel_overlay" *ngIf="list" (click)="hideList()"></div>
+            <div class="resp_person_dropdown" *ngIf="list">
+              <div class="resp_drop_head">
+                <span>PEOPLE</span>
+                <div class="close_drop"></div>
+              </div>
+              <div class="drop_down_wrap">
+                <div class="drop_down_wrap">
+                  <section class="drop_body">
+                    <div class="recent_wrap pad_wrap">
+                      <section *ngFor="let user of actStreamDataService.responsiblePersons.list"
+                        (click)="selectUser(user)">
+                        <div *ngIf="user.employeeImage === null" class="recent_ico"></div>
+                        <div *ngIf="user.employeeImage !== null" class="recent_ico"
+                          [ngStyle]="{'background-image': 'url(' + user.employeeImage + ')'}"></div>
+                        {{user.employee_name}}
+                      </section>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</section>
+    <app-act-event-view *ngIf="actStreamDataService.eventShow.show"></app-act-event-view>
+

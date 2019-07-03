@@ -1,0 +1,557 @@
+.as_content {
+    background-color: #fff;
+    margin-bottom: 0px;
+}
+
+.as_content_sector {
+    background-color: #fff;
+    margin-top: 1.5%;
+}
+
+.as_content_header {
+    height: 50px;
+    line-height: 60px;
+    padding: 0px 15px 0px 30px;
+    position: relative;
+    display: flex;
+    margin-bottom: 10px;
+}
+.message p {
+    font-size: 15px;
+}
+
+.h_left {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    width: 75%;
+}
+
+.h_left img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 17px;
+    left: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.h_left h4 {
+    padding-left: 40px;
+    color: #006df0;
+    font-family: Roboto-Light;
+    font-size: 14px;
+}
+
+.h_left h6 {
+    padding-left: 15px;
+    color: #98a1ab;
+    font-family: Roboto-Light;
+    font-size: 14px;
+}
+
+.h_left h6 span img {
+    height: 8px;
+    width: 6px;
+    position: absolute;
+    top: 25px;
+}
+
+.h_left h6 span {
+    padding-right: 15px;
+}
+
+.h_right {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    width: 50%;
+    padding-right: 20px;
+}
+
+.as_content_header .h_right {
+    float: right;
+}
+
+.h_right h6 {
+    padding-left: 15px;
+    padding-right: 30px;
+    color: #98a1ab;
+    font-family: Roboto-Light;
+    font-size: 14px;
+}
+
+.h_right img {
+    width: 4px !important;
+    height: 18px !important;
+    position: absolute !important;
+    top: 23px !important;
+    cursor: pointer !important;
+}
+.d_opt{
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    width: 50%;
+    padding-right: 20px;
+}
+
+.cmt_right {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    width: 50%;
+    padding-right: 20px;
+}
+
+.as_content_header .cmt_right {
+    float: right;
+}
+
+.cmt_right h6 {
+    padding-left: 15px;
+    padding-right: 30px;
+    color: #98a1ab;
+    font-family: Roboto-Light;
+    font-size: 14px;
+}
+
+.cmt_right img {
+    width: 4px;
+    height: 18px;
+    position: absolute;
+    top: 23px;
+    cursor: pointer;
+}
+
+.as_content_body {
+    margin-left: 30px;
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.as_content_body h4 {
+    color: rgb(50, 59, 69);
+    font-family: roboto-regular;
+    font-size: 14px;
+}
+
+.as_content_body p {
+    color: rgb(83, 98, 115);
+    font-family: Roboto-regular;
+    padding: 7px 0px 0px 0px;
+    line-height: 22px;
+    font-size: 15.5px;
+}
+
+// footer
+.as_content_footer {
+    border-top: 1px solid #edeff1;
+    height: 60px;
+    line-height: 60px;
+    margin: 0px 15px;
+}
+
+.as_content_footer {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #fff;
+}
+
+.like_iconbg {
+    background-image: url(/assets/images/as/like.png);
+    width: 20px;
+    height: 20px;
+    background-size: 40px;
+    position: absolute;
+    left: 0;
+    top: 18px;
+    cursor: pointer;
+}
+
+
+.like_icon {
+    background-position: 0px 43px;
+}
+.like_icon.active {
+    background-position: 20px 43px;
+}
+
+.like_count {
+    background-color: #ebebeb;
+    color: #536273;
+    font-size: 12px;
+    font-family: Roboto-medium;
+    height: 24px;
+    width: 34px;
+    line-height: 24px;
+    position: relative;
+    margin-left: 30px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+}
+
+// footer
+.comment {
+    position: relative;
+    padding-left: 15px;
+}
+
+.comment_icon {
+    position: absolute;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.comment_count {
+    background-color: #ebebeb;
+    color: #536273;
+    font-size: 12px;
+    font-family: Roboto-medium;
+    height: 24px;
+    width: 34px;
+    line-height: 24px;
+    position: relative;
+    margin-left: 30px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.comments_wrap {
+    background-color: #fff;
+    position: relative;
+    padding: 0 15px 15px 30px;
+    width: 100%;
+}
+
+.to_comment {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.to_comment img {
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.to_comment .to_comment_input {
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    background-color: #f2f2f2;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    margin-left: 40px;
+    color: #536273;
+}
+
+.commented_header {
+    position: relative;
+    width: 100%;
+    height: 47px;
+    line-height: 47px;
+}
+.d_eopt
+{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    z-index: 11;
+}
+.d_eopt img{
+    width: 4px !important;
+    height: 18px !important;
+    cursor: pointer !important;
+}
+
+.commented_header img {
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.commented_header h4 {
+    padding-left: 40px;
+    color: #006df0;
+    font-family: Roboto-Light;
+    font-size: 14px;
+}
+
+.comments_wrap section {
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+
+.commented_body p {
+    color: #536273;
+    font-family: Roboto-regular;
+    padding: 0px 0px 0px 40px;
+    line-height: 22px;
+    font-size: 15px;
+}
+
+.comment_footer {
+    border-bottom: 1px solid #edeff1;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    background-color: #fff;
+    margin: 0px 0px 0px 40px;
+}
+
+.reply {
+    position: relative;
+    padding-left: 15px;
+}
+
+.reply_icon {
+    position: absolute;
+    top: 0px;
+    width: 19px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.reply_count {
+    background-color: #ebebeb;
+    color: #536273;
+    font-size: 12px;
+    font-family: Roboto-medium;
+    height: 24px;
+    width: 34px;
+    line-height: 24px;
+    position: relative;
+    margin-left: 30px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.commented section {
+    padding-left: 40px;
+}
+
+.user_name_list
+{
+    padding-left: 48px;
+    /* font-size: 13px; */
+    padding-top: 3px;
+    position: relative;
+}
+
+.blue
+{
+    color: rgb(0, 109, 240);
+    font-family: roboto-regular;
+    font-size: 13px;
+    /* font-weight: bold; */
+}
+
+.bt_arw img
+{
+    width: 8px;
+    height: 8px;
+    position: relative;
+    top: 0;
+    margin: 0px 2px;
+    margin-right: 7px;
+}
+
+.grey_1
+{
+    color: #98a1ab;
+    font-family: roboto-regular;
+    font-size: 13px;
+}
+
+
+.user_more_block {
+  background-color: #d9e9fd;
+  border-radius: 3px;
+  color: #006df0;
+  font-size: 14px;
+  padding: 5px;
+  height: 30px;
+  font-weight: 400;
+  vertical-align: middle;
+  text-align: center;
+  margin-left: 5px;
+  top: 15px;
+  cursor: pointer;
+}
+
+.user_count_pop {
+    background-color: #fff;
+    width: 250px;
+    margin: 0 auto;
+    position: absolute;
+    right: 32px;
+    top: 20px;
+    box-shadow: -6px 0px 50px 0px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+.filter_cancel_overlay {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 99;
+}
+.user_count_pop_header {
+    height: 40px;
+    line-height: 40px;
+    color: #414d5b;
+    padding-left: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.user_count_list {
+    height: 45px;
+    line-height: 50px;
+    padding-left: 60px;
+    position: relative;
+    font-size: 13px;
+}
+
+.user_count_list_dp {
+    width: 30px;
+    height: 30px;
+    background-image: url(/assets/images/account-dp.png);
+    position: absolute;
+    left: 20px;
+    border-radius: 50%;
+    top: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.user_count_pop_body {
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea;
+    height: 175px;
+    overflow-y: auto;
+}
+
+.copy_option_close {
+    position: absolute;
+    right: 20px;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 200;
+    top: 0px;
+}
+
+.opt_r
+{
+    position: relative;
+}
+.edt_opt_r
+{
+    position: absolute;
+    background-color: white;
+    right: -26px;
+    box-shadow: -1px 1px 20px 1px rgba(0, 0, 0, 0.11);
+    z-index: 99;
+}
+.edt_opt_r section
+{
+    line-height: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #949494;
+    padding: 5px 14px;
+    width: 70px;
+}
+.resp_person_dropdown
+{
+  left: 40px;
+}
+
+ @media (max-width: 1366px) {
+    .user_count_list {
+        height: 43px;
+        line-height: 45px;
+        padding-left: 60px;
+        position: relative;
+        font-size: 14px;
+    }
+    .user_count_list_dp {
+        width: 25px;
+        height: 25px;
+        background-image: url("/assets/images/account-dp.png");
+        position: absolute;
+        left: 20px;
+        border-radius: 50%;
+        top: 10px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .h_right h6 {
+        padding-left: 15px;
+        padding-right: 30px;
+        color: #98a1ab;
+        font-family: Roboto-Light;
+        font-size: 12px;
+    }
+    .as_content_body h4 {
+        color: #002a5d;
+        // padding-left: 35px;
+        font-family: roboto-regular;
+        font-size: 14px;
+    }
+    .as_content_body p {
+        color: #536273;
+        font-family: Roboto-medium;
+        padding: 20px 0px 0px 0px;
+        line-height: 22px;
+        font-size: 14px;
+    }
+    .as_content_body p {
+        color: #536273;
+        font-family: Roboto-regular;
+        // padding: 3px 0px 0px 0px;
+        line-height: 22px;
+        font-size: 14px;
+    }
+    .commented_body p {
+        color: #536273;
+        font-family: Roboto-medium;
+        padding: 0px 0px 0px 40px;
+        line-height: 22px;
+        font-size: 14px;
+    }
+
+    .commented_header h4 {
+        padding-left: 40px;
+        color: #006df0;
+        font-family: Roboto-Light;
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,264 @@
+<div class="filter_wrap">
+  <section class="filt_sec_wrap">
+    <div class="filt_ov" id="save-popup" *ngIf="status_popup || showPartList || shoRespList || showCreateList"></div>
+    <div class="filter_head">
+      Filters
+      <span>
+        <!--{{taskDataService.createTaskFilter.filterName}}-->
+      </span>
+      <div class="filt_close right" (click)="taskDataService.taskFilterpopup.show = false">
+
+      </div>
+    </div>
+    <div class="filter_body">
+      <div class="filter_left">
+        <p>SAVED FILTERS</p>
+
+        <div class="filter_list_block def_block" (click)="taskDataService.resetFilter()">
+          Default
+        </div>
+        <div class="filter_list_block" *ngFor="let selectFilter of taskDataService.filterList.list;let idex =index" (click)="selectFilters(selectFilter)">
+          {{selectFilter.filter_title}}
+          <div class="filt_list_ico right">
+            <!--<section>-->
+              <!--<img [src]="assetUrl+'assets/images/edt_bl.png'" />-->
+            <!--</section>-->
+            <section (click)="deleteFilter(selectFilter)">
+              <img [src]="assetUrl+'assets/images/trash.png'"/>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="filter_right">
+        <div class="filter_right_top">
+          <div class="filter_right_block">
+            <section class="filt_sel_sec">
+              <p>Status:</p>
+              <div class="pop_expan_wrap">
+                <!-- <input type="text" placeholder="Select"  [(ngModel)]="filterStatus"  (click)="status_popup = true"> -->
+                <input type="text" placeholder="Select"  (click)="status_popup = true">
+
+                <div class="selected_tag" *ngFor="let taskStatus of taskDataService.createTaskFilter.taskStatus;let idex =index">
+                  {{taskStatus.name}} <div class="select_close" (click)="removeStatus(taskStatus)"></div>
+                </div>
+
+                <div class="filt_pop_drop common_drop" *ngIf="status_popup">
+                  <div class="resp_drop_head">
+                    <span>STATUS</span>
+                    <div class="close_drop" (click)="status_popup = false"></div>
+                  </div>
+                  <section *ngFor="let rp of taskDataService.taskStatus.list" (click)="selectStatus(rp)" (clickOutside)="close()">
+                    {{rp.display_name}}
+                  </section>
+                </div>
+              </div>
+            </section>
+            <div class="filt_fav_sec">
+              <section (click)="taskDataService.createTaskFilter.priority = !taskDataService.createTaskFilter.priority">
+                <div class="filt_fav_ico filt_hp" [ngClass]="{'active':taskDataService.createTaskFilter.priority}">
+                </div>
+                High Priority
+              </section>
+              <section (click)="taskDataService.createTaskFilter.favourite = !taskDataService.createTaskFilter.favourite">
+                <div class="filt_fav_ico filt_fv" [ngClass]="{'active':taskDataService.createTaskFilter.favourite}">
+                </div>
+                Favourite
+              </section>
+            </div>
+            <div class="filt_sel_sec">
+              <label>
+                <div class="check_outer">
+                  <input name="" type="checkbox" [(ngModel)]="taskDataService.createTaskFilter.withAttachement" (ngModelChange)="pushToFilter({displayName:'With Attachement',modelKey:'withAttachement'})">
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+              With attachment
+            </div>
+            <div class="filt_sel_sec">
+              <label>
+                <div class="check_outer">
+                  <input name="" type="checkbox" [(ngModel)]="taskDataService.createTaskFilter.includesSubtask" (ngModelChange)="pushToFilter({displayName:'Includes Subtask',modelKey:'includesSubtask'})">
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+              Includes Subtask
+            </div>
+            <div class="filt_sel_sec">
+              <label>
+                <div class="check_outer">
+                  <input name="" type="checkbox" [(ngModel)]="taskDataService.createTaskFilter.includesChecklist" (ngModelChange)="pushToFilter({displayName:'Includes Checklist',modelKey:'includesChecklist'})">
+                  <div class="check" for="1_in"></div>
+                </div>
+              </label>
+              Includes Checklist
+            </div>
+          </div>
+
+          <div class="filter_right_block">
+            <section class="filt_sel_sec">
+              <p>Due Date :</p>
+              <input [owlDateTime]="dt1" readonly="" [owlDateTimeTrigger]="dt1" placeholder="Date" class="inp_filt" [(ngModel)]="taskDataService.createTaskFilter.dueDate" >
+              <owl-date-time #dt1 [hour12Timer] = "true"></owl-date-time>
+            </section>
+            <section class="filt_sel_sec">
+              <p>Start Date :</p>
+              <input [owlDateTime]="dt2" readonly="" [owlDateTimeTrigger]="dt2" placeholder="Date" class="inp_filt" [(ngModel)]="taskDataService.createTaskFilter.startDate">
+              <owl-date-time #dt2 [hour12Timer] = "true"></owl-date-time>
+            </section>
+            <section class="filt_sel_sec">
+              <p>Finished on :</p>
+              <input [owlDateTime]="dt3" readonly="" [owlDateTimeTrigger]="dt3" placeholder="Date" class="inp_filt" [(ngModel)]="taskDataService.createTaskFilter.finishedOn">
+              <owl-date-time #dt3 [hour12Timer] = "true"></owl-date-time>
+            </section>
+          </div>
+
+          <div class="filter_right_block">
+            <section class="filt_sel_sec">
+              <p>Participants:</p>
+              <div class="pop_expan_wrap">
+                <input type="text" placeholder="Select"  [(ngModel)]="filterParticipants" (ngModelChange)="initOrChangeparticipantsList()"  (click)="showPartList = true">
+                <div class="selected_tag" *ngFor="let participant of taskDataService.createTaskFilter.participant;let idex =index">
+                  {{participant.name}} <div class="select_close" (click)="removePartcipants(participant)"></div>
+                </div>
+                <div class="resp_person_dropdown" *ngIf="showPartList">
+                  <div class="resp_drop_head">
+                    <span>PEOPLE</span>
+                    <div class="close_drop" (click)="showPartList = false"></div>
+                  </div>
+                  <div class="drop_down_wrap">
+                    <section class="drop_nav">
+                      <ul>
+                        <!-- <li [ngClass]="{active:activeParticiapntTab === 'all'}" (click)="activeParticiapntTab = 'all'">Recent</li> -->
+                        <!--<li [ngClass]="{active:activeParticiapntTab === 'dept'}" (click)="activeParticiapntTab = 'dept'">Departments</li>-->
+                        <!-- <li [ngClass]="{active:activeParticiapntTab === 'search'}" (click)="activeParticiapntTab = 'search'">Search</li> -->
+                      </ul>
+                    </section>
+                    <section class="drop_body">
+                      <div  class="recent_wrap pad_wrap">
+                        <section *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selectPartcipants(rp)">
+                          <div class="recent_ico">
+                          </div>
+                          {{rp.employee_name}}
+                        </section>
+                      </div>
+                      <!-- <div *ngIf="activeParticiapntTab === 'search'" class="drop_search_wrap pad_wrap">
+                        <section *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selectPartcipants(rp)">
+                          <div class="recent_ico">
+                          </div>
+                          {{rp.employee_name}}
+                        </section>
+                      </div> -->
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="filt_sel_sec">
+              <p>Responsible Person:</p>
+              <div class="pop_expan_wrap">
+                <input type="text" placeholder="Select"  [(ngModel)]="filterRespperson" (ngModelChange)="initOrChangeResppers()"  (click)="shoRespList = true">
+                <div class="selected_tag" *ngFor="let responsiblePerson of taskDataService.createTaskFilter.responsiblePerson;let idex =index">
+                  {{responsiblePerson.name}} <div class="select_close" (click)="removeResppers(responsiblePerson)"></div>
+                </div>
+                <div class="resp_person_dropdown" *ngIf="shoRespList">
+                  <div class="resp_drop_head">
+                    <span>PEOPLE</span>
+                    <div class="close_drop" (click)="shoRespList = false"></div>
+                  </div>
+                  <div class="drop_down_wrap">
+                    <section class="drop_nav">
+                      <ul>
+                        <!-- <li [ngClass]="{active:activeRpTab === 'all'}" (click)="activeRpTab = 'all'">Recent</li>
+                        <li [ngClass]="{active:activeRpTab === 'search'}" (click)="activeRpTab = 'search'">Search</li> -->
+                      </ul>
+                    </section>
+                    <section class="drop_body">
+                      <div class="recent_wrap pad_wrap">
+                        <section *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selectRespPerson(rp)">
+                          <div class="recent_ico">
+
+                          </div>
+                          {{rp.employee_name}}
+                        </section>
+                      </div>
+
+                      <!-- <div *ngIf="activeRpTab === 'search'"class="drop_search_wrap pad_wrap">
+                        <section *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selectRespPerson(rp)">
+                          <div class="recent_ico">
+
+                          </div>
+                          {{rp.employee_name}}
+                        </section>
+                      </div> -->
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="filt_sel_sec">
+              <p>Created By:</p>
+              <div class="pop_expan_wrap">
+                <input type="text" placeholder="Select"  [(ngModel)]="filterCreatedBy" (ngModelChange)="initOrChangeCreatedBy()"  (click)="showCreateList = true">
+                <div class="selected_tag" *ngFor="let createdBy of taskDataService.createTaskFilter.createdBy;let idex =index">
+                  {{createdBy.name}} <div class="select_close" (click)="removeCreatedBy(createdBy)"></div>
+                </div>
+                <div class="resp_person_dropdown" *ngIf="showCreateList">
+                  <div class="resp_drop_head">
+                    <span>PEOPLE</span>
+                    <div class="close_drop" (click)="showCreateList = false"></div>
+                  </div>
+                  <div class="drop_down_wrap">
+                    <section class="drop_nav">
+                      <ul>
+                        <!-- <li [ngClass]="{active:activeCrTab === 'all'}" (click)="activeCrTab = 'all'">Recent</li>
+                        <li [ngClass]="{active:activeCrTab === 'search'}" (click)="activeCrTab = 'search'">Search</li> -->
+                      </ul>
+                    </section>
+                    <section class="drop_body">
+                      <div class="recent_wrap pad_wrap">
+                        <section *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selectCreatedBy(rp)">
+                          <div class="recent_ico">
+
+                          </div>
+                          {{rp.employee_name}}
+                        </section>
+                      </div>
+
+                      <!-- <div *ngIf="activeCrTab === 'search'" class="drop_search_wrap pad_wrap">
+                        <section *ngFor="let rp of taskDataService.responsiblePersons.list" (click)="selectCreatedBy(rp)">
+                          <div class="recent_ico">
+
+                          </div>
+                          {{rp.employee_name}}
+                        </section>
+                      </div> -->
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="filter_right_bottom">
+          <div class="filter_name_block">
+            <input type="text" placeholder="Filter name" [(ngModel)]="taskDataService.createTaskFilter.filterName" [ngClass]="{'err_out': !isValidated && !taskDataService.createTaskFilter.filterName}">
+            <p class="error" *ngIf="!isValidated && !taskDataService.createTaskFilter.filterName">Filter name required</p>
+          </div>
+          <span (click)="createNewFilter()">Save filter</span>
+
+          <div class="filt_buttons_right right">
+            <div class="filt_btn" (click)="resetFilter()">
+              Reset
+            </div>
+            <div class="filt_btn apl_btn" (click)="applyFilter()">
+              Apply
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

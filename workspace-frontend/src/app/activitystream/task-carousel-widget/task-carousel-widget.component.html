@@ -1,0 +1,60 @@
+
+<div class="slider_outer">
+  <div class="yt_header">
+      <h4>YOUR TASK</h4>
+      <div class="nex_prev" *ngIf="actStreamDataService.taskWidgetDetails.details.task.length > 1">
+        <button (click)="prev()">
+          <img [src]="assetUrl+'assets/images/as/prev.png'" />
+        </button>
+        <button (click)="next()">
+          <img [src]="assetUrl+'assets/images/as/next.png'" />
+        </button>
+      <div class="clear"></div>
+      </div>
+    </div>
+
+  <div class="slider_inner" *ngIf="actStreamDataService.taskWidgetDetails.details.task.length !==0">
+    <div class="slider_item" [ngClass]="{'slider_pos_first':item.status=='next','slider_pos_last':item.status=='prev'}" [hidden]="idx>2"
+       *ngFor="let item of actStreamDataService.taskWidgetDetails.details.task,let idx = index;" [ngStyle]="carouselStyle(idx)">
+      <section>
+        <div class=time_opt>
+          <span>{{item.due_date * 1000 | date: 'dd MMM yyyy'}}</span>
+          <!-- <img [src]="assetUrl+'assets/images/task/more.png'" /> -->
+        </div>
+        <h4>{{item.title}}</h4>
+        <div class="checkbox">
+          <label>
+            <div class="check_outer" (click)="selectTask($event)">
+              <input type="checkbox" [(ngModel)]="item.isCompleted" (ngModelChange)="makeComplete($event,item,idx)">
+              <div class="check" for="1_in"></div>
+            </div>
+            Complete
+          </label>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <p class="no_tasks" *ngIf="actStreamDataService.taskWidgetDetails.details.task.length ===0">No pending task's</p>
+</div>
+
+
+<div class="confirm_popup" *ngIf="showPop">
+  <div class="confirm_pop_body">
+      <section>
+          <div class="close_drop">
+          </div>
+          <p class="pop_main">Are you sure you want to complete this task</p>
+          <p class="pop_sub"></p>
+      </section>
+      <section>
+          <div class="confirm_pop_btn" (click)="completeTask()">
+              Confirm
+          </div>
+          <div class="confirm_pop_btn" (click)="cancelCompletion()">
+              Cancel
+          </div>
+      </section>
+  </div>
+</div>
+

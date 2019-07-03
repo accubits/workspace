@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/crm",
+    "description": "",
+    "authors": [
+        {
+            "name": "Bhanu Krishnan",
+            "email": "bhanu@accubits.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\CRM\\Providers\\CRMServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\CRM\\": ""
+        }
+    }
+}

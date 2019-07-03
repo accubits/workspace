@@ -1,0 +1,17 @@
+<p class="main_label"><label>{{nameElement.name.label}}<span *ngIf = "data.name.isRequired" class="error">*</span></label></p>
+<div class="flex_spacebtw">
+  <div class="n_input">
+    <div class="fp_input namewrap_input_side_pad">
+      <!-- <label>First Name</label> -->
+      <input type="text" class="" name="text" placeholder="First Name" [(ngModel)]="nameSubmit.name.first" (ngModelChange)="validateElement()">
+      <p class="error" *ngIf="!nameElement.isValidated && dataService.formValidation.validating && !nameSubmit.name.first">Required Field</p>
+    </div>
+  </div>
+  <div class="n_input">
+    <div class="fp_input trans_label inline_mar_left_input">
+      <!-- <label>Last Name</label> -->
+      <input type="text" class="" name="text" placeholder="Last Name"  [(ngModel)]="nameSubmit.name.last" (ngModelChange)="validateElement()">
+      <p class="error" *ngIf="!nameElement.isValidated && dataService.formValidation.validating && !nameSubmit.name.last">Required Field</p>
+    </div>
+  </div>
+</div>

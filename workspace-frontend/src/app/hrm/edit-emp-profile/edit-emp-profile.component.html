@@ -1,0 +1,200 @@
+<div class="edit-profile-pop">
+  <h4 class="inform-head"> EDIT PROFILE</h4>
+  <div class="close_drop head_close" (click)="hideEditEmp()"></div>
+  <div class="information-wrap">
+    <div class="inform-left">
+      <div class="detail-head">
+        <h4>PERSONAL INFORMATION</h4>
+      </div>
+      <div class="detail-row first">
+        <div class="detail-left no-padding">
+          <div *ngIf="hrmDataService.getEmployeeDetails.imageUrl === null" class="photo"></div>
+          <div *ngIf="hrmDataService.getEmployeeDetails.imageUrl !== null" class="photo"
+            [ngStyle]="{'background-image': 'url(' + hrmDataService.getEmployeeDetails.imageUrl + ')'}"></div>
+        </div>
+        <div class="detail-right">
+          <div class="atc_btn photo_change">Change Picture</div><span class="info_icon"></span>
+          <div *ngIf="hrmDataService.getEmployeeDetails.imageUrl !== null" class="removebtn" (click)="removeImage()">Remove Picture</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Name</span>
+        </div>
+        <div class="detail-right">
+          <input type="text" placeholder="" [(ngModel)]="hrmDataService.getEmployeeDetails.name">
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Date Of Birth</span>
+        </div>
+        <div class="detail-right">
+          <input [(ngModel)]="hrmDataService.getEmployeeDetails.birthDate" type="text" [owlDateTime]="dt2"
+            [owlDateTimeTrigger]="dt2">
+          <owl-date-time #dt2 [hour12Timer]="true"></owl-date-time>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Interests</span>
+        </div>
+        <div class="detail-right">
+          <span *ngFor="let intrest of intrestArray; let i = index"
+            class="intrst">{{intrest.title}} <div class="close_drop"></div></span>
+          <input type="text" class="interest" [(ngModel)]="intrestName" placeholder="Add interests" (keydown.enter)="addIntrest()">
+          <div class="clear"></div>
+        </div>
+      </div>
+      <!-- <div class="detail-head">
+                <h4>Attachment</h4>
+                <div class="attach_btn">Add Attachment</div>
+                </div>
+                <div class="detail-row first">
+                  <ol>
+                 <li class="attachement-detail"><span> <div class="file">File 1.png</div></span><div class="attach_btn1">Change Document</div></li>
+                 <li class="attachement-detail"><span>  <div class="file">File 2.png</div></span><div class="attach_btn1">Change Document</div></li>
+                </ol>
+                    </div> -->
+      <div class="clear"></div>
+    </div>
+    <div class="inform-right">
+      <div class="detail-head">
+        <h4>USER INFORMATION</h4>
+      </div>
+      <!-- <div class="detail-row">
+        <div class="detail-left">
+            <span>User ID</span>
+          </div>
+          <div class="detail-right">
+              <input type="text" placeholder="IC 5">
+          </div>
+        </div> -->
+      <div class="detail-row first">
+        <div class="detail-left">
+          <span>Email ID</span>
+        </div>
+        <div class="detail-right">
+          {{hrmDataService.getEmployeeDetails.email}}
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>DEPARTMENTS</span>
+        </div>
+        <div *ngIf="hrmDataService.getEmployeeDetails.departments.length === '0'" class="detail-right">
+
+          <div class="clear"></div>
+        </div>
+        <div *ngIf="hrmDataService.getEmployeeDetails.departments.length > '0'" class="detail-right">
+          <span *ngFor="let dept of hrmDataService.getEmployeeDetails.departments; let i = index"
+            class="dept">{{dept.departmentName}} <span *ngIf="dept.isdepartmentHead === true">Head Of Department</span></span>
+          <div class="clear"></div>
+        </div>
+      </div>
+
+      <div class="detail-row">
+          <div class="detail-left">
+            <span>REPORTING TO</span>
+          </div>
+          <div class="detail-right">
+            <div *ngIf="hrmDataService.getEmployeeDetails.reportingManagerDetails.reportingManagerImgUrl === null"
+              class="profile-img"></div>
+            <div *ngIf="hrmDataService.getEmployeeDetails.reportingManagerDetails.reportingManagerImgUrl !== null"
+              class="profile-img"
+              [ngStyle]="{'background-image': 'url(' + hrmDataService.getEmployeeDetails.reportingManagerDetails.reportingManagerImgUrl + ')'}">
+            </div>
+            <span
+              class="profile-name">{{hrmDataService.getEmployeeDetails.reportingManagerDetails.reportingManagerName}}</span>
+          </div>
+        </div>
+
+      <div class="detail-row">
+        <div class="detail-left">
+          <span>Date Of Joining</span>
+        </div>
+        <div class="detail-right">
+
+          <input [(ngModel)]="hrmDataService.getEmployeeDetails.joiningDate" type="text" [owlDateTime]="dt1"
+            [max]="todayDate" [owlDateTimeTrigger]="dt1">
+          <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+        </div>
+      </div>
+    <div class="detail-row">
+                  <div class="detail-left">
+                      <span>Street Address</span>
+                    </div>
+                    <div class="detail-right">
+                      <input type="text" placeholder="Street Addres" [(ngModel)]="hrmDataService.getEmployeeDetails.streetAddress">
+                  </div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-left">
+                  <span>Address Line1</span>
+                </div>
+                <div class="detail-right">
+                  <input type="text" placeholder="Address Line1" [(ngModel)]="hrmDataService.getEmployeeDetails.addressLine2">
+              </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-left">
+              <span>City</span>
+            </div>
+            <div class="detail-right">
+              <input type="text" placeholder="City" [(ngModel)]="hrmDataService.getEmployeeDetails.city">
+          </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-left">
+          <span>State / Region</span>
+        </div>
+        <div class="detail-right">
+          <input type="text" placeholder="State" [(ngModel)]="hrmDataService.getEmployeeDetails.state">
+      </div>
+</div>
+<div class="detail-row">
+<div class="detail-left">
+  <span>Postal Code / ZIP Code</span>
+</div>
+<div class="detail-right">
+  <input type="text" [(ngModel)]="hrmDataService.getEmployeeDetails.zipcode">
+</div>
+</div>
+<div class="detail-row country" (click)="showCountry()">
+  <div class="detail-left">
+    <span>Country</span>
+  </div>
+  <div class="detail-right" >
+    <input type="text" placeholder="Singapore">
+  </div>
+  </div>
+  <div class="country-dropdown" *ngIf="countryList" >
+    <ul *ngFor="let country of hrmDataService.getCountryList.countries; let i = index">
+      <li>{{country.name}}</li>
+     
+    </ul>
+  </div>
+              <!-- <div class="detail-row">
+                <div class="detail-left">
+                    <span>HP NUMBER</span>
+                  </div>
+                  <div class="detail-right">
+                      <input type="text" placeholder="1155432">
+                  </div>
+          </div>
+          <div class="detail-row">
+              <div class="detail-left">
+                  <span>NRIC / PAN / PASSPORT</span>
+                </div>
+                <div class="detail-right">
+                    <input type="text" placeholder="115543277899034232">
+                </div>
+        </div> -->
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="edit-emp-footer">
+  <button class="pbtncreate" (click)="updateEmp()">Save</button>
+  <button class="req-cancel" (click)="hideEditEmp()">Cancel</button>
+</div>

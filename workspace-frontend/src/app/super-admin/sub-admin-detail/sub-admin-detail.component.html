@@ -1,0 +1,200 @@
+<div class="main-overlay" (click)="hideDetailPop()"></div>
+<div class="pop-outer">
+  <div class="pop-head">
+    <div class="profile-image"></div>
+    <div class="profile-details">
+      <p><b>Stella Little</b></p>
+      <p>Partner Manager</p>
+    </div>
+    <div class="phone">
+      <div class="phoneIcon"></div>
+      <p>1234567890</p>
+    </div>
+    <div class="mail">
+      <div class="mailIcon"></div>
+      <p>waylon@mail.com</p>
+    </div>
+    <div class="close-pop" (click)="hideDetailPop()"></div>
+
+  </div>
+  <div class="pop-body">
+    <div class="tab-nav">
+      <ul class="menu">
+        <li [ngClass]="{active: currentTab === 'permissions'}" (click)="currentTab ='permissions'">Permissions</li>
+        <li [ngClass]="{active: currentTab === 'partner'}" (click)="currentTab ='partner'">Partners</li>
+      </ul>
+    </div>
+    <div class="tab_inner" *ngIf="currentTab === 'permissions'">
+      <div class="check-box-container">
+        <h6>Communications</h6>
+        <div class="check-wraper">
+          <p>World level posts</p>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Create
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Read
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Edit
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Delete
+            </label>
+          </div>
+        </div>
+        <div class="check-wraper">
+          <p>Vertical level posts</p>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Create
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Read
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Edit
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Delete
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="check-box-container">
+        <h6>Admin Management</h6>
+        <div class="check-wraper">
+          <p>Sub admins</p>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Create
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Read
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Edit
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Delete
+            </label>
+          </div>
+        </div>
+        <div class="check-wraper">
+          <p>Permissions</p>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Create
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Read
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Edit
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id="" />
+                <div class="check" for="1_in"></div>
+              </div>
+              Delete
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab_inner" *ngIf="currentTab === 'partner'">
+      <app-sub-admin-detail-partner></app-sub-admin-detail-partner>
+    </div>
+  </div>
+</div>
+<div class="pop-footer">
+  <div class="pbtncreate">Edit Profile</div>
+  <div class="req-cancel" *ngIf="currentTab === 'permissions'">Manage Permissions</div>
+  <div class="req-cancel" *ngIf="currentTab === 'partner'">Add Partner</div>
+</div>

@@ -1,0 +1,64 @@
+.check {
+  width: 18px;
+  height: 18px;
+  background-color: lightgray;
+  border-radius: 18px;
+  z-index: -1;
+  cursor: pointer;
+  margin-top: 3px;
+}
+input[type="radio"]
+{
+  background-color: aqua;
+  border: none;
+  visibility: hidden;
+}
+input[type=radio]:checked ~ .check {
+  border: 3px solid #d3d3d3;
+  background-color: #526173 !important;
+}
+.check_outer input:checked ~ .check {
+  background-color:transparent;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.rating-outer
+{
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: 30px;
+}
+.rate-type
+{
+  width: 15%;
+  display: inline-block;
+}
+.input-title
+{
+  margin-left: 10px;
+  color: #b8bbbf;
+  font-size: 14px;
+}
+.comment-area
+{
+  margin: 20px 0;
+  width: 100%;
+}
+.comment-area textarea
+{
+  background-color: #fff;
+  border: 1px solid #edeff7;
+  resize: none;
+  width: 100%;
+  padding: 20px;
+}
+.comment-area textarea::placeholder
+{
+  color: #bac0c7;
+  font-family: Roboto-Regular;
+  font-size: 14px;
+}

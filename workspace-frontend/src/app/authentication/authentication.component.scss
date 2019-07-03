@@ -1,0 +1,219 @@
+@charset "utf-8";
+/* SCSS Document */
+
+/* -----------------------------------------
+        Login Components |START|
+------------------------------------------*/
+
+.loginbglayer {
+    background-image: url("../../assets/images/antelope-canyon-lower-canyon-arizona.jpg");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.loginbgoverlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: black;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.login_container {
+    position: absolute;
+    top: 50%;
+    left: 50%; // transform: translate(-50%, -50%);
+    // -o-transform: translate(-50%, -50%);
+    // -moz-transform: translate(-50%, -50%);
+    // -webkit-transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 65%;
+    margin: -250px -650px;
+}
+
+.welcome_block {
+    width: 27%;
+}
+
+.work_logo:before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 94%;
+    background-color: white;
+    left: 0;
+    top: 0;
+}
+
+.welcome_block p {
+    color: white;
+    font-size: 22px;
+    font-family: Roboto-Light;
+    margin-bottom: 37px;
+}
+
+.login_form {
+    width: 50%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+footer img {
+    display: inline-block;
+    width: 95px;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+@media (max-width: 1920px) {}
+
+@media (max-width: 1680px) {
+    .login_container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 3;
+        width: 65%;
+        margin: -240px -580px;
+    }
+}
+@media (max-width: 1600px) {
+    .login_container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 3;
+        width: 65%;
+        margin: -240px -560px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .welcome_block {
+        width: 24%;
+        transition: all .2s ease-in-out;
+    }
+
+    footer {
+        height: 50px;
+        transition: all .2s ease-in-out;
+        font-size: 12px;
+    }
+
+    footer img {
+        width: 70px;
+        margin-left: 10px;
+        transition: all .2s ease-in-out;
+    }
+
+    .welcome_block p {
+        font-size: 20px;
+        margin-bottom: 25px;
+        transition: all .2s ease-in-out;
+    }
+
+    .work_logo {
+        padding-left: 20px;
+        position: relative;
+        transition: all .2s ease-in-out;
+    }
+
+    .work_logo img {
+        margin-top: 5px;
+    }
+
+    .login_widget {
+        height: 150px;
+        width: 415px;
+    }
+
+    .login_container {
+        position: absolute;
+        top: 50%;
+        left: 50%; // transform: translate(-50%, -50%);
+        // -o-transform: translate(-50%, -50%);
+        // -moz-transform: translate(-50%, -50%);
+        // -webkit-transform: translate(-50%, -50%);
+        z-index: 3;
+        width: 65%;
+        margin: -200px -430px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .welcome_block {
+        width: 24%;
+        transition: all .2s ease-in-out;
+    }
+    footer {
+        height: 50px;
+        transition: all .2s ease-in-out;
+        font-size: 12px;
+    }
+    footer img {
+        width: 70px;
+        margin-left: 10px;
+        transition: all .2s ease-in-out;
+    }
+    .welcome_block p {
+        font-size: 20px;
+        margin-bottom: 25px;
+        transition: all .2s ease-in-out;
+    }
+    .work_logo {
+        padding-left: 20px;
+        position: relative;
+        transition: all .2s ease-in-out;
+    }
+    .work_logo img {
+        margin-top: 5px;
+    }
+    .login_widget {
+        height: 150px;
+        width: 415px;
+    }
+    .login_container {
+        position: absolute;
+        top: 50%;
+        left: 50%; // transform: translate(-50%, -50%);
+        // -o-transform: translate(-50%, -50%);
+        // -moz-transform: translate(-50%, -50%);
+        // -webkit-transform: translate(-50%, -50%);
+        z-index: 3;
+        width: 65%;
+        margin: -200px -430px;
+    }
+}
+
+@media (max-width: 1280px) {}
+
+@media (max-width: 1024px) {
+    .login_container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 3;
+        width: 65%;
+        margin: -200px -380px;
+    }
+}
+
+/* -----------------------------------------
+        Login Components |END|
+------------------------------------------*/

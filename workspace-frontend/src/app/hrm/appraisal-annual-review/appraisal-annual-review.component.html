@@ -1,0 +1,109 @@
+<div class="overlay"></div>
+<div class="annual-review-detail">
+  <div class="pop-left">
+    <div class="pop-head">
+      <div class="back" (click)="hidePopup()">
+        <div class="prev"> </div>Back to listing
+      </div>
+      <h4>Annual review 2018</h4>
+      <p>CREATED ON <b> 24 JUL 2018</b></p>
+    </div>
+    <div class="nav_wrap">
+      <ul>
+        <li (click)="tab = 'details'" [ngClass]="{'active':tab == 'details'}">Details</li>
+        <li (click)="tab = 'results'" [ngClass]="{'active':tab == 'results'}">Results</li>
+        <li (click)="tab = 'form'" [ngClass]="{'active':tab == 'form'}">Form Preview</li>
+      </ul>
+    </div>
+    <div class="tab-inner" *ngIf="tab == 'details'">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia eligendi non inventore necessitatibus quis
+        harum illo. Suscipit quidem magni voluptatum vitae incidunt velit, nisi est, aperiam, fuga commodi sed ratione.
+      </p>
+      <div class="modules">
+        <span class="under_line"></span>
+        <h4>Modules</h4>
+        <div class="weightage">
+          <p>1. Time and Report</p><span>Weightage : </span>45<span>%</span>
+        </div>
+        <div class="weightage">
+          <p>2. Task Scores</p><span>Weightage : </span>25<span>%</span>
+        </div>
+        <div class="weightage">
+          <p>3. Performance Indicator</p><span>Weightage : </span>30<span>%</span>
+        </div>
+      </div>
+    </div>
+    <div class="tab-inner" *ngIf="tab == 'results'">
+        <app-annual-review-result></app-annual-review-result>
+    </div>
+    <div class="tab-inner" *ngIf="tab == 'form'">
+        <app-appraisal-form></app-appraisal-form>
+    </div>
+      </div>
+  <div class="pop-right">
+    <div class="pop-right-head">
+      <h4>Processing Period</h4>
+    </div>
+    <div class="pop-right-inner">
+      <div class="details">
+        <h5>APPRAISAL CYCLE START DATE:</h5>
+        <P>7 Jun 2018</P>
+      </div>
+      <div class="details">
+        <h5>APPRAISAL CYCLE END DATE:</h5>
+        <P>12 Jun 2018</P>
+      </div>
+      <div class="details">
+        <h5>APPRAISAL PROCESSING START DATE:</h5>
+        <P>20 Jun 2018</P>
+      </div>
+      <div class="details">
+        <h5>APPRAISAL PROCESSING END DATE:</h5>
+        <P>30 Jun 2018</P>
+      </div>
+    </div>
+    <div class="nav_wrap">
+      <ul>
+        <li (click)="tabdetails = 'application'" [ngClass]="{'active':tabdetails == 'application'}">Application For</li>
+        <li (click)="tabdetails = 'review'" [ngClass]="{'active':tabdetails == 'review'}">Reviewers</li>
+      </ul>
+    </div>
+    <div class="tab-wrap" *ngIf="tabdetails == 'application'">
+      <div class="pop-right-inner">
+        <h5>DEPARTMENTS</h5>
+        <div class="depart_details">
+          <p>Teaching</p>
+          <p>Management</p>
+          <p>Arts</p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-wrap" *ngIf="tabdetails == 'review'">
+      <div class="pop-right-inner">
+        <div class="head_depart">
+          <h4>Head of department</h4>
+          <div class="depart_details">
+              <p>Teaching</p>
+              <p>Management</p>
+              <p>Arts</p>
+            </div>
+        </div>
+        <h5>EMPLOYEES</h5>
+<div class="employee">
+    <div  class="employee_image"></div>
+    <span class="employee_name">Stuart Little</span>
+</div>
+<div class="employee">
+    <div  class="employee_image"></div>
+    <span class="employee_name">Stella Little</span>
+</div>
+<div class="employee">
+    <div  class="employee_image"></div>
+    <span class="employee_name">Peter Palmer</span>
+</div>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+</div>

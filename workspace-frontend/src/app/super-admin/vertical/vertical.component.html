@@ -1,0 +1,85 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h3 class="panel-title ph3inline">Vertical</h3>
+        <div class="panel-right-holder pbtnsinline">
+            <button class="pbtnfilter" (click)="showPop()">Add Vertical</button>
+            <div class="createNew" *ngIf="superAdminDataService.createVertical.show">
+              <app-create-vertical></app-create-vertical> 
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--table head starts-->
+    <div class="drive_wrap">
+        <div class="table_outer_block">
+          <div class="table_head table_row Header">
+            <div class="table-blocks">
+              <div class="checkbox">
+                <label>
+                  <div class="check_outer">
+                    <input type="checkbox" id="1_in" name="" id=""/>
+                    <div class="check" for="1_in"></div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="table-blocks Organisation">
+              <span class="tb_head_drop_arrow">NAME</span>
+            </div>
+            <div class="table-blocks Organisation">
+                <span class="tb_head_drop_arrow">DESCRIPTION</span>
+            </div>
+          </div>
+        </div>
+   <!--table head ends-->
+        <div class="table_outer_block Content">
+          <div class="table_head table_row" *ngFor="let Vertical of superAdminDataService.getVerticalList.verticals;let i = index" >
+            <div class="table-blocks">
+              <div class="checkbox">
+                <label>
+                  <div class="check_outer">
+                    <input type="checkbox" id="1_in" name="" id=""/>
+                    <div class="check" for="1_in"></div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="table-blocks">
+                <span>{{Vertical.name}}</span>
+            </div>  
+            <div class="table-blocks">
+                <span>{{Vertical.description}}</span>
+            </div>         
+            <div class="table-blocks clickButton">
+                <div class="dotImage" (click)="superAdminDataService.optionBtn[i] = !superAdminDataService.optionBtn[i]"></div>
+                <div class="edt_opt_r" *ngIf="superAdminDataService.optionBtn[i]">
+                  <section (click)="update(Vertical, i)">
+                    Edit
+                  </section>
+                  <section (click)="deleteVertical(Vertical.slug, i)">
+                    Delete
+                  </section>
+                </div>
+              </div>
+          </div>
+          <div class="confirm_popup" *ngIf="superAdminDataService.deletePopUp.show">
+              <div class="confirm_pop_body">
+                <section>
+                  <div class="close_drop" (click)="cancelDelete()">
+                  </div>
+                  <p class="pop_main">{{superAdminDataService.deleteMessage.msg}}</p>
+                </section>
+                <section>
+                  <div class="confirm_pop_btn" (click)="conformVerticalDelete()">
+                    Confirm
+                  </div>
+                  <div class="confirm_pop_btn" (click)="cancelDelete()">
+                    Cancel
+                  </div>
+                </section>
+              </div>
+            </div>
+        </div>
+    </div>   
+</div>

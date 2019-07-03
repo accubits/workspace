@@ -1,0 +1,74 @@
+.chat_attacment_wrap {
+    width: 1000px;
+    min-height: 380px;
+    position: relative;
+    margin: 0 auto;
+    padding: 0px 0px 20px 0px;
+    background-color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.chat_attacment_close {
+    position: absolute;
+    right: 20px;
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 200;
+    top: 0;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.upload_wrap img {
+    width: 31px;
+    height: 29px;
+    margin-bottom: 10px;
+}
+
+.upload_wrap {
+    width: 100%;
+    height: 100%;
+    display: table
+}
+
+.upload_content {
+    height: 380px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.upload_content p {
+    color: #536273;
+    font-size: 13px;
+    font-family: Roboto-Regular;
+}
+
+.upload_content p span {
+    color: #006df0;
+}
+.up_option:after, .up_option:before {
+    display: block;
+    position: absolute;
+    left: 18%;
+    content: "";
+    // border-style: none double solid;
+    width: 0;
+    height: 0;
+}
+
+.up_option:before {
+    bottom: -10px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid rgba(57,70,78,.08);
+}
+.up_option:after {
+    bottom: -9px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 9px solid #fff;
+}

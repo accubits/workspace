@@ -1,0 +1,197 @@
+.work_details_popup
+{
+    width: 600px;
+    position: absolute;
+    background-color: white;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 30px;
+    z-index: 9999999999;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.11);
+}
+.work_details_head
+{
+    padding: 10px 20px;
+    position: relative;
+    border-bottom: 1px solid #dde0e3;
+}
+.red_exl {
+    background-image: url(/assets/images/tar/exclamation.png);
+    height: 14px;
+    width: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0px 5px 0px 12px;
+}
+
+.green_tick
+{
+    background-image: url(/assets/images/tar/green_check.png);
+    height: 14px;
+    width: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0px 5px 0px 12px;
+
+}
+.work_details_head span
+{
+    font-size: 12px;
+    font-weight: bold;
+    color: #6b6b6b;
+}
+.new_btn
+{
+    background-color: #d9e9fd;
+    height: 30px;
+    line-height: 30px;
+    min-width: 60px;
+    border-radius: 3px;
+    color: #006df0;
+    font-size: 13px;
+    font-family: Roboto-Medium;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+}
+.work_details_body
+{
+    padding: 10px 20px;
+    border-bottom: 1px solid #dde0e3;
+}
+.work_details_main_head
+{
+    font-size: 12px;
+    font-weight: bold;
+    color: #969696;
+    margin-bottom: 15px;
+}
+.work_details_main_desc
+{
+    //font-weight: bold;
+    color: #6f6f6f;
+    font-size: 18px;
+}
+.details_sec_block
+{
+    width: 50%;
+    display: inline-block;
+}
+.block_profile
+{
+    position: relative;
+    padding-left: 30px;
+    font-size: 14px
+}
+.accord_left_ico{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-image: url(/assets/images/all/tdp1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.prof_pop_block
+{
+    padding: 35px 0px;
+}
+.dur_tim_block
+{
+    font-size: 14px;
+    color: #969696;
+}
+.dur_tim_block div
+{
+    display: inline-block;
+    vertical-align: top;
+    width: 95px;
+}
+.dur_tim_block span
+{
+    font-weight: bold;
+    margin-right: 4px;
+    color: #6f6f6f;
+}
+.bottom_zero
+{
+    margin-bottom: 0px;
+}
+.started_reason
+{
+    padding: 10px 20px;
+    border-bottom: 1px solid #dde0e3;
+}
+.conf_panel
+{
+    font-size: 12px;
+    position: relative;
+    padding-left: 100px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #aaaaaa;
+}
+.conf_red
+{
+    position: absolute;
+    left: 79px;
+    top: -1px;
+    margin: 0;
+}
+.conf_reason
+{
+    font-size: 12px;
+    position: relative;
+    padding-left: 152px;
+    color: #676767;
+}
+.conf_reason label
+{
+    left: 100px;
+    position: absolute;
+    color: #aaaaaa;
+}
+.work_details_popup_footer
+{
+    padding: 30px 0px;
+}
+.conf_report_btn
+{
+    display: inline-block;
+    margin: 0 auto;
+    background-color: #ff2e4c;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px 35px;
+    vertical-align: top;
+    cursor: pointer;
+}
+.work_details_popup_footer
+{
+    text-align: center;
+}
+.close_drop_det
+{
+    position: relative;
+    margin-left: 20px;
+    margin-top: 11px;
+    width: 10px;
+    height: 10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-image: url(/assets/images/pop_close.png);
+}

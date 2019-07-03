@@ -1,0 +1,58 @@
+<div class="iCosys-body-wrapper" id="iCosys_body_wrapper">
+  <div class="overlaypop" (click)="closeCreatePopup()"></div>
+    <div class="form_submit_wrap">
+      <div  class="form_submit_modal">
+        <div class="fs_header">
+            <h4>CREATE ORGANISATION</h4>
+        </div>
+        <div class="content">
+          <label>ORGANISATION DETAILS</label>
+          <input type="text" class="orgBox" placeholder="Organisation Name" [(ngModel)]="partnerDataService.createOrganisation.name" />
+          <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !partnerDataService.createOrganisation.name" >Required Field</p>
+          <div class="fieldOuter">
+            <div class="filter_cancel_overlay" *ngIf="toggleShow" (click)="contentShow()"></div>
+            <div class="element_input drop_dropdown_wrap" (click)="toggleShow=!toggleShow">
+              <div class="drop_icon_input"></div>
+              <label class="input-label" *ngIf="partnerDataService.createOrganisation.countrySlug.length === 0" >Select Country</label>
+              <label class="input-label" *ngIf="partnerDataService.createOrganisation.countrySlug.length !== 0"> Country</label>
+              <input class="ng-pristine ng-valid ng-touched" name="text"  [(ngModel)]="countryNames" readonly="true" type="text" ng-reflect-name="text" ng-reflect-model="">
+              <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !countryNames" >Required Field</p>
+              <div class="drop_drop_pop commonn_popup" *ngIf="toggleShow">
+                <section *ngFor= "let country of partnerDataService.countryTemplate.countries" (click)='countries(country)'>
+                  {{country.name}}
+                </section>
+                <!-- <section>
+                  choice 2
+                </section> -->
+              </div>
+            </div>
+            <div class="filter_cancel_overlay" *ngIf="toggleShowLast" (click)="contentShowLast()"></div>
+            <div class="element_input drop_dropdown_wrap" (click)="toggleShowLast=!toggleShowLast">
+              <div class="drop_icon_input"></div>
+              <label class="input-label" *ngIf="partnerDataService.createOrganisation.verticalSlug.length === 0" >Select Verticals</label>
+              <label class="input-label" *ngIf="partnerDataService.createOrganisation.verticalSlug.length !== 0" > Verticals</label>
+              <input class="ng-pristine ng-valid ng-touched" name="text"  [(ngModel)]="verticalNames" readonly="true" type="text" ng-reflect-name="text" ng-reflect-model="">
+              <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !verticalNames" >Required Field</p>
+              <div class="drop_drop_pop commonn_popup  secondOption" *ngIf="toggleShowLast">
+                <section *ngFor= "let vertical of partnerDataService.getVerticals.verticals" (click)='verticals(vertical)'>
+                  {{vertical.name}}
+                </section>
+                <!-- <section>
+                  choice 2
+                </section> -->
+              </div>
+            </div>
+          </div>
+          <label>ADMIN DETAILS</label>
+          <input type="text" class="orgBox" placeholder="Admin Email ID" [(ngModel)]= "partnerDataService.createOrganisation.adminEmail" (ngModelChange)="validateEmail()" />
+          <p class="error" *ngIf="!partnerDataService.selectedElement.isValidated && !partnerDataService.createOrganisation.adminEmail" >Required Field</p>
+          <p class="error" *ngIf="!isEmailValidated && isSubmit">Invalid Email</p>
+        </div>
+        <div class="fs_footer">
+          <button class="fs_footer_next" (click)="createOrganisations()">Create</button>
+          <button class="fs_footer_cancel" (click)="closeCreatePopup()">Cancel</button>
+
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+
+<app-leave-head></app-leave-head>
+<app-leave-nav-bar></app-leave-nav-bar>
+<!-- <app-leave-table></app-leave-table> -->
+<router-outlet></router-outlet>
+<app-leave-request *ngIf="hrmDataService.requestPop.show"></app-leave-request>
+<app-new-leave-type *ngIf="hrmDataService.newLeavePop.show" ></app-new-leave-type>

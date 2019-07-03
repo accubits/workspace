@@ -1,0 +1,223 @@
+.taskActive_wrap table thead {
+  background-color: #f6f6f6;
+  color: #536273;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.table-wrap
+{
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+}
+.table_head {
+  background-color: #f6f6f6;
+  height: 60px;
+}
+.taskActive_wrap table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+}
+.table-blocks {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  line-height: 100%;
+  font-family: roboto-regular !important;
+  padding: 23px 0px;
+}
+.table_head .table-blocks span:after {
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #526172;
+  right: 0;
+  top: 5px;
+}
+// .table_head .table-blocks span:after {
+//   position: absolute;
+//   content: '';
+//   width: 0;
+//   transform: rotate(180deg);
+//   -o-transform: rotate(180deg);
+//   -moz-transform: rotate(180deg);
+//   -webkit-transform: rotate(180deg);
+//   height: 0;
+//   border-left: 5px solid transparent;
+//   border-right: 5px solid transparent;
+//   border-top: 5px solid #cecece;
+//   right: 0;
+//   top: 5px;
+// }
+.table_head .table-blocks {
+  color: #526172;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.table_row
+{
+  cursor: pointer;
+}
+.t_row_hover:hover {
+  box-shadow: 0px 9px 103px 0px rgba(0, 0, 0, 0.1) !important;
+  -webkit-box-shadow: 0px 9px 103px 0px rgba(0, 0, 0, 0.1) !important;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  margin-top: -1px;
+}
+.table_row .table-blocks:nth-child(1) {
+  width: 20%;
+  padding-left: 30px;
+}
+.table_row .table-blocks:nth-child(2) {
+  width: 20%;
+}
+.table_row .table-blocks:nth-child(3) {
+  width: 20%;
+}
+.table_row .table-blocks:nth-child(4) {
+  width: 38%;
+}
+.table_list {
+  background-color: #fff;
+  border-bottom: 1px solid #e9ebf5;
+}
+.employee_detail
+{
+  position: relative;
+  padding-left: 80px !important;
+}
+.employee_image
+{
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  background-image: url(/assets/images/all/tdp1.png);
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  border-radius: 50%;
+  background-position: center;
+}
+.employee_name, .leave_date_from, .leave_date_to, .leave_type
+{
+  text-decoration: none;
+  color: #006df0;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative
+
+}
+.leave_date_from, .leave_date_to, .leave_type
+{
+  margin: 0;
+  color: #75818f;
+}
+.leave_type
+{
+  min-width: 200px;
+}
+.atc_btn
+{
+    height: 32px;
+    line-height: 30px;
+    min-width: 120px;
+    background-color: #d9e9fd;
+    border-radius: 3px;
+    color: #006df0;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin-right: 20px;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-family: Roboto-Medium;
+}
+.more
+{
+  background-image: url(/assets/images/more.png);
+  background-repeat: no-repeat;
+  width: 20px;
+  cursor: pointer;
+  height: 20px;
+  background-size: contain;
+  float: right;
+  position: absolute;
+  right: 0;
+  top: 23px;
+}
+.approve-blk
+{
+  position: relative;
+}
+
+.edt_opt_r
+{
+  position: absolute;
+  background-color: white;
+  right: 0px;
+  top: 20px;
+  min-width: 150px;
+  box-shadow: -1px 1px 20px 1px rgba(0, 0, 0, 0.11);
+  z-index: 99;
+}
+.edt_opt_r section
+{
+    line-height: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #949494;
+    padding: 5px 14px;
+    width: 100%;
+}
+.edt_opt_r section:hover
+{
+  background-color:#006df0;
+  color: #fff;
+}
+
+.no_result_inOverview {
+  background-image: url(/assets/images/NoResult.png);
+  width: 368px;
+  height: 400px;
+  margin: 0 auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.filter_cancel_overlay{
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+@media only screen and (max-width:1366px)
+{
+  .employee_name, .leave_date_from, .leave_date_to, .leave_type
+{
+  font-size: 14px;
+  }
+  .table_head .table-blocks {
+    font-size: 12px !important;
+}
+}

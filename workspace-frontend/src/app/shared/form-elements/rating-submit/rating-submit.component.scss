@@ -1,0 +1,49 @@
+// rating
+ul,
+ol {
+    list-style-type: none;
+}
+.rating_star_container {
+    padding: 20px 0px 20px 0px;
+}
+
+.rating_star_container .star_rating {
+    display: inline-block;
+}
+
+.star_rating {
+    background: url(/assets/images/rating.png);
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+span.error {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #d9463b;
+    padding-left: 3px;
+}
+.rated {
+    background-position: 20px -20px;
+    z-index: 2;
+}
+
+// rating
+.reset {
+  height: 40px;
+  outline: none;
+  border: 1px solid #536273;
+  width: 117px;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #536273;
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px 0px;
+}

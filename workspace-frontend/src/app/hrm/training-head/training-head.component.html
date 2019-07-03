@@ -1,0 +1,29 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title ph3inline">HRM</h3>
+    <span class=panel-sub-title>Training</span>
+    <div class="panel-right-holder pbtnsinline">
+        <button class="pbtncreate" (click)="showTrainReqForm()">Request Training</button>
+        <!-- <button class="pbtncreate" (click)="showTrainReqForm()" *ngIf="router.url === '/authorized/hrm/training/training-request-table'">Request Training</button>
+        <button class="pbtncreate" (click)="showTrainReqForm()" *ngIf="router.url === '/authorized/hrm/training/ongoing-training'" >Request Training</button>
+        <button class="pbtncreate" (click)="showTrainReqForm()"  *ngIf="router.url === '/authorized/hrm/training/completed-training'">Request Training</button>
+        <button class="pbtncreate" (click)="showFeedbackForm()" *ngIf="router.url === '/authorized/hrm/training/feedback'" >Add Feedback</button>
+        <button class="pbtncreate" (click)="showTrainReqForm()"  *ngIf="router.url === '/authorized/hrm/training/overview'">Request Training</button> -->
+
+
+        <!-- <button class="pbtncreate" (click)="showFormCreationBlock()">Form Creation</button> -->
+
+
+
+
+     </div>
+  </div>
+</div>
+<app-training-request-form *ngIf="hrmDataService.trainingRequestForm.show" ></app-training-request-form>
+
+
+<app-training-detail *ngIf="hrmDataService.trainingDetail.show" ></app-training-detail>
+<app-training-request *ngIf="hrmDataService.trainingRequest.show" ></app-training-request>
+<!-- <app-feedback-form-creation *ngIf="hrmDataService.newFormCreation.show"></app-feedback-form-creation> -->
+

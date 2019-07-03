@@ -1,0 +1,68 @@
+.taskActive_wrap table thead {
+  background-color: #f6f6f6;
+  color: #536273;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.table_head {
+  background-color: #f6f6f6;
+  height: 60px;
+  // position: relative;
+  // padding-left: 180px;
+  // overflow-x: scroll;
+  // overflow-y: hidden;
+}
+.table_head .name:after {
+  position: relative;
+  content: '';
+  width: 0px;
+  height: 0px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #526172;
+  left: 25px;
+  top: 12px;
+}
+.cell
+{
+  width: 50px;
+  text-align: center;
+  display: inline-block;
+  padding: 20px 0;
+  vertical-align: top;
+  color: #536273;
+  height: 100%;
+  font-family: Roboto-Medium ;
+  font-size: 14px ;
+  border-left: 1px solid #d3d6d9;
+}
+.name
+{
+  width: 22%;
+  vertical-align: top;
+  color: #536273 ;
+  font-family: Roboto-Medium ;
+  font-size: 14px ;
+  text-align: left;
+  float: left;
+}
+.days
+{
+  width:78%;
+  float: right;
+}
+.days section
+{
+  width: 1670px;
+}
+@media only screen and (max-width:1366px)
+{
+  .name{
+    width: 180px;
+  }
+  .cell{
+    width: 50px;
+  }
+}

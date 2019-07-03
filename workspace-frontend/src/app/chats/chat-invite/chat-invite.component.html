@@ -1,0 +1,52 @@
+<div class="chat_invite_wrap">
+  <h4 class="chat_invite_heading">Invite People</h4>
+  <div class="search_input">
+    <input type="text" placeholder="Search" class="chat_invite_input">
+  </div>
+
+  <a class="chat_invite_close" (click)="chatDataService.inviteModal.show = false">&times;</a>
+  <section class="user_drop_nav">
+    <ul>
+      <li [ngClass]="{active:addpple == 'search'}" (click)="addpple = 'search'">Recent</li>
+      <li [ngClass]="{active:addpple == 'department'}" (click)="addpple = 'department'">Department</li>
+    </ul>
+  </section>
+  <section class="user_drop_body">
+    <div *ngIf="addpple === 'search'" class="">
+      <div class="invite_ppl">
+        <img [src]="assetUrl+'assets/images/chat/user1.png'" />
+        <p>Stella Little</p>
+      </div>
+      <div class="invite_ppl">
+        <img [src]="assetUrl+'assets/images/chat/user2.png'" />
+        <p>Callum Berry</p>
+      </div>
+      <div class="invite_ppl">
+        <img [src]="assetUrl+'assets/images/chat/user3.png'" />
+        <p>Wayn Hudson</p>
+      </div>
+      <div class="invite_ppl">
+        <img [src]="assetUrl+'assets/images/chat/user1.png'" />
+        <p>Stella Little</p>
+      </div>
+    </div>
+    <div *ngIf="addpple === 'department'" class="">
+      <div class="invite_ppl">
+        <img [src]="assetUrl+'assets/images/chat/user1.png'" />
+        <p>Stella Little</p>
+      </div>
+      <div class="invite_ppl">
+        <img [src]="assetUrl+'assets/images/chat/user2.png'" />
+        <p>Callum Berry</p>
+      </div>
+      <div class="invite_ppl">
+        <img [src]="assetUrl+'assets/images/chat/user3.png'" />
+        <p>Wayn Hudson</p>
+      </div>
+      <div class="invite_ppl">
+        <img [src]="assetUrl+'assets/images/chat/user1.png'" />
+        <p>Stella Little</p>
+      </div>
+    </div>
+  </section>
+</div>

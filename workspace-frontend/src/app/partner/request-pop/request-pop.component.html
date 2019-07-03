@@ -1,0 +1,131 @@
+<!--popup starts-->
+<!-- <div class="modalOuter" (click)="closeRequestDetails()"></div>
+  <div class="form_submit_wrap">
+    <div  class="form_submit_modal">
+      <div class="headerOuter">
+        <div class="fs_header">
+            <h4>LICENSE REQUEST DETAILS</h4>
+        </div>
+        <div class="pop_close" (click)="closeRequestDetails()" ></div>
+      </div>
+      <div class="nav_wrap">
+        <div class="tableDetailOuter">
+            <div class="tableDetail">
+              <h4>ORGANISATION</h4>
+            </div>
+            <div class="tableContent">
+                {{partnerDataService.selectedLicense.orgName}}
+
+            </div>
+          </div>
+          <div class="tableDetailBottom">
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>USERS</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedLicense.maxUsers}}
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>TYPE</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedLicense.licenseType}}
+              </div>
+            </div>
+          </div>
+          <div class="tableDetailOuter">
+              <div class="tableDetail">
+                <h4>REQUESTED ON</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedLicense.requestsOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+              </div>
+          </div>
+        </div>
+        <div class="fs_footer Request">
+            <button class="fs_footer_next" (click)="cancelCheck()">Cancel Request</button>
+            <div class="cancelOuter" *ngIf = "partnerDataService.cancelPop.showPopup">
+                <app-delete-pop></app-delete-pop>
+            </div>
+        </div>
+    </div>
+  </div> -->
+<!--popup ends-->
+
+
+<!--popup updated-->
+<div class="modalOuter" (click)="closeRequestDetails()"></div>
+  <div class="form_submit_wrap">
+    <div  class="form_submit_modal">
+      <div class="headerOuter">
+        <div class="fs_header">
+            <h4>LICENSE REQUEST DETAILS</h4> <span>Requested</span>
+        </div>
+        <div class="pop_close" (click)="closeRequestDetails()" ></div>
+      </div>
+      <div class="nav_wrap">
+        <div class="tableDetailBottom">
+          <div class="tableDetailOuter">
+              <div class="tableDetail">
+                <h4>ORGANISATION</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedLicense.orgName}}
+
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>USERS</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedLicense.maxUsers}}
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>KEY</h4>
+              </div>
+              <div class="tableContent">
+                  WEPOFJWEPGJWPOGJWPO
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="tableDetail">
+                <h4>TYPE</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedLicense.licenseType}}
+              </div>
+            </div>
+        </div>
+        <div class="tableDetailOuterNext">
+            <div class="tableDetailOuterBottomLast first">
+              <div class="left_status Blue"></div>
+              <div class="tableDetail">
+                <h4>REQUESTED ON</h4>
+              </div>
+              <div class="tableContent">
+                  {{partnerDataService.selectedLicense.requestsOn *1000 | date: 'MMM dd, yyyy, hh:mm a'}}
+              </div>
+            </div>
+            <div class="tableDetailOuterBottom">
+              <div class="Dark"></div>
+              <div class="tableDetail">
+                <h4>AWAITING APPROVAL</h4>
+              </div>
+            </div>
+        </div>
+        </div>
+        <div class="fs_footer Request">
+            <button class="fs_footer_next" (click)="cancelCheck()">Cancel Request</button>
+            <div class="cancelOuter" *ngIf = "partnerDataService.cancelPop.showPopup">
+                <app-delete-pop></app-delete-pop>
+            </div>
+        </div>
+    </div>
+  </div>
+<!--popup updated ends-->

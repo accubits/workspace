@@ -1,0 +1,82 @@
+ <section class="membersOuter"  [ngStyle]="{'width': treeData.length * 370 + 'px'}"  *ngIf="(hrmDataService.orgTree | json) != '{}'">
+    
+      <div class="blockOuter" *ngFor="let item of treeData;let idx=index">
+       <div class="line" *ngIf="item.isPopupActive"></div>
+        <div class="block_outer_in" *ngIf="item.isPopupActive"> 
+          <div>
+            <div class="">
+                <div class="blockhead" (click)="showDetails(item)">
+                  {{item.departmentName}} <div class="dotImageOuter" (click)="showMemberPop($event,item)"> <div class="dotImage"></div></div>
+                </div>
+                <div class="filter_cancel_overlay" *ngIf="item.isActive" (click)="item.isActive = !item.isActive"></div>
+                <div class="menuOuter" *ngIf="item.isActive">
+                  <ul>
+                    <li (click)="showEdit(item)">Edit</li>
+                    <li (click)="showDetails(item)">Add Members</li>
+                    <li (click)="addChildDept(item)">Add Child Department</li>
+                    <li (click)="deleteDepartment(item)">Delete</li>
+                  </ul>
+                  
+                  <!-- <app-edit-dept *ngIf="hrmDataService.editDeptPop[idx]"></app-edit-dept> -->
+                </div>
+                <div class="subHead First">
+                  <div class="head">Head Of Department: {{item.departmentHeadEmail}}</div>
+                  <!-- <div class="profile">
+                    <div class="icon"></div> {{firstChild.departmentHeadName}}
+                  </div> -->
+                </div>
+                <div class="subHead People memberBox">
+                    <div class="member">Members</div>
+                    <!-- <div class="num">
+                      {{item.memberCount}}<div class="plus" [ngClass]="{'activeBranch':profileContent}" (click)="memberPop(item)"></div>
+                    </div> -->
+                    <div class="num" (click)="showDetails(item)">
+                      {{item.memberCount}}<div class="plus" [ngClass]="{'activeBranch':profileContent}"></div>
+                    </div>
+                    <div class="profileOuter" *ngIf="item.showMemberPopup">
+                        <div class="profile" *ngFor="let members of hrmDataService.departmentDetails.members">
+                          <div class="icon" *ngIf="members.imageUr == null"></div> 
+                          <div class="icon" *ngIf="members.imageUr !== null" [ngStyle]="{'background-image': 'url(' + members.imageUrl + ')'}"></div> 
+                          {{members.name}}
+                        </div>
+                      </div>
+                </div>
+                <div class="countOuter">
+                  <div class="count">
+                      <div class="num" (click)="displayChild(item)">
+                        {{item.child.length}}<div class="plus" [ngClass]="{'activeBranch': membersList}"></div>
+                      </div>
+                      
+                  </div>
+                </div>
+            </div>
+          </div>
+          <app-tree-block *ngIf="item.isParent" class="direct"  [treeData]="item.child"></app-tree-block>
+        </div>
+
+        <div class="confirm_popup" *ngIf="hrmDataService.deleteTreeDepartment.show">
+          <div class="confirm_pop_body">
+            <section>
+              <div class="close_drop" (click)="cancelDelete()">
+              </div>
+              <p class="pop_main">Are you sure you want delete the selected department?</p>
+            </section>
+            <section>
+              <div class="confirm_pop_btn" (click) ="confirmDelete()">
+                Confirm
+              </div>
+              <div class="confirm_pop_btn" (click)="cancelDelete()">
+                Cancel
+              </div>
+            </section>
+          </div>
+        </div>
+          
+
+      </div>
+      <!-- <p>{{item.name}}</p> -->
+      <!-- <app-tree-block  [treeData]="hrmDataService.orgTree.child[0].child"></app-tree-block> -->
+  </section>
+
+<app-edit-dept *ngIf="hrmDataService.showEditDepartment.show "></app-edit-dept>
+<app-add-child-department *ngIf="hrmDataService.showAddChild.show"></app-add-child-department>

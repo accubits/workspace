@@ -1,0 +1,219 @@
+.work_report_wrap {
+    overflow-x: auto;
+    max-width: 99%;
+}
+
+.cal_right_head {
+    height: 43px;
+    line-height: 43px;
+    background-color: #f3f3f3;
+    display: flex; // justify-content: flex-start;
+}
+
+.name_row {
+    display: flex;
+    position: relative; // justify-content: flex-start;
+    height: 94px; // width: 100%;
+}
+
+.digi_day {
+    min-width: 30px;
+    color: #536273;
+    background-color: #f3f3f3;
+    font-family: Roboto-Medium;
+    font-size: 13px;
+    border-right: 1px solid #d3d6d9;
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+// .digi_day:last-child {
+//     min-width: 29px;
+// }
+
+.name_digi_day_space {
+    min-width: 30px;
+    border-top: 1px solid #d3d6d9;
+    border-right: 1px solid #d3d6d9;
+    position: relative;
+    display: block;
+}
+
+.name_digi_day_space:last-child {
+    min-width: 29px;
+}
+
+.name_block:last-child>.name_row>.name_digi_day_space {
+    border-bottom: 1px solid #d3d6d9;
+}
+
+.cal_right_body {
+    position: relative;
+    display: block; // width: 100%;
+}
+
+.name_block {
+    display: block; // width: 100%;
+    position: relative;
+}
+
+.sick_leave {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 30%;
+    background-color: #f0a7c4;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.casual_leave {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 30%;
+    background-color: #76ddd6;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.business_trip {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 30%;
+    background-color: #ffe04c;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.halfday_leave {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 30%;
+    background-color: #94d674;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.unconfirmed_report {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 30%;
+    background-color: #acacac;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.positive_report {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 30%;
+    background-color: #29cc97;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.negetive_report {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 30%;
+    background-color: #ff4a5d;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.excellent_report {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 30%;
+    background-color: #006df0;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: none;
+}
+
+.event_active.sick_leave,
+.event_active.casual_leave,
+.event_active.business_trip,
+.event_active.halfday_leave,
+.event_active.unconfirmed_report,
+.event_active.positive_report,
+.event_active.negetive_report,
+.event_active.excellent_report {
+    display: block;
+}
+
+.wtr_accord {
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logtime {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.logtime p {
+    font-family: Roboto-Medium;
+    font-size: 12px;
+    color: #424e5c;
+    text-transform: uppercase;
+}
+
+.logtime p span {
+    color: #98a1ab;
+    margin-right: 5px;
+    margin-left: 2px;
+}
+
+.green_check {
+    background-image: url(/assets/images/tar/green_check.png);
+    height: 10px;
+    width: 12px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    top: 18px;
+}
+
+.exclamation {
+    background-image: url(/assets/images/tar/exclamation.png);
+    height: 15px;
+    width: 15px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    top: 18px;
+}

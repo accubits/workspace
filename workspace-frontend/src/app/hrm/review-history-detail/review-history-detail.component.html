@@ -1,0 +1,227 @@
+<div class="overlaypop" (click)="hideDetailPop()"></div>
+<div class="detail-pop">
+    <div class="pop-head">
+      <div class="back" (click)="hideDetailPop()"><div class="prev"> </div>Back</div>
+      <h4>Annual review 2018</h4><span>/</span>
+      <div class="profile"><div class="profile-pic"></div><div class="profile-name">Stuart Little</div></div>
+      <span>/</span>
+      <p>Review Of</p>
+      <div class="profile"><div class="profile-pic"></div><div class="profile-name">Dennin D'cruz</div></div>
+
+       <!-- <div class="description">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+          sheets containing Lorem Ipsum passages,
+          and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      </div> -->
+    </div>
+    <div class="pop-inner">
+      <div class="accordion">
+        <div class="accordion-head"  (click)="showAccordion()"[ngClass]="{'accord_active': isValidated}">
+          <h4>Communication</h4>
+          <div class="arrow_drop"></div>
+        </div>
+        <div class="accordion-content" *ngIf="accordion"  >
+          <p class="score">Score given </p>
+          <div class="review-drop-down">
+            09 / 10
+            <!-- <div class="drop-down" >
+              <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+              </ul>
+            </div> -->
+          </div>
+          <div class="description">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry's
+              standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+              make a type specimen book. </p>
+          </div>
+
+        <section class="rating">
+          <p><b>Lorem Ipsum is simply dummy text of the printing and typesetting industry ?</b></p>
+          <div class="rating-outer">
+            <div class="rate-type">
+              <label>
+                <div class="check_outer">
+                  <input name="" type="radio" checked class="">
+                  <div class="check"></div>
+                </div>
+              </label>
+              <span class="input-title">Excellence</span>
+            </div>
+            <div class="rate-type">
+              <label>
+                <div class="check_outer">
+                  <input name="" type="radio" class="">
+                  <div class="check"></div>
+                </div>
+              </label>
+              <span class="input-title">Positive</span>
+            </div>
+            <div class="rate-type">
+              <label>
+                <div class="check_outer">
+                  <input name="" type="radio" class="">
+                  <div class="check"></div>
+                </div>
+              </label>
+              <span class="input-title">Negative</span>
+            </div>
+          </div>
+          <div class="comment-area">
+            <div class="comments">
+             <span>Comments :</span>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+           </div>
+           <section  class="reply-comment">
+           <label>Comments :</label>
+            <textarea rows="5" placeholder=""></textarea>
+            </section>
+          </div>
+        </section>
+        <section class="question">
+          <p><b>Lorem Ipsum is simply dummy text of the printing and typesetting industry ?</b></p>
+          <div class="comment-area">
+              <div class="comments">
+                  <span>Answer :</span>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                </div>
+                <div class="comments">
+                    <span>Comments :</span>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                   </p>
+                  </div>
+                  <div class="reply-section">
+                      <div class="profile"><div class="reply-pic"></div><div class="reply-name">Stuart Little</div></div>
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </p>
+                        <div class="reply" (click)="showReplyComment()"><div class="reply-icon"></div>Reply</div>
+                        <section *ngIf="replyComment" class="reply-comment">
+                        <label>Comments :</label>
+                       <textarea rows="5" placeholder=""></textarea>
+                      </section>
+                  </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="accordion">
+        <div class="accordion-head" (click)="showAccordionTwo()"[ngClass]="{'accord_active_Two': isValidate}"  >
+          <h4>Management</h4>
+          <div class="arrow_drop"></div>
+        </div>
+        <div class="accordion-content" *ngIf="accordiontwo" >
+            <p class="score">Score given </p>
+            <div class="review-drop-down">
+              09 / 10
+              <!-- <div class="drop-down" >
+                <ul>
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>5</li>
+                  <li>6</li>
+                  <li>7</li>
+                  <li>8</li>
+                  <li>9</li>
+                  <li>10</li>
+                </ul>
+              </div> -->
+            </div>
+            <div class="description">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's
+                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                make a type specimen book. </p>
+            </div>
+
+          <section class="rating">
+            <p><b>Lorem Ipsum is simply dummy text of the printing and typesetting industry ?</b></p>
+            <div class="rating-outer">
+              <div class="rate-type">
+                <label>
+                  <div class="check_outer">
+                    <input name="" type="radio" checked class="">
+                    <div class="check"></div>
+                  </div>
+                </label>
+                <span class="input-title">Excellence</span>
+              </div>
+              <div class="rate-type">
+                <label>
+                  <div class="check_outer">
+                    <input name="" type="radio" class="">
+                    <div class="check"></div>
+                  </div>
+                </label>
+                <span class="input-title">Positive</span>
+              </div>
+              <div class="rate-type">
+                <label>
+                  <div class="check_outer">
+                    <input name="" type="radio" class="">
+                    <div class="check"></div>
+                  </div>
+                </label>
+                <span class="input-title">Negative</span>
+              </div>
+            </div>
+            <div class="comment-area">
+              <div class="comments">
+               <span>Comments :</span>
+               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </p>
+             </div>
+             <section  class="reply-comment">
+                <label>Comments :</label>
+                 <textarea rows="5" placeholder=""></textarea>
+                 </section>
+            </div>
+          </section>
+          <section class="question">
+            <p><b>Lorem Ipsum is simply dummy text of the printing and typesetting industry ?</b></p>
+            <div class="comment-area">
+                <div class="comments">
+                    <span>Answer :</span>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                  </div>
+                  <div class="comments">
+                      <span>Comments :</span>
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                     </p>
+                    </div>
+                    <div class="reply-section">
+                        <div class="profile"><div class="reply-pic"></div><div class="reply-name">Stuart Little</div></div>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                          </p>
+                          <div class="reply" (click)="showReplyComment()"><div class="reply-icon"></div>Reply</div>
+                          <section *ngIf="replyComment" class="reply-comment">
+                          <label>Comments :</label>
+                         <textarea rows="5" placeholder=""></textarea>
+                        </section>
+                    </div>
+            </div>
+          </section>
+        </div>
+    </div>
+    </div>
+    <!-- <div class="pop-footer">
+      <div class="pbtncreate">Submit</div>
+      <div class="req-cancel">Save</div>
+      <div class="req-cancel">Cancel</div>
+    </div> -->
+  </div>

@@ -1,0 +1,14 @@
+<div class="module desktop-12 laptop-12 tablet-12">
+  <div class="module desktop-6 laptop-6 tablet-6">
+    <div class="fp_input namewrap_input_side_pad" style="margin-bottom: 0px">
+      <label>{{nameElement.name.label || "Enter the title"}}<span class="error" *ngIf = "nameElement.name.isRequired === true">*</span></label>
+      <input   type="text" class="" name="text" [disabled]="true"  placeholder="First Name">
+    </div>
+  </div>
+  <div class="module desktop-6 laptop-6 tablet-6">
+    <div class="fp_input trans_label inline_mar_left_input" style="margin-left: 0px; margin-bottom: 25px;">
+      <label>{{nameElement.name.label || "Enter the title"}}</label>
+      <input type="text" class="" name="text"  [disabled]="true" placeholder="Last Name">
+    </div>  
+  </div>
+</div>

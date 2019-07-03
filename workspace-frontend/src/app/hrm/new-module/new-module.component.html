@@ -1,0 +1,119 @@
+<div class="overlaypop"  (click)="hideNewModule()"></div>
+<div class="create-module-popup">
+<div class="pop-head" *ngIf="hrmDataService.createPerformance.action === 'create'" ><h4>ADD NEW PERFORMANCE INDICATOR</h4></div>
+<div class="pop-head" *ngIf="hrmDataService.createPerformance.action === 'update'"><h4>EDIT PERFORMANCE INDICATOR</h4></div>
+
+<div class="pop-inner">
+  <div class="module-name">
+      <label>Module Name :</label>
+      <input type="text" name="" value="" [(ngModel)]="hrmDataService.createPerformance.title">
+  </div>
+  <p class="error" *ngIf="!isValidate && !this.hrmDataService.createPerformance.title" >Required Field</p>
+
+  <div class="module-name">
+      <label>Description :</label>
+      <textarea rows=5 placeholder=""  [(ngModel)]="hrmDataService.createPerformance.description"></textarea>
+  </div>
+   <p class="error" *ngIf="!isValidate && !this.hrmDataService.createPerformance.description" >Required Field</p>
+
+  <div class="qustion-wrap" *ngFor ="let qst of hrmDataService.createPerformance.questions;let i=index">
+    <div class="question"><span class="line"></span>
+      <div class="question-head">
+        <div class="question-title">
+          <h4>Question {{i+1}}</h4>
+      </div>
+        <div class="question-select">
+            <div class="module-name" (click)="hrmDataService.selctType[i] = !hrmDataService.selctType[i]">
+                <label>Type :</label>
+                <span *ngIf="hrmDataService.createPerformance.questions[i].type === 'answerText'">Text</span>
+                <span *ngIf="hrmDataService.createPerformance.questions[i].type === 'rating'">Rating</span>
+                <!-- <input type="text" readonly name="" value="" (click)="showSelectType()" [(ngModel)] ="qst.type" > -->
+                <div class="arrow_drop" (click)="hrmDataService.selctType[i] "></div>
+                <div class="overlay" *ngIf="hrmDataService.selctType[i]" (click)="hideSelectType()"></div>
+
+                <div class="select" *ngIf="hrmDataService.selctType[i]" >
+                    <div class="drop_down_wrap">
+                      <section class="drop_nav">
+                        <ul>
+                          <li (click)="questionType('answerText',i)">Text</li>
+                          <li (click)="questionType('rating',i)">Rating</li>
+                        </ul>
+                      </section>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div class="comment-select">
+            <div class="comment-col">
+            <label>
+              <div class="check_outer">
+                <input  name="" type="checkbox" class=""  [(ngModel)] = "qst.enableComment" (change)="comment(qst.enableComment,i)">
+                <div class="check"></div>
+              </div>
+            </label>
+            <div class="input-title">Enable Comment</div>
+          </div>
+            <div class="atc_btn" (click)="removeQuestions(qst,i)">Remove</div>
+            </div>
+          </div>
+      <div class="module-name">
+          <label>Question :</label>
+          <input type="text" name="" value="" [(ngModel)]="qst.question">
+      </div>
+          <p class="error" *ngIf="!isValidate && !qst.question">Required Field</p>
+      <app-question-type-rating  *ngIf="qst.type == 'rating'"></app-question-type-rating>
+      <app-question-type-answer  *ngIf="qst.type == 'answerText'"></app-question-type-answer>
+
+      <!-- <div class="question"><span></span>
+        <div class="question-head">
+          <div class="question-title">
+            <h4>Question 2</h4>
+          </div>
+          <div class="question-select">
+              <div class="module-name">
+                  <label>Type :</label>
+                  <input type="text" name="" value="Answer" (click)="showSelectQstn()">
+                  <div class="arrow_drop"></div>
+                  <div class="overlay" *ngIf="selectListQstn" (click)="hideSelectQstn()"></div>
+                  <div class="select" *ngIf="selectListQstn" >
+                      <div class="drop_down_wrap">
+                        <section class="drop_nav">
+                          <ul>
+                            <li>Rate</li>
+                          </ul>
+                        </section>
+                      </div>
+                    </div>
+              </div>
+            </div>
+            <div class="comment-select">
+              <div class="comment-col">
+              <label>
+                <div class="check_outer">
+                  <input  name="" type="checkbox" class="">
+                  <div class="check"></div>
+                </div>
+              </label>
+              <div class="input-title">Add comment column</div>
+            </div>
+              <div class="atc_btn">Remove</div>
+              </div>
+        </div>
+        <div class="module-name">
+            <label>Question :</label>
+            <input type="text" name="" value="">
+        </div>
+        <app-question-type-answer></app-question-type-answer>
+      </div>  -->
+    </div>
+</div>
+<div class="add-qstn">
+    <div class="atc_btn" (click)="addQuestion()">Add question</div>
+</div>
+<div class="pop-footer">
+  <button class="pbtncreate" *ngIf="hrmDataService.createPerformance.action === 'create'" (click)="createPerformance()">Create</button>
+  <button class="pbtncreate" *ngIf="hrmDataService.createPerformance.action === 'update'" (click)="editPerformance()">Update</button>
+
+  <button class="req-cancel" (click)="hideNewModule()">Cancel</button>
+</div>
+</div>

@@ -1,0 +1,50 @@
+<div class="two_factor_wrap">
+  <div class="two_factor_content">
+    <div class="two_factor_content_row" *ngIf="settingsDataService.enable2FA.show">
+      <div class="b4turning">
+        <p>
+          <img [src]="assetUrl+'assets/images/settings/info_copy.png'" />Before turning on 2FA, write down the 16-digit key and keep it in a safe place. If your phone gets losts, stolen
+          or erased, you'll need this key to get back to your account.</p>
+      </div>
+    </div>
+    <div class="two_factor_content_row qr_wrap" *ngIf="settingsDataService.enable2FA.show">
+      <div class="qr_image">
+        <img [src]="assetUrl+'assets/images/settings/qr.png'" />
+      </div>
+      <div class="qr_desc">
+        Inorder to use 2FA, scan the Qr Code right into Google Authenticator App on your phone or Enter the 16-digit that appears
+        under the QR Code.
+      </div>
+    </div>
+    <div class="digital_key" *ngIf="settingsDataService.enable2FA.show">
+      16-digit Key:
+      <span>7ADA ASD9 AW55 8749</span>
+    </div>
+    <div class="two_factor_content_row">
+      <div class="two_factor_input_holder">
+        <input class="two_factor_input_field" type="password" placeholder="Password" name="name">
+      </div>
+    </div>
+    <div class="two_factor_content_row">
+      <div class="two_factor_input_holder">
+        <input class="two_factor_input_field" type="password" placeholder="Code" name="name">
+      </div>
+    </div>
+    <div class="two_factor_content_row checkboxxxx" *ngIf="settingsDataService.enable2FA.show">
+      <div class="checkbox">
+        <label>
+          <div class="check_outer">
+            <input type="checkbox" id="1_in" name="" id="">
+            <div class="check" for="1_in"></div>
+          </div>
+          I have backed Up my 16 digit key
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="two_factor_footer">
+    <div class="edit_button">
+      <button (click)="settingsDataService.enable2FA.show = !settingsDataService.enable2FA.show">Enable 2FA</button>
+    </div>
+  </div>
+</div>

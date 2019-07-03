@@ -1,0 +1,120 @@
+<div class="drive_wrap">
+    <div class="table_outer_block">
+      <div class="table_head table_row Header">
+        <div class="table-blocks">
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id=""/>
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="table-blocks Organisation">
+          <span class="tb_head_drop_arrow">ORGANISATION</span>
+        </div>
+        <div class="table-blocks">
+          <span class="downArrow">KEY</span>
+        </div>
+        <div class="table-blocks">
+            <span class="downArrow">PARTNER</span>
+        </div>
+        <div class="table-blocks">
+          <span class="downArrow">MAX USERS</span>
+        </div>
+        <div class="table-blocks">
+          <span class="downArrow">TYPE</span>
+      </div>
+        <div class="table-blocks">
+          <span class="downArrow">EXPIRES ON</span>
+        </div>
+      </div>
+    </div>
+    <div class="table_outer_block Content">
+      <div class="table_head table_row" (click)="showDetails()"  >
+        <div class="table-blocks">
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id=""/>
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="table-blocks Organisation">
+          <span>Big Valley Conservatory</span>
+        </div>
+        <div class="table-blocks">
+          <span>Nw29epofk</span>
+        </div>
+        <div class="table-blocks Profile">
+            <div class="avatar"></div>
+            <span>Waylon Dalton</span>
+        </div>
+        <div class="table-blocks">
+          <span>100</span>
+        </div>
+        <div class="table-blocks">
+          <span>Trial</span>
+      </div>
+        <div class="table-blocks">
+          <span>10 Jul 2018</span>
+        </div>
+
+        <div class="table-blocks clickButton">
+          <!-- <div class="dotImage" (click)="morepop($event)"></div> -->
+          <div class="dotImage"></div>
+          <!-- <div class="moreOuter" *ngIf="superAdminDataService.more.show">
+              <app-more-option></app-more-option>
+          </div> -->
+        </div>
+      </div>
+      <div class="table_head table_row">
+        <div class="table-blocks">
+          <div class="checkbox">
+            <label>
+              <div class="check_outer">
+                <input type="checkbox" id="1_in" name="" id=""/>
+                <div class="check" for="1_in"></div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="table-blocks Organisation">
+          <span>Big Valley Conservatory</span>
+        </div>
+        <div class="table-blocks">
+          <span>Nw29epofk</span>
+        </div>
+        <div class="table-blocks Profile">
+            <div class="avatar"></div>
+            <span>Waylon Dalton</span>
+        </div>
+        <div class="table-blocks">
+          <span>100</span>
+        </div>
+        <div class="table-blocks">
+          <span>Trial</span>
+      </div>
+        <div class="table-blocks">
+          <span>10 Jul 2018</span>
+        </div>
+        <div class="table-blocks clickButton">
+          <div class="dotImage"></div>
+          <!-- <div class="moreOuter" *ngIf="superAdminDataService.more.show">
+              <app-more-option></app-more-option>
+          </div> -->
+        </div>
+      </div>
+
+    </div>
+    <!-- <div class="licenseDetails" *ngIf="superAdminDataService.licenseDetailsPop.showPopup">
+      <app-license-details-pop></app-license-details-pop>
+    </div> -->
+  </div>
+<app-expired-license-detail *ngIf="superAdminDataService.expiredDetail.show" ></app-expired-license-detail>

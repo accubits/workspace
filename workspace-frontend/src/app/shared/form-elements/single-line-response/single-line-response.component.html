@@ -1,0 +1,11 @@
+<div class="fp_input">
+  <div class="fr_question">
+    <label>{{singleLineElement.singleLineText.label}}</label>
+  </div>
+  <div *ngIf="singleLineElement.singleLineText.answer !== ''" class="fr_answer">
+    <p>{{singleLineElement.singleLineText.answer}}</p>
+  </div>
+  <div *ngIf="singleLineElement.singleLineText.answer === ''" class="fr_answer">
+    <p>not answered</p>
+  </div>
+</div>

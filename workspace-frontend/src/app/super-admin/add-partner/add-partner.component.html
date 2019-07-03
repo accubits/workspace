@@ -1,0 +1,51 @@
+<div class="main-overlay" (click)="hidePartner()"></div>
+<div class="pop-outer">
+    <div class="pop-head">
+        <h4>CREATE PARTNER </h4>
+      </div>
+      <div class="pop-body">
+        <div class="left-container"><label>User Name :</label>
+          <input type="text">
+        </div>
+
+        <div class="right-container"> <label>Email :</label>
+          <input type="text">
+        </div>
+        <div class="left-container">
+            <label>Phone Number :</label>
+            <input type="text">
+        </div>
+        <div class="overlay" *ngIf="dropdown"  (click)="hideDropdown()"></div>
+        <div class="right-container role" (click)="showDropdown()"><label>Country :</label>
+          <input type="text">
+          <div class="arrow_drop"></div>
+          <div class="drop-down" *ngIf="dropdown">
+            <ul>
+              <li>USA</li>
+              <li>Singapore</li>
+            </ul>
+          </div>
+        </div>
+        <div class="overlay" *ngIf="vertical"  (click)="hideVertical()"></div>
+        <div class="left-container role" (click)="showVertical()" ><label>Vertical :</label>
+          <!-- <div class="selected_tag">
+            <span class="input-title">Stella Little
+              <div class="select_close"></div>
+            </span>
+          </div> -->
+          <input type="text">
+          <div class="arrow_drop"></div>
+          <div class="drop-down" *ngIf="vertical">
+              <ul>
+                <li>USA</li>
+                <li>Singapore</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="pop-footer">
+      <div class="pbtncreate">Create</div>
+      <div class="req-cancel" (click)="hidePartner()">Cancel</div>
+    </div>

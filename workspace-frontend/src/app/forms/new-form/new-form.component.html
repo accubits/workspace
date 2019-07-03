@@ -1,0 +1,65 @@
+<div class="new_form">
+    <div class="overlaypop" (click)="dataService.new_form.show = false"></div>
+    <div class="new_form_wrap">
+      <div class="new_form_wrap_header">
+        <h4>Create New Form</h4>
+        <!-- <div class="nf_temp_drop">
+          <span>Template:</span>
+          <div class="element_input drop_dropdown_wrap drop_icon_input">
+            <input type="text" class="" name="text" placeholder="First Choice" (click)="this.firstchoice = !this.firstchoice">
+            <div class="dropdown_arw"></div>
+            <div class="drop_drop_pop commonn_popup" *ngIf="this.firstchoice">
+              <section>
+                Choice No 1
+              </section>
+              <section>
+                Choice No 2
+              </section>
+              <section>
+                Choice No 3
+              </section>
+              <section>
+                Choice No 4
+              </section>  
+            </div>
+          </div>
+        </div> -->
+        <a class="close" (click)="dataService.new_form.show = false">&times;</a>
+      </div>
+      <div class="new_form_wrap_body">
+        <div class="new_form_content">
+          <div class="new_form_content_row">
+            <input type="text" placeholder="Title" class="new_form_input" [(ngModel)]="dataService.createForm.title" />
+          </div>
+          <div class="new_form_content_row">
+            <textarea class="new_form_textarea" [(ngModel)]="dataService.createForm.description"  placeholder="Description"></textarea>
+          </div>
+          <div class="new_form_content_row">
+              <div class="checkbox">
+                  <label>
+                    <div class="check_outer">
+                      <input name="" type="checkbox" [(ngModel)]="dataService.createForm.allowMultiSubmit">
+                      <div class="check" for="1_in"></div>
+                    </div>
+                  </label>
+                  <span>Allow multiple submission</span>
+                </div>
+                
+          </div>
+          <!-- <div class="new_form_content_row">
+            <input type="text" placeholder="Add Collaborators" class="new_form_short_input">
+          </div> -->
+        </div>
+      </div>
+      <div class="new_form_wrap_footer">
+        <ul>
+          <li>
+            <button (click)="createForm()" class="new_form_footer_next">Create</button>
+          </li>
+          <li>
+            <button (click)="dataService.new_form.show = false" class="new_form_footer_cancel">Cancel</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

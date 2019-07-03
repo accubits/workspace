@@ -1,0 +1,89 @@
+<div class="overlaypop" (click)="hideCompletedDetail()"></div>
+<div class="training-detail-pop">
+  <!-- popuphead -->
+  <div class="popup-head">
+    <h4>{{hrmDataService.selectOverviewDetails.name}}</h4>
+    <p><span>Finished</span></p>
+    <div class="pop_close" (click)="hideCompletedDetail()"></div>
+  </div>
+   <!-- popuphead -->
+   <!-- popup inner -->
+   <div class="train-pop-inner">
+     <div class="tab-head">
+       <ul class="nav_wrap">
+            <li [ngClass]="{active:training ==='detail'}" (click)="training = 'detail'">Detail</li>
+            <li [ngClass]="{active:training ==='feedback'}" (click)="training = 'feedback'">Post training evaluation</li>
+            <li [ngClass]="{active:training ==='course'}" (click)="training = 'course'">Post course evaluation</li>
+          </ul>
+          </div>
+     <div class="tab-inner" *ngIf="training === 'detail'">
+     <div class="details">
+       <h5>DETAILS</h5>
+<p>{{hrmDataService.selectOverviewDetails.details}}</p>     </div>
+     <div class="details">
+        <div class="person-detail">
+        <h5>REQUESTED FROM</h5>
+           <div class="employee_detail">
+              <div *ngIf="hrmDataService.selectOverviewDetails.imageUrl === null" class="employee_image-req"></div>
+              <div *ngIf="hrmDataService.selectOverviewDetails.imageUrl !== null" class="employee_image-req" [ngStyle]="{'background-image': 'url(' + hrmDataService.selectOverviewDetails.imageUrl + ')'}"></div>
+
+            <!-- <div class="employee_image-req"></div> -->
+            <span class="employee_name">{{hrmDataService.selectOverviewDetails.userName}}</span>
+          </div>
+        </div>
+        <div class="person-detail">
+            <h5>APPROVED BY</h5>
+               <div class="employee_detail">
+                  <div *ngIf="hrmDataService.selectOverviewDetails.approverUserImageUrl === null" class="employee_image"></div>
+                  <div *ngIf="hrmDataService.selectOverviewDetails.approverUserImageUrl !== null" class="employee_image" [ngStyle]="{'background-image': 'url(' + hrmDataService.selectOverviewDetails.approverUserImageUrl + ')'}"></div>
+
+                <!-- <div class="employee_image"></div> -->
+                <span class="employee_name">{{hrmDataService.selectOverviewDetails.approverUserName}}</span>
+              </div>
+            </div>
+         </div>
+         <div class="details">
+            <div class="req-date">
+            <h5>REQUESTED ON</h5>
+
+              <p>{{hrmDataService.selectOverviewDetails.requestedOn * 1000 | date: 'MMM dd yyyy'}} <span></span> {{hrmDataService.selectOverviewDetails.requestedOn * 1000 | date: ' hh:mm a'}}</p>
+            </div>
+            <div class="req-date">
+                <h5>APPROVED ON</h5>
+                <p>{{hrmDataService.selectOverviewDetails.approvedAt * 1000 | date: 'MMM dd yyyy'}} <span></span> {{hrmDataService.selectOverviewDetails.approvedAt * 1000 | date: ' hh:mm a'}}</p>
+              </div>
+            <div class="start-date">
+              <h5>STARTS ON</h5>
+              <p>{{hrmDataService.selectOverviewDetails.startsOn * 1000 | date: 'MMM dd yyyy'}} </p>
+            </div>
+            <div class="start-date">
+                <h5>ENDS ON</h5>
+                <p>{{hrmDataService.selectOverviewDetails.endsOn * 1000 | date: 'MMM dd yyyy'}} </p>
+              </div>
+              </div>
+              <div class="details">
+                  <h5>COST</h5>
+                  <P>{{hrmDataService.selectOverviewDetails.cost}}</P>
+                  </div>
+                  <!-- <div class="details">
+                    <h5>AVERAGE</h5>
+                    <P>32</P>
+                    </div> -->
+                    <div class="details">
+                      <h5>POST TRAINING EVALUATION FORM</h5>
+                      <P>{{hrmDataService.selectOverviewDetails.postTrainingFormTitle}}</P>
+                    </div>
+                      <div class="details">
+                          <h5>POST COURSE EVALUATION FORM</h5>
+                          <P>{{hrmDataService.selectOverviewDetails.postCourseFormTitle}}</P>
+                        </div>
+   </div>
+   <app-feedback-form *ngIf="training === 'feedback'"></app-feedback-form>
+   <app-course-form *ngIf="training === 'course'"></app-course-form>
+  </div>
+   <!-- popup inner -->
+
+</div>
+<!-- <div class="detail-footer">
+  <div class="pbtncreate" (click)="closeOngoingTraining()">Complete Training</div>
+</div> -->
